@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block head_title %}- Reviews{% endblock %}
+{% block content %}
+
+{% load static %}
+
+
+  <div class="mdl-grid bc-site-grey-background">
+    <div class="mdl-cell mdl-cell--12-col">
+
+      <!-- heading -->
+      <div class="mdl-grid">
+       <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--9-col">
+          <h4 class="bc-guides-heading"><br><br>AT BLACK CROW TOURS, WE BELIEVE having a wonderful experience is second to none.</h4>
+        </div>
+       <div class="mdl-layout-spacer"></div>
+      </div>
+
+      <!-- subheading -->
+      <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+       <div class="mdl-cell mdl-cell--8-col">
+         <h4 class="bc-guides-subheading">
+           But don't just take our word for it,
+           <br>Check out reviews from our satisfied customers!</h4>
+       </div>
+       <div class="mdl-layout-spacer"></div>
+     </div>
+
+     <div class="mdl-grid">
+       <div class="mdl-cell mdl-cell--12-col">
+         <br><br>
+         <div class="mdl-layout-spacer"></div>
+       </div>
+    </div>
+
+     <!-- Review 1 -->
+     <div class="mdl-grid">
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-no-rightmargin">
+            <img class="bc-guide-profile-images" src="{% static 'images\heather.jpg' %}">
+       </div>
+
+      <!-- Bio  -->
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-no-leftmargin bc-padding">
+          <h4 class="bc-guides-profile-heading bc-no-margin">Heather from Dresden, Germany</h4>
+
+         <h4 class="bc-guides-profile-text"><strong>Scandinavian Adventure</strong>
+
+           Norway/ Iceland was awesome!! we had so much fun! It was one of the best trips I’ve ever been on! Definitely need to take another trip asap
+         </h4>
+       </div>
+     </div>
+
+     <!-- Review 2-->
+     <div class="mdl-grid">
+
+      <!-- Bio  -->
+
+      <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet mdl-cell--hide-desktop bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
+           <img class="bc-guide-profile-images" src="{% static 'images\yo-mike.jpg' %}">
+      </div>
+
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--8-col-tablet bc-padding bc-no-topmargin bc-no-rightmargin bc-no-botmargin">
+          <h4 class="bc-guides-profile-heading bc-no-margin">Mike from King of Prussia, PA</h4>
+
+         <h4 class="bc-guides-profile-text"><strong>Western Europe Pit-stop</strong>
+
+           <br><br>I went on the Europe trip and it was a blast!! The trip was very well organized and the Distortion Festival in Copenhagen was bumping every night! The hostels we stayed at were super clean and I met a lot cool people that I still keep in touch to this day. Berlin was a ton of fun. Berlin had more of a bigger city feel to it then Copenhagen. The clubs there are raging until well after the sun rises!
+           <br><br>I highly recommend Blackcrow. Kyle (Our Guide) was an awesome trip organizer because he knows the ins and outs of the cities.</h4>
+     </div>
+
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
+            <img class="bc-guide-profile-images" src="{% static 'images\yo-mike.jpg' %}">
+       </div>
+
+     </div>
+
+     <!-- Review 3 -->
+     <div class="mdl-grid">
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-no-rightmargin">
+            <img class="bc-guide-profile-images" src="{% static 'images\danny.jpg' %}">
+       </div>
+
+      <!-- Bio  -->
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-no-leftmargin bc-padding">
+          <h4 class="bc-guides-profile-heading bc-no-margin">Danny from Philadelphia, PA</h4>
+
+         <h4 class="bc-guides-profile-text"><strong>Eastern Europe Escape</strong>
+
+           <br><br>Traveling through Europe was a fun and enriching experience. Whether it was sampling the local cuisine in Sweden, visiting historical sites in Dresden, or experiencing the nightlife in Berlin, each destination had something unique that made it memorable. My only regret is not staying longer!
+
+       </h4></div>
+     </div>
+
+     <!-- Review 4-->
+     <div class="mdl-grid">
+
+      <!-- Bio  -->
+
+      <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet mdl-cell--hide-desktop bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
+           <img class="bc-guide-profile-images" src="{% static 'images\kunal.jpg' %}">
+      </div>
+
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--8-col-tablet bc-padding bc-no-topmargin bc-no-rightmargin bc-no-botmargin">
+          <h4 class="bc-guides-profile-heading bc-no-margin">Kunal from Houston, Texas</h4>
+
+         <h4 class="bc-guides-profile-text"><strong>Kilimanjaro Climb</strong>
+           <br><br>I tagged along with Kyle and Jesse to research the Kilimanjaro trip and I must say I had such an amazing time with them. They really took their time making sure all the details of the trip would be perfect for their guests (transfers, local interactions/excursions, and the climb itself). I never thought climbing the highest mountain in Africa would be so fun. We danced all the way up to Jesse’s Bluetooth speaker!
+
+           <br><br>By the end of the trip, I felt like Kyle and Jesse were my longtime friends instead of just your typical tour guides. I highly recommend going with them if you’re thinking about climbing Kilimanjaro!
+
+         </h4></div>
+
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
+            <img class="bc-guide-profile-images" src="{% static 'images\kunal.jpg' %}">
+       </div>
+
+     </div>
+
+
+   </div>
+  </div>
+
+
+{% endblock %}

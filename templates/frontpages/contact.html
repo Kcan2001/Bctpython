@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block head_title %}- Contact{% endblock %}
+{% block content %}
+
+{% load static %}
+
+<!-- Inner Grid  -->
+<div class="mdl-grid bc-site-grey-background">
+  <div class="mdl-layout-spacer">  </div>
+  <div class="mdl-cell mdl-cell--11-col bc-about-pages-template-background">
+
+       <!-- Section 1 Mission  -->
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <h4 class="bc-about-pages-title">- Contact Us -</h4>
+      </div>
+    </div>
+
+<!-- Map -->
+<app-map>
+
+</app-map>
+
+
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer">  </div>
+<!-- Personalized Small-Groups Icon -->
+<div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-tablet mdl-cell--1-col-phone ">
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <span><i id="bc-contact-icon-styles" class="material-icons">live_help</i></span>
+        </div>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+           <h3 class="bc-about-pages-subtitle bc-no-margin">FAQs section</h3>
+        </div>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <span class="bc-about-pages-para bc-no-margin">For an instant answer, try our FAQs section.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!--End Personalized Small-Groups Icon -->
+
+<!-- Airfare Included Icon -->
+<div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-tablet mdl-cell--1-col-phone ">
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <span><i id="bc-contact-icon-styles" class="material-icons">email</i></span>
+        </div>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+           <h3 class="bc-about-pages-subtitle bc-no-margin" >Message Below</h3>
+        </div>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <span class="bc-about-pages-para bc-no-margin">Message us below; <br> We are always happy to answer any questions.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!--End Airfare Included Icon -->
+
+<!-- Local Experiences Icon -->
+<div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-grid ">
+        <div class="mdl-cell mdl-cell--12-col">
+          <span><i id="bc-contact-icon-styles" class="material-icons">contact_phone</i></span>
+        </div>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+           <h3 class="bc-about-pages-subtitle bc-no-margin" >Call Us</h3>
+        </div>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <span class="bc-about-pages-para bc-no-margin">Give us a call for a live chat!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!--End Local Experiences Icon -->
+  <div class="mdl-layout-spacer">  </div>
+</div>
+
+<div class="mdl-grid">
+  <div class="mdl-layout-spacer">  </div>
+  <div class="mdl-cell mdl-cell--9-col">
+<form class="example-form">
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="Company (disabled)" disabled value="Google">
+  </md-input-container>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="example-full-width">
+      <input mdInput placeholder="First name">
+    </md-input-container></td>
+    <td><md-input-container class="example-full-width">
+      <input mdInput placeholder="Long Last Name That Will Be Truncated">
+    </md-input-container></td>
+  </tr></table>
+
+  <p>
+    <md-input-container class="example-full-width">
+      <textarea mdInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+    </md-input-container>
+    <md-input-container class="example-full-width">
+      <textarea mdInput placeholder="Address 2"></textarea>
+    </md-input-container>
+  </p>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="example-full-width">
+      <input mdInput placeholder="City">
+    </md-input-container></td>
+    <td><md-input-container class="example-full-width">
+      <input mdInput placeholder="State">
+    </md-input-container></td>
+    <td><md-input-container class="example-full-width">
+      <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+      <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+    </md-input-container></td>
+  </tr></table>
+</form>
+
+  </div>
+  <div class="mdl-layout-spacer">  </div>
+</div>
+
+  </div>
+  <div class="mdl-layout-spacer">  </div>
+</div>  <!--End Inner Grid  -->
+
+{% endblock %}
