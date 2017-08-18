@@ -3,17 +3,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 
+
 def about(request):
     return render(request, 'frontpages/about.html')
+
 
 def home(request):
     return render(request, 'frontpages/index.html')
 
+
 def gallery(request):
     return render(request, 'frontpages/gallery.html')
 
+
 def loginview(request):
-    if  request.method == 'POST':
+    if request.method == 'POST':
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             login(request, user)
@@ -25,13 +29,15 @@ def loginview(request):
     else:
         return render(request, 'frontpages/login.html')
 
+
 def logoutview(request):
-    if  request.method == 'POST':
+    if request.method == 'POST':
         logout(request)
         return redirect('home')
 
+
 def signup(request):
-    if  request.method == 'POST':
+    if request.method == 'POST':
         if request.POST['password'] == request.POST['password2']:
             try:
                 user = User.objects.get(username=request.POST['username'])
@@ -45,47 +51,62 @@ def signup(request):
     else:
         return render(request, 'frontpages/signup.html')
 
+
 def yourtrips(request):
     return render(request, 'frontpages/yourtrips.html')
+
 
 def accom(request):
     return render(request, 'frontpages/accom.html')
 
+
 def guides(request):
     return render(request, 'frontpages/guides.html')
+
 
 def included(request):
     return render(request, 'frontpages/included.html')
 
+
 def terms(request):
     return render(request, 'frontpages/terms.html')
+
 
 def privacy(request):
     return render(request, 'frontpages/privacy.html')
 
+
 def packing(request):
     return render(request, 'frontpages/packing.html')
+
 
 def thankyou(request):
     return render(request, 'frontpages/thankyou.html')
 
+
 def faqs(request):
     return render(request, 'frontpages/faqs.html')
+
 
 def easteuro(request):
     return render(request, 'frontpages/easteuro.html')
 
+
 def westeuro(request):
     return render(request, 'frontpages/westeuro.html')
+
 
 def scandinavia(request):
     return render(request, 'frontpages/scandinavia.html')
 
+
 def kilimanjaro(request):
     return render(request, 'frontpages/kilimanjaro.html')
 
+
 def reviews(request):
     return render(request, 'frontpages/reviews.html')
+
 
 def contact(request):
     return render(request, 'frontpages/contact.html')

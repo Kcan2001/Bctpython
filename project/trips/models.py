@@ -12,6 +12,7 @@ class Trip(models.Model):
     def __str__(self):
         return self.title
 
+
 class TripImage(models.Model):
     trip = models.ForeignKey(Trip)
     image = models.ImageField(upload_to='trips/images/')
