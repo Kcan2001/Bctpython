@@ -149,3 +149,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static', 'static_files'),
 
 )
+
+# Backend for email sending to console, only for dev
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
