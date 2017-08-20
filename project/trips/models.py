@@ -23,5 +23,3 @@ class TripImage(models.Model):
 
     def __str__(self):
         return self.trip.title
-
-# Create your models here.
