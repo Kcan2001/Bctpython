@@ -1,10 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="/">
+
     <meta http-equiv=“Content-Type” content=“text/html; charset=utf-8”>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="trQ4WhLvZLsyiy0teiyrePRoWHKHvACueuuJqxa6WgE" />
-    {% load static %}
+
     <link rel="shortcut icon" type="image/png" href="{% static 'bc-flav.fw.png' %}"/>
     <title>Black Crow Tours {% block head_title %}{% endblock %}</title>
 
@@ -15,48 +18,155 @@
     <script defer src="{% static 'material.min.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    {% include 'includes/analytics.html' %}
 
-      ga('create', 'UA-101984715-1', 'auto');
-      ga('send', 'pageview');
+    {% include 'includes/facebook_pixel.html' %}
 
-    </script>
-
-<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '537178703072709'); // Insert your pixel ID here.
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
-/></noscript>
-<!-- DO NOT MODIFY -->
-<!-- End Facebook Pixel Code -->
-
-
-    <base href="/">
 </head>
 <body>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-  {% include 'navbar.html' %}
-<main class="mdl-layout__content">
+        <!-- Header -->
+        <header id="bc-main-navigation__header-style" class="mdl-layout__header">
+            <div id="bc-navigation-height-style" class="mdl-layout__header-row">
+            <!-- Title -->
+                <span class="mdl-layout-title"><a href="{% url 'home' %}">
+                    <img id="bc-logo-style" src="{% static 'Mainlogosite1.fw.png' %}" alt=""></a>
+                </span>
 
-{% block content %}
+                <div class="mdl-layout-spacer"></div>
 
-{% endblock %}
+                <!-- Navigation -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style" href="{% url 'yourtrips' %}">Your Trips</a>
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style-about">About</a>
 
-{% include 'footer.html' %}
-</div>
-</main>
+                    <!-- sub menu only visible when clicked on the link above -->
+
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-font-style-about">
+                        <a class="bc-navigation-subfont-style" href="{% url 'about' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Our Mission</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'included' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What's Included?</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'packing' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What to Pack?</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'accom' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Accommodations</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'guides' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Guides</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'reviews' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Reviews</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'terms' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Blog</li></a>
+                    </ul>
+
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style" href="{% url 'gallery' %}">Gallery</a>
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style" href="#">Shop</a>
+
+                    {% if request.user.is_authenticated %}
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style-account">Account</a>
+
+                        <!-- sub menu only visible when clicked on the link above -->
+
+                        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-font-style-account">
+                            <a class="bc-navigation-subfont-style" href="{% url 'accounts:myaccount' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
+                            <a class="bc-navigation-subfont-style" href="#"><li class="mdl-menu__item bc-navigation-subfont-style">Change password</li></a>
+                            <a class="bc-navigation-subfont-style" href="{% url 'accounts:logout' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Logout</li></a>
+                        </ul>
+                    {% else %}
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style" href="{% url 'accounts:myaccount' %}">Account</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </header>
+
+        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+            <span class="mdl-layout-title"><a href="{% url 'home' %}">
+                <img id="bc-drawer-logo-style" src="{% static 'BC tours Icon.fw.png' %}" alt=""></a>
+            </span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="{% url 'yourtrips' %}">Your Trips</a>
+                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style-about">About Us</a>
+
+                <!-- sub menu only visible when clicked on the link above -->
+
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-drawer-font-style-about">
+                    <a class="bc-navigation-subfont-style" href="{% url 'about' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Our Mission</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'included' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What's Included?</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'packing' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What to Pack?</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'accom' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Accommodations</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'guides' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Guides</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'reviews' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Reviews</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'terms' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Blog</li></a>
+                </ul>
+
+                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="{% url 'gallery' %}">Gallery</a>
+                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="#">Shop</a>
+                {% if request.user.is_authenticated %}
+                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style-account">Account</a>
+
+                    <!-- sub menu only visible when clicked on the link above -->
+
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-drawer-font-style-account">
+                        <a class="bc-navigation-subfont-style" href="{% url 'accounts:myaccount' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
+                        <a class="bc-navigation-subfont-style" href="#"><li class="mdl-menu__item bc-navigation-subfont-style">Change Password</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'accounts:logout' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Logout</li></a>
+                    </ul>
+
+                {% else %}
+                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="{% url 'accounts:myaccount' %}">Account</a>
+                {% endif %}
+
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content">
+
+            {% block content %}
+
+            {% endblock %}
+
+            <!-- Footer -->
+            <div class="mdl-grid bc-footer-background">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--1-col bc-text-center mdl-cell--middle">
+                    <span><a href="https://www.facebook.com/Blackcrowtours/" target="_blank">
+                        <img class="bc-standard-img-icons" src="{% static 'icons/fb.fw.png' %}" alt=""></a>
+                    </span>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col bc-text-center mdl-cell--middle">
+                    <span><a href="https://www.instagram.com/blackcrowtours/" target="_blank">
+                        <img class="bc-standard-img-icons" src="{% static 'icons/insta.fw.png' %}" alt=""></a>
+                    </span>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col bc-text-center mdl-cell--middle">
+                    <span><a href="{% url 'faqs' %}">
+                        <img class="bc-standard-img-icons" src="{% static 'icons/faq.fw.png' %}" alt=""></a>
+                    </span>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col bc-text-center mdl-cell--middle">
+                    <span><a href="mailto:admin@blackcrowtours.com">
+                        <img class="bc-standard-img-icons" src="{% static 'icons/mail.fw.png' %}" alt=""></a></span>
+                    </div>
+                <div class="mdl-layout-spacer"></div>
+            </div> <!--End Footer -->
+
+            <!-- copyright -->
+            <div class="mdl-grid bc-site-dark-background">
+                <div class="mdl-layout-spacer"></div>
+                <h4 class="bc-home-icon-text">&copy; Copyright 2017 Black Crow Tours</h4>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+
+            <script type="text/javascript">
+                var trackcmp_email = '';
+                var trackcmp = document.createElement("script");
+                trackcmp.async = true;
+                trackcmp.type = 'text/javascript';
+                trackcmp.src = '//trackcmp.net/visit?actid=89326834&e='+encodeURIComponent(trackcmp_email)+'&r='+encodeURIComponent(document.referrer)+'&u='+encodeURIComponent(window.location.href);
+                var trackcmp_s = document.getElementsByTagName("script");
+                if (trackcmp_s.length) {
+                    trackcmp_s[0].parentNode.appendChild(trackcmp);
+                } else {
+                    var trackcmp_h = document.getElementsByTagName("head");
+                    trackcmp_h.length && trackcmp_h[0].appendChild(trackcmp);
+                }
+            </script>
+
+        </main>
+    </div>
 </body>
 </html>

@@ -50,8 +50,11 @@
 #bc-navigation-height-style {height: 70px}
 #bc-navigation-font-style {font-family: 'Raleway', sans-serif; font-size: 22px; color: #444; font-weight: 600; text-transform: none; line-height: 38px;}
 .bc-navigation-subfont-style {font-family: 'Raleway', sans-serif; font-size: 16px; color: #444; font-weight: 600; text-decoration: none;}
-#bc-navigation-font-style-1 {font-family: 'Raleway', sans-serif; font-size: 22px; color: #444; font-weight: 600; cursor:pointer; text-transform: none; line-height: 38px;}
+#bc-navigation-font-style-about {font-family: 'Raleway', sans-serif; font-size: 22px; color: #444; font-weight: 600; cursor:pointer; text-transform: none; line-height: 38px;}
+#bc-navigation-font-style-account {font-family: 'Raleway', sans-serif; font-size: 22px; color: #444; font-weight: 600; cursor:pointer; text-transform: none; line-height: 38px;}
 #bc-navigation-drawer-font-style {font-family: 'Raleway', sans-serif; font-size: 18px; color: #444; font-weight: 600;}
+#bc-navigation-drawer-font-style-about {font-family: 'Raleway', sans-serif; font-size: 18px; color: #444; font-weight: 600; cursor:pointer}
+#bc-navigation-drawer-font-style-account {font-family: 'Raleway', sans-serif; font-size: 18px; color: #444; font-weight: 600; cursor:pointer}
 .mdl-layout__header .mdl-layout__drawer-button .material-icons {color: #444; font-size: 24px;}
 /*footer*/
 .bc-footerfont {font-family: 'Raleway', sans-serif; font-size: 16px; color: white; font-weight: 700; text-decoration: none; line-height: 38px;}
