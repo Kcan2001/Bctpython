@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
-{% block head_title %}- Signup{% endblock %}
-{% block content %}
 
 {% load static %}
+
+{% block head_title %}- Signup{% endblock %}
+
+{% block content %}
 
      <div class="mdl-grid bc-site-grey-background bc-spacer">
          <div class="mdl-layout-spacer">  </div>
@@ -16,13 +18,19 @@
             <!-- Section 1 Mission  -->
          <div class="mdl-grid">
            <div class="mdl-cell mdl-cell--12-col">
-             <h4 class="bc-about-pages-title">- Sign up! -</h4>
+             <h4 class="bc-about-pages-title bc-text-center">- Sign up! -</h4>
          </div>
+
+         <div>
+                    {% if error %}
+                        {{ error }}
+                    {% endif %}
+                </div>
 
          <div class="mdl-grid">
            <div class="mdl-layout-spacer">  </div>
            <div class="mdl-cell mdl-cell--9-col">
-             <form id="signup" method="POST" action="{% url 'signup' %}">
+             <form id="signup" method="POST" action="{% url 'accounts:signup' %}">
                 {% csrf_token %}
                 <div class="mdl-grid">
                   <div class="mdl-cell mdl-cell--6-col">
@@ -92,7 +100,7 @@
          <div class="mdl-grid">
            <div class="mdl-layout-spacer">  </div>
            <div class="mdl-cell mdl-cell--8-col">
-             <h4 class='bc-about-pages-para'>Already Signed Up?<a class='bc-about-pages-para bc-nounderline bc-signup' href="{% url 'login' %}">Login here!</a></h4>
+             <h4 class='bc-about-pages-para'>Already Signed Up?<a class='bc-about-pages-para bc-nounderline bc-signup' href="{% url 'accounts:login' %}">Login here!</a></h4>
            </div>
            <div class="mdl-layout-spacer">  </div>
          </div>

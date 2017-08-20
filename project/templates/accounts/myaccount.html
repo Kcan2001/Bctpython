@@ -19,12 +19,16 @@
 
                  <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--4-col">
-                   <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Name</h4>
+                   <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Name: {{ request.user.first_name }}
+                       {{ request.user.last_name }}<div id="tt1" class="icon material-icons"><a href="/accounts/update-user/15/">edit</a></div></h4>
+
+                           <a href="{% url 'accounts:logout' %}"> Logout </a>
+
                   </div>
                  </div>
                  <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--4-col">
-                      <img class="bc-standard-img" src="{% static 'profile.jpg' %}">
+                      <img class="bc-standard-img" src="/media/{{ request.user.account.photo }}">
                    </div>
                    <div class="mdl-layout-spacer">  </div>
 
@@ -36,7 +40,7 @@
                      </div>
                      <div class="mdl-grid">
                        <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Username</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Username: {{ request.user.username }}</h4>
                        </div>
                        <div class="mdl-cell mdl-cell--6-col">
                          <h4 class="bc-about-pages-para bc-no-margin">Password</h4>
@@ -44,13 +48,13 @@
                        <div class="mdl-cell mdl-cell--12-col">
                          <h4 class="bc-about-pages-para bc-no-margin">Name</h4>
                          <h4 class="bc-about-pages-para bc-no-margin">Birthday</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Email</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Email: {{ request.user.email }}</h4>
                          <h4 class="bc-about-pages-para bc-no-margin">Phone number</h4>
                          <h4 class="bc-about-pages-para bc-no-margin">Address</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Passport number</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Passport number: {{ request.user.account.passport_number }}</h4>
                        </div>
                          <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date: {{ request.user.account.passport_issue_date }}</h4>
                         </div>
                         <div class="mdl-cell mdl-cell--6-col">
                          <h4 class="bc-about-pages-para bc-no-margin">Passpost date</h4>
@@ -62,6 +66,8 @@
                        </div>
                      </div>
                    </div>
+
+                           <a href="/accounts/update-account/15/"> Edit </a>
 
                    <div class="mdl-layout-spacer">  </div>
                    <div style="padding-top: 0" class="mdl-cell mdl-cell--3-col mdl-shadow--2dp bc-review-card">
