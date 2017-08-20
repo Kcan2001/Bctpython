@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+    <div class="mdl-grid bc-site-grey-background bc-spacer">
+        <div class="mdl-layout-spacer"></div>
+    </div>
+
+    <!-- Inner Grid  -->
+
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--5-col mdl-shadow--2dp bc-about-pages-template-background">
+
+            <!-- Section 1 Mission  -->
+
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h4 class="bc-about-pages-title bc-text-center">- Update your account information -</h4>
+                    </div>
+
+                    <div>{% if error %}{{ error }}{% endif %}</div>
+
+                    <div class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--9-col">
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" id="id_first_name" name="first_name"
+                                           value="{{ request.user.first_name }}" required/>
+                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_first_name"></label>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" id="id_address" name="address"
+                                           value="{{ request.user.account.address }}" required/>
+                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_address"></label>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" id="id_birth_date" name="birth_date"
+                                           value="{{ request.user.account.birth_date }}" required/>
+                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_birth_date"></label>
+                                </div>
+
+                                <div class="mdl-grid">
+                                    <div class="mdl-layout-spacer"></div>
+                                    <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone">
+                                        <button type="submit" value="Update" class="mdl-button mdl-js-button mdl-button--raised">
+                                            UPDATE
+                                        </button>
+                                    </div>
+                                    <div class="mdl-layout-spacer"></div>
+                                </div>
+                            </form><form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
+
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
+                </div>
+                <br><hr>
+            </div>
+        <div class="mdl-layout-spacer"></div>
+    </div>  <!--End Inner Grid  -->
+
+    <div class="mdl-grid bc-site-grey-background bc-spacer">
+        <div class="mdl-layout-spacer"></div>
+    </div>
+
+{% endblock %}
