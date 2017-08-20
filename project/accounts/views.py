@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+
+from django.views.generic.edit import UpdateView
+from .models import Account
+from django.urls import reverse_lazy
 
 
 @login_required
@@ -19,7 +22,7 @@ def loginview(request):
                 return redirect(request.POST['next'])
             return redirect('accounts:myaccount')
         else:
-            return render(request, 'accounts/login.html', {'error': 'The Username and Password did not match.'})
+            return render(request, 'accounts/login.html', {'error': 'The Username or/and Password did not match.'})
     else:
         return render(request, 'accounts/login.html')
 
@@ -27,7 +30,8 @@ def loginview(request):
 def logoutview(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('login')
+        # return redirect('home')
+        return HttpResponseRedirect('/')
 
 
 def signup(request):
@@ -44,3 +48,19 @@ def signup(request):
             return render(request, 'frontpages/signup.html', {'error': 'Passwords did not match.'})
     else:
         return render(request, 'frontpages/signup.html')
+
+
+class AccountUpdate(UpdateView):
+    slug_field = 'user_id'
+    slug_url_kwarg = 'user_id'
+    model = Account
+    fields = ['phone', 'address', 'passport_number', 'photo', 'passport_issue_date']
+    success_url = reverse_lazy('accounts:myaccount')
+    template_name = 'accounts/update_account.html'
+
+
+class UserUpdate(UpdateView):
+    model = User
+    fields = ['first_name', 'last_name']
+    success_url = reverse_lazy('accounts:myaccount')
+    template_name = 'accounts/update_user.html'
