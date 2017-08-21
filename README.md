@@ -1,7 +1,6 @@
 # Black Crow Tours
 
 ### Open Questions:
-- Python 2.7 or Python 3.4 ?
 - Local dev on SQL Lite or PosgreSQL/MySQL ?
 
 ### Development
