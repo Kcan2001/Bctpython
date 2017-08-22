@@ -20,9 +20,7 @@
                  <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--4-col">
                    <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Name: {{ request.user.first_name }}
-                       {{ request.user.last_name }}<div id="tt1" class="icon material-icons"><a href="/accounts/update-user/15/">edit</a></div></h4>
-
-                           <a href="{% url 'accounts:logout' %}"> Logout </a>
+                       {{ request.user.last_name }}<div id="tt1" class="icon material-icons"><a href="{% url 'accounts:update_user' %}">edit</a></div></h4>
 
                   </div>
                  </div>
@@ -67,7 +65,7 @@
                      </div>
                    </div>
 
-                           <a href="/accounts/update-account/15/"> Edit </a>
+                           <a href="{% url 'accounts:update_account' %}"> Edit </a>
 
                    <div class="mdl-layout-spacer">  </div>
                    <div style="padding-top: 0" class="mdl-cell mdl-cell--3-col mdl-shadow--2dp bc-review-card">
