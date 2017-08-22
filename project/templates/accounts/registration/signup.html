@@ -34,19 +34,25 @@
                         <form id="signup" method="POST">
                             {% csrf_token %}
 
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" name="first_name"/>
-                                <label class="mdl-textfield__label bc-about-pages-para" for="first_name">Username</label>
-                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" name="first_name"/>
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="first_name">First Name</label>
+                                    </div>
+                                </div>
 
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" name="last_name"/>
-                                <label class="mdl-textfield__label bc-about-pages-para" for="last_name">Username</label>
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" name="last_name"/>
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="last_name">Last Name</label>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="mdl-textfield mdl-js-textfield">
                                 <input class="mdl-textfield__input" type="email" name="email"/>
-                                <label class="mdl-textfield__label bc-about-pages-para" for="email">Username</label>
+                                <label class="mdl-textfield__label bc-about-pages-para" for="email">E-mail address</label>
                             </div>
 
                             <div class="mdl-textfield mdl-js-textfield">
@@ -56,12 +62,12 @@
 
                             <div class="mdl-textfield mdl-js-textfield">
                                 <input class="mdl-textfield__input" type="password" name="password1"/>
-                                <label class="mdl-textfield__label bc-about-pages-para" for="password1">Username</label>
+                                <label class="mdl-textfield__label bc-about-pages-para" for="password1">Your password</label>
                             </div>
 
                             <div class="mdl-textfield mdl-js-textfield">
                                 <input class="mdl-textfield__input" type="password" name="password2"/>
-                                <label class="mdl-textfield__label bc-about-pages-para" for="password2">Username</label>
+                                <label class="mdl-textfield__label bc-about-pages-para" for="password2">Confirm your password</label>
                             </div>
 
                             <div class="mdl-grid">
