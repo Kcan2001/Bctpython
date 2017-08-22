@@ -47,10 +47,10 @@
                         <a class="bc-navigation-subfont-style" href="{% url 'about' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Our Mission</li></a>
                         <a class="bc-navigation-subfont-style" href="{% url 'included' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What's Included?</li></a>
                         <a class="bc-navigation-subfont-style" href="{% url 'packing' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What to Pack?</li></a>
-                        <a class="bc-navigation-subfont-style" href="{% url 'accom' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Accommodations</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'accommodations' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Accommodations</li></a>
                         <a class="bc-navigation-subfont-style" href="{% url 'guides' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Guides</li></a>
                         <a class="bc-navigation-subfont-style" href="{% url 'reviews' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Reviews</li></a>
-                        <a class="bc-navigation-subfont-style" href="{% url 'terms' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Blog</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'terms' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Terms</li></a>
                     </ul>
 
                     <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style" href="{% url 'gallery' %}">Gallery</a>
@@ -63,7 +63,7 @@
 
                         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-font-style-account">
                             <a class="bc-navigation-subfont-style" href="{% url 'accounts:myaccount' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
-                            <a class="bc-navigation-subfont-style" href="#"><li class="mdl-menu__item bc-navigation-subfont-style">Change password</li></a>
+                            <a class="bc-navigation-subfont-style" href="{% url 'accounts:password_change' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Change password</li></a>
                             <a class="bc-navigation-subfont-style" href="{% url 'accounts:logout' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Logout</li></a>
                         </ul>
                     {% else %}
@@ -87,10 +87,10 @@
                     <a class="bc-navigation-subfont-style" href="{% url 'about' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Our Mission</li></a>
                     <a class="bc-navigation-subfont-style" href="{% url 'included' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What's Included?</li></a>
                     <a class="bc-navigation-subfont-style" href="{% url 'packing' %}"><li class="mdl-menu__item bc-navigation-subfont-style">What to Pack?</li></a>
-                    <a class="bc-navigation-subfont-style" href="{% url 'accom' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Accommodations</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'accommodations' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Accommodations</li></a>
                     <a class="bc-navigation-subfont-style" href="{% url 'guides' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Your Guides</li></a>
                     <a class="bc-navigation-subfont-style" href="{% url 'reviews' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Reviews</li></a>
-                    <a class="bc-navigation-subfont-style" href="{% url 'terms' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Blog</li></a>
+                    <a class="bc-navigation-subfont-style" href="{% url 'terms' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Terms</li></a>
                 </ul>
 
                 <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="{% url 'gallery' %}">Gallery</a>
@@ -102,7 +102,7 @@
 
                     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-drawer-font-style-account">
                         <a class="bc-navigation-subfont-style" href="{% url 'accounts:myaccount' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
-                        <a class="bc-navigation-subfont-style" href="#"><li class="mdl-menu__item bc-navigation-subfont-style">Change Password</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'accounts:password_change' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Change Password</li></a>
                         <a class="bc-navigation-subfont-style" href="{% url 'accounts:logout' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Logout</li></a>
                     </ul>
 
