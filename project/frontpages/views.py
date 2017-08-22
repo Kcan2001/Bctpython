@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 
 
 def about(request):
-    return render(request, 'frontpages/about.html')
+    return render(request, 'frontpages/about/about.html')
 
 
 def home(request):
@@ -19,19 +19,19 @@ def yourtrips(request):
 
 
 def accommodations(request):
-    return render(request, 'frontpages/accommodations.html')
+    return render(request, 'frontpages/about/accommodations.html')
 
 
 def guides(request):
-    return render(request, 'frontpages/guides.html')
+    return render(request, 'frontpages/about/guides.html')
 
 
 def included(request):
-    return render(request, 'frontpages/included.html')
+    return render(request, 'frontpages/about/included.html')
 
 
 def terms(request):
-    return render(request, 'frontpages/terms.html')
+    return render(request, 'frontpages/about/terms.html')
 
 
 def privacy(request):
@@ -39,7 +39,7 @@ def privacy(request):
 
 
 def packing(request):
-    return render(request, 'frontpages/packing.html')
+    return render(request, 'frontpages/about/packing.html')
 
 
 def thankyou(request):
@@ -67,7 +67,7 @@ def kilimanjaro(request):
 
 
 def reviews(request):
-    return render(request, 'frontpages/reviews.html')
+    return render(request, 'frontpages/about/reviews.html')
 
 
 def contact(request):
@@ -86,5 +86,3 @@ def handler500(request):
                                   context_instance=RequestContext(request))
     response.status_code = 500
     return response
-
-# Create your views here.

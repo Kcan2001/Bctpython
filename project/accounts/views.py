@@ -69,7 +69,7 @@ def activate(request, uidb64, token):
         user.account.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('accounts:myaccount')
+        return redirect('accounts:home')
     else:
         return render(request, 'account_activation_invalid.html')
 
@@ -77,7 +77,7 @@ def activate(request, uidb64, token):
 class UserLoginView(LoginView):
     #  TODO check if user is authenticated
     template_name = 'accounts/login.html'
-    success_url = reverse_lazy('accounts:myaccount')
+    # success_url = reverse_lazy('accounts:home')
 
 
 class UserLogoutView(LogoutView):
@@ -129,7 +129,7 @@ class AccountUpdate(LoginRequiredMixin, UpdateView):
     # slug_url_kwarg = 'user_id'
     model = Account
     fields = ['phone', 'address', 'passport_number', 'photo', 'passport_issue_date']
-    success_url = reverse_lazy('accounts:myaccount')
+    success_url = reverse_lazy('accounts:home')
     template_name = 'accounts/update_account.html'
 
     def get_object(self):
@@ -139,7 +139,7 @@ class AccountUpdate(LoginRequiredMixin, UpdateView):
 class UserUpdate(LoginRequiredMixin, UpdateView):
     model = User
     fields = ['first_name', 'last_name']
-    success_url = reverse_lazy('accounts:myaccount')
+    success_url = reverse_lazy('accounts:home')
     template_name = 'accounts/update_user.html'
 
     def get_object(self):
@@ -154,7 +154,7 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
 #             login(request, user)
 #             if 'next' in request.POST:
 #                 return redirect(request.POST['next'])
-#             return redirect('accounts:myaccount')
+#             return redirect('accounts:home')
 #         else:
 #             return render(request, 'accounts/login.html', {'error': 'The Username or/and Password did not match.'})
 #     else:
