@@ -5,10 +5,13 @@ app_name = 'accounts'
 
 urlpatterns = [
     # Account home page
-    url(r'^$', views.myaccount, name='myaccount'),
+    url(r'^$', views.UserHomePageView.as_view(), name='home'),
 
-    # Sign up page for user
+    # User sign up and account activation via email address
     url(r'^signup/', views.signup, name='signup'),
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.activate, name='activate'),
+    url(r'^account-activation-sent/$', views.account_activation_sent, name='account_activation_sent'),
 
     # Login and Logout pages for account
     url(r'^login/$', views.UserLoginView.as_view(), name='login'),
@@ -29,6 +32,4 @@ urlpatterns = [
         views.UserPasswordResetConfirm.as_view(), name='password_reset_confirm'),
     url(r'^password-reset-complete/$', views.UserPasswordResetComplete.as_view(), name='password_reset_complete'),
 
-    # One-row logout (for backup purposes)
-    # url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
 ]
