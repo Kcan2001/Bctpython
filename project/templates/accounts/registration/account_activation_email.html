@@ -1,0 +1,13 @@
+{% autoescape off %}
+You're receiving this email because someone trying to register account with your e-mail address at Black Crown Tours site.
+
+Please click on the link below to confirm your registration:
+{% block reset_link %}
+http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
+{% endblock %}
+
+Thanks for using our site!
+
+The Black Crown Tours team
+
+{% endautoescape %}
