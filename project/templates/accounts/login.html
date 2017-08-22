@@ -31,7 +31,7 @@
                 <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--9-col bc-text-center">
-                        <form id="login" method="POST" action="{% url 'accounts:login' %}">
+                        <form id="login" method="POST">
                             {% csrf_token %}
 
                             {% if request.GET.next %}
@@ -54,7 +54,7 @@
                                 <span class="mdl-checkbox__label bc-about-pages-para">Remember Me</span>-->
                                 </div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone ">
-                                    <span><a class='bc-about-pages-para bc-nounderline' href="#">Forgot Password?</a></span>
+                                    <span><a class='bc-about-pages-para bc-nounderline' href="{% url 'accounts:password_reset' %}">Forgot Password?</a></span>
                                 </div>
                             </div>
 
