@@ -1,0 +1,13 @@
+{% autoescape off %}
+You're receiving this email because someone trying to register account with your e-mail address at {{ site_name }}.
+
+Please click on the link below to confirm your registration:
+{% block reset_link %}
+{{ protocol }}://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
+{% endblock %}
+
+Thanks for using our site!
+
+The {{ site_name }} team
+
+{% endautoescape %}
