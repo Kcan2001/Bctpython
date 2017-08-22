@@ -62,12 +62,12 @@
                         <!-- sub menu only visible when clicked on the link above -->
 
                         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-font-style-account">
-                            <a class="bc-navigation-subfont-style" href="{% url 'accounts:myaccount' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
+                            <a class="bc-navigation-subfont-style" href="{% url 'accounts:home' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
                             <a class="bc-navigation-subfont-style" href="{% url 'accounts:password_change' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Change password</li></a>
                             <a class="bc-navigation-subfont-style" href="{% url 'accounts:logout' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Logout</li></a>
                         </ul>
                     {% else %}
-                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style" href="{% url 'accounts:myaccount' %}">Account</a>
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect" id="bc-navigation-font-style" href="{% url 'accounts:home' %}">Account</a>
                     {% endif %}
                 </nav>
             </div>
@@ -101,13 +101,13 @@
                     <!-- sub menu only visible when clicked on the link above -->
 
                     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="bc-navigation-drawer-font-style-account">
-                        <a class="bc-navigation-subfont-style" href="{% url 'accounts:myaccount' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
+                        <a class="bc-navigation-subfont-style" href="{% url 'accounts:home' %}"><li class="mdl-menu__item bc-navigation-subfont-style">My account</li></a>
                         <a class="bc-navigation-subfont-style" href="{% url 'accounts:password_change' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Change Password</li></a>
                         <a class="bc-navigation-subfont-style" href="{% url 'accounts:logout' %}"><li class="mdl-menu__item bc-navigation-subfont-style">Logout</li></a>
                     </ul>
 
                 {% else %}
-                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="{% url 'accounts:myaccount' %}">Account</a>
+                <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="{% url 'accounts:home' %}">Account</a>
                 {% endif %}
 
             </nav>
