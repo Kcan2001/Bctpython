@@ -253,3 +253,8 @@
 .bc-forgotpass {padding-left: 80px;}
 .bc-signup {padding-left: 20px}
 .bc-review-card {padding: 36px}
+
+/*Style for input label text in update account form*/
+.bc-update-account-desc-text-40{display: table-cell; vertical-align: middle; height: 40px; font-size: 16px}
+.bc-update-account-desc-text-70{display: table-cell; vertical-align: middle; height: 70px; font-size: 16px}
+.bc-update-account-desc-text-148{display: table-cell; vertical-align: middle; height: 148px; font-size: 16px}

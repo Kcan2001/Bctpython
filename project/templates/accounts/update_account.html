@@ -12,64 +12,190 @@
 
     <div class="mdl-grid bc-site-grey-background">
         <div class="mdl-layout-spacer"></div>
-            <div class="mdl-cell mdl-cell--5-col mdl-shadow--2dp bc-about-pages-template-background">
+        <div class="mdl-cell mdl-cell--5-col mdl-shadow--2dp bc-about-pages-template-background">
 
-            <!-- Section 1 Mission  -->
+        <!-- Section 1 Mission  -->
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h4 class="bc-about-pages-title bc-text-center">- Update your account information -</h4>
+                </div>
+
+                {% if form.errors %}
+                <div class="mdl-cell mdl-cell--12-col">
+                    {{ form.errors }}
+                </div>
+                {% endif %}
 
                 <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <h4 class="bc-about-pages-title bc-text-center">- Update your account information -</h4>
-                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--11-col">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
 
-                    <div>{% if error %}{{ error }}{% endif %}</div>
-
-                    <div class="mdl-grid">
-                        <div class="mdl-layout-spacer"></div>
-                        <div class="mdl-cell mdl-cell--9-col">
-                            <form method="POST" enctype="multipart/form-data">
-                                {% csrf_token %}
-
-                                <div class="mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" type="text" id="id_first_name" name="first_name"
-                                           value="{{ request.user.first_name }}" required/>
-                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_first_name"></label>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-148">Address:</div>
                                 </div>
-
-                                <div class="mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" type="text" id="id_address" name="address"
-                                           value="{{ request.user.account.address }}" required/>
-                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_address"></label>
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" type="text" id="id_birth_date" name="birth_date"
-                                           value="{{ request.user.account.birth_date }}" required/>
-                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_birth_date"></label>
-                                </div>
-
-                                <div class="mdl-grid">
-                                    <div class="mdl-layout-spacer"></div>
-                                    <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone">
-                                        <button type="submit" value="Update" class="mdl-button mdl-js-button mdl-button--raised">
-                                            UPDATE
-                                        </button>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <textarea class="mdl-textfield__input" type="text" rows="4" id="id_address"
+                                                  name="address">{{ request.user.account.address }}</textarea>
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_address"></label>
                                     </div>
-                                    <div class="mdl-layout-spacer"></div>
                                 </div>
-                            </form>
-                            <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                                {{ form.as_p }}
-                                <input type="submit" value="Update" />
-                            </form>
+                            </div>
 
-                        </div>
-                        <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Birth date:</div>
+                                </div>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" id="id_birth_date" name="birth_date"
+                                               value="{{ request.user.account.birth_date|date:'Y-m-d' }}" required/>
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_birth_date"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Phone:</div>
+                                </div>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" id="id_phone" name="phone"
+                                               value="{{ request.user.account.phone }}" required/>
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_phone"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Emergency contact:</div>
+                                </div>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" id="id_emergency_contact" name="emergency_contact"
+                                               value="{{ request.user.account.emergency_contact }}" />
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_emergency_contact"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Passport number:</div>
+                                </div>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" id="id_passport_number" name="passport_number"
+                                               value="{{ request.user.account.passport_number }}" />
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_passport_number"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Passport nationality:</div>
+                                </div>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" id="id_passport_nationality" name="passport_nationality"
+                                               value="{{ request.user.account.passport_nationality }}" />
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_passport_nationality"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Passport issue date:</div>
+                                </div>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" id="id_passport_issue_date" name="passport_issue_date"
+                                               value="{{ request.user.account.passport_issue_date|date:'Y-m-d' }}" />
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_passport_issue_date"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Passport expire date:</div>
+                                </div>
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input class="mdl-textfield__input" type="text" id="id_passport_expire_date" name="passport_expire_date"
+                                               value="{{ request.user.account.passport_expire_date|date:'Y-m-d' }}" />
+                                        <label class="mdl-textfield__label bc-about-pages-para" for="id_passport_expire_date"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% if request.user.account.photo %}
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-70">Currently photo:</div>
+                                </div>
+
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <img src="{{ request.user.account.photo.url }}">
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="photo-clear_id">
+                                        <input type="checkbox" name="photo-clear" id="photo-clear_id" class="mdl-checkbox__input" />
+                                        <label for="photo-clear_id" class="mdl-checkbox__label bc-about-pages-para">Delete my photo</label>
+                                    </label>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <br>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--3-col">
+                                    <div class="bc-update-account-desc-text-40">Upload new photo:</div>
+                                </div>
+
+                                <div class="mdl-cell mdl-cell--9-col">
+                                    <input type="file" name="photo" id="id_photo" class="bc-update-account-desc-text-40"/>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-layout-spacer"></div>
+                                <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone">
+                                    <button type="submit" value="Update" class="mdl-button mdl-js-button mdl-button--raised">
+                                        UPDATE
+                                    </button>
+                                </div>
+                                <div class="mdl-layout-spacer"></div>
+                            </div>
+                        </form>
                     </div>
+                    <div class="mdl-layout-spacer"></div>
                 </div>
-                <br><hr>
             </div>
+
+            <br><hr>
+
+        </div>
         <div class="mdl-layout-spacer"></div>
-    </div>  <!--End Inner Grid  -->
+    </div>
+    <!--End Inner Grid  -->
 
     <div class="mdl-grid bc-site-grey-background bc-spacer">
         <div class="mdl-layout-spacer"></div>
