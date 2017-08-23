@@ -128,7 +128,8 @@ class AccountUpdate(LoginRequiredMixin, UpdateView):
     # slug_field = 'user_id'
     # slug_url_kwarg = 'user_id'
     model = Account
-    fields = ['phone', 'address', 'passport_number', 'photo', 'passport_issue_date']
+    fields = ['phone', 'emergency_contact', 'birth_date', 'address', 'passport_number', 'passport_nationality',
+              'passport_issue_date', 'passport_expire_date', 'photo']
     success_url = reverse_lazy('accounts:home')
     template_name = 'accounts/update_account.html'
 

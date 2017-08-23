@@ -19,9 +19,12 @@
 
                  <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--4-col">
-                   <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Name: {{ request.user.first_name }}
-                       {{ request.user.last_name }}<div id="tt1" class="icon material-icons"><a href="{% url 'accounts:update_user' %}">edit</a></div></h4>
-
+                   <h4 class="bc-about-pages-subtitle bc-no-margin">
+                       Profile Name: {{ request.user.first_name }} {{ request.user.last_name }}
+                       <div id="tt1" class="icon material-icons">
+                           <a href="{% url 'accounts:update_user' %}" class="bc-nounderline" title="edit">edit</a>
+                       </div>
+                   </h4>
                   </div>
                  </div>
                  <div class="mdl-grid">
