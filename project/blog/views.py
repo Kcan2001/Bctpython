@@ -9,7 +9,7 @@ from .models import Post
 class BlogHomePageView(ListView):
     model = Post
     template_name = 'blog/home.html'
-    paginate_by = 1
+    paginate_by = 2
     queryset = Post.objects.all()
 
 
