@@ -2,27 +2,30 @@
 
 {% load static %}
 
-{% block head_title %}- Blog{% endblock %}
+{% block head_title %}- Blog - {{ post.title }}{% endblock %}
 
 {% block content %}
 
     <div class="mdl-grid bc-site-grey-background">
         <div class="mdl-layout-spacer"></div>
+
         <div class="mdl-cell mdl-cell--8-col">
 
-        <div>
-            <h1>{{ post.title }}</h1>
-            <p>date: {{ post.created_date|date }}, published by: {{ post.author }}</p>
-            <p>{{ post.text|safe }}</p>
+            <div>
+                <h1>{{ post.title }}</h1>
+                <p>date: {{ post.published_date|date:"d M Y" }}, published by: {{ post.author }}</p>
+                <p> Category:
+                    {% for category in post.category.all %}
+                        {{ category }}
+                        {% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                </p>
+                <p>{{ post.text|safe }}</p>
+            </div>
+
         </div>
 
-
-
-
-
-    </div>
-    <div class="mdl-layout-spacer"></div>
-
+        <div class="mdl-layout-spacer"></div>
     </div>
 
 {% endblock %}
