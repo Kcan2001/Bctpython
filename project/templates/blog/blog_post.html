@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}- Blog{% endblock %}
+
+{% block content %}
+
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--8-col">
+
+        <div>
+            <h1>{{ post.title }}</h1>
+            <p>date: {{ post.created_date|date }}, published by: {{ post.author }}</p>
+            <p>{{ post.text|safe }}</p>
+        </div>
+
+
+
+
+
+    </div>
+    <div class="mdl-layout-spacer"></div>
+
+    </div>
+
+{% endblock %}

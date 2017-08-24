@@ -13,6 +13,8 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^blog/', include('blog.urls')),
+
     url(r'^$', views.home,  name='home'),
 
     url(r'^gallery/', views.gallery,  name='gallery'),
@@ -36,5 +38,8 @@ urlpatterns = [
     url(r'^guides/', views.guides,  name='guides'),
     url(r'^reviews/', views.reviews,  name='reviews'),
     url(r'^terms/', views.terms, name='terms'),
+
+    # ckeditor url
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

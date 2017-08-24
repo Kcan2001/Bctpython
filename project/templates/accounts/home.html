@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{% block content %}
-
 {% load static %}
+
+{% block content %}
 
      <!-- Section 3 to Footer  -->
      <div class="mdl-grid bc-site-grey-background">
@@ -28,51 +28,47 @@
                   </div>
                  </div>
                  <div class="mdl-grid">
+                     {% if request.user.account.photo %}
                    <div class="mdl-cell mdl-cell--4-col">
-                      <img class="bc-standard-img" src="/media/{{ request.user.account.photo }}">
+                      <img class="bc-standard-img" src="{{ request.user.account.photo.url }}">
                    </div>
-                   <div class="mdl-layout-spacer">  </div>
+                     {% endif %}
 
-                   <div style="padding-top: 0" class="mdl-cell mdl-cell--3-col mdl-shadow--2dp bc-review-card">
+
+                   <div style="padding-top: 0" class="mdl-cell mdl-cell--7-col mdl-shadow--2dp bc-review-card">
                      <div class="mdl-grid">
                        <div class="mdl-cell mdl-cell--12-col">
-                       <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Info</h4>
+                       <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Info
+                           <div id="tt1" class="icon material-icons">
+                           <a href="{% url 'accounts:update_account' %}" class="bc-nounderline" title="edit">edit</a>
+                       </div>
+                       </h4>
                       </div>
                      </div>
+                       <hr>
                      <div class="mdl-grid">
                        <div class="mdl-cell mdl-cell--6-col">
                          <h4 class="bc-about-pages-para bc-no-margin">Username: {{ request.user.username }}</h4>
                        </div>
-                       <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Password</h4>
-                       </div>
                        <div class="mdl-cell mdl-cell--12-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Name</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Birthday</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Birthday: {{ request.user.account.birth_date|date:'Y-m-d' }}</h4>
                          <h4 class="bc-about-pages-para bc-no-margin">Email: {{ request.user.email }}</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Phone number</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Address</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Phone number: {{ request.user.account.phone }}</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Address: {{ request.user.account.address }}</h4>
                          <h4 class="bc-about-pages-para bc-no-margin">Passport number: {{ request.user.account.passport_number }}</h4>
                        </div>
                          <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date: {{ request.user.account.passport_issue_date }}</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date: {{ request.user.account.passport_issue_date|date:'Y-m-d' }}</h4>
                         </div>
                         <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date: {{ request.user.account.passport_expire_date|date:'Y-m-d' }}</h4>
                        </div>
                        <div class="mdl-cell mdl-cell--12-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Emergency Contact Name</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Emergency Contact Number</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Emergency Contact Address</h4>
+                         <h4 class="bc-about-pages-para bc-no-margin">Emergency Contact: {{ request.user.account.emergency_contact }}</h4>
                        </div>
                      </div>
-                   </div>
-
-                           <a href="{% url 'accounts:update_account' %}"> Edit </a>
-
-                   <div class="mdl-layout-spacer">  </div>
-                   <div style="padding-top: 0" class="mdl-cell mdl-cell--3-col mdl-shadow--2dp bc-review-card">
-                     <div class="mdl-grid">
+                       <hr>
+                       <div class="mdl-grid">
                        <div class="mdl-cell mdl-cell--12-col">
                        <h4 class="bc-about-pages-subtitle bc-no-margin">Billing Info</h4>
                       </div>
@@ -88,7 +84,9 @@
                        </div>
                      </div>
                    </div>
+
                    <div class="mdl-layout-spacer">  </div>
+
                  </div>
 
                  <div class="mdl-grid">
