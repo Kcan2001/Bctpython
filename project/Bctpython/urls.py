@@ -39,4 +39,7 @@ urlpatterns = [
     url(r'^reviews/', views.reviews,  name='reviews'),
     url(r'^terms/', views.terms, name='terms'),
 
+    # ckeditor url
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

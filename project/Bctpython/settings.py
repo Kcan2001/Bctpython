@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'frontpages',
     'accounts',
     'trips',
+    'blog',
+    'ckeditor',
+    'ckeditor_uploader',
 
 ]
 
@@ -152,3 +155,8 @@ STATICFILES_DIRS = (
 
 # Backend for email sending to console, only for dev
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_RESTRICT_BY_DATE = True
