@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}- Blog{% endblock %}
+
+{% block content %}
+
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--8-col">
+
+    <div>
+            <h1 class="bc-text-center">Black Crown Tours Blog</h1>
+        </div>
+
+
+
+            {% for post in object_list %}
+        <div>
+            <h2><a href="{%  url 'blog:blog_post' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>date: {{ post.created_date|date }}, published by: {{ post.author }}</p>
+            <p>Category: {{ post.category.all }}</p>
+            <p>
+            {% for category in post.category.all %}
+              {{ category }}
+              {% if not forloop.last %},{% endif %}
+            {% endfor %}
+</p>
+            <p>{{ post.text|truncatewords:50 }}</p>
+            <p><a href="{%  url 'blog:blog_post' pk=post.pk %}">read entire post</a></p>
+        </div>
+
+        {% empty %}
+        <div>
+            <p>No blog post here :(</p>
+        </div>
+                {% endfor %}
+
+
+
+    </div>
+    <div class="mdl-layout-spacer"></div>
+
+    </div>
+
+{% endblock %}
