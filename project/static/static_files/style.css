@@ -258,3 +258,16 @@
 .bc-update-account-desc-text-40{display: table-cell; vertical-align: middle; height: 40px; font-size: 16px}
 .bc-update-account-desc-text-70{display: table-cell; vertical-align: middle; height: 70px; font-size: 16px}
 .bc-update-account-desc-text-148{display: table-cell; vertical-align: middle; height: 148px; font-size: 16px}
+
+.pagination li{display:inline-block;border-radius:2px;text-align:center;vertical-align:top;height:30px;width:30px}
+.pagination li a{color:#444;display:inline-block;font-size:1.2rem;text-decoration:none;padding:0 10px;line-height:30px}
+.pagination li.active a{color:#fff}
+.pagination li.active{background-color:#ee6e73;color:#fff;line-height:30px}
+.pagination li.disabled a{cursor:default;color:#999}
+.pagination li i{font-size:2rem}
+.pagination li.pages ul li{display:inline-block;float:none}
+@media only screen and (max-width: 992px){
+    .pagination{width:100%}
+    .pagination li.prev,
+    .pagination li.next{width:10%}
+    .pagination li.pages{width:80%;overflow:hidden;white-space:nowrap}}

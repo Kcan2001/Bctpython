@@ -7,14 +7,12 @@ from .models import Post
 
 
 class BlogHomePageView(ListView):
-
     model = Post
-
     template_name = 'blog/home.html'
+    paginate_by = 1
+    queryset = Post.objects.all()
 
 
 class BlogPostPageView(DetailView):
-
     model = Post
-
     template_name = 'blog/blog_post.html'

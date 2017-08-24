@@ -13,7 +13,7 @@
         <div>
             <h1>{{ post.title }}</h1>
             <p>date: {{ post.created_date|date }}, published by: {{ post.author }}</p>
-            <p>{{ post.text }}</p>
+            <p>{{ post.text|safe }}</p>
         </div>
 
 
