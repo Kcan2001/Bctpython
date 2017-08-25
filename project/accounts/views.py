@@ -24,7 +24,9 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_text
 from django.template.loader import render_to_string
+
 from .tokens import account_activation_token
+from .active_campaign_api import ActiveCampaign
 
 
 class UserHomePageView(LoginRequiredMixin, TemplateView):
@@ -68,6 +70,8 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.account.email_confirmed = True
         user.save()
+        # Add new user with confirmed email to Active Campaign contacts
+        ActiveCampaign.sync_contact(email=user.email, first_name=user.first_name, last_name=user.last_name)
         login(request, user)
         return redirect('accounts:home')
     else:
