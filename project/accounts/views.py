@@ -27,7 +27,7 @@ from django.template.loader import render_to_string
 
 from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
-
+from django.http import HttpResponseRedirect
 
 class UserHomePageView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/home.html'
@@ -79,9 +79,13 @@ def activate(request, uidb64, token):
 
 
 class UserLoginView(LoginView):
-    #  TODO check if user is authenticated
     template_name = 'accounts/login.html'
     # success_url = reverse_lazy('accounts:home')
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return HttpResponseRedirect(reverse_lazy('accounts:home'))
+
+        return super().dispatch(request, *args, **kwargs)
 
 
 class UserLogoutView(LogoutView):
