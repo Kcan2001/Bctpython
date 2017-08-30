@@ -1,13 +1,29 @@
 {% extends 'base.html' %}
-{% block head_title %}- Gallery{% endblock %}
-{% block content %}
 
 {% load static %}
 
+{% block head_title %}- Gallery{% endblock %}
 
-     <!-- SnapWidget -->
-     <script src="https://snapwidget.com/js/snapwidget.js"></script>
-     <iframe src="https://snapwidget.com/embed/385965" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
-     
+{% block content %}
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+
+    {% for photo in photos %}
+        <div class="bc-instagram-item">
+            <img src="{{ photo.image }}" class="bc-instagram-item-image">
+            <a href="{{ photo.link }}" target="_blank">
+                <div class="bc-instagram-item-overlay">
+                    <div class="bc-instagram-item-text">
+                        <i class="material-icons">favorite</i> {{ photo.likes }}
+                        <i class="material-icons">comment</i> {{ photo.comments }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+
+    </div>
+</div>
 
 {% endblock %}

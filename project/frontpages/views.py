@@ -1,4 +1,17 @@
 from django.shortcuts import render
+from django.contrib.auth.views import TemplateView
+
+from .instagram_api import GetUserMedia
+
+
+class GalleryInstagramView(TemplateView):
+    template_name = 'frontpages/gallery.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GalleryInstagramView, self).get_context_data(**kwargs)
+        # You can set how many photos will be shown in .recent_media($how_many_photos$)
+        context['photos'] = GetUserMedia.recent_media(18)
+        return context
 
 
 def about(request):
@@ -7,10 +20,6 @@ def about(request):
 
 def home(request):
     return render(request, 'frontpages/index.html')
-
-
-def gallery(request):
-    return render(request, 'frontpages/gallery.html')
 
 
 def yourtrips(request):
