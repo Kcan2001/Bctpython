@@ -276,3 +276,13 @@
 /*Style for social share buttons*/
 .bc-social-share{line-height:28px}
 .bc-social-share iframe{vertical-align:bottom}
+
+/*Style for gallery-instagram page*/
+.bc-instagram-item{position:relative;width:33.3%;float:left}
+.bc-instagram-item-image{display:block;width:100%;height:auto}
+.bc-instagram-item-overlay{position:absolute;top:0;bottom:0;left:0;right:0;height:100%;width:100%;opacity:0;transition:.5s ease;background-color:#000}
+.bc-instagram-item:hover .bc-instagram-item-overlay{opacity:0.7}
+.bc-instagram-item-text{color:white;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%)}
+
+/*Style for membership badge*/
+.bc-membership-badge{display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#fff;background-color:#007bff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25rem;}
