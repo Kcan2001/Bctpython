@@ -29,6 +29,7 @@ from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
 from django.http import HttpResponseRedirect
 
+
 class UserHomePageView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/home.html'
 
@@ -80,6 +81,7 @@ def activate(request, uidb64, token):
 
 class UserLoginView(LoginView):
     template_name = 'accounts/login.html'
+
     # success_url = reverse_lazy('accounts:home')
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
@@ -91,7 +93,7 @@ class UserLoginView(LoginView):
 class UserLogoutView(LogoutView):
     # TODO When we will deploy, need to make reverse_lazy to homepage
     next_page = '/yourtrips/'
-    #template_name = 'frontpages/index.html'
+    # template_name = 'frontpages/index.html'
 
 
 # CBV for password change
@@ -153,7 +155,6 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         return User.objects.get(username=self.request.user.username)
-
 
 # Client old views
 # def loginview(request):
