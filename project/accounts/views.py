@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.sites.shortcuts import get_current_site
+from django.utils import timezone
 from django.urls import reverse_lazy
+from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -18,6 +19,7 @@ from django.contrib.auth.views import (
     TemplateView)
 
 from .models import Account
+from trips.models import Trip
 
 from .forms import SignUpForm
 from django.utils.encoding import force_bytes
@@ -27,10 +29,20 @@ from django.template.loader import render_to_string
 
 from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
+from django.http import HttpResponseRedirect
+
 
 
 class UserHomePageView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserHomePageView, self).get_context_data(**kwargs)
+        context['trips'] = Trip.objects.order_by('departure').all()[:3]
+        context['user_trips'] = Trip.objects.filter(account=self.request.user.account, departure__gte=timezone.now())
+        context['user_past_trips'] = Trip.objects.filter(account=self.request.user.account,
+                                                         departure__lt=timezone.now())[:3]
+        return context
 
 
 def signup(request):
@@ -71,7 +83,8 @@ def activate(request, uidb64, token):
         user.account.email_confirmed = True
         user.save()
         # Add new user with confirmed email to Active Campaign contacts
-        ActiveCampaign.sync_contact(email=user.email, first_name=user.first_name, last_name=user.last_name)
+        ActiveCampaign.sync_contact(email=user.email, first_name=user.first_name, last_name=user.last_name,
+                                    tags='BC Account')
         login(request, user)
         return redirect('accounts:home')
     else:
@@ -79,9 +92,14 @@ def activate(request, uidb64, token):
 
 
 class UserLoginView(LoginView):
-    #  TODO check if user is authenticated
     template_name = 'accounts/login.html'
     # success_url = reverse_lazy('accounts:home')
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return HttpResponseRedirect(reverse_lazy('accounts:home'))
+
+        return super().dispatch(request, *args, **kwargs)
 
 
 class UserLogoutView(LogoutView):
@@ -149,7 +167,6 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         return User.objects.get(username=self.request.user.username)
-
 
 # Client old views
 # def loginview(request):
