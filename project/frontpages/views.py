@@ -10,7 +10,7 @@ class GalleryInstagramView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(GalleryInstagramView, self).get_context_data(**kwargs)
         # You can set how many photos will be shown in .recent_media($how_many_photos$)
-        context['photos'] = GetUserMedia.recent_media(18)
+        context['photos'] = GetUserMedia.recent_media(20)
         return context
 
 
