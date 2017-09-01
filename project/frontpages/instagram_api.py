@@ -1,19 +1,20 @@
 # Please note, we use not official python-instagram, because it's not actively maintained anymore
 # We use https://github.com/shackra/python-instagram/ instead
+from django.conf import settings
 from instagram.client import InstagramAPI
 
 # Access token, client id and client secret for your instagram account
-Instagram_ACCESS_TOKEN = "1970669399.500378d.00ac5756029c4de58a8f57e12ee2c3c1"
-Instagram_CLIENT_ID = "500378dd00a34eaea47f257721c7e4c6"
-Instagram_CLIENT_SECRET = "3db3204916074515aa19d4b54a88a88b"
+INSTAGRAM_ACCESS_TOKEN = settings.INSTAGRAM_ACCESS_TOKEN
+INSTAGRAM_CLIENT_ID = settings.INSTAGRAM_CLIENT_ID
+INSTAGRAM_CLIENT_SECRET = settings.INSTAGRAM_CLIENT_SECRET
 
 
 class GetUserMedia(object):
 
     # From views in count we determine how many photos will show. Can be only 1-20 photos. We set default to 18.
     def recent_media(count):
-        api = InstagramAPI(access_token=Instagram_ACCESS_TOKEN, client_id=Instagram_CLIENT_ID,
-                           client_secret=Instagram_CLIENT_SECRET)
+        api = InstagramAPI(access_token=INSTAGRAM_ACCESS_TOKEN, client_id=INSTAGRAM_CLIENT_ID,
+                           client_secret=INSTAGRAM_CLIENT_SECRET)
 
         recent_media, next_ = api.user_recent_media(count=count)
 

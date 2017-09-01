@@ -13,7 +13,7 @@ urlpatterns = [
 
     url(r'^$', views.home,  name='home'),
 
-    url(r'^gallery/', views.gallery,  name='gallery'),
+    url(r'^gallery/', views.GalleryInstagramView.as_view(),  name='gallery'),
     url(r'^yourtrips/', views.yourtrips, name='yourtrips'),
     url(r'^westeuro/', views.westeuro,  name='westeuro'),
     url(r'^easteuro/', views.easteuro, name='easteuro'),
