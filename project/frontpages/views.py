@@ -18,6 +18,10 @@ def about(request):
     return render(request, 'frontpages/about/about.html')
 
 
+def premium(request):
+    return render(request, 'frontpages/about/premium.html')
+
+
 def home(request):
     return render(request, 'frontpages/index.html')
 
