@@ -1,10 +1,10 @@
 from django.db import models
-from ckeditor_uploader.fields import RichTextUploadingField
+from tinymce.models import HTMLField
 
 
 class Trip(models.Model):
     title = models.CharField(max_length=120)
-    description = RichTextUploadingField()
+    description = HTMLField()
     price = models.DecimalField(decimal_places=2, max_digits=100)
     departure = models.DateTimeField(blank=True)
     arrival = models.DateTimeField(blank=True)
@@ -29,7 +29,7 @@ class Excursion(models.Model):
     title = models.CharField(max_length=100)
     trip = models.ForeignKey(Trip, on_delete=models.PROTECT, related_name='excursions')
     duration = models.PositiveSmallIntegerField(blank=True)
-    description = RichTextUploadingField()
+    description = HTMLField()
     image = models.ImageField(upload_to='excursions/images/')
 
     def __str__(self):
