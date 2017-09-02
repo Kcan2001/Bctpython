@@ -34,6 +34,12 @@ urlpatterns = [
     url(r'^terms/', views.terms, name='terms'),
     url(r'^premium/', views.premium, name='premium'),
 
+    # tinymce urls
+    url(r'^tinymce/', include('tinymce.urls')),
+
+    # ckeditor url
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler400 = 'frontpages.views.handler400'
