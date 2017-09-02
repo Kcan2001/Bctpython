@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog',
     'ckeditor',
     'ckeditor_uploader',
+    'tinymce',
 
 ]
 
@@ -161,3 +162,16 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_BROWSE_SHOW_DIRS = True
 CKEDITOR_RESTRICT_BY_DATE = True
+
+# Instagram API settings
+INSTAGRAM_ACCESS_TOKEN = '2604665802.a200e72.9da5a0eac5e645e89a2245e555921b40'
+INSTAGRAM_CLIENT_ID = 'a200e726a2be40beb58239cf02c08a63'
+INSTAGRAM_CLIENT_SECRET = '64b5b44566b74ec49bdcbc450bc80f4e'
+
+# Active Campaign API settings
+ACTIVECAMPAIGN_URL = 'https://testco51607.api-us1.com'
+ACTIVECAMPAIGN_KEY = '92c1ffbfdb174c8688c4c6ac740743d0dd4015d21e9f142d70333a200d039ab59096edf8'
+
+# Stripe API settings
+STRIPE_PUBLIC_KEY = 'pk_test_ptZhV15kJSsxmAFr2dAwihNj'
+STRIPE_SECRET_KEY = 'sk_test_9mNe1308FFjc2YST0JS22Cd6'

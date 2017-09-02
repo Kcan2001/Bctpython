@@ -1,8 +1,9 @@
+from django.conf import settings
 import requests
 
 # API KEY and Personal URL for Active Campaign Account
-ActiveCampaign_URL = "https://testco51607.api-us1.com"
-ActiveCampaign_KEY = "92c1ffbfdb174c8688c4c6ac740743d0dd4015d21e9f142d70333a200d039ab59096edf8"
+ACTIVECAMPAIGN_URL = settings.ACTIVECAMPAIGN_URL
+ACTIVECAMPAIGN_KEY = settings.ACTIVECAMPAIGN_KEY
 
 
 # Function for making api call to Active Campaign servers
@@ -44,10 +45,10 @@ class ActiveCampaign(object):
         action = 'contact_add'
         params = [
             ('api_action', action),
-            ('api_key', ActiveCampaign_KEY),
+            ('api_key', ACTIVECAMPAIGN_KEY),
             ('api_output', 'json'),
         ]
-        url = '{0}/admin/api.php?api_action={1}'.format(ActiveCampaign_URL, action)
+        url = '{0}/admin/api.php?api_action={1}'.format(ACTIVECAMPAIGN_URL, action)
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         data = [
             ('email', email),
@@ -60,20 +61,25 @@ class ActiveCampaign(object):
     # Add or edit a contact based on their email address. Instead of calling contact_view to check
     # if the contact exists, and then calling contact_add or contact_edit,
     # you can make just one call and include only the information you want added or updated.
-    def sync_contact(email, first_name, last_name):
+    def sync_contact(email, first_name, last_name, tags):
+        # Here you can determine your main list id
+        list_id = '1'
+
         # API action
         action = 'contact_sync'
         params = [
             ('api_action', action),
-            ('api_key', ActiveCampaign_KEY),
+            ('api_key', ACTIVECAMPAIGN_KEY),
             ('api_output', 'json'),
         ]
-        url = '{0}/admin/api.php?api_action={1}'.format(ActiveCampaign_URL, action)
+        url = '{0}/admin/api.php?api_action={1}'.format(ACTIVECAMPAIGN_URL, action)
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         data = [
             ('email', email),
             ('first_name', first_name),
             ('last_name', last_name),
+            ('tags', tags),
+            ('p[123]', list_id),
         ]
         # r = requests.post(url=url, params=params, data=data, headers=headers)
         r = active_campaign_api_request(url, headers, params, data)

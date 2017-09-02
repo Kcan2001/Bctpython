@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from ckeditor_uploader.fields import RichTextUploadingField
+from tinymce.models import HTMLField
 
 
 class Category(models.Model):
@@ -14,7 +14,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     category = models.ManyToManyField(Category)
     title = models.CharField(max_length=200, blank=False)
-    text = RichTextUploadingField()
+    text = HTMLField()
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(null=True, blank=True)
 

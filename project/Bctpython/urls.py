@@ -13,7 +13,7 @@ urlpatterns = [
 
     url(r'^$', views.home,  name='home'),
 
-    url(r'^gallery/', views.gallery,  name='gallery'),
+    url(r'^gallery/', views.GalleryInstagramView.as_view(),  name='gallery'),
     url(r'^yourtrips/', views.yourtrips, name='yourtrips'),
     url(r'^westeuro/', views.westeuro,  name='westeuro'),
     url(r'^easteuro/', views.easteuro, name='easteuro'),
@@ -32,6 +32,10 @@ urlpatterns = [
     url(r'^guides/', views.guides,  name='guides'),
     url(r'^reviews/', views.reviews,  name='reviews'),
     url(r'^terms/', views.terms, name='terms'),
+    url(r'^premium/', views.premium, name='premium'),
+
+    # tinymce urls
+    url(r'^tinymce/', include('tinymce.urls')),
 
     # ckeditor url
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
