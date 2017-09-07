@@ -1,4 +1,7 @@
+import stripe
+
 from django.shortcuts import render, redirect
+from django.conf import settings
 from django.utils import timezone
 from django.urls import reverse_lazy
 from django.contrib.sites.shortcuts import get_current_site
@@ -7,6 +10,7 @@ from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.views.generic.edit import UpdateView
+from django.views.generic.detail import DetailView
 from django.contrib.auth.views import (
     LoginView,
     LogoutView,
@@ -18,10 +22,10 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView,
     TemplateView)
 
-from .models import Account
-from trips.models import Trip
+from .models import Account, UserStripe
+from trips.models import Trip, TripDate
 
-from .forms import SignUpForm
+from .forms import SignUpForm, PaymentForm
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_text
@@ -32,16 +36,16 @@ from .active_campaign_api import ActiveCampaign
 from django.http import HttpResponseRedirect
 
 
-
 class UserHomePageView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/home.html'
 
     def get_context_data(self, **kwargs):
         context = super(UserHomePageView, self).get_context_data(**kwargs)
-        context['trips'] = Trip.objects.order_by('departure').all()[:3]
-        context['user_trips'] = Trip.objects.filter(account=self.request.user.account, departure__gte=timezone.now())
-        context['user_past_trips'] = Trip.objects.filter(account=self.request.user.account,
-                                                         departure__lt=timezone.now())[:3]
+        context['trips'] = TripDate.objects.select_related('trip').exclude(account=self.request.user.account).order_by('arrival').all()[:5]
+        # context['trips'] = Trip.objects.order_by('arrival').all()[:3]
+        context['user_trips'] = TripDate.objects.filter(account=self.request.user.account, departure__gte=timezone.now())
+        context['user_past_trips'] = TripDate.objects.filter(account=self.request.user.account,
+                                                             departure__lt=timezone.now())[:3]
         return context
 
 
@@ -167,6 +171,140 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         return User.objects.get(username=self.request.user.username)
+
+
+class UserMembershipView(LoginRequiredMixin, TemplateView):
+    template_name = 'accounts/membership.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserMembershipView, self).get_context_data(**kwargs)
+        context['stripe_public_key'] = settings.STRIPE_PUBLIC_KEY
+        return context
+
+
+class UserTripDetailView(LoginRequiredMixin, DetailView):
+    model = TripDate
+    template_name = 'accounts/trip.html'
+    context_object_name = 'trip'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserTripDetailView, self).get_context_data(**kwargs)
+        trip = TripDate.objects.get(pk=self.kwargs['pk'])
+        trip_arrival_date = trip.arrival
+        current_date = timezone.now().date()
+        delta = (trip_arrival_date - current_date).days
+        if delta <= 20:
+            context['time_left'] = 'You need to pay entire sum'
+        else:
+            context['time_left'] = 'allow'
+        return context
+
+
+def usertripdetail(request):
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            print('all is ok')
+            return redirect('accounts:home')
+    else:
+        form = PaymentForm()
+        print('need to send form')
+    return render(request, 'accounts/trip2.html', {'form': form})
+
+
+def membership_payment(request):
+    # Will accept only post request to our view
+    if request.method == 'POST':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        # Price of website premium is 50$, amount in cents:
+        amount = 5000
+        # Will check if User Account already has stripe account identification:
+        if hasattr(request.user.account, 'stripe_account'):
+            # Get stored customer_id from previous operations:
+            user_stripe_id = request.user.account.stripe_account.customer_id
+            # Making charge for amount $
+            charge = stripe.Charge.create(customer=user_stripe_id, amount=amount, currency='usd',
+                                          description='Payment for premium membership for real user')
+            # paid = charge.paid
+            # status = charge.status
+            # If charge was successful:
+            if charge.status == 'succeeded':
+                # Add premium access for paid user
+                request.user.account.is_membership = True
+                request.user.save()
+                # And add new tag in Active Campaign service
+                ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
+                                            last_name=request.user.last_name, tags='BC Member')
+            return redirect('accounts:home')
+        else:
+            # If request.user has not customer instance in stripe database will create it:
+            customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
+            # Then will add stripe customer id to our request user (OneToOne Relation)
+            UserStripe.objects.get_or_create(user_id=request.user.account.id, customer_id=customer.id)
+            # After stripe_account was created will try to make a charge
+            charge = stripe.Charge.create(customer=customer.id, amount=amount, currency='usd',
+                                          description='Payment for premium membership')
+            # paid = charge.paid
+            # status = charge.status
+            # If charge was successful:
+            if charge.status == 'succeeded':
+                # Add premium access for paid user
+                request.user.account.is_membership = True
+                request.user.save()
+                # And add new tag in Active Campaign service
+                ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
+                                            last_name=request.user.last_name, tags='BC Member')
+                return redirect('accounts:home')
+        return redirect('accounts:home')
+
+
+def trip_payment(request):
+    # Will accept only post request to our view
+    if request.method == 'POST':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        # Price of website premium is 50$, amount in cents:
+        amount = 5000
+        # Will check if User Account already has stripe account identification:
+        if hasattr(request.user.account, 'stripe_account'):
+            # Get stored customer_id from previous operations:
+            user_stripe_id = request.user.account.stripe_account.customer_id
+            # Making charge for amount $
+            charge = stripe.Charge.create(customer=user_stripe_id, amount=amount, currency='usd',
+                                          description='Payment for premium membership for real user')
+            # paid = charge.paid
+            # status = charge.status
+            # If charge was successful:
+            if charge.status == 'succeeded':
+                # Add premium access for paid user
+                request.user.account.is_membership = True
+                request.user.save()
+                # And add new tag in Active Campaign service
+                ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
+                                            last_name=request.user.last_name, tags='BC Member')
+            return redirect('accounts:home')
+        else:
+            # If request.user has not customer instance in stripe database will create it:
+            customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
+            # Then will add stripe customer id to our request user (OneToOne Relation)
+            UserStripe.objects.get_or_create(user_id=request.user.account.id, customer_id=customer.id)
+            # After stripe_account was created will try to make a charge
+            charge = stripe.Charge.create(customer=customer.id, amount=amount, currency='usd',
+                                          description='Payment for premium membership')
+            # paid = charge.paid
+            # status = charge.status
+            # If charge was successful:
+            if charge.status == 'succeeded':
+                # Add premium access for paid user
+                request.user.account.is_membership = True
+                request.user.save()
+                # And add new tag in Active Campaign service
+                ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
+                                            last_name=request.user.last_name, tags='BC Member')
+                return redirect('accounts:home')
+        return redirect('accounts:home')
+
+
+
 
 # Client old views
 # def loginview(request):

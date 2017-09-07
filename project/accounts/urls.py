@@ -6,7 +6,11 @@ app_name = 'accounts'
 urlpatterns = [
     # Account home page
     url(r'^$', views.UserHomePageView.as_view(), name='home'),
+    url(r'^membership/$', views.UserMembershipView.as_view(), name='membership'),
+    url(r'^membership/payment/$', views.membership_payment, name='membership_payment'),
 
+    url(r'^trip/(?P<pk>[-\w]+)/$', views.UserTripDetailView.as_view(), name='trip'),
+    url(r'^trip/$', views.usertripdetail, name='trip2'),
     # User sign up and account activation via email address
     url(r'^signup/', views.signup, name='signup'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
