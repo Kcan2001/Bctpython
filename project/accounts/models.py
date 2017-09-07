@@ -7,7 +7,7 @@ from django.dispatch import receiver
 # Some fields will be null=True, while I will create normal signup/update view
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    trips = models.ManyToManyField('trips.Trip')
+    trips = models.ManyToManyField('trips.TripDate')
     photo = models.ImageField(upload_to='users/photos/', blank=True)
     address = models.TextField(max_length=250, blank=True)
     birth_date = models.DateField(null=True, blank=True)
@@ -22,6 +22,14 @@ class Account(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class UserStripe(models.Model):
+    user = models.OneToOneField(Account, on_delete=models.PROTECT, related_name='stripe_account')
+    customer_id = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.customer_id
 
 
 @receiver(post_save, sender=User)
