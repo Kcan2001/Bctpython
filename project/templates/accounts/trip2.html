@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}- {{ trip }}{% endblock %}
+
+{% block content %}
+
+<div class="mdl-grid bc-site-grey-background">
+    <div class="mdl-layout-spacer"></div>
+    
+    <div class="mdl-cell mdl-cell--10-col">
+
+                        <form id="payment-form" method="POST">
+                            {% csrf_token %}
+                                <label for="card-element">
+                                Credit or debit card
+                                </label>
+                                <div id="card-element">
+                                <!-- a Stripe Element will be inserted here. -->
+                                </div>
+                                <!-- Used to display form errors -->
+                                <div id="card-errors" role="alert"></div>
+  <div class="outcome">
+    <div class="error" role="alert"></div>
+    <div class="success">
+      Success! Your Stripe token is <span class="token"></span>
+    </div>
+  </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised">
+                                        Submit Payment
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+
+
+<form action="/your-name/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+
+{% for radio in myform.excursions %}
+<div class="myradio">
+    {{ radio.title }}
+</div>
+{% endfor %}
+
+
+
+
+        <div>
+            <h2 class="bc-text-center">{{ trip.trip.title }}</h2>
+            <h3 class="bc-text-center">{{ trip.arrival|date:"d.m.Y" }} - {{ trip.departure|date:"d.m.Y" }}</h3>
+        {% if trip.trip.trip_image.all.0.image.url %}
+        <div class="bc-text-center">
+            <img class="bc-standard-img" src="{{ trip.trip.trip_image.all.0.image.url }}">
+        </div>
+                <br><br>{% endif %}
+        <div class="bc-text-center">
+            In:
+            <i class="material-icons">access_time</i>
+            {{ trip.departure|timeuntil }}
+            | Dates:
+            <i class="material-icons">date_range</i>
+            {{ trip.arrival|date:"d.m.Y" }} - {{ trip.departure|date:"d.m.Y" }}
+            | Price:
+            <i class="material-icons">attach_money</i>{{ trip.price }}<br>
+        </div><br>
+            <div>{{ trip.trip.description|safe }}</div>
+
+            {% if trip.excursions.all %}
+
+
+            <h3 class="bc-text-center">Available excursions in this tour:</h3>
+<style>
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
+            <div class="mdl-grid">
+
+            {% for excursion in trip.excursions.all %}
+
+<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title" style="background: url('{{ excursion.image.url }}') center / cover;"></div>
+    <div class="mdl-card__supporting-text">
+    <strong>{{ excursion.title }}</strong>
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{ excursion.description|safe }}
+  </div>
+  <div class="mdl-card__supporting-text" style="border-top: 1px solid rgba(0,0,0,.1);">
+      Duration: {{ excursion.duration }} days
+{#    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">#}
+{#      Get Started#}
+{#    </a>#}
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+</div>
+
+
+            {% endfor %}
+</div>{% endif %}
+        </div>
+    </div>
+
+
+
+    <div class="mdl-layout-spacer"></div>
+</div>
+<script type="application/javascript">
+var stripe = Stripe('pk_test_ptZhV15kJSsxmAFr2dAwihNj');
+var elements = stripe.elements();
+
+// Custom styling can be passed to options when creating an Element.
+var style = {
+  base: {
+    // Add your base input styles here. For example:
+    fontSize: '16px',
+    lineHeight: '24px'
+  }
+};
+
+// Create an instance of the card Element
+var card = elements.create('card', {style: style});
+
+// Add an instance of the card Element into the `card-element` <div>
+card.mount('#card-element');
+
+card.addEventListener('change', function(event) {
+  var displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
+
+// Create a token or display an error when the form is submitted.
+var form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  stripe.createToken(card).then(function(result) {
+    if (result.error) {
+      // Inform the user if there was an error
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = result.error.message;
+    } else {
+      // Send the token to your server
+      stripeTokenHandler(result.token);
+    }
+  });
+});
+function stripeTokenHandler(token) {
+  // Insert the token ID into the form so it gets submitted to the server
+  var form = document.getElementById('payment-form');
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('value', token.id);
+  form.appendChild(hiddenInput);
+
+  // Submit the form
+  form.submit();
+}
+</script>
+{% endblock %}

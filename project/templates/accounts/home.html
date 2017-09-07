@@ -16,7 +16,6 @@
 
                <!-- inner grid -->
                <div class="mdl-cell mdl-cell--12-col">
-
                  <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--4-col">
                    <h4 class="bc-about-pages-subtitle bc-no-margin">
@@ -29,6 +28,11 @@
                        </div>
                    </h4>
                   </div>
+                 {% if request.user.stripe.all %}
+    {{ request.user.stripe.customer_id }}123
+    {% else %}
+    Fig vam
+               {% endif %} {{ request.user.account.stripe_account.customer_id }}
                  </div>
                  <div class="mdl-grid">
                      {% if request.user.account.photo %}
@@ -94,7 +98,7 @@
 
                <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--3-col">
-                      <h4 class="bc-about-pages-subtitle">Upcoming Trips2</h4>
+                      <h4 class="bc-about-pages-subtitle">Your upcoming trips</h4>
                    </div>
                  </div>
                 <div class="mdl-grid">
@@ -106,82 +110,34 @@
 
                <div class="demo-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">{{ trip.title }}</h2>
+    <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
   </div>
 
    <div class="mdl-card__supporting-text">
-    <strong>{{ trip.title }}</strong>
+    <strong>{{ trip.trip.title }}</strong>
   </div>
   <div class="mdl-card__supporting-text mdl-card--border">
-    {{ trip.description|truncatewords:18 }}
+    {{ trip.trip.description|truncatewords:18 }}
   </div>
    <div class="mdl-card__supporting-text mdl-card--border">
     <strong>Price: {{ trip.price }}$</strong>
   </div>
                    <div class="mdl-card__supporting-text mdl-card--border">
     <strong>Additional excursions:</strong>
-                       {% if trip.excursion %}
+                       {% if trip.trip.excursion %}
                        Yes
                            {% else %}
                            No
                        {% endif %}
-{{ trip.excursion_set.all }}
-  </div>
-                   <div class="mdl-card__supporting-text">
-                       <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }} - {{ trip.arrival|date:"d.m.Y" }}
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      View Description
-    </a>
-  </div>
-</div>
-                   </div>
-{% endfor %}
-
-
-               </div>
-
-                 <div class="mdl-grid">
-                   <div class="mdl-cell mdl-cell--3-col">
-                      <h4 class="bc-about-pages-subtitle">Upcoming Trips</h4>
-                   </div>
-                 </div>
-                <div class="mdl-grid">
-{% for o in request.user.account.trips.all  %}
-                   <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
-
-
-
-
-               <div class="demo-card-square mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">{{ o.title }}</h2>
-  </div>
-
-   <div class="mdl-card__supporting-text">
-    <strong>{{ o.title }}</strong>
-  </div>
-  <div class="mdl-card__supporting-text mdl-card--border">
-    {{ o.description|truncatewords:18 }}
-  </div>
-   <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Price: {{ o.price }}$</strong>
   </div>
                    <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Additional excursions:</strong>
-                       {% if o.excursion %}
-                       Yes
-                           {% else %}
-                           No
-                       {% endif %}
-{{ trip.excursion_set.all }}
+                       <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }} - {{ trip.arrival|date:"d.m.Y" }}
   </div>
-                   <div class="mdl-card__supporting-text">
-                       <strong>Dates:</strong> {{ o.departure|date:"d.m.Y" }} - {{ o.arrival|date:"d.m.Y" }}
+               <div class="mdl-card__supporting-text">
+                       <strong>How soon:</strong> {{ trip.departure|timeuntil }}
   </div>
   <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    <a href="{% url 'accounts:trip' pk=trip.pk %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
       View Description
     </a>
   </div>
@@ -206,32 +162,32 @@
 
                <div class="demo-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">{{ trip.title }}</h2>
+    <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
   </div>
 
    <div class="mdl-card__supporting-text">
-    <strong>{{ trip.title }}</strong>
+    <strong>{{ trip.trip.title }}</strong>
+
   </div>
   <div class="mdl-card__supporting-text mdl-card--border">
-    {{ trip.description|truncatewords:18 }}
+    {{ trip.trip.description|truncatewords:18 }}
   </div>
    <div class="mdl-card__supporting-text mdl-card--border">
     <strong>Price: {{ trip.price }}$</strong>
   </div>
                    <div class="mdl-card__supporting-text mdl-card--border">
     <strong>Additional excursions:</strong>
-                       {% if trip.excursion %}
+                       {% if trip.trip.excursion %}
                        Yes
                            {% else %}
                            No
                        {% endif %}
-{{ trip.excursion_set.all }}
   </div>
                    <div class="mdl-card__supporting-text">
                        <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }} - {{ trip.arrival|date:"d.m.Y" }}
   </div>
   <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    <a href="{% url 'accounts:trip' pk=trip.pk %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
       View Description
     </a>
   </div>
@@ -244,50 +200,39 @@
 
                <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--3-col">
-                      <h4 class="bc-about-pages-subtitle">Available now trips</h4>
+                      <h4 class="bc-about-pages-subtitle">Available for purchase trips</h4>
                    </div>
                  </div>
 
                <style>
 .demo-card-square.mdl-card {
   width: 280px;
-  height: 500px;
+  height: 600px;
 }
 .demo-card-square > .mdl-card__title {
   color: #fff;
   background:
     url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
 }
-                   .demo-card-wide.mdl-card {
-  width: 512px;
-}
-.demo-card-wide > .mdl-card__title {
-  color: #fff;
-  height: 176px;
-  background: url('../assets/demos/welcome_card.jpg') center / cover;
-}
-.demo-card-wide > .mdl-card__menu {
-  color: #fff;
-}
 </style>
 
                <div class="mdl-grid">
 {% for trip in trips  %}
+
+
+
                    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
 
-
-
-
-               <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                       <div class="demo-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">{{ trip.title }}</h2>
+    <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
   </div>
 
    <div class="mdl-card__supporting-text">
-    <strong>{{ trip.title }}</strong>
+    <strong>{{ trip.trip.title }}</strong>
   </div>
   <div class="mdl-card__supporting-text mdl-card--border">
-    {{ trip.description|truncatewords:18 }}
+    {{ trip.trip.description|safe|truncatewords:18 }}
   </div>
    <div class="mdl-card__supporting-text mdl-card--border">
     <strong>Price: {{ trip.price }}$</strong>
@@ -299,13 +244,12 @@
                            {% else %}
                            No
                        {% endif %}
-{#{{ trip.excursions.all }}#}
   </div>
                    <div class="mdl-card__supporting-text">
-                       <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }} - {{ trip.arrival|date:"d.m.Y" }}
+                       <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }} - {{ trip.departure|date:"d.m.Y" }}
   </div>
   <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    <a href="{% url 'accounts:trip' pk=trip.pk %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
       View Description
     </a>
   </div>
