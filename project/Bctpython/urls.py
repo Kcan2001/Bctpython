@@ -1,7 +1,9 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from frontpages import views
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
+from ckeditor_uploader import views as ckeditor_views
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -34,11 +36,13 @@ urlpatterns = [
     url(r'^terms/', views.terms, name='terms'),
     url(r'^premium/', views.premium, name='premium'),
 
-    # tinymce urls
-    url(r'^tinymce/', include('tinymce.urls')),
+    # ckeditor urls with rewrited decorators (staff required - standard decorator)
+    url(r'^upload/', login_required(ckeditor_views.upload), name='ckeditor_upload'),
+    url(r'^browse/', never_cache(login_required(ckeditor_views.browse)), name='ckeditor_browse'),
 
-    # ckeditor url
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    # stripe webhooks
+    # url(r'webhooks/$', views.webhooks, name='webhooks'),
+    # url(r'webhooks/v2/$', views.webhooks_v2, name='webhooks_v2'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
