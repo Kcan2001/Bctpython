@@ -2,6 +2,5 @@ django==1.11.1
 stripe==1.63.0
 Pillow==4.2.1
 requests==2.18.4
-django-ckeditor==5.3.0
-django-tinymce==2.6.0
+git+git://github.com/wardal/django-ckeditor.git#egg=django-ckeditor
 git+git://github.com/shackra/python-instagram.git#egg=python-instagram
