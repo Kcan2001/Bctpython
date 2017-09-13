@@ -6,10 +6,10 @@
 
 {% block content %}
 
-<div class="mdl-grid bc-site-grey-background">
-    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
 
-    <div class="mdl-cell mdl-cell--9-col mdl-shadow--2dp bc-about-pages-template-background">
+        <div class="mdl-cell mdl-cell--9-col mdl-shadow--2dp bc-about-pages-template-background">
 
             <!-- Section 1 Mission  -->
             <div class="mdl-grid">
@@ -19,57 +19,60 @@
 
 
                 {% if form.errors %}
-                <div class="mdl-cell mdl-cell--12-col">
-                    {{ form.errors }}
-                </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        {{ form.errors }}
+                    </div>
                 {% endif %}
 
 
                 <div class="mdl-cell mdl-cell--12-col">
-                <div class="mdl-grid">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--10-col">
-                        <form method="POST">
-                            {% csrf_token %}
+                    <div class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--10-col">
+                            <form method="POST">
+                                {% csrf_token %}
 
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" name="title" id="id_title"/>
-                                <label class="mdl-textfield__label bc-about-pages-para" for="id_title">Title</label>
-                            </div>
-
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--12-col">
-                                    {{ form.category }}
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" name="title" id="id_title"/>
+                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_title">Title</label>
                                 </div>
-                            </div>
 
-                             <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--12-col">
-                                    {{ form.media }}
-                                    {{ form.text }}
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col">
+                                        {{ form.category }}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                                    <button type="submit" value="submit" name="submit" class="mdl-button mdl-js-button mdl-button--raised">
-                                        Send for approval
-                                    </button>
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col">
+                                        {{ form.media }}
+                                        {{ form.text }}
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                        <button type="submit" value="submit" name="submit"
+                                                class="mdl-button mdl-js-button mdl-button--raised">
+                                            Send for approval
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
                     </div>
-                    <div class="mdl-layout-spacer"></div>
-                </div></div>
+                </div>
 
 
             </div>
 
-            <br><hr>
+            <br>
+            <hr>
 
         </div>
 
-    <div class="mdl-layout-spacer"></div>
-</div>
+        <div class="mdl-layout-spacer"></div>
+    </div>
 
 {% endblock %}

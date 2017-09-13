@@ -1,142 +1,160 @@
 {% extends 'base.html' %}
-{% block head_title %}- Your Guides{% endblock %}
-{% block content %}
 
 {% load static %}
 
+{% block head_title %}- Your Guides{% endblock %}
 
-  <div class="mdl-grid bc-site-grey-background">
-    <div class="mdl-cell mdl-cell--12-col">
+{% block content %}
 
-      <!-- heading -->
-      <div class="mdl-grid">
-       <div class="mdl-layout-spacer"></div>
-        <div class="mdl-cell mdl-cell--9-col">
-          <h4 class="bc-guides-heading"><br><br>AT BLACK CROW TOURS, WE BELIEVE THAT FINDING
-            THE RIGHT FIT IS CRITICAL TO HAVING A WONDERFUL
-            TRAVEL EXPERIENCE. </h4>
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-cell mdl-cell--12-col">
+
+            <!-- heading -->
+            <div class="mdl-grid">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--9-col">
+                    <h4 class="bc-guides-heading"><br><br>AT BLACK CROW TOURS, WE BELIEVE THAT FINDING
+                        THE RIGHT FIT IS CRITICAL TO HAVING A WONDERFUL
+                        TRAVEL EXPERIENCE. </h4>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+
+            <!-- subheading -->
+            <div class="mdl-grid">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--8-col">
+                    <h4 class="bc-guides-subheading">
+                        The both the trip and the guide should match your needs.
+                        <br>Our guides have their own tastes and preferences... like all people. We embrace those
+                        differences in order to create truly unique experiences for our guests.
+
+                        <br><br>You wouldn't go to a class with a teacher you don't like,
+                        <br>why travel with a mystery guide?</h4>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <br><br>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+            </div>
+
+            <!-- Guide 1 -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-no-rightmargin">
+                    <img class="bc-guide-profile-images" src="{% static 'images\kyle.jpg' %}">
+                </div>
+
+                <!-- Bio  -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-no-leftmargin bc-padding">
+                    <h4 class="bc-guides-profile-heading bc-no-margin">Kyle Cannon</h4>
+
+                    <h4 class="bc-guides-profile-text"><strong>Bio:</strong> Kyle is currently climbing the seven
+                        summits (Seven highest mountains on each continent; he has already climbed 3).
+                        He graduated from West Chester University with a degree in Management and has backpacked Europe
+                        many times.
+                        He is EMT/CPR certified, has a degree in wine tasting, and has worked for many years as a
+                        construction project manager.
+                        He now spends much of his' work' time traveling, bar tending, and guiding tours... In his spare
+                        time; he loves yoga, rock climbing, and dancing with friends.
+
+                        <br><br><strong>Places lived:</strong> Philadelphia, San Diego, West Chester, Stavanger-Norway
+
+                        <br><strong>Favorite City:</strong> Copenhagen
+
+                        <br><strong>Favorite Club or Nightlife:</strong> Distortion in Copenhagen, or anything EDM
+
+                        <br><strong>Favorite Adventure:</strong> Climbing Mont Blanc
+
+                        <br><br><strong>What to expect with Kyle:</strong> Loves food markets, Interesting bars/clubs,
+                        and meeting Local friends.</h4>
+
+                    <!-- I'm a big fan of hidden HTML texts. And since I'm the one coding this ;-)
+                    here we are...
+                    Come on my trips if you like to party, drink too much..., do and see bad ass shit, and not have to worry about code... this site was a pain in the ass to make.
+                  -->
+                </div>
+            </div>
+
+            <!-- Guide 2-->
+            <div class="mdl-grid">
+
+                <!-- Bio  -->
+
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet mdl-cell--hide-desktop bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
+                    <img class="bc-guide-profile-images" src="{% static 'images\jesse.jpg' %}">
+                </div>
+
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--8-col-tablet bc-padding bc-no-topmargin bc-no-rightmargin bc-no-botmargin">
+                    <h4 class="bc-guides-profile-heading bc-no-margin">Jesse Sangco</h4>
+
+                    <h4 class="bc-guides-profile-text"><strong>Bio:</strong> Jesse is a Philly native that rediscovered
+                        his passion for travel during his military service. Having a great passion for experiencing
+                        local culture and food, Jesse is sure to make your trip one the most memorable.When he’s not
+                        directing tours for BlackCrow, you’ll have to look for him in a rock gym, hiking/camping,
+                        kayaking down the Delaware riveror dancing the night away with friends and family.
+
+                        <br><br><strong>Places lived:</strong> Philadelphia, Lizard land
+
+                        <br><strong>Favorite City:</strong> New Jersey
+
+                        <br><strong>Favorite Club or Nightlife:</strong>
+
+                        <br><strong>Favorite Adventure:</strong>
+
+                        <br><br><strong>What to expect with Jesse:</strong> meeting Lizards</h4>
+
+                    <!-- Jesse's probably the coolest guy you'll ever meet. Loves to meet new people and party. All about nature, hikes, and cool shit.
+                    unbiased review... he doesn't know how to view this. Don't tell him. Pretend I wrote something really scandalous.
+                  -->
+                </div>
+
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
+                    <img class="bc-guide-profile-images" src="{% static 'images\jesse.jpg' %}">
+                </div>
+
+            </div>
+
+            <!-- Guide 3 -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-no-rightmargin">
+                    <img class="bc-guide-profile-images" src="{% static 'images\lexi.jpg' %}">
+                </div>
+
+                <!-- Bio  -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-no-leftmargin bc-padding">
+                    <h4 class="bc-guides-profile-heading bc-no-margin">Lexi Quinn</h4>
+
+                    <h4 class="bc-guides-profile-text"><strong>Bio:</strong> She graduated from Temple University- Tyler
+                        School of Art with a degree in Metalsmithing/CADCAM, (3d printing design), and overall design.
+                        Currently she is designing for Black Crow & the Franklin Institute for different science and
+                        tech exhibits while developing its very own 3d printing department. She has also stepped foot
+                        onto 4 out of 7 continents while traveling through Europe, Southeast Asia and Africa. As a
+                        recent colligate graduate, she spends much of her time in research, working and guiding tours...
+                        In her spare time; she loves soccer, volleyball, art & design, technology and having splendid
+                        times with everyone.
+
+                        <br><br><strong>Places lived:</strong> Philadelphia, PA. Rome, Italy
+
+                        <br><strong>Favorite City:</strong> Koh Tao, Thailand
+
+                        <br><strong>Favorite Club or Nightlife:</strong> Chefchaouen
+
+                        <br><strong>Favorite Adventure:</strong> Cannoning
+
+                        <br><br><strong>What to expect with Lexi:</strong> Amazing Alexia Adventures</h4>
+
+                    <!-- Lexi's smile is infectious... Really sweet girl. Love's lizards for some weird reason... idk I don't judge. Well maybe just a litte. Super creative, designed all of our products and some of the site.
+                    But agian, she doesn't code. So if you ever meet her, tell her a CRAZY secret is written on the site... but you can't say :-P
+
+                  -->
+                </div>
+            </div>
+
         </div>
-       <div class="mdl-layout-spacer"></div>
-      </div>
-
-      <!-- subheading -->
-      <div class="mdl-grid">
-        <div class="mdl-layout-spacer"></div>
-       <div class="mdl-cell mdl-cell--8-col">
-         <h4 class="bc-guides-subheading">
-           The both the trip and the guide should match your needs.
-           <br>Our guides have their own tastes and preferences... like all people. We embrace those differences in order to create truly unique experiences for our guests.
-
-           <br><br>You wouldn't go to a class with a teacher you don't like,
-           <br>why travel with a mystery guide?</h4>
-       </div>
-       <div class="mdl-layout-spacer"></div>
-     </div>
-
-     <div class="mdl-grid">
-       <div class="mdl-cell mdl-cell--12-col">
-         <br><br>
-         <div class="mdl-layout-spacer"></div>
-       </div>
     </div>
-
-     <!-- Guide 1 -->
-     <div class="mdl-grid">
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-no-rightmargin">
-            <img class="bc-guide-profile-images" src="{% static 'images\kyle.jpg' %}">
-       </div>
-
-      <!-- Bio  -->
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-no-leftmargin bc-padding">
-          <h4 class="bc-guides-profile-heading bc-no-margin">Kyle Cannon</h4>
-
-         <h4 class="bc-guides-profile-text"><strong>Bio:</strong> Kyle is currently climbing the seven summits (Seven highest mountains on each continent; he has already climbed 3).
-           He graduated from West Chester University with a degree in Management and has backpacked Europe many times.
-           He is EMT/CPR certified, has a degree in wine tasting, and has worked for many years as a construction project manager.
-           He now spends much of his' work' time traveling, bar tending, and guiding tours... In his spare time; he loves yoga, rock climbing, and dancing with friends.
-
-          <br><br><strong>Places lived:</strong> Philadelphia, San Diego, West Chester, Stavanger-Norway
-
-          <br><strong>Favorite City:</strong> Copenhagen
-
-          <br><strong>Favorite Club or Nightlife:</strong> Distortion in Copenhagen, or anything EDM
-
-          <br><strong>Favorite Adventure:</strong> Climbing Mont Blanc
-
-          <br><br><strong>What to expect with Kyle:</strong> Loves food markets, Interesting bars/clubs, and meeting Local friends.</h4>
-
-          <!-- I'm a big fan of hidden HTML texts. And since I'm the one coding this ;-)
-          here we are...
-          Come on my trips if you like to party, drink too much..., do and see bad ass shit, and not have to worry about code... this site was a pain in the ass to make.
-        -->
-       </div>
-     </div>
-
-     <!-- Guide 2-->
-     <div class="mdl-grid">
-
-      <!-- Bio  -->
-
-      <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet mdl-cell--hide-desktop bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
-           <img class="bc-guide-profile-images" src="{% static 'images\jesse.jpg' %}">
-      </div>
-
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--8-col-tablet bc-padding bc-no-topmargin bc-no-rightmargin bc-no-botmargin">
-          <h4 class="bc-guides-profile-heading bc-no-margin">Jesse Sangco</h4>
-
-         <h4 class="bc-guides-profile-text"><strong>Bio:</strong> Jesse is a Philly native that rediscovered his passion for travel during his military service. Having a great passion for experiencing local culture and food, Jesse is sure to make your trip one the most memorable.When he’s not directing tours for BlackCrow, you’ll have to look for him in a rock gym, hiking/camping, kayaking down the Delaware riveror dancing the night away with friends and family.
-
-         <br><br><strong>Places lived:</strong> Philadelphia, Lizard land
-
-         <br><strong>Favorite City:</strong> New Jersey
-
-         <br><strong>Favorite Club or Nightlife:</strong>
-
-         <br><strong>Favorite Adventure:</strong>
-
-         <br><br><strong>What to expect with Jesse:</strong> meeting Lizards</h4>
-
-          <!-- Jesse's probably the coolest guy you'll ever meet. Loves to meet new people and party. All about nature, hikes, and cool shit.
-          unbiased review... he doesn't know how to view this. Don't tell him. Pretend I wrote something really scandalous.
-        -->
-       </div>
-
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
-            <img class="bc-guide-profile-images" src="{% static 'images\jesse.jpg' %}">
-       </div>
-
-     </div>
-
-     <!-- Guide 3 -->
-     <div class="mdl-grid">
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-no-rightmargin">
-            <img class="bc-guide-profile-images" src="{% static 'images\lexi.jpg' %}">
-       </div>
-
-      <!-- Bio  -->
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-no-leftmargin bc-padding">
-          <h4 class="bc-guides-profile-heading bc-no-margin">Lexi Quinn</h4>
-
-         <h4 class="bc-guides-profile-text"><strong>Bio:</strong> She graduated from Temple University- Tyler School of Art with a degree in Metalsmithing/CADCAM, (3d printing design), and overall design. Currently she is designing for Black Crow & the Franklin Institute for different science and tech exhibits while developing its very own 3d printing department. She has also stepped foot onto 4 out of 7 continents while traveling through Europe, Southeast Asia  and Africa.  As a recent colligate graduate, she spends much of her time in research, working and guiding tours... In her spare time; she loves soccer, volleyball, art & design, technology and having splendid times with everyone.
-
-          <br><br><strong>Places lived:</strong> Philadelphia, PA. Rome, Italy
-
-          <br><strong>Favorite City:</strong> Koh Tao, Thailand
-
-          <br><strong>Favorite Club or Nightlife:</strong> Chefchaouen
-
-          <br><strong>Favorite Adventure:</strong> Cannoning
-
-          <br><br><strong>What to expect with Lexi:</strong> Amazing Alexia Adventures</h4>
-
-          <!-- Lexi's smile is infectious... Really sweet girl. Love's lizards for some weird reason... idk I don't judge. Well maybe just a litte. Super creative, designed all of our products and some of the site.
-          But agian, she doesn't code. So if you ever meet her, tell her a CRAZY secret is written on the site... but you can't say :-P
-
-        -->
-       </div>
-     </div>
-
-   </div>
-  </div>
 
 {% endblock %}
