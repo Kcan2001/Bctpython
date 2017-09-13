@@ -9,12 +9,13 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('accounts', '0008_change_relation_to_onetoone'),
+        ('trips', '0007_add_trip_date_and_minor_changes'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='account',
             name='trips',
-            field=models.ManyToManyField(to='trips.TripDate'),
+            field=models.ManyToManyField(related_name='account', to='trips.TripDate'),
         ),
     ]

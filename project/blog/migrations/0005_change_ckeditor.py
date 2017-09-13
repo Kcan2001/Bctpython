@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations
-import tinymce.models
+import ckeditor_uploader.fields
 
 
 class Migration(migrations.Migration):
@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='post',
             name='text',
-            field=tinymce.models.HTMLField(),
+            field=ckeditor_uploader.fields.RichTextUploadingField(),
         ),
     ]

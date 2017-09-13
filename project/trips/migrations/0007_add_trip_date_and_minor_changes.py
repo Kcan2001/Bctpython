@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('trips', '0006_change_ckeditor_to_tinymce'),
+        ('trips', '0006_add_relation_from_excursions_to_trip'),
     ]
 
     operations = [

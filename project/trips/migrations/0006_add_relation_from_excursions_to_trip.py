@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import tinymce.models
 
 
 class Migration(migrations.Migration):
@@ -16,17 +15,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='excursion',
-            name='description',
-            field=tinymce.models.HTMLField(),
-        ),
-        migrations.AlterField(
-            model_name='excursion',
             name='trip',
             field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='excursions', to='trips.Trip'),
-        ),
-        migrations.AlterField(
-            model_name='trip',
-            name='description',
-            field=tinymce.models.HTMLField(),
         ),
     ]
