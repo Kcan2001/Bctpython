@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv=“Content-Type” content=“text/html; charset=utf-8”>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="trQ4WhLvZLsyiy0teiyrePRoWHKHvACueuuJqxa6WgE" />
+    <meta name="google-site-verification" content="trQ4WhLvZLsyiy0teiyrePRoWHKHvACueuuJqxa6WgE"/>
     {% load static %}
     <link rel="shortcut icon" type="image/png" href="{% static 'bc-flav.fw.png' %}"/>
     <title>Black Crow Tours {% block head_title %}{% endblock %}</title>
@@ -13,44 +12,76 @@
     <!-- Google Mdl -->
     <link rel="stylesheet" href="{% static 'material.min.css' %}"/>
     <script defer src="{% static 'material.min.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
 
     <!--Start of Zendesk Chat Script-->
     <script type="text/javascript">
-    window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-    d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-    _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
-    $.src="https://v2.zopim.com/?4sBxe4xM5kUdmRKWQdyN2hPWAdFluwPG";z.t=+new Date;$.
-    type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+        window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) {
+                z._.push(c)
+            }, $ = z.s =
+                d.createElement(s), e = d.getElementsByTagName(s)[0];
+            z.set = function (o) {
+                z.set._.push(o)
+            };
+            z._ = [];
+            z.set._ = [];
+            $.async = !0;
+            $.setAttribute("charset", "utf-8");
+            $.src = "https://v2.zopim.com/?4sBxe4xM5kUdmRKWQdyN2hPWAdFluwPG";
+            z.t = +new Date;
+            $.type = "text/javascript";
+            e.parentNode.insertBefore($, e)
+        })(document, "script");
     </script>
     <!--End of Zendesk Chat Script-->
 
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-101984715-1', 'auto');
-      ga('send', 'pageview');
+        ga('create', 'UA-101984715-1', 'auto');
+        ga('send', 'pageview');
 
     </script>
 
-<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '537178703072709'); // Insert your pixel ID here.
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
-/></noscript>
-<!-- DO NOT MODIFY -->
-<!-- End Facebook Pixel Code -->
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '537178703072709'); // Insert your pixel ID here.
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
 
 
     <base href="/">
@@ -58,350 +89,699 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
 <body>
 <div class="mdl-layout">
 
-<main class="mdl-layout__content">
-
-{% load static %}
-
-
-
-<!-- Inner Grid  -->
-<div class="mdl-grid bc-site-grey-background">
-  <div class="mdl-layout-spacer">  </div>
-  <div class="mdl-cell mdl-cell--11-col">
-
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--12-col">
-        <h4 class="bc-terms-heading">Terms and Conditions</h4>
-      </div>
-    </div>
-
-
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--12-col">
-    <h4 class="bc-terms-text">
-      These booking conditions are valid for all BlackCrow trips departing after February 10th, 2016, and are subject to change with or without notice.
-
-       <br><br><strong>Pricing</strong>
-       <br>Prices are per person based on standard rooming occupancy. Advertised air-inclusive tour prices are based on lowest-priced travel season and gateway. For the most up-to-date pricing, please see our website. All prices are based on exchange rates, airfares, fuel prices/surcharges and land costs as of February 10th, 2016 and are therefore subject to increase prior to the time of full payment. All prices are in U.S. dollars.
-
-      <br><br><strong>Departure Fees and Surcharges</strong>
-
-      <br>Departure fees and surcharges are imposed by airlines, governmental agencies and, occasionally, hotels and/or other providers of services to cover such things as federal or foreign government imposed landing fees, security fees, and energy/fuel increases. These fees are already included in your pricing. However, if an airline or a government increases the taxes and fees applicable to your itinerary, BlackCrow will update your account and invoices accordingly.
-
-
-
-      <br><br><strong>Booking Procedures</strong>
-       <br>We suggest that travelers enroll as soon as possible as tours tend to fill up quickly and applications are processed on a “first-come, first-served” basis.
-
-      <br>The amount paid upon booking is refundable if you cancel in writing within 48 hours of booking the tour. After 48 hours, the deposit is "nonrefundable", we will however try out best to get it refunded.
-
-      <br>It is recommended that applications be received by 90 days prior to the departure date of the selected tour.
-
-      <br>Your application is not complete until Blackcrow has internet acceptance on file of your agreement to Booking Conditions and Release & Agreement or a signed application. Travelers must be 18-30 years of age at the time of departure. Travelers must provide their complete first, middle and last names and date of birth as they appear (or will appear) on their passport. Any corrections to the traveler’s passport name made after 90 days prior to departure will incur a minimum fee of $100 per airline up to the cost of a new published fare ticket and may result in a different flight itinerary from travel companions. If you have not yet applied for your passport, provide your full name and date of birth as it appears on your birth certificate.
-
-
-
-      <br><br><strong>Payment Details</strong>
-       <br>Payments can be made by any card using Paypal. Please contact us for more information. BlackCrow reserves the right to cancel a traveler if payment is not received on time, in which case cancellation fees will apply. In the event that a paper invoice is not received, payment is still due as scheduled. BlackCrow will provide final travel documents and itineraries only after a traveler’s account has been paid in full. All payments are due in U.S. dollars.
-
-      <br><br><strong>Automatic Payment Plan</strong>
-      <br>All travelers are enrolled in Blackcrow's free, no interest Payment Plan. Our Payment Plan divides tour costs over time so payments are split in increments and deducted regularly directly from a checking account. Travelers can elect the payment plan option by choosing the deposit. Final payment will be due 60 days prior to departure.
-
-      <br><br><strong>Automatic Payment Plan Terms and Conditions</strong>
-      <br>To qualify a minimum of two automated payments are required.
-      Travelers must provide a valid email address and pay the tour’s $500 (or customized amount) non-refundable deposit before the plan is activated.
-      Travelers who choose monthly payments will be billed on the 15th of each month.
-      Blackcrow reserves the right to withdraw you from the automatic schedule for checking account returns or credit card declines for two consecutive months. Should the final payment be returned or declined, travelers will automatically be withdrawn from the plan.
-      After the final payment deadline you will be invoiced for any subsequent charges; payments will no longer be automatically deducted. Additional payments must be made by direct debit from your checking account.
-
-
-      <br><br><strong>Passports and Visas</strong>
-      <br>It is the responsibility of each traveler to obtain a passport and any applicable visas for his or her tour prior to departure. Please be sure the passport expiration date is valid for at least six months after your travel ends. Certain countries require that your passport’s expiration date be valid for at least six months after your return, and should your passport fail to meet these standards the airline can deny your entry. Non-U.S. citizens will need to contact the embassies or consulates of their destination countries to ensure they meet specific entry requirements. Remember to check your itinerary carefully for all countries that you will visit or pass through, including transfers between airports in foreign countries and re-entry into the United States. Visit the U.S. Department of State at travel.state.gov for further information. If a traveler is unable to obtain a passport and/or visa and cannot travel, our Cancellation Policy will apply.
-
-
-
-      <br><br><strong>Cancellation Policy</strong>
-      <br>The cancellation fees below take into consideration the costs Blackcrow incurs long before groups ever depart. Notice of cancellation from an BlackCrow tour will only be accepted if given by the traveler. The date of cancellation will be determined by the date on which Blackcrow receives notice. Cancellation refunds will be made to the person whose name appears on the account; payments will not be transferred to another account. Non- refundable items and late fees will be deducted from the refund amount. These non-refundable items include but are not limited to; enrollment deposits, travel protection, service charges due to late enrollment, fees for changing information from passports, declined credit/debit card fees, late fees, returned check fees, stop payment fees, and special arrangement fees.
-
-      <br><br><strong>Standard Cancellation Fees</strong>
-      <br>Days Prior to Departure
-
-      <br>Cancellation Fee
-
-      <br>7 Days or less      --    All monies paid
-
-      <br>30-8 Days           --    $1000
-
-      <br>60-31 Days          --    $800
-
-      <br>61+ Days            --    $600
-
-      <br><br><strong>Refunds</strong>
-      <br>Refunds will  credited back to the card used to make the original payment. Please allow 3 weeks for a refund to be executed. Refunds can only be made back onto the same card or checking account used previously, and only up to the amount paid on that specific card or checking account.
-
-      <br><br><strong>Tour Interruption:</strong>
-
-      <br>If the traveler is on tour but decides to leave early due to loss of interest, sickness, or personal reason, the participant is responsible for any additional costs incurred by interrupting the tour. This includes but not limited to their return flight and other transportation costs due to the interruption.
-
-      <br><br><strong>Tour Availability</strong>
-
-      <br>Blackcrow reserves the right to reschedule or cancel a tour due to low enrollments. If an insufficient number of travelers register for your tour, Blackcrow will offer you a comparable tour and/or departure date with a sufficient number of travelers. If neither of these options would be available, travelers are entitled to a refund of all monies paid.
-
-      <br><br><strong>Itinerary Variations</strong>
-
-      <br>If improvements can be made to tour itineraries or unforeseen circumstances necessitate changes, Blackcrow reserves the right to amend itineraries or change the date within a reasonable time frame. Some itinerary changes are beyond our control. Blackcrow will make every effort to notify the traveler as early as possible of such changes. On rare occasions these changes may involve changing the order in which cities are visited, altering the length of your stay in a certain city or country or using an alternate airport. Other possible changes include departure, arrival or return dates. Traveler will be subject to standard cancellation fees should they choose not to travel on an amended itinerary. If a traveler wishes to change the date or destination of his or her tour, Blackcrow must be notified by 90 days prior to departure. After this time, changes cannot be accepted.
-
-      <br><br><strong>Holidays and Itinerary Changes</strong>
-
-      <br>Due to local or national holidays, and/or special events, access may be limited to certain facilities and attractions including, but not limited to, castles, museums, historical sites, and stores. On such occasions, and whenever possible, slight itinerary adjustments will be made to minimize traveler inconvenience. If, however, your enjoyment might be diminished by such minor limitations, please check with the respective national tourist office before selecting a tour and travel date.
-
-      <br><br><strong>Additional Local Excursions</strong>
-
-      <br>Additional Local Excursions are supplemental activities offered on tours. Excursions are available for purchase on tour.
-
-      <br><br><strong>Tour Cancellation</strong>
-      <br>Blackcrow may cancel any tour for events beyond its control, including but not limited to instability in a destination country, acts of God, war (whether declared or undeclared), terrorist activities, incidents of violence, public health issues or quarantine, substantial currency fluctuations, strikes, government restrictions, fire or severe weather conditions that make it impossible or commercially unreasonable in our opinion to conduct the tour. If Blackcrow cancels the tour for any such reason, travelers will receive a non-transferable Future Travel Voucher for all monies paid. This voucher can be used as a credit to an alternate tour. Cancellation by Blackcrow for causes described in this section shall not be a violation of its obligations to any travelers.
-
-
-      <br><br><strong>Flight Information</strong>
-      <br>Once a traveler is ticketed they are responsible for any changes, including name changes, to the ticket and the costs associated with that change. These changes could result in the cost of a new airline ticket. If a traveler misses a flight, they are responsible for the cost of a new flight and will not be reimbursed for missed portions of the trip. Blackcrow is not responsible for any fees or restrictions imposed by the airline for baggage. For specific information on baggage requirements travelers should refer to the airlines website directly.
-
-      <br><br><strong>Making Your Own Flight Arrangements ("Land-Only Packages")</strong>
-
-      <br>You may choose to make your own flight arrangements for your tour. If you choose this option, you are responsible for arranging your own transportation from the airport to the first accommodation to meet your group. At the end of your trip, you are also responsible for the transportation from the accommodation back to the airport.
-
-      <br>If Blackcrow changes the travel program in any way, you will be responsible for accommodating your own flight plans and airport transfers accordingly and are responsible to cover any costs that may result from such changes. To avoid such costs, please be advised that you should not book your own flights or other arrangements independently of Blackcrow until your trip has been confirmed at 60 days prior to departure. Blackcrow is not liable for any arrangements you have made on your own and this is not considered to be a part of the Blackcrow tour.
-
-      <br><br><strong>Special Travel Arrangements</strong>
-
-      <br>Blackcrow offers travelers the opportunity to extend their stay before or after their scheduled tour dates. During your Special Travel Arrangement, you are traveling solo without the services of a Tour Director or the company of your tour group. Any additional costs incurred from our suppliers due to deviations (such as, but not limited to, dates and gateways) from published tour itineraries will be charged to the traveler. Special Travel Requests are submitted no later than 90 days prior to departure. Blackcrow is not liable for any arrangements you have made on your own.
-
-      <br><br><strong>Special Travel Terms and Conditions</strong>
-
-      <br>Blackcrow cannot guarantee that we can accommodate your requested special travel itinerary; nor can we guarantee specific airline or flight requests.
-      If Blackcrow can confirm your Special Travel Request, you will receive an official confirmation email.
-      Time booked before or after tour that is associated with your Special Travel Request is personal travel time.Blackcrow is unable to recommend or book accommodations, transportation, sights or transportation between cities for travelers during their Special Travel time. The traveler is responsible for securing all of this on their own.
-      Blackcrow cannot provide any transportation between airport and accommodation for travelers during Special Travel.
-      If you travel on your own before your tour, you are responsible for making arrangements to arrive at the first accommodation of the Blackcrow itinerary on the day of the tour group’s arrival.
-      If you travel on your own after the Blackcrow tour, you are responsible for making arrangements to get yourself to the airport from your final accommodation.
-
-
-      <br><br><strong>Rooming</strong>
-      <br>Blackcrow uses boutique hostels for accommodations within cities. Blackcrow will take care of rooming assignments for all travelers. All rooming requests, including upgrades, must be submitted by 90 days prior to departure. These rooms may be mixed gender.
-
-      <br>Standard Room: Travelers will normally room up to six people per room in twin, double, or bunk bed style rooming with others of the same gender from the entire group. Each room will have a private bathroom which is to be shared amongst roommates. Roommates are chosen randomly, unless a traveler specifically requests a roommate. These rooms may be mixed gender.
-
-      <br>Private Room Upgrades: A traveler may request to room with one other traveler in private rooming. Rooming style will consist of either twin or double beds.
-
-      <br>The following additional charges will apply for Private Room Upgrades:
-
-      $40 per accommodation night per traveler
-      <br>Single Rooms: Travelers may request a single room for an additional charge of $70 per hotel night.
-
-      <br>All Room Upgrades: All room upgrades are on request basis and are not guaranteed. After submitting the request, it is possible for your request to be denied, in which case you will default to Standard Rooming. Certain tours do not accept room upgrades requests of any sort.
-
-      <br><br><strong>Final Travel Information</strong>
-
-      <br>Final travel information, including travel itineraries, hotel accommodations and airline e-tickets, are posted 30 days prior to departure. Blackcrow will provide final travel documents and itineraries only after your account has been paid in full and after the traveler has agreed to Blackcrow’s Booking Conditions and Release & Agreement.
-
-      <br><br><strong>Legal Responsibilities</strong>
-      <br>Payment of the required reservation fee constitutes consent to all provisions of the conditions and general information contained herein. Furthermore, from time to time Blackcrow will photograph, film or video tape tours and tour-related activities. All travelers consent to the use of their likeness in Blackcrow publications and marketing materials unless they specifically indicate their preference in writing. No warranties, representations, terms or conditions apply to any travel program unless expressly stated within these Booking Conditions (or in a letter signed by an Blackcrow officer). Each tour begins with the airline departure from JFK and ends upon completion of your return flight. (For those making their own flight arrangements or requesting flight deviations: the tour begins upon arrival at the first Blackcrow accommodation and ends upon departure from the last Blackcrow accommodation according to the itinerary; flights between cities during your tour are not an official part of the itinerary.) The official length of an Blackcrow tour does not include any stay-ahead, stay-behind or any optional periods or activities when travelers are not escorted by a guide.
-
-      <br><br>Blackcrow reserves the right to immediately remove any traveler from their tour for failure to abide by Blackcrow’s regulations and/or the directions of the Guide. Travelers who have been removed waive the right to a refund of any part of the program fee, and Blackcrow may send the traveler home at the traveler’s own expense. Blackcrow tours are not for resale and travelers must make their enrollment application directly with Blackcrow. Blackcrow reserves the right to change or cancel any aspect of a program at any time without notice. Blackcrow reserves the right to remove any person as a member of any tour without notice. Blackcrow cannot be held responsible for events beyond its control, such as (without limitation) acts of God, war (whether declared or undeclared), terrorist activities, public health matters, strikes or government restrictions; nor for personal injury, property damage, or loss of earnings, from any event whatsoever caused by persons not controlled by Blackcrow, such as (without limitation) airlines, cruise lines, railways, tour directors, bus companies and hotels and their agents and employees. While Blackcrow makes every effort to ensure the accuracy of its publications, it cannot be held responsible for typographical or printing errors (including prices).
-
-
-
-      <br><br>Copyright © 2017 Blackcrow
-
-      <br><br><strong>Release & Agreement</strong>
-      <br>I am an applicant, aged 18 or over, for an Blackcrow tour. By signing or electronically submitting the Blackcrow Application, I understand and agree to the following:
-
-      <br>1. I understand and agree that my tour is operated by Blackcrowtours.
-      <br>2. Blackcrow does not own or operate any entity which is to or does provide goods or services for my program, including for example, arrangements for ownership or control over hotels, hostels, apartment or other lodging facilities, tour directors, airline vessel, bus or other transportation companies, local ground operators, visa processing services, provides or organizers of optional excursions, food service or entertainment providers, etc. I acknowledge that all such person and entities, specifically the guide assigned to my tour, are independent contractors and not employees of or employed by Blackcrow. As a result, Blackcrow is not liable for any negligent or willful act or facture to act of any such person or entity or any third party.
-      <br>3. I understand and agree that my tour begins with the takeoff from the JFK and ends upon completion of the flight back. If I have purchased a Land-Only Package, I understand that my tour begins with my arrival at the first accommodation arranged by Blackcrow on my itinerary and ends with my departure from the final accommodation arranged by Blackcrow on my itinerary and does not include flights between cities.
-      <br>4. I further understand that international travel involves certain risks to personal health, safety and property. Many foreign countries do not have the safety and health standards that are present in the United States. I am willing to accept the associated risks and understand that Blackcrow cannot guarantee the health and safety of participants in a foreign trip or eliminate the risk from a foreign environment.
-      <br>5. I understand and agree that Blackcrow reserves the right to refuse or cancel my registration at their sole discretion. In such event, the Cancellation Policy and associated fees as outlined in the Booking Conditions apply.
-      <br>6. I understand and agree to release Blackcrow, and agree not to sue Blackcrow for, any and all claims, of any nature related in any manner to my participation in an Blackcrow tour, including but not limited to, claims for negligence, breach of contract, breach of express or implied warranties, or wrongful death. I hereby unconditionally and unequivocally waive any and all claims and demands for all damages, losses, costs and expenses of any nature whatsoever (including attorneys’ fees) on account of or arising out of any and all personal injury, death, bodily injury mental anguish, emotional distress, property or other damage that I may suffer from any cause whatsoever related in any way to my participation in any Blackcrow tour. I further agree to release Blackcrow from any and all decisions to cancel, modify, or delay the tour as a result of acts of God, war (whether declared or undeclared), terrorist activities or threats of terrorists activities, instability in a destination country, incidents of violence, public health issues or quarantine or threats of public health issues, substantial currency fluctuations, strikes, government restrictions, fire or severe weather conditions that make it impossible or commercially unreasonable in the sole opinion of Blackcrow to conduct the tour.
-      <br>7. I acknowledge and agree that this release includes and applies to activities not offered by Blackcrow that may be considered risky including, but not limited to, parasailing, paragliding, parachuting, skydiving, scuba (unless certified), and the use of motorbikes, mopeds, scooters and ATVs. I further understand that travel in other nations is not similar to travel within the United States. Programs outside the United States can involve inconvenience and risk, including, but not limited to, forces of nature, geographic and climatic conditions, different hygienic standards, infrastructure problems (including road maintenance, transportation delays and accommodation condition), civil unrest, vandalism, crime, political instability and terrorism. Medical services or facilities may not be readily available or available at all during all or part of a program and, if available, may not be equal to standards in participant’s home country. I assume all risk of bodily injury, death, emotional trauma, property damage, inconvenience and/or loss resulting from negligence or any other acts of any and all persons or entities, however caused, including, but not limited to, those risks mentioned above. It is my intention fully to assume all of the risks of travel and participation in the program and to release Blackcrow from any and all liabilities to the maximum extent permitted by law. If this form is also signed by a parent or legal guardian, that parent or guardian is making a similar release.
-      <br>8. I understand and agree that the air carrier’s liability for loss of or damage to baggage or property, or for death or injury to person, is limited by their tariffs, or the Warsaw Convention, or both.
-      <br>9. I understand and agree that Blackcrow shall have no liability or responsibility for me when I am absent from Blackcrow- supervised activities or for non-Blackcrow supervised activities, such as free time, visits to friends or relatives, or during stay-ahead, stay-behind or any optional periods or activities that do not include the services of a guide.
-      <br>10. I understand and agree to abide by Blackcrow’s regulations and the directions of my guide or Blackcrow’s personnel during my tour. Regulations include but are not limited to prohibitions on hitchhiking, the driving or renting of any motor vehicle, possession and/or usage of drugs, overindulgent alcohol consumption, disruptive actions to the tour group, damage to hotel property or causing physical harm to another person. Failure to do so may result in Blackcrow terminating me from the tour immediately. I understand and agree that to disobey such rules or directions is to waive the right to a refund of any part of my program fee, and that Blackcrow may then send me home at my own expense. Blackcrow is not responsible for arranging my transport home.
-      <br>11. I understand and agree to abide by all local laws when abroad, including those concerning drugs and alcohol. I understand that if I abuse or disobey such laws, even unintentionally, I waive my right to a refund of any part of the program fee, and Blackcrow may send me home at my own expense. I also understand that should local authorities be involved, I will be subject to the laws of the country I am visiting. Actions resulting in incarceration will result in immediate termination from the tour and I agree to waive the right to a refund of any part of my program fee. Blackcrow is not responsible for any legal fees or arrangements.
-      <br>12. I understand and agree to abide by the time scheduled for city departures as set by my Guide. Failure to be on time for scheduled departure may result in the guide and tour group leaving without me and I will have to make arrangements at my own expense to reconvene with the group in new city. Blackcrow is not responsible for arranging transportation.
-      <br>13. I understand and agree that if I become ill or incapacitated, Blackcrow and its employees may take any action they deem necessary for my safety and well-being including securing medical treatment and transporting me home at my own expense. Blackcrow retains the right, in its sole discretion, to contact the Emergency Contact listed on my enrollment form with regard to health issues, any issues that may compromise the safety or well-being of myself or others, or any matter whatsoever that relates to my tour. These rights transcend any and all privacy regulations that may apply. In the event of a medical emergency Blackcrow will attempt to cause appropriate treatment to be administered and the participant authorizes Blackcrow to do so. Blackcrow, however, makes no warranty that it will be able to cause effective (or any) emergency treatment to be administered.
-      <br>14. I understand and agree that Blackcrow has the right to make changes in tour itineraries and departure dates, and to modify transportation arrangements, including the use of substitute airlines. In the event of such changes, refunds will be given only in accordance with the provisions of the Booking Conditions supplied herewith.
-      <br>15. I understand and agree that prices are subject to unforeseen charges or price increases.
-      <br>16. I understand and agree that it is my responsibility to secure the necessary travel documents (passport and visa[s]) unless specifically arranged for the group by Blackcrow. Failure to do so does not constitute grounds for a refund except according to the Cancellation Policy as outlined in the Booking Conditions.
-      <br>17. I understand and agree that Blackcrow is not responsible for loss of passports, airline tickets or other documents, or for loss of or damage to luggage or any other passenger belongings. In the case of a lost paper airline ticket or missing Blackcrow booked flight, the participant is solely responsible for meeting the airline’s requirements (both logistical and financial) for ticket replacement.
-      <br>18. I understand and agree that I will be required to pay for any phone calls or incidental personal expenses that I incur at hotels, as well as for any damage I cause to hotel rooms, buses or other property.
-      <br>19. I understand and agree that this tour has been designed for persons age 18 to 30, as reflected in the pacing, content, accommodations and other aspects of the tour.
-      <br>20. I understand and agree that Blackcrow may use any photographic, film or video likenesses taken of me and any of my comments while on an Blackcrow tour for future publicity or marketing without compensation to me and also use my contact information for future Blackcrow promotions. I have read and understand the Terms of Use and Privacy policies and I consent to Blackcrow’s processing my personal data.
-      <br>21. I understand and agree that this agreement shall be governed in all respects, and performance hereunder shall be judged, by the laws of the Commonwealth of Pennsylvania. In the event of any claim, dispute or proceeding arising out of my relationship with Blackcrow, or any claim which in contract, tort, or otherwise at law or in equity arises between myself and Blackcrow, whether or not related to this agreement, the parties submit and consent to the exclusive jurisdiction and venue of the courts of the Commonwealth of Pennsylvania and of the United States District Court for the District of Pennsylvania.
-      <br>22. I understand and agree that this agreement and Blackcrow’s Booking Conditions constitute the entire agreement between Blackcrow and me with reference to the subject matter herein, and I do not rely upon any promises, inducements or agreements not contained herein, including but not limited to any oral statements made to me by any agents or employees of Blackcrow, or <strong>ANY</strong> of our associates. This agreement may be amended or modified only in writing, signed by both parties. The waiver by Blackcrow of any provision of this Agreement shall in no way affect the remaining provisions of this Agreement, and this Agreement
-      Upon making your deposit you are agreeing to these terms. Further more, we require an additionally signed copy.
-
-      <br><br>Failure to agree to Booking Conditions and Release & Agreement will result in forfeiture to travel and you will be subject to Blackcrow’s Cancellation Policy.
-
-      <br><br>Copyright © 2017 Blackcrow
-  </h4>
-</div>
-</div>
-
-
-
-       <!-- Section 1 Mission  -->
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--12-col">
-        <h4 class="bc-terms-heading">Privacy Policy</h4>
-      </div>
-    </div>
-
-    <!-- Section 2 info -->
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--12-col">
-        <h4 class="bc-terms-text">This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
-           
-
-          <br><br>What personal information do we collect from the people that visit our blog, website or app?
-          When ordering or registering on our site, as appropriate, you may be asked to enter your name, email address, mailing address, phone number, credit card information, social security number, Passport Info or other details to help you with your experience.
-          When do we collect information?
-          We collect information from you when you register on our site, place an order, subscribe to a newsletter, respond to a survey, fill out a form, Open a Support Ticket or enter information on our site.
-          Provide us with feedback on our products or services
-
-          <br><br><strong>How do we use your information?</strong>
-          <br>We may use the information we collect from you when you register, make a purchase, sign up for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:
-
-               <br><br> • To personalize your experience and to allow us to deliver the type of content and product offerings in which you are most interested.
-               <br>• To improve our website in order to better serve you.
-               <br> • To allow us to better service you in responding to your customer service requests.
-               <br> • To administer a contest, promotion, survey or other site feature.
-               <br> • To quickly process your transactions.
-               <br> • To ask for ratings and reviews of services or products
-               <br> • To follow up with them after correspondence (live chat, email or phone inquiries)
-           
-
-          <br><br><strong>How do we protect your information?</strong>
-          <br>Our website is scanned on a regular basis for security holes and known vulnerabilities in order to make your visit to our site as safe as possible.
-
-          <br><br>We use regular Malware Scanning.
-
-          <br><br>Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology.
-          We implement a variety of security measures when a user places an order enters, submits, or accesses their information to maintain the safety of your personal information.
-          All transactions are processed through a gateway provider and are not stored or processed on our servers.
-           
-
-          <br><br><strong>Do we use 'cookies'?</strong>
-          <br>Yes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information. For instance, we use cookies to help us remember and process the items in your shopping cart. They are also used to help us understand your preferences based on previous or current site activity, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.
-          We use cookies to:
-                <br><br> • Help remember and process the items in the shopping cart.
-                <br> • Understand and save user's preferences for future visits.
-                <br> • Keep track of advertisements.
-                <br> • Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third-party services that track this information on our behalf.
-          <br>You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Since browser is a little different, look at your browser's Help Menu to learn the correct way to modify your cookies.
-          If you turn cookies off, Some of the features that make your site experience more efficient may not function properly.It won't affect the user's experience that make your site experience more efficient and may not function properly.
-           
-
-          <br><br><strong>Third-party disclosure</strong>
-          <br>We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it's release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property or safety.
-
-          <br><br>However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.
-
-           
-
-          <br><br><strong>Third-party links</strong>
-          <br>Occasionally, at our discretion, we may include or offer third-party products or services on our website. These third-party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.
-           
-
-          <br><br><strong>Google</strong>
-          <br>Google's advertising requirements can be summed up by Google's Advertising Principles. They are put in place to provide a positive experience for users. https://support.google.com/adwordspolicy/answer/1316548?hl=en
-
-          <br><br>We use Google AdSense Advertising on our website.
-          <br>Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of the DART cookie enables it to serve ads to our users based on previous visits to our site and other sites on the Internet. Users may opt-out of the use of the DART cookie by visiting the Google Ad and Content Network privacy policy.
-          <br>We have implemented the following:
-               <br> • Remarketing with Google AdSense
-               <br> • Google Display Network Impression Reporting
-               <br> • Demographics and Interests Reporting
-               <br> • DoubleClick Platform Integration
-          <br>We, along with third-party vendors such as Google use first-party cookies (such as the Google Analytics cookies) and third-party cookies (such as the DoubleClick cookie) or other third-party identifiers together to compile data regarding user interactions with ad impressions and other ad service functions as they relate to our website.
-          Opting out:
-          Users can set preferences for how Google advertises to you using the Google Ad Settings page. Alternatively, you can opt out by visiting the Network Advertising Initiative Opt Out page or by using the Google Analytics Opt Out Browser add on.
-           
-
-          <br><br><strong>California Online Privacy Protection Act</strong>
-          <br>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law's reach stretches well beyond California to require any person or company in the United States (and conceivably the world) that operates websites collecting Personally Identifiable Information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals or companies with whom it is being shared. - See more at: http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf
-          According to CalOPPA, we agree to the following:
-          Users can visit our site anonymously.
-          Once this privacy policy is created, we will add a link to it on our home page or as a minimum, on the first significant page after entering our website.
-          Our Privacy Policy link includes the word 'Privacy' and can easily be found on the page specified above.
-          <br>You will be notified of any Privacy Policy changes:
-               <br> • Via Email
-          <br> Can change your personal information:
-               <br> • By emailing us
-          <br>How does our site handle Do Not Track signals?
-          We honor Do Not Track signals and Do Not Track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place.
-          Does our site allow third-party behavioral tracking?
-          It's also important to note that we allow third-party behavioral tracking
-           
-
-          <br><br><strong>COPPA (Children Online Privacy Protection Act)</strong>
-          <br>When it comes to the collection of personal information from children under the age of 13 years old, the Children's Online Privacy Protection Act (COPPA) puts parents in control. The Federal Trade Commission, United States' consumer protection agency, enforces the COPPA Rule, which spells out what operators of websites and online services must do to protect children's privacy and safety online.
-
-          <br><br>We do not specifically market to children under the age of 13 years old.
-           
-
-        <br><br><strong>Fair Information Practices</strong>
-          <br>The Fair Information Practices Principles form the backbone of privacy law in the United States and the concepts they include have played a significant role in the development of data protection laws around the globe. Understanding the Fair Information Practice Principles and how they should be implemented is critical to comply with the various privacy laws that protect personal information.
-
-          <br><br>In order to be in line with Fair Information Practices we will take the following responsive action, should a data breach occur:
-          <br>We will notify you via email
-               <br> • Within 7 business days
-          <br>We also agree to the Individual Redress Principle which requires that individuals have the right to legally pursue enforceable rights against data collectors and processors who fail to adhere to the law. This principle requires not only that individuals have enforceable rights against data users, but also that individuals have recourse to courts or government agencies to investigate and/or prosecute non-compliance by data processors.
-           
-
-          <br><br><strong>CAN SPAM Act</strong>
-          <br>The CAN-SPAM Act is a law that sets the rules for commercial email, establishes requirements for commercial messages, gives recipients the right to have emails stopped from being sent to them, and spells out tough penalties for violations.
-
-          <br><br>We collect your email address in order to:
-               <br> • Send information, respond to inquiries, and/or other requests or questions
-               <br> • Process orders and to send information and updates pertaining to orders.
-               <br> • Send you additional information related to your product and/or service
-               <br> • Market to our mailing list or continue to send emails to our clients after the original transaction has occurred.
-          <br><br>To be in accordance with CANSPAM, we agree to the following:
-               <br> • Not use false or misleading subjects or email addresses.
-               <br> • Identify the message as an advertisement in some reasonable way.
-               <br> • Include the physical address of our business or site headquarters.
-               <br> • Monitor third-party email marketing services for compliance, if one is used.
-               <br> • Honor opt-out/unsubscribe requests quickly.
-               <br> • Allow users to unsubscribe by using the link at the bottom of each email.
-
-          <br><br>If at any time you would like to unsubscribe from receiving future emails, you can email us at
-               <br> • Follow the instructions at the bottom of each email.
-          <br>and we will promptly remove you from ALL correspondence.
-
-           
-
-          <br><br><strong>Contacting Us</strong>
-
-
-          <br><br>If there are any questions regarding this privacy policy, you may contact us using the information below.
-
-          <br>blackcrowtours.com
-          <br>646 Rector Street
-          <br>Philadelphia, Pennsylvania 19128
-
-          <br><br>United States
-          <br>kyleacannon@gmail.com
-          <br>215-483-7082
-          <br>Last Edited on 2017-06-12
-
-      </h4>
- </div>
- <div class="mdl-layout-spacer">  </div>
-    </div>
-
-  </div>
-  <div class="mdl-layout-spacer">  </div>
-</div>  <!--End Inner Grid  -->
+    <main class="mdl-layout__content">
+
+        {% load static %}
+
+
+        <!-- Inner Grid  -->
+        <div class="mdl-grid bc-site-grey-background">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--11-col">
+
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h4 class="bc-terms-heading">Terms and Conditions</h4>
+                    </div>
+                </div>
+
+
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h4 class="bc-terms-text">
+                            These booking conditions are valid for all BlackCrow trips departing after February 10th,
+                            2016, and are subject to change with or without notice.
+
+                            <br><br><strong>Pricing</strong>
+                            <br>Prices are per person based on standard rooming occupancy. Advertised air-inclusive tour
+                            prices are based on lowest-priced travel season and gateway. For the most up-to-date
+                            pricing, please see our website. All prices are based on exchange rates, airfares, fuel
+                            prices/surcharges and land costs as of February 10th, 2016 and are therefore subject to
+                            increase prior to the time of full payment. All prices are in U.S. dollars.
+
+                            <br><br><strong>Departure Fees and Surcharges</strong>
+
+                            <br>Departure fees and surcharges are imposed by airlines, governmental agencies and,
+                            occasionally, hotels and/or other providers of services to cover such things as federal or
+                            foreign government imposed landing fees, security fees, and energy/fuel increases. These
+                            fees are already included in your pricing. However, if an airline or a government increases
+                            the taxes and fees applicable to your itinerary, BlackCrow will update your account and
+                            invoices accordingly.
+
+
+                            <br><br><strong>Booking Procedures</strong>
+                            <br>We suggest that travelers enroll as soon as possible as tours tend to fill up quickly
+                            and applications are processed on a “first-come, first-served” basis.
+
+                            <br>The amount paid upon booking is refundable if you cancel in writing within 48 hours of
+                            booking the tour. After 48 hours, the deposit is "nonrefundable", we will however try out
+                            best to get it refunded.
+
+                            <br>It is recommended that applications be received by 90 days prior to the departure date
+                            of the selected tour.
+
+                            <br>Your application is not complete until Blackcrow has internet acceptance on file of your
+                            agreement to Booking Conditions and Release & Agreement or a signed application. Travelers
+                            must be 18-30 years of age at the time of departure. Travelers must provide their complete
+                            first, middle and last names and date of birth as they appear (or will appear) on their
+                            passport. Any corrections to the traveler’s passport name made after 90 days prior to
+                            departure will incur a minimum fee of $100 per airline up to the cost of a new published
+                            fare ticket and may result in a different flight itinerary from travel companions. If you
+                            have not yet applied for your passport, provide your full name and date of birth as it
+                            appears on your birth certificate.
+
+
+                            <br><br><strong>Payment Details</strong>
+                            <br>Payments can be made by any card using Paypal. Please contact us for more information.
+                            BlackCrow reserves the right to cancel a traveler if payment is not received on time, in
+                            which case cancellation fees will apply. In the event that a paper invoice is not received,
+                            payment is still due as scheduled. BlackCrow will provide final travel documents and
+                            itineraries only after a traveler’s account has been paid in full. All payments are due in
+                            U.S. dollars.
+
+                            <br><br><strong>Automatic Payment Plan</strong>
+                            <br>All travelers are enrolled in Blackcrow's free, no interest Payment Plan. Our Payment
+                            Plan divides tour costs over time so payments are split in increments and deducted regularly
+                            directly from a checking account. Travelers can elect the payment plan option by choosing
+                            the deposit. Final payment will be due 60 days prior to departure.
+
+                            <br><br><strong>Automatic Payment Plan Terms and Conditions</strong>
+                            <br>To qualify a minimum of two automated payments are required.
+                            Travelers must provide a valid email address and pay the tour’s $500 (or customized amount)
+                            non-refundable deposit before the plan is activated.
+                            Travelers who choose monthly payments will be billed on the 15th of each month.
+                            Blackcrow reserves the right to withdraw you from the automatic schedule for checking
+                            account returns or credit card declines for two consecutive months. Should the final payment
+                            be returned or declined, travelers will automatically be withdrawn from the plan.
+                            After the final payment deadline you will be invoiced for any subsequent charges; payments
+                            will no longer be automatically deducted. Additional payments must be made by direct debit
+                            from your checking account.
+
+
+                            <br><br><strong>Passports and Visas</strong>
+                            <br>It is the responsibility of each traveler to obtain a passport and any applicable visas
+                            for his or her tour prior to departure. Please be sure the passport expiration date is valid
+                            for at least six months after your travel ends. Certain countries require that your
+                            passport’s expiration date be valid for at least six months after your return, and should
+                            your passport fail to meet these standards the airline can deny your entry. Non-U.S.
+                            citizens will need to contact the embassies or consulates of their destination countries to
+                            ensure they meet specific entry requirements. Remember to check your itinerary carefully for
+                            all countries that you will visit or pass through, including transfers between airports in
+                            foreign countries and re-entry into the United States. Visit the U.S. Department of State at
+                            travel.state.gov for further information. If a traveler is unable to obtain a passport
+                            and/or visa and cannot travel, our Cancellation Policy will apply.
+
+
+                            <br><br><strong>Cancellation Policy</strong>
+                            <br>The cancellation fees below take into consideration the costs Blackcrow incurs long
+                            before groups ever depart. Notice of cancellation from an BlackCrow tour will only be
+                            accepted if given by the traveler. The date of cancellation will be determined by the date
+                            on which Blackcrow receives notice. Cancellation refunds will be made to the person whose
+                            name appears on the account; payments will not be transferred to another account. Non-
+                            refundable items and late fees will be deducted from the refund amount. These non-refundable
+                            items include but are not limited to; enrollment deposits, travel protection, service
+                            charges due to late enrollment, fees for changing information from passports, declined
+                            credit/debit card fees, late fees, returned check fees, stop payment fees, and special
+                            arrangement fees.
+
+                            <br><br><strong>Standard Cancellation Fees</strong>
+                            <br>Days Prior to Departure
+
+                            <br>Cancellation Fee
+
+                            <br>7 Days or less -- All monies paid
+
+                            <br>30-8 Days -- $1000
+
+                            <br>60-31 Days -- $800
+
+                            <br>61+ Days -- $600
+
+                            <br><br><strong>Refunds</strong>
+                            <br>Refunds will credited back to the card used to make the original payment. Please allow 3
+                            weeks for a refund to be executed. Refunds can only be made back onto the same card or
+                            checking account used previously, and only up to the amount paid on that specific card or
+                            checking account.
+
+                            <br><br><strong>Tour Interruption:</strong>
+
+                            <br>If the traveler is on tour but decides to leave early due to loss of interest, sickness,
+                            or personal reason, the participant is responsible for any additional costs incurred by
+                            interrupting the tour. This includes but not limited to their return flight and other
+                            transportation costs due to the interruption.
+
+                            <br><br><strong>Tour Availability</strong>
+
+                            <br>Blackcrow reserves the right to reschedule or cancel a tour due to low enrollments. If
+                            an insufficient number of travelers register for your tour, Blackcrow will offer you a
+                            comparable tour and/or departure date with a sufficient number of travelers. If neither of
+                            these options would be available, travelers are entitled to a refund of all monies paid.
+
+                            <br><br><strong>Itinerary Variations</strong>
+
+                            <br>If improvements can be made to tour itineraries or unforeseen circumstances necessitate
+                            changes, Blackcrow reserves the right to amend itineraries or change the date within a
+                            reasonable time frame. Some itinerary changes are beyond our control. Blackcrow will make
+                            every effort to notify the traveler as early as possible of such changes. On rare occasions
+                            these changes may involve changing the order in which cities are visited, altering the
+                            length of your stay in a certain city or country or using an alternate airport. Other
+                            possible changes include departure, arrival or return dates. Traveler will be subject to
+                            standard cancellation fees should they choose not to travel on an amended itinerary. If a
+                            traveler wishes to change the date or destination of his or her tour, Blackcrow must be
+                            notified by 90 days prior to departure. After this time, changes cannot be accepted.
+
+                            <br><br><strong>Holidays and Itinerary Changes</strong>
+
+                            <br>Due to local or national holidays, and/or special events, access may be limited to
+                            certain facilities and attractions including, but not limited to, castles, museums,
+                            historical sites, and stores. On such occasions, and whenever possible, slight itinerary
+                            adjustments will be made to minimize traveler inconvenience. If, however, your enjoyment
+                            might be diminished by such minor limitations, please check with the respective national
+                            tourist office before selecting a tour and travel date.
+
+                            <br><br><strong>Additional Local Excursions</strong>
+
+                            <br>Additional Local Excursions are supplemental activities offered on tours. Excursions are
+                            available for purchase on tour.
+
+                            <br><br><strong>Tour Cancellation</strong>
+                            <br>Blackcrow may cancel any tour for events beyond its control, including but not limited
+                            to instability in a destination country, acts of God, war (whether declared or undeclared),
+                            terrorist activities, incidents of violence, public health issues or quarantine, substantial
+                            currency fluctuations, strikes, government restrictions, fire or severe weather conditions
+                            that make it impossible or commercially unreasonable in our opinion to conduct the tour. If
+                            Blackcrow cancels the tour for any such reason, travelers will receive a non-transferable
+                            Future Travel Voucher for all monies paid. This voucher can be used as a credit to an
+                            alternate tour. Cancellation by Blackcrow for causes described in this section shall not be
+                            a violation of its obligations to any travelers.
+
+
+                            <br><br><strong>Flight Information</strong>
+                            <br>Once a traveler is ticketed they are responsible for any changes, including name
+                            changes, to the ticket and the costs associated with that change. These changes could result
+                            in the cost of a new airline ticket. If a traveler misses a flight, they are responsible for
+                            the cost of a new flight and will not be reimbursed for missed portions of the trip.
+                            Blackcrow is not responsible for any fees or restrictions imposed by the airline for
+                            baggage. For specific information on baggage requirements travelers should refer to the
+                            airlines website directly.
+
+                            <br><br><strong>Making Your Own Flight Arrangements ("Land-Only Packages")</strong>
+
+                            <br>You may choose to make your own flight arrangements for your tour. If you choose this
+                            option, you are responsible for arranging your own transportation from the airport to the
+                            first accommodation to meet your group. At the end of your trip, you are also responsible
+                            for the transportation from the accommodation back to the airport.
+
+                            <br>If Blackcrow changes the travel program in any way, you will be responsible for
+                            accommodating your own flight plans and airport transfers accordingly and are responsible to
+                            cover any costs that may result from such changes. To avoid such costs, please be advised
+                            that you should not book your own flights or other arrangements independently of Blackcrow
+                            until your trip has been confirmed at 60 days prior to departure. Blackcrow is not liable
+                            for any arrangements you have made on your own and this is not considered to be a part of
+                            the Blackcrow tour.
+
+                            <br><br><strong>Special Travel Arrangements</strong>
+
+                            <br>Blackcrow offers travelers the opportunity to extend their stay before or after their
+                            scheduled tour dates. During your Special Travel Arrangement, you are traveling solo without
+                            the services of a Tour Director or the company of your tour group. Any additional costs
+                            incurred from our suppliers due to deviations (such as, but not limited to, dates and
+                            gateways) from published tour itineraries will be charged to the traveler. Special Travel
+                            Requests are submitted no later than 90 days prior to departure. Blackcrow is not liable for
+                            any arrangements you have made on your own.
+
+                            <br><br><strong>Special Travel Terms and Conditions</strong>
+
+                            <br>Blackcrow cannot guarantee that we can accommodate your requested special travel
+                            itinerary; nor can we guarantee specific airline or flight requests.
+                            If Blackcrow can confirm your Special Travel Request, you will receive an official
+                            confirmation email.
+                            Time booked before or after tour that is associated with your Special Travel Request is
+                            personal travel time.Blackcrow is unable to recommend or book accommodations,
+                            transportation, sights or transportation between cities for travelers during their Special
+                            Travel time. The traveler is responsible for securing all of this on their own.
+                            Blackcrow cannot provide any transportation between airport and accommodation for travelers
+                            during Special Travel.
+                            If you travel on your own before your tour, you are responsible for making arrangements to
+                            arrive at the first accommodation of the Blackcrow itinerary on the day of the tour group’s
+                            arrival.
+                            If you travel on your own after the Blackcrow tour, you are responsible for making
+                            arrangements to get yourself to the airport from your final accommodation.
+
+
+                            <br><br><strong>Rooming</strong>
+                            <br>Blackcrow uses boutique hostels for accommodations within cities. Blackcrow will take
+                            care of rooming assignments for all travelers. All rooming requests, including upgrades,
+                            must be submitted by 90 days prior to departure. These rooms may be mixed gender.
+
+                            <br>Standard Room: Travelers will normally room up to six people per room in twin, double,
+                            or bunk bed style rooming with others of the same gender from the entire group. Each room
+                            will have a private bathroom which is to be shared amongst roommates. Roommates are chosen
+                            randomly, unless a traveler specifically requests a roommate. These rooms may be mixed
+                            gender.
+
+                            <br>Private Room Upgrades: A traveler may request to room with one other traveler in private
+                            rooming. Rooming style will consist of either twin or double beds.
+
+                            <br>The following additional charges will apply for Private Room Upgrades:
+
+                            $40 per accommodation night per traveler
+                            <br>Single Rooms: Travelers may request a single room for an additional charge of $70 per
+                            hotel night.
+
+                            <br>All Room Upgrades: All room upgrades are on request basis and are not guaranteed. After
+                            submitting the request, it is possible for your request to be denied, in which case you will
+                            default to Standard Rooming. Certain tours do not accept room upgrades requests of any sort.
+
+                            <br><br><strong>Final Travel Information</strong>
+
+                            <br>Final travel information, including travel itineraries, hotel accommodations and airline
+                            e-tickets, are posted 30 days prior to departure. Blackcrow will provide final travel
+                            documents and itineraries only after your account has been paid in full and after the
+                            traveler has agreed to Blackcrow’s Booking Conditions and Release & Agreement.
+
+                            <br><br><strong>Legal Responsibilities</strong>
+                            <br>Payment of the required reservation fee constitutes consent to all provisions of the
+                            conditions and general information contained herein. Furthermore, from time to time
+                            Blackcrow will photograph, film or video tape tours and tour-related activities. All
+                            travelers consent to the use of their likeness in Blackcrow publications and marketing
+                            materials unless they specifically indicate their preference in writing. No warranties,
+                            representations, terms or conditions apply to any travel program unless expressly stated
+                            within these Booking Conditions (or in a letter signed by an Blackcrow officer). Each tour
+                            begins with the airline departure from JFK and ends upon completion of your return flight.
+                            (For those making their own flight arrangements or requesting flight deviations: the tour
+                            begins upon arrival at the first Blackcrow accommodation and ends upon departure from the
+                            last Blackcrow accommodation according to the itinerary; flights between cities during your
+                            tour are not an official part of the itinerary.) The official length of an Blackcrow tour
+                            does not include any stay-ahead, stay-behind or any optional periods or activities when
+                            travelers are not escorted by a guide.
+
+                            <br><br>Blackcrow reserves the right to immediately remove any traveler from their tour for
+                            failure to abide by Blackcrow’s regulations and/or the directions of the Guide. Travelers
+                            who have been removed waive the right to a refund of any part of the program fee, and
+                            Blackcrow may send the traveler home at the traveler’s own expense. Blackcrow tours are not
+                            for resale and travelers must make their enrollment application directly with Blackcrow.
+                            Blackcrow reserves the right to change or cancel any aspect of a program at any time without
+                            notice. Blackcrow reserves the right to remove any person as a member of any tour without
+                            notice. Blackcrow cannot be held responsible for events beyond its control, such as (without
+                            limitation) acts of God, war (whether declared or undeclared), terrorist activities, public
+                            health matters, strikes or government restrictions; nor for personal injury, property
+                            damage, or loss of earnings, from any event whatsoever caused by persons not controlled by
+                            Blackcrow, such as (without limitation) airlines, cruise lines, railways, tour directors,
+                            bus companies and hotels and their agents and employees. While Blackcrow makes every effort
+                            to ensure the accuracy of its publications, it cannot be held responsible for typographical
+                            or printing errors (including prices).
+
+
+                            <br><br>Copyright © 2017 Blackcrow
+
+                            <br><br><strong>Release & Agreement</strong>
+                            <br>I am an applicant, aged 18 or over, for an Blackcrow tour. By signing or electronically
+                            submitting the Blackcrow Application, I understand and agree to the following:
+
+                            <br>1. I understand and agree that my tour is operated by Blackcrowtours.
+                            <br>2. Blackcrow does not own or operate any entity which is to or does provide goods or
+                            services for my program, including for example, arrangements for ownership or control over
+                            hotels, hostels, apartment or other lodging facilities, tour directors, airline vessel, bus
+                            or other transportation companies, local ground operators, visa processing services,
+                            provides or organizers of optional excursions, food service or entertainment providers, etc.
+                            I acknowledge that all such person and entities, specifically the guide assigned to my tour,
+                            are independent contractors and not employees of or employed by Blackcrow. As a result,
+                            Blackcrow is not liable for any negligent or willful act or facture to act of any such
+                            person or entity or any third party.
+                            <br>3. I understand and agree that my tour begins with the takeoff from the JFK and ends
+                            upon completion of the flight back. If I have purchased a Land-Only Package, I understand
+                            that my tour begins with my arrival at the first accommodation arranged by Blackcrow on my
+                            itinerary and ends with my departure from the final accommodation arranged by Blackcrow on
+                            my itinerary and does not include flights between cities.
+                            <br>4. I further understand that international travel involves certain risks to personal
+                            health, safety and property. Many foreign countries do not have the safety and health
+                            standards that are present in the United States. I am willing to accept the associated risks
+                            and understand that Blackcrow cannot guarantee the health and safety of participants in a
+                            foreign trip or eliminate the risk from a foreign environment.
+                            <br>5. I understand and agree that Blackcrow reserves the right to refuse or cancel my
+                            registration at their sole discretion. In such event, the Cancellation Policy and associated
+                            fees as outlined in the Booking Conditions apply.
+                            <br>6. I understand and agree to release Blackcrow, and agree not to sue Blackcrow for, any
+                            and all claims, of any nature related in any manner to my participation in an Blackcrow
+                            tour, including but not limited to, claims for negligence, breach of contract, breach of
+                            express or implied warranties, or wrongful death. I hereby unconditionally and unequivocally
+                            waive any and all claims and demands for all damages, losses, costs and expenses of any
+                            nature whatsoever (including attorneys’ fees) on account of or arising out of any and all
+                            personal injury, death, bodily injury mental anguish, emotional distress, property or other
+                            damage that I may suffer from any cause whatsoever related in any way to my participation in
+                            any Blackcrow tour. I further agree to release Blackcrow from any and all decisions to
+                            cancel, modify, or delay the tour as a result of acts of God, war (whether declared or
+                            undeclared), terrorist activities or threats of terrorists activities, instability in a
+                            destination country, incidents of violence, public health issues or quarantine or threats of
+                            public health issues, substantial currency fluctuations, strikes, government restrictions,
+                            fire or severe weather conditions that make it impossible or commercially unreasonable in
+                            the sole opinion of Blackcrow to conduct the tour.
+                            <br>7. I acknowledge and agree that this release includes and applies to activities not
+                            offered by Blackcrow that may be considered risky including, but not limited to,
+                            parasailing, paragliding, parachuting, skydiving, scuba (unless certified), and the use of
+                            motorbikes, mopeds, scooters and ATVs. I further understand that travel in other nations is
+                            not similar to travel within the United States. Programs outside the United States can
+                            involve inconvenience and risk, including, but not limited to, forces of nature, geographic
+                            and climatic conditions, different hygienic standards, infrastructure problems (including
+                            road maintenance, transportation delays and accommodation condition), civil unrest,
+                            vandalism, crime, political instability and terrorism. Medical services or facilities may
+                            not be readily available or available at all during all or part of a program and, if
+                            available, may not be equal to standards in participant’s home country. I assume all risk of
+                            bodily injury, death, emotional trauma, property damage, inconvenience and/or loss resulting
+                            from negligence or any other acts of any and all persons or entities, however caused,
+                            including, but not limited to, those risks mentioned above. It is my intention fully to
+                            assume all of the risks of travel and participation in the program and to release Blackcrow
+                            from any and all liabilities to the maximum extent permitted by law. If this form is also
+                            signed by a parent or legal guardian, that parent or guardian is making a similar release.
+                            <br>8. I understand and agree that the air carrier’s liability for loss of or damage to
+                            baggage or property, or for death or injury to person, is limited by their tariffs, or the
+                            Warsaw Convention, or both.
+                            <br>9. I understand and agree that Blackcrow shall have no liability or responsibility for
+                            me when I am absent from Blackcrow- supervised activities or for non-Blackcrow supervised
+                            activities, such as free time, visits to friends or relatives, or during stay-ahead,
+                            stay-behind or any optional periods or activities that do not include the services of a
+                            guide.
+                            <br>10. I understand and agree to abide by Blackcrow’s regulations and the directions of my
+                            guide or Blackcrow’s personnel during my tour. Regulations include but are not limited to
+                            prohibitions on hitchhiking, the driving or renting of any motor vehicle, possession and/or
+                            usage of drugs, overindulgent alcohol consumption, disruptive actions to the tour group,
+                            damage to hotel property or causing physical harm to another person. Failure to do so may
+                            result in Blackcrow terminating me from the tour immediately. I understand and agree that to
+                            disobey such rules or directions is to waive the right to a refund of any part of my program
+                            fee, and that Blackcrow may then send me home at my own expense. Blackcrow is not
+                            responsible for arranging my transport home.
+                            <br>11. I understand and agree to abide by all local laws when abroad, including those
+                            concerning drugs and alcohol. I understand that if I abuse or disobey such laws, even
+                            unintentionally, I waive my right to a refund of any part of the program fee, and Blackcrow
+                            may send me home at my own expense. I also understand that should local authorities be
+                            involved, I will be subject to the laws of the country I am visiting. Actions resulting in
+                            incarceration will result in immediate termination from the tour and I agree to waive the
+                            right to a refund of any part of my program fee. Blackcrow is not responsible for any legal
+                            fees or arrangements.
+                            <br>12. I understand and agree to abide by the time scheduled for city departures as set by
+                            my Guide. Failure to be on time for scheduled departure may result in the guide and tour
+                            group leaving without me and I will have to make arrangements at my own expense to reconvene
+                            with the group in new city. Blackcrow is not responsible for arranging transportation.
+                            <br>13. I understand and agree that if I become ill or incapacitated, Blackcrow and its
+                            employees may take any action they deem necessary for my safety and well-being including
+                            securing medical treatment and transporting me home at my own expense. Blackcrow retains the
+                            right, in its sole discretion, to contact the Emergency Contact listed on my enrollment form
+                            with regard to health issues, any issues that may compromise the safety or well-being of
+                            myself or others, or any matter whatsoever that relates to my tour. These rights transcend
+                            any and all privacy regulations that may apply. In the event of a medical emergency
+                            Blackcrow will attempt to cause appropriate treatment to be administered and the participant
+                            authorizes Blackcrow to do so. Blackcrow, however, makes no warranty that it will be able to
+                            cause effective (or any) emergency treatment to be administered.
+                            <br>14. I understand and agree that Blackcrow has the right to make changes in tour
+                            itineraries and departure dates, and to modify transportation arrangements, including the
+                            use of substitute airlines. In the event of such changes, refunds will be given only in
+                            accordance with the provisions of the Booking Conditions supplied herewith.
+                            <br>15. I understand and agree that prices are subject to unforeseen charges or price
+                            increases.
+                            <br>16. I understand and agree that it is my responsibility to secure the necessary travel
+                            documents (passport and visa[s]) unless specifically arranged for the group by Blackcrow.
+                            Failure to do so does not constitute grounds for a refund except according to the
+                            Cancellation Policy as outlined in the Booking Conditions.
+                            <br>17. I understand and agree that Blackcrow is not responsible for loss of passports,
+                            airline tickets or other documents, or for loss of or damage to luggage or any other
+                            passenger belongings. In the case of a lost paper airline ticket or missing Blackcrow booked
+                            flight, the participant is solely responsible for meeting the airline’s requirements (both
+                            logistical and financial) for ticket replacement.
+                            <br>18. I understand and agree that I will be required to pay for any phone calls or
+                            incidental personal expenses that I incur at hotels, as well as for any damage I cause to
+                            hotel rooms, buses or other property.
+                            <br>19. I understand and agree that this tour has been designed for persons age 18 to 30, as
+                            reflected in the pacing, content, accommodations and other aspects of the tour.
+                            <br>20. I understand and agree that Blackcrow may use any photographic, film or video
+                            likenesses taken of me and any of my comments while on an Blackcrow tour for future
+                            publicity or marketing without compensation to me and also use my contact information for
+                            future Blackcrow promotions. I have read and understand the Terms of Use and Privacy
+                            policies and I consent to Blackcrow’s processing my personal data.
+                            <br>21. I understand and agree that this agreement shall be governed in all respects, and
+                            performance hereunder shall be judged, by the laws of the Commonwealth of Pennsylvania. In
+                            the event of any claim, dispute or proceeding arising out of my relationship with Blackcrow,
+                            or any claim which in contract, tort, or otherwise at law or in equity arises between myself
+                            and Blackcrow, whether or not related to this agreement, the parties submit and consent to
+                            the exclusive jurisdiction and venue of the courts of the Commonwealth of Pennsylvania and
+                            of the United States District Court for the District of Pennsylvania.
+                            <br>22. I understand and agree that this agreement and Blackcrow’s Booking Conditions
+                            constitute the entire agreement between Blackcrow and me with reference to the subject
+                            matter herein, and I do not rely upon any promises, inducements or agreements not contained
+                            herein, including but not limited to any oral statements made to me by any agents or
+                            employees of Blackcrow, or <strong>ANY</strong> of our associates. This agreement may be
+                            amended or modified only in writing, signed by both parties. The waiver by Blackcrow of any
+                            provision of this Agreement shall in no way affect the remaining provisions of this
+                            Agreement, and this Agreement
+                            Upon making your deposit you are agreeing to these terms. Further more, we require an
+                            additionally signed copy.
+
+                            <br><br>Failure to agree to Booking Conditions and Release & Agreement will result in
+                            forfeiture to travel and you will be subject to Blackcrow’s Cancellation Policy.
+
+                            <br><br>Copyright © 2017 Blackcrow
+                        </h4>
+                    </div>
+                </div>
+
+
+                <!-- Section 1 Mission  -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h4 class="bc-terms-heading">Privacy Policy</h4>
+                    </div>
+                </div>
+
+                <!-- Section 2 info -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h4 class="bc-terms-text">This privacy policy has been compiled to better serve those who are
+                            concerned with how their 'Personally Identifiable Information' (PII) is being used online.
+                            PII, as described in US privacy law and information security, is information that can be
+                            used on its own or with other information to identify, contact, or locate a single person,
+                            or to identify an individual in context. Please read our privacy policy carefully to get a
+                            clear understanding of how we collect, use, protect or otherwise handle your Personally
+                            Identifiable Information in accordance with our website.
+                             
+
+                            <br><br>What personal information do we collect from the people that visit our blog, website
+                            or app?
+                            When ordering or registering on our site, as appropriate, you may be asked to enter your
+                            name, email address, mailing address, phone number, credit card information, social security
+                            number, Passport Info or other details to help you with your experience.
+                            When do we collect information?
+                            We collect information from you when you register on our site, place an order, subscribe to
+                            a newsletter, respond to a survey, fill out a form, Open a Support Ticket or enter
+                            information on our site.
+                            Provide us with feedback on our products or services
+
+                            <br><br><strong>How do we use your information?</strong>
+                            <br>We may use the information we collect from you when you register, make a purchase, sign
+                            up for our newsletter, respond to a survey or marketing communication, surf the website, or
+                            use certain other site features in the following ways:
+
+                                 <br><br> • To personalize your experience and to allow us to deliver the type of
+                            content and product offerings in which you are most interested.
+                                 <br>• To improve our website in order to better serve you.
+                                 <br> • To allow us to better service you in responding to your customer service
+                            requests.
+                                 <br> • To administer a contest, promotion, survey or other site feature.
+                                 <br> • To quickly process your transactions.
+                                 <br> • To ask for ratings and reviews of services or products
+                                 <br> • To follow up with them after correspondence (live chat, email or phone
+                            inquiries)
+                             
+
+                            <br><br><strong>How do we protect your information?</strong>
+                            <br>Our website is scanned on a regular basis for security holes and known vulnerabilities
+                            in order to make your visit to our site as safe as possible.
+
+                            <br><br>We use regular Malware Scanning.
+
+                            <br><br>Your personal information is contained behind secured networks and is only
+                            accessible by a limited number of persons who have special access rights to such systems,
+                            and are required to keep the information confidential. In addition, all sensitive/credit
+                            information you supply is encrypted via Secure Socket Layer (SSL) technology.
+                            We implement a variety of security measures when a user places an order enters, submits, or
+                            accesses their information to maintain the safety of your personal information.
+                            All transactions are processed through a gateway provider and are not stored or processed on
+                            our servers.
+                             
+
+                            <br><br><strong>Do we use 'cookies'?</strong>
+                            <br>Yes. Cookies are small files that a site or its service provider transfers to your
+                            computer's hard drive through your Web browser (if you allow) that enables the site's or
+                            service provider's systems to recognize your browser and capture and remember certain
+                            information. For instance, we use cookies to help us remember and process the items in your
+                            shopping cart. They are also used to help us understand your preferences based on previous
+                            or current site activity, which enables us to provide you with improved services. We also
+                            use cookies to help us compile aggregate data about site traffic and site interaction so
+                            that we can offer better site experiences and tools in the future.
+                            We use cookies to:
+                                  <br><br> • Help remember and process the items in the shopping cart.
+                                  <br> • Understand and save user's preferences for future visits.
+                                  <br> • Keep track of advertisements.
+                                  <br> • Compile aggregate data about site traffic and site interactions in order to
+                            offer better site experiences and tools in the future. We may also use trusted third-party
+                            services that track this information on our behalf.
+                            <br>You can choose to have your computer warn you each time a cookie is being sent, or you
+                            can choose to turn off all cookies. You do this through your browser settings. Since browser
+                            is a little different, look at your browser's Help Menu to learn the correct way to modify
+                            your cookies.
+                            If you turn cookies off, Some of the features that make your site experience more efficient
+                            may not function properly.It won't affect the user's experience that make your site
+                            experience more efficient and may not function properly.
+                             
+
+                            <br><br><strong>Third-party disclosure</strong>
+                            <br>We do not sell, trade, or otherwise transfer to outside parties your Personally
+                            Identifiable Information unless we provide users with advance notice. This does not include
+                            website hosting partners and other parties who assist us in operating our website,
+                            conducting our business, or serving our users, so long as those parties agree to keep this
+                            information confidential. We may also release information when it's release is appropriate
+                            to comply with the law, enforce our site policies, or protect ours or others' rights,
+                            property or safety.
+
+                            <br><br>However, non-personally identifiable visitor information may be provided to other
+                            parties for marketing, advertising, or other uses.
+
+                             
+
+                            <br><br><strong>Third-party links</strong>
+                            <br>Occasionally, at our discretion, we may include or offer third-party products or
+                            services on our website. These third-party sites have separate and independent privacy
+                            policies. We therefore have no responsibility or liability for the content and activities of
+                            these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome
+                            any feedback about these sites.
+                             
+
+                            <br><br><strong>Google</strong>
+                            <br>Google's advertising requirements can be summed up by Google's Advertising Principles.
+                            They are put in place to provide a positive experience for users.
+                            https://support.google.com/adwordspolicy/answer/1316548?hl=en
+
+                            <br><br>We use Google AdSense Advertising on our website.
+                            <br>Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of
+                            the DART cookie enables it to serve ads to our users based on previous visits to our site
+                            and other sites on the Internet. Users may opt-out of the use of the DART cookie by visiting
+                            the Google Ad and Content Network privacy policy.
+                            <br>We have implemented the following:
+                                 <br> • Remarketing with Google AdSense
+                                 <br> • Google Display Network Impression Reporting
+                                 <br> • Demographics and Interests Reporting
+                                 <br> • DoubleClick Platform Integration
+                            <br>We, along with third-party vendors such as Google use first-party cookies (such as the
+                            Google Analytics cookies) and third-party cookies (such as the DoubleClick cookie) or other
+                            third-party identifiers together to compile data regarding user interactions with ad
+                            impressions and other ad service functions as they relate to our website.
+                            Opting out:
+                            Users can set preferences for how Google advertises to you using the Google Ad Settings
+                            page. Alternatively, you can opt out by visiting the Network Advertising Initiative Opt Out
+                            page or by using the Google Analytics Opt Out Browser add on.
+                             
+
+                            <br><br><strong>California Online Privacy Protection Act</strong>
+                            <br>CalOPPA is the first state law in the nation to require commercial websites and online
+                            services to post a privacy policy. The law's reach stretches well beyond California to
+                            require any person or company in the United States (and conceivably the world) that operates
+                            websites collecting Personally Identifiable Information from California consumers to post a
+                            conspicuous privacy policy on its website stating exactly the information being collected
+                            and those individuals or companies with whom it is being shared. - See more at:
+                            http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf
+                            According to CalOPPA, we agree to the following:
+                            Users can visit our site anonymously.
+                            Once this privacy policy is created, we will add a link to it on our home page or as a
+                            minimum, on the first significant page after entering our website.
+                            Our Privacy Policy link includes the word 'Privacy' and can easily be found on the page
+                            specified above.
+                            <br>You will be notified of any Privacy Policy changes:
+                                 <br> • Via Email
+                            <br> Can change your personal information:
+                                 <br> • By emailing us
+                            <br>How does our site handle Do Not Track signals?
+                            We honor Do Not Track signals and Do Not Track, plant cookies, or use advertising when a Do
+                            Not Track (DNT) browser mechanism is in place.
+                            Does our site allow third-party behavioral tracking?
+                            It's also important to note that we allow third-party behavioral tracking
+                             
+
+                            <br><br><strong>COPPA (Children Online Privacy Protection Act)</strong>
+                            <br>When it comes to the collection of personal information from children under the age of
+                            13 years old, the Children's Online Privacy Protection Act (COPPA) puts parents in control.
+                            The Federal Trade Commission, United States' consumer protection agency, enforces the COPPA
+                            Rule, which spells out what operators of websites and online services must do to protect
+                            children's privacy and safety online.
+
+                            <br><br>We do not specifically market to children under the age of 13 years old.
+                             
+
+                            <br><br><strong>Fair Information Practices</strong>
+                            <br>The Fair Information Practices Principles form the backbone of privacy law in the United
+                            States and the concepts they include have played a significant role in the development of
+                            data protection laws around the globe. Understanding the Fair Information Practice
+                            Principles and how they should be implemented is critical to comply with the various privacy
+                            laws that protect personal information.
+
+                            <br><br>In order to be in line with Fair Information Practices we will take the following
+                            responsive action, should a data breach occur:
+                            <br>We will notify you via email
+                                 <br> • Within 7 business days
+                            <br>We also agree to the Individual Redress Principle which requires that individuals have
+                            the right to legally pursue enforceable rights against data collectors and processors who
+                            fail to adhere to the law. This principle requires not only that individuals have
+                            enforceable rights against data users, but also that individuals have recourse to courts or
+                            government agencies to investigate and/or prosecute non-compliance by data processors.
+                             
+
+                            <br><br><strong>CAN SPAM Act</strong>
+                            <br>The CAN-SPAM Act is a law that sets the rules for commercial email, establishes
+                            requirements for commercial messages, gives recipients the right to have emails stopped from
+                            being sent to them, and spells out tough penalties for violations.
+
+                            <br><br>We collect your email address in order to:
+                                 <br> • Send information, respond to inquiries, and/or other requests or questions
+                                 <br> • Process orders and to send information and updates pertaining to orders.
+                                 <br> • Send you additional information related to your product and/or service
+                                 <br> • Market to our mailing list or continue to send emails to our clients after the
+                            original transaction has occurred.
+                            <br><br>To be in accordance with CANSPAM, we agree to the following:
+                                 <br> • Not use false or misleading subjects or email addresses.
+                                 <br> • Identify the message as an advertisement in some reasonable way.
+                                 <br> • Include the physical address of our business or site headquarters.
+                                 <br> • Monitor third-party email marketing services for compliance, if one is used.
+                                 <br> • Honor opt-out/unsubscribe requests quickly.
+                                 <br> • Allow users to unsubscribe by using the link at the bottom of each email.
+
+                            <br><br>If at any time you would like to unsubscribe from receiving future emails, you can
+                            email us at
+                                 <br> • Follow the instructions at the bottom of each email.
+                            <br>and we will promptly remove you from ALL correspondence.
+
+                             
+
+                            <br><br><strong>Contacting Us</strong>
+
+
+                            <br><br>If there are any questions regarding this privacy policy, you may contact us using
+                            the information below.
+
+                            <br>blackcrowtours.com
+                            <br>646 Rector Street
+                            <br>Philadelphia, Pennsylvania 19128
+
+                            <br><br>United States
+                            <br>kyleacannon@gmail.com
+                            <br>215-483-7082
+                            <br>Last Edited on 2017-06-12
+
+                        </h4>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+
+            </div>
+            <div class="mdl-layout-spacer"></div>
+        </div>  <!--End Inner Grid  -->
 
 
 </div>

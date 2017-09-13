@@ -5,35 +5,35 @@
 {% block head_title %}- Log In{% endblock %}
 
 {% block content %}
-<style>
-/**
- * The CSS shown here will not be introduced in the Quickstart guide, but shows
- * how you can use CSS to style your Element's container.
- */
-.StripeElement {
-    width: 300px;
-  background-color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-}
+    <style>
+        /**
+         * The CSS shown here will not be introduced in the Quickstart guide, but shows
+         * how you can use CSS to style your Element's container.
+         */
+        .StripeElement {
+            width: 300px;
+            background-color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            box-shadow: 0 1px 3px 0 #e6ebf1;
+            -webkit-transition: box-shadow 150ms ease;
+            transition: box-shadow 150ms ease;
+        }
 
-.StripeElement--focus {
-  box-shadow: 0 1px 3px 0 #cfd7df;
-}
+        .StripeElement--focus {
+            box-shadow: 0 1px 3px 0 #cfd7df;
+        }
 
-.StripeElement--invalid {
-  border-color: #fa755a;
-}
+        .StripeElement--invalid {
+            border-color: #fa755a;
+        }
 
-.StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
-}
+        .StripeElement--webkit-autofill {
+            background-color: #fefde5 !important;
+        }
 
-</style>
+    </style>
     <div class="mdl-grid bc-site-grey-background bc-spacer">
         <div class="mdl-layout-spacer"></div>
     </div>
@@ -52,56 +52,54 @@
                 </div>
 
                 {% if form.errors %}
-                <div class="mdl-cell mdl-cell--12-col">
-                    {{ form.errors }}
-                </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        {{ form.errors }}
+                    </div>
                 {% endif %}
 
                 <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
-                {% if request.user.account.is_membership is False %}
+                    {% if request.user.account.is_membership is False %}
 
-                    <div class="mdl-cell mdl-cell--9-col bc-text-center">
-                        <form action="/accounts/membership/payment/" id="payment-form" method="POST">
-                            {% csrf_token %}
-
-
-
+                        <div class="mdl-cell mdl-cell--9-col bc-text-center">
+                            <form action="/accounts/membership/payment/" id="payment-form" method="POST">
+                                {% csrf_token %}
 
 
                                 <label for="card-element">
-                                Credit or debit card
+                                    Credit or debit card
                                 </label>
                                 <div id="card-element">
-                                <!-- a Stripe Element will be inserted here. -->
+                                    <!-- a Stripe Element will be inserted here. -->
                                 </div>
                                 <!-- Used to display form errors -->
                                 <div id="card-errors" role="alert"></div>
-  <div class="outcome">
-    <div class="error" role="alert"></div>
-    <div class="success">
-      Success! Your Stripe token is <span class="token"></span>
-    </div>
-  </div>
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                                    <button class="mdl-button mdl-js-button mdl-button--raised">
-                                        Submit Payment
-                                    </button>
+                                <div class="outcome">
+                                    <div class="error" role="alert"></div>
+                                    <div class="success">
+                                        Success! Your Stripe token is <span class="token"></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                        <button class="mdl-button mdl-js-button mdl-button--raised">
+                                            Submit Payment
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     {% else %}
-                    <div class="mdl-cell mdl-cell--9-col bc-text-center">
-                    You already bought premium membership, thanks!
-                    </div>
-                {% endif %}
+                        <div class="mdl-cell mdl-cell--9-col bc-text-center">
+                            You already bought premium membership, thanks!
+                        </div>
+                    {% endif %}
                     <div class="mdl-layout-spacer"></div>
                 </div>
             </div>
 
-            <br><hr>
+            <br>
+            <hr>
 
         </div>
         <div class="mdl-layout-spacer"></div>
@@ -111,61 +109,62 @@
     <div class="mdl-grid bc-site-grey-background bc-spacer">
         <div class="mdl-layout-spacer"></div>
     </div>
-<script type="application/javascript">
-var stripe = Stripe('pk_test_ptZhV15kJSsxmAFr2dAwihNj');
-var elements = stripe.elements();
+    <script type="application/javascript">
+        var stripe = Stripe('pk_test_ptZhV15kJSsxmAFr2dAwihNj');
+        var elements = stripe.elements();
 
-// Custom styling can be passed to options when creating an Element.
-var style = {
-  base: {
-    // Add your base input styles here. For example:
-    fontSize: '16px',
-    lineHeight: '24px'
-  }
-};
+        // Custom styling can be passed to options when creating an Element.
+        var style = {
+            base: {
+                // Add your base input styles here. For example:
+                fontSize: '16px',
+                lineHeight: '24px'
+            }
+        };
 
-// Create an instance of the card Element
-var card = elements.create('card', {style: style});
+        // Create an instance of the card Element
+        var card = elements.create('card', {style: style});
 
-// Add an instance of the card Element into the `card-element` <div>
-card.mount('#card-element');
+        // Add an instance of the card Element into the `card-element` <div>
+        card.mount('#card-element');
 
-card.addEventListener('change', function(event) {
-  var displayError = document.getElementById('card-errors');
-  if (event.error) {
-    displayError.textContent = event.error.message;
-  } else {
-    displayError.textContent = '';
-  }
-});
+        card.addEventListener('change', function (event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
 
-// Create a token or display an error when the form is submitted.
-var form = document.getElementById('payment-form');
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
+        // Create a token or display an error when the form is submitted.
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
 
-  stripe.createToken(card).then(function(result) {
-    if (result.error) {
-      // Inform the user if there was an error
-      var errorElement = document.getElementById('card-errors');
-      errorElement.textContent = result.error.message;
-    } else {
-      // Send the token to your server
-      stripeTokenHandler(result.token);
-    }
-  });
-});
-function stripeTokenHandler(token) {
-  // Insert the token ID into the form so it gets submitted to the server
-  var form = document.getElementById('payment-form');
-  var hiddenInput = document.createElement('input');
-  hiddenInput.setAttribute('type', 'hidden');
-  hiddenInput.setAttribute('name', 'stripeToken');
-  hiddenInput.setAttribute('value', token.id);
-  form.appendChild(hiddenInput);
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    // Inform the user if there was an error
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to your server
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
 
-  // Submit the form
-  form.submit();
-}
-</script>
+        function stripeTokenHandler(token) {
+            // Insert the token ID into the form so it gets submitted to the server
+            var form = document.getElementById('payment-form');
+            var hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', 'stripeToken');
+            hiddenInput.setAttribute('value', token.id);
+            form.appendChild(hiddenInput);
+
+            // Submit the form
+            form.submit();
+        }
+    </script>
 {% endblock %}

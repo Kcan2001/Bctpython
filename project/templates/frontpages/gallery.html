@@ -6,24 +6,24 @@
 
 {% block content %}
 
-<div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--12-col">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
 
-    {% for photo in photos %}
-        <div class="bc-instagram-item">
-            <img src="{{ photo.image }}" class="bc-instagram-item-image">
-            <a href="{{ photo.link }}" target="_blank">
-                <div class="bc-instagram-item-overlay">
-                    <div class="bc-instagram-item-text">
-                        <i class="material-icons">favorite</i> {{ photo.likes }}
-                        <i class="material-icons">comment</i> {{ photo.comments }}
-                    </div>
+            {% for photo in photos %}
+                <div class="bc-instagram-item">
+                    <img src="{{ photo.image }}" class="bc-instagram-item-image">
+                    <a href="{{ photo.link }}" target="_blank">
+                        <div class="bc-instagram-item-overlay">
+                            <div class="bc-instagram-item-text">
+                                <i class="material-icons">favorite</i> {{ photo.likes }}
+                                <i class="material-icons">comment</i> {{ photo.comments }}
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-    {% endfor %}
+            {% endfor %}
 
+        </div>
     </div>
-</div>
 
 {% endblock %}

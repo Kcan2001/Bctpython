@@ -4,304 +4,320 @@
 
 {% block content %}
 
-     <!-- Section 3 to Footer  -->
-     <div class="mdl-grid bc-site-grey-background">
-          <div class="mdl-layout-spacer">  </div>
+    <!-- Section 3 to Footer  -->
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
 
-          <!-- Section 3 to footer Inner Grid -->
-           <div class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
+        <!-- Section 3 to footer Inner Grid -->
+        <div class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
 
-             <!-- Section 3 why to book -->
-             <div class="mdl-grid">
+            <!-- Section 3 why to book -->
+            <div class="mdl-grid">
 
-               <!-- inner grid -->
-               <div class="mdl-cell mdl-cell--12-col">
-                 <div class="mdl-grid">
-                   <div class="mdl-cell mdl-cell--12-col">
-                   <h4 class="bc-about-pages-subtitle bc-no-margin">
-                       Profile Name: {{ request.user.first_name }} {{ request.user.last_name }}
-                       <div id="tt1" class="icon material-icons">
-                           <a href="{% url 'accounts:update_user' %}" class="bc-nounderline" title="edit">edit</a>
-                       </div>
-                       {% if request.user.account.is_membership is True %}
-                       <span class="bc-blue-badge">PREMIUM</span>
-                       {% endif %}
-                   </h4>
-                  </div>
-                  {{ request.user.account.stripe_account.customer_id }}
-                 </div>
-                 <div class="mdl-grid">
-                     {% if request.user.account.photo %}
-                   <div class="mdl-cell mdl-cell--4-col">
-                      <img class="bc-standard-img" src="{{ request.user.account.photo.url }}">
-                   </div>
-                     {% endif %}
-
-
-                   <div style="padding-top: 0" class="mdl-cell mdl-cell--7-col mdl-shadow--2dp bc-review-card">
-                     <div class="mdl-grid">
-                       <div class="mdl-cell mdl-cell--12-col">
-                       <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Info
-                           <div id="tt1" class="icon material-icons">
-                           <a href="{% url 'accounts:update_account' %}" class="bc-nounderline" title="edit">edit</a>
-                       </div>
-                       </h4>
-                       {% if request.user.account.is_membership is True %}
-                       <span class="bc-blue-badge">PREMIUM</span>
-                       {% endif %}
-                       <a href="{% url 'accounts:public-home' username=request.user.username %}" title="Your public profile">
-                           <span class="bc-blue-badge">YOUR PUBLIC PROFILE</span></a>
-                       <a href="{% url 'accounts:create_blog_post' %}" title="Create blog post">
-                           <span class="bc-green-badge">Create Blog Post</span>
-                       </a>
-                      </div>
-                     </div>
-                       <hr>
-                     <div class="mdl-grid">
-                       <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Username: {{ request.user.username }}</h4>
-                       </div>
-                       <div class="mdl-cell mdl-cell--12-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Birthday: {{ request.user.account.birth_date|date:'Y-m-d' }}</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Email: {{ request.user.email }}</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Phone number: {{ request.user.account.phone }}</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Address: {{ request.user.account.address }}</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Passport number: {{ request.user.account.passport_number }}</h4>
-                       </div>
-                         <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date: {{ request.user.account.passport_issue_date|date:'Y-m-d' }}</h4>
+                <!-- inner grid -->
+                <div class="mdl-cell mdl-cell--12-col">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-about-pages-subtitle bc-no-margin">
+                                Profile Name: {{ request.user.first_name }} {{ request.user.last_name }}
+                                <div id="tt1" class="icon material-icons">
+                                    <a href="{% url 'accounts:update_user' %}" class="bc-nounderline"
+                                       title="edit">edit</a>
+                                </div>
+                                {% if request.user.account.is_membership is True %}
+                                    <span class="bc-blue-badge">PREMIUM</span>
+                                {% endif %}
+                            </h4>
                         </div>
-                        <div class="mdl-cell mdl-cell--6-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Passpost date: {{ request.user.account.passport_expire_date|date:'Y-m-d' }}</h4>
-                       </div>
-                       <div class="mdl-cell mdl-cell--12-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Emergency Contact: {{ request.user.account.emergency_contact }}</h4>
-                       </div>
-                     </div>
-                       <hr>
-                       <div class="mdl-grid">
-                       <div class="mdl-cell mdl-cell--12-col">
-                       <h4 class="bc-about-pages-subtitle bc-no-margin">Billing Info</h4>
-                      </div>
-                     </div>
-                     <div class="mdl-grid">
-                       <div class="mdl-cell mdl-cell--12-col">
-                         <h4 class="bc-about-pages-para bc-no-margin">Total Balance Due</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Months left</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Amount due per month</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Amount paid so far</h4>
-                         <h4 class="bc-about-pages-para bc-no-margin">Amount due now</h4>
-
-                       </div>
-                     </div>
-                   </div>
-
-                   <div class="mdl-layout-spacer">  </div>
-
-                 </div>
-
-               <div class="mdl-grid">
-                   <div class="mdl-cell mdl-cell--3-col">
-                      <h4 class="bc-about-pages-subtitle">Your upcoming trips</h4>
-                   </div>
-                 </div>
-                <div class="mdl-grid">
-{% for trip in user_trips  %}
-                   <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
+                        {{ request.user.account.stripe_account.customer_id }}
+                    </div>
+                    <div class="mdl-grid">
+                        {% if request.user.account.photo %}
+                            <div class="mdl-cell mdl-cell--4-col">
+                                <img class="bc-standard-img" src="{{ request.user.account.photo.url }}">
+                            </div>
+                        {% endif %}
 
 
+                        <div style="padding-top: 0" class="mdl-cell mdl-cell--7-col mdl-shadow--2dp bc-review-card">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <h4 class="bc-about-pages-subtitle bc-no-margin">Profile Info
+                                        <div id="tt1" class="icon material-icons">
+                                            <a href="{% url 'accounts:update_account' %}" class="bc-nounderline"
+                                               title="edit">edit</a>
+                                        </div>
+                                    </h4>
+                                    {% if request.user.account.is_membership is True %}
+                                        <span class="bc-blue-badge">PREMIUM</span>
+                                    {% endif %}
+                                    <a href="{% url 'accounts:public-home' username=request.user.username %}"
+                                       title="Your public profile">
+                                        <span class="bc-blue-badge">YOUR PUBLIC PROFILE</span></a>
+                                    <a href="{% url 'accounts:create_blog_post' %}" title="Create blog post">
+                                        <span class="bc-green-badge">Create Blog Post</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <h4 class="bc-about-pages-para bc-no-margin">
+                                        Username: {{ request.user.username }}</h4>
+                                </div>
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <h4 class="bc-about-pages-para bc-no-margin">
+                                        Birthday: {{ request.user.account.birth_date|date:'Y-m-d' }}</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">Email: {{ request.user.email }}</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">Phone
+                                        number: {{ request.user.account.phone }}</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">
+                                        Address: {{ request.user.account.address }}</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">Passport
+                                        number: {{ request.user.account.passport_number }}</h4>
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <h4 class="bc-about-pages-para bc-no-margin">Passpost
+                                        date: {{ request.user.account.passport_issue_date|date:'Y-m-d' }}</h4>
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <h4 class="bc-about-pages-para bc-no-margin">Passpost
+                                        date: {{ request.user.account.passport_expire_date|date:'Y-m-d' }}</h4>
+                                </div>
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <h4 class="bc-about-pages-para bc-no-margin">Emergency
+                                        Contact: {{ request.user.account.emergency_contact }}</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <h4 class="bc-about-pages-subtitle bc-no-margin">Billing Info</h4>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <h4 class="bc-about-pages-para bc-no-margin">Total Balance Due</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">Months left</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">Amount due per month</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">Amount paid so far</h4>
+                                    <h4 class="bc-about-pages-para bc-no-margin">Amount due now</h4>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-layout-spacer"></div>
+
+                    </div>
+
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <h4 class="bc-about-pages-subtitle">Your upcoming trips</h4>
+                        </div>
+                    </div>
+                    <div class="mdl-grid">
+                        {% for trip in user_trips %}
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
 
 
-               <div class="demo-card-square mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
-  </div>
+                                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title mdl-card--expand">
+                                        <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
+                                    </div>
 
-   <div class="mdl-card__supporting-text">
-    <strong>{{ trip.trip.title }}</strong>
-  </div>
-  <div class="mdl-card__supporting-text mdl-card--border">
-    {{ trip.trip.description|truncatewords:18 }}
-  </div>
-   <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Price: {{ trip.price }}$</strong>
-  </div>
-                   <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Additional excursions:</strong>
-                       {% if trip.trip.excursion %}
-                       Yes
-                           {% else %}
-                           No
-                       {% endif %}
-  </div>
-                   <div class="mdl-card__supporting-text mdl-card--border">
-                       <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }} - {{ trip.arrival|date:"d.m.Y" }}
-  </div>
-               <div class="mdl-card__supporting-text">
-                       <strong>How soon:</strong> {{ trip.departure|timeuntil }}
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a href="{% url 'accounts:trip' pk=trip.pk %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      View Description
-    </a>
-  </div>
-</div>
-                   </div>
-{% endfor %}
-
-
-               </div>
-
-                 <div class="mdl-grid">
-                   <div class="mdl-cell mdl-cell--3-col">
-                      <h4 class="bc-about-pages-subtitle">Past Trips</h4>
-                   </div>
-                 </div>
-                 <div class="mdl-grid">
-{% for trip in user_past_trips  %}
-                   <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>{{ trip.trip.title }}</strong>
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        {{ trip.trip.description|truncatewords:18 }}
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Price: {{ trip.price }}$</strong>
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Additional excursions:</strong>
+                                        {% if trip.trip.excursion %}
+                                            Yes
+                                        {% else %}
+                                            No
+                                        {% endif %}
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }}
+                                        - {{ trip.arrival|date:"d.m.Y" }}
+                                    </div>
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>How soon:</strong> {{ trip.departure|timeuntil }}
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <a href="{% url 'accounts:trip' pk=trip.pk %}"
+                                           class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                            View Description
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
 
 
+                    </div>
+
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <h4 class="bc-about-pages-subtitle">Past Trips</h4>
+                        </div>
+                    </div>
+                    <div class="mdl-grid">
+                        {% for trip in user_past_trips %}
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
 
 
-               <div class="demo-card-square mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
-  </div>
+                                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title mdl-card--expand">
+                                        <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
+                                    </div>
 
-   <div class="mdl-card__supporting-text">
-    <strong>{{ trip.trip.title }}</strong>
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>{{ trip.trip.title }}</strong>
 
-  </div>
-  <div class="mdl-card__supporting-text mdl-card--border">
-    {{ trip.trip.description|truncatewords:18 }}
-  </div>
-   <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Price: {{ trip.price }}$</strong>
-  </div>
-                   <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Additional excursions:</strong>
-                       {% if trip.trip.excursion %}
-                       Yes
-                           {% else %}
-                           No
-                       {% endif %}
-  </div>
-                   <div class="mdl-card__supporting-text">
-                       <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }} - {{ trip.arrival|date:"d.m.Y" }}
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a href="{% url 'accounts:trip' pk=trip.pk %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      View Description
-    </a>
-  </div>
-</div>
-                   </div>
-{% endfor %}
-
-
-               </div>
-
-               <div class="mdl-grid">
-                   <div class="mdl-cell mdl-cell--3-col">
-                      <h4 class="bc-about-pages-subtitle">Available for purchase trips</h4>
-                   </div>
-                 </div>
-
-               <style>
-.demo-card-square.mdl-card {
-  width: 280px;
-  height: 600px;
-}
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
-}
-</style>
-
-               <div class="mdl-grid">
-{% for trip in trips  %}
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        {{ trip.trip.description|truncatewords:18 }}
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Price: {{ trip.price }}$</strong>
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Additional excursions:</strong>
+                                        {% if trip.trip.excursion %}
+                                            Yes
+                                        {% else %}
+                                            No
+                                        {% endif %}
+                                    </div>
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }}
+                                        - {{ trip.arrival|date:"d.m.Y" }}
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <a href="{% url 'accounts:trip' pk=trip.pk %}"
+                                           class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                            View Description
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
 
 
+                    </div>
 
-                   <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <h4 class="bc-about-pages-subtitle">Available for purchase trips</h4>
+                        </div>
+                    </div>
 
-                       <div class="demo-card-square mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title mdl-card--expand">
-    <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
-  </div>
+                    <style>
+                        .demo-card-square.mdl-card {
+                            width: 280px;
+                            height: 600px;
+                        }
 
-   <div class="mdl-card__supporting-text">
-    <strong>{{ trip.trip.title }}</strong>
-  </div>
-  <div class="mdl-card__supporting-text mdl-card--border">
-    {{ trip.trip.description|safe|truncatewords:18 }}
-  </div>
-   <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Price: {{ trip.price }}$</strong>
-  </div>
-                   <div class="mdl-card__supporting-text mdl-card--border">
-    <strong>Additional excursions:</strong>
-                       {% if trip.excursions.all %}
-                       Yes
-                           {% else %}
-                           No
-                       {% endif %}
-  </div>
-                   <div class="mdl-card__supporting-text">
-                       <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }} - {{ trip.departure|date:"d.m.Y" }}
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a href="{% url 'accounts:trip' pk=trip.pk %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      View Description
-    </a>
-  </div>
-</div>
-                   </div>
-{% endfor %}
+                        .demo-card-square > .mdl-card__title {
+                            color: #fff;
+                            background: url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+                        }
+                    </style>
+
+                    <div class="mdl-grid">
+                        {% for trip in trips %}
 
 
-               </div>
+
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
+
+                                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title mdl-card--expand">
+                                        <h2 class="mdl-card__title-text">{{ trip.trip.title }}</h2>
+                                    </div>
+
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>{{ trip.trip.title }}</strong>
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        {{ trip.trip.description|safe|truncatewords:18 }}
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Price: {{ trip.price }}$</strong>
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Additional excursions:</strong>
+                                        {% if trip.excursions.all %}
+                                            Yes
+                                        {% else %}
+                                            No
+                                        {% endif %}
+                                    </div>
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }}
+                                        - {{ trip.departure|date:"d.m.Y" }}
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <a href="{% url 'accounts:trip' pk=trip.pk %}"
+                                           class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                            View Description
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
 
 
-<div class="mdl-grid">
-                   <div class="mdl-cell mdl-cell--12-col">
-                       <h4 class="bc-about-pages-subtitle">User Blog Posts <a href="{% url 'accounts:create_blog_post' %}"><span class="bc-green-badge">create new</span></a></h4>
-                   </div>
-                 </div>
-                 <div class="mdl-grid">
-                {% for post in user_blog_post  %}
-                   <div class="mdl-cell mdl-cell--12-col">
-
-                       <a href="{% url 'blog:blog_post' pk=post.pk %}">{{ post.title }}</a>
-                       {% if post.is_draft is True %}
-                           Not approved yet
-                       {% else %}
-                           Approved
-                       {% endif %}
-                       <br>
+                    </div>
 
 
-                   </div>
-                    {% empty %}
-                    <div class="mdl-cell mdl-cell--12-col">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-about-pages-subtitle">User Blog Posts <a
+                                    href="{% url 'accounts:create_blog_post' %}"><span
+                                    class="bc-green-badge">create new</span></a></h4>
+                        </div>
+                    </div>
+                    <div class="mdl-grid">
+                        {% for post in user_blog_post %}
+                            <div class="mdl-cell mdl-cell--12-col">
 
-                       You don't show your adventures to others. Will you <a href="{% url 'accounts:create_blog_post' %}">create</a> your blog posts?
+                                <a href="{% url 'blog:blog_post' pk=post.pk %}">{{ post.title }}</a>
+                                {% if post.is_draft is True %}
+                                    Not approved yet
+                                {% else %}
+                                    Approved
+                                {% endif %}
+                                <br>
 
 
-                   </div>
-{% endfor %}
+                            </div>
+                        {% empty %}
+                            <div class="mdl-cell mdl-cell--12-col">
+
+                                You don't show your adventures to others. Will you <a
+                                    href="{% url 'accounts:create_blog_post' %}">create</a> your blog posts?
 
 
-               </div>
+                            </div>
+                        {% endfor %}
 
-               </div>
-              </div>
-          </div>
-<div class="mdl-layout-spacer">  </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="mdl-layout-spacer"></div>
     </div>
 
 
 
-    {% endblock %}
+{% endblock %}

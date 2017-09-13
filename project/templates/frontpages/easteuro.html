@@ -1,826 +1,927 @@
 {% extends 'base.html' %}
-{% block head_title %}- Eastern Europe{% endblock %}
-{% block content %}
 
 {% load static %}
 
-     <!-- Section 1 Title -->
-     <div class="mdl-grid bc-site-grey-background">
-       <div class="mdl-layout-spacer">  </div>
-       <div class="mdl-cell mdl-cell--11-col">
-           <div class="mdl-grid">
-               <div class="mdl-cell mdl-cell--12-col">
-                 <h4 class="bc-trip-pages-title">Eastern Europe Escape</h4>
-                   <span class="bc-trip-pages-subtitle">10 or 14 Day Escape</span>
-               </div>
-           </div>
-       </div>
-       <div class="mdl-layout-spacer">  </div>
-     </div> <!-- End Section 1 Title -->
+{% block head_title %}- Eastern Europe{% endblock %}
 
-     <!-- Section 2 Hero Background-->
-     <div class="mdl-grid bc-site-grey-background">
-      <div class="mdl-layout-spacer">  </div>
+{% block content %}
 
-      <!-- Inner Grid -->
-      <div class="mdl-cell mdl-cell--11-col">
-
-        <!-- Photo Grid Photos -->
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--12-col">
-          <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_2590.JPG' %}" style="width:100%">
-          <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_2574.JPG' %}" style="width:100%">
-          <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_2607.JPG' %}" style="width:100%">
-          <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_0396.JPG' %}" style="width:100%">
-          </div>
+    <!-- Section 1 Title -->
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--11-col">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h4 class="bc-trip-pages-title">Eastern Europe Escape</h4>
+                    <span class="bc-trip-pages-subtitle">10 or 14 Day Escape</span>
+                </div>
+            </div>
         </div>
+        <div class="mdl-layout-spacer"></div>
+    </div> <!-- End Section 1 Title -->
 
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-              <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off" src="{% static 'images\IMG_2590.JPG' %}" style="width:100%" onclick="currentDiv(1)">
+    <!-- Section 2 Hero Background-->
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
+
+        <!-- Inner Grid -->
+        <div class="mdl-cell mdl-cell--11-col">
+
+            <!-- Photo Grid Photos -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_2590.JPG' %}"
+                         style="width:100%">
+                    <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_2574.JPG' %}"
+                         style="width:100%">
+                    <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_2607.JPG' %}"
+                         style="width:100%">
+                    <img class="bcSlides bc-photogrid-height" src="{% static 'images\IMG_0396.JPG' %}"
+                         style="width:100%">
+                </div>
             </div>
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-              <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off" src="{% static 'images\IMG_2574.JPG' %}" style="width:100%" onclick="currentDiv(2)">
-            </div>
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-              <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off" src="{% static 'images\IMG_2607.JPG' %}" style="width:100%" onclick="currentDiv(3)">
-            </div>
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-              <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off" src="{% static 'images\IMG_0396.JPG' %}" style="width:100%" onclick="currentDiv(4)">
-            </div>
-          </div> <!-- End Photo Grid Photos -->
 
-      </div> <!--End Inner Grid -->
-      <div class="mdl-layout-spacer">  </div>
-     </div> <!-- End Section 2 Hero Background -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                    <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off"
+                         src="{% static 'images\IMG_2590.JPG' %}" style="width:100%" onclick="currentDiv(1)">
+                </div>
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                    <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off"
+                         src="{% static 'images\IMG_2574.JPG' %}" style="width:100%" onclick="currentDiv(2)">
+                </div>
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                    <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off"
+                         src="{% static 'images\IMG_2607.JPG' %}" style="width:100%" onclick="currentDiv(3)">
+                </div>
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                    <img class="bc-trip-photogrid bc-opacity bc-hover-opacity-off"
+                         src="{% static 'images\IMG_0396.JPG' %}" style="width:100%" onclick="currentDiv(4)">
+                </div>
+            </div> <!-- End Photo Grid Photos -->
+
+        </div> <!--End Inner Grid -->
+        <div class="mdl-layout-spacer"></div>
+    </div> <!-- End Section 2 Hero Background -->
 
 
 
-     <!-- Section 3 to Guides  -->
-     <div class="mdl-grid bc-site-grey-background">
-         <div class="mdl-layout-spacer">  </div>
+    <!-- Section 3 to Guides  -->
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
 
-         <!-- Section 3 to Guides Inner Grid -->
-          <div class="mdl-cell mdl-cell--11-col">
+        <!-- Section 3 to Guides Inner Grid -->
+        <div class="mdl-cell mdl-cell--11-col">
 
             <!-- Section 3 why to book -->
             <div class="mdl-grid">
 
-              <!-- inner grid -->
-              <div id="bc-trip-botmargin" class="mdl-cell mdl-cell--12-col bc-about-pages-template-background bc-trip-botborder">
+                <!-- inner grid -->
+                <div id="bc-trip-botmargin"
+                     class="mdl-cell mdl-cell--12-col bc-about-pages-template-background bc-trip-botborder">
 
-                <!-- Discription -->
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col">
-                    <h4 class="bc-about-pages-para"> <strong>See smaller towns, local neighborhoods, and genuine European experiences. </strong>
-                      <br> - Our trips starts with in <strong>Budapest</strong> and the banks of the Danube,
-                      <br> - We continue to the lovely streets of medieval <strong>Kraków</strong>,
-                      <br> - Next we head to <strong>Prague</strong> for some of the best beers in Europe,
-                      <br> - Finally, <span class="bc-trip-underline">some will leave*</span> while the rest finish our journey to <strong>Berlin</strong>; for history, a crazy party, and a vibrant underground scene!
-                    </h4>
-                  </div>
-                </div>
-
-
-                <!-- Title -->
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col">
-                    <h4 class="bc-about-pages-subtitle bc-underline">Your Schedule Options:</h4>
-                  </div>
-                </div>
-
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                    <h4 class="bc-about-pages-para-title bc-no-margin"> 10-Day Trip</h4>
-
-                    <h4 class="bc-about-pages-para bc-no-margin">
-                      - Overnight Flight to Budapest
-                      <br> - <strong>3 Days</strong> in <strong>Budapest</strong>
-                      <br> - <strong>3 Days</strong> in <strong>Kraków</strong>
-                      <br> - <strong>2 Days</strong> in <strong>Prague</strong>
-                      <br> - Overnight Flight Home
-                    </h4>
-                  </div>
-                  <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                    <h4 class="bc-about-pages-para-title bc-no-margin">14-Day Trip</h4>
-                    <h4 class="bc-about-pages-para bc-no-margin">
-                      - Overnight Flight to Budapest
-                      <br> - <strong>3 Days</strong> in <strong>Budapest</strong>
-                      <br> - <strong>3 Days</strong> in <strong>Kraków</strong>
-                      <br> - <strong>3 Days</strong> in <strong>Prague</strong>
-                      <br> - <strong>3 Days</strong> in <strong>Berlin</strong>
-                      <br> - Overnight Flight Home
-                    </h4>
-                  </div>
-                </div>
-
-                <!-- Icon Grid Title-->
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col">
-                    <h4 class="bc-about-pages-subtitle bc-underline">All Include:</h4>
-                  </div>
-                </div>
-
-                <!-- Icon Grid -->
-                  <div class="mdl-grid">
-
-                    <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
-                      <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                          <span><i id="bc-icon-styles" class="material-icons">sentiment_very_satisfied</i></span>
+                    <!-- Discription -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-about-pages-para"><strong>See smaller towns, local neighborhoods, and genuine
+                                European experiences. </strong>
+                                <br> - Our trips starts with in <strong>Budapest</strong> and the banks of the Danube,
+                                <br> - We continue to the lovely streets of medieval <strong>Kraków</strong>,
+                                <br> - Next we head to <strong>Prague</strong> for some of the best beers in Europe,
+                                <br> - Finally, <span class="bc-trip-underline">some will leave*</span> while the rest
+                                finish our journey to <strong>Berlin</strong>; for history, a crazy party, and a vibrant
+                                underground scene!
+                            </h4>
                         </div>
-                      </div>
-                      <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                           <h4 class="bc-about-pages-para bc-no-margin bc-bold">Personalized Groups</h4>
+                    </div>
+
+
+                    <!-- Title -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-about-pages-subtitle bc-underline">Your Schedule Options:</h4>
                         </div>
-                      </div>
                     </div>
 
-                  <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
                     <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                        <span><i id="bc-icon-styles" class="material-icons">flights</i></span>
-                      </div>
-                    </div>
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                         <h4 class="bc-about-pages-para bc-no-margin bc-bold">Airfare and Transfers</h4>
-                      </div>
-                    </div>
-                  </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                            <h4 class="bc-about-pages-para-title bc-no-margin"> 10-Day Trip</h4>
 
-                  <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                        <span><i id="bc-icon-styles" class="material-icons">stars</i></span>
-                      </div>
+                            <h4 class="bc-about-pages-para bc-no-margin">
+                                - Overnight Flight to Budapest
+                                <br> - <strong>3 Days</strong> in <strong>Budapest</strong>
+                                <br> - <strong>3 Days</strong> in <strong>Kraków</strong>
+                                <br> - <strong>2 Days</strong> in <strong>Prague</strong>
+                                <br> - Overnight Flight Home
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                            <h4 class="bc-about-pages-para-title bc-no-margin">14-Day Trip</h4>
+                            <h4 class="bc-about-pages-para bc-no-margin">
+                                - Overnight Flight to Budapest
+                                <br> - <strong>3 Days</strong> in <strong>Budapest</strong>
+                                <br> - <strong>3 Days</strong> in <strong>Kraków</strong>
+                                <br> - <strong>3 Days</strong> in <strong>Prague</strong>
+                                <br> - <strong>3 Days</strong> in <strong>Berlin</strong>
+                                <br> - Overnight Flight Home
+                            </h4>
+                        </div>
                     </div>
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                         <h4 class="bc-about-pages-para bc-no-margin bc-bold">Full-time Guide</h4>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                    <!-- Icon Grid Title-->
                     <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                        <span><i id="bc-icon-styles" class="material-icons">local_hotel</i></span>
-                      </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-about-pages-subtitle bc-underline">All Include:</h4>
+                        </div>
                     </div>
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                         <h4 class="bc-about-pages-para bc-no-margin bc-bold">Accommodations</h4>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                    <!-- Icon Grid -->
                     <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                        <span><i id="bc-icon-styles" class="material-icons">person_pin_circle</i></span>
-                      </div>
-                    </div>
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                         <h4 class="bc-about-pages-para bc-no-margin bc-bold">Local Experiences</h4>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                        <span><i id="bc-icon-styles" class="material-icons">local_bar</i></span>
-                      </div>
-                    </div>
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                         <h4 class="bc-about-pages-para bc-no-margin bc-bold">Cool Surprises</h4>
-                      </div>
-                    </div>
-                  </div>
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <span><i id="bc-icon-styles"
+                                             class="material-icons">sentiment_very_satisfied</i></span>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <h4 class="bc-about-pages-para bc-no-margin bc-bold">Personalized Groups</h4>
+                                </div>
+                            </div>
+                        </div>
 
-                </div> <!--End Icon Grid -->
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <span><i id="bc-icon-styles" class="material-icons">flights</i></span>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <h4 class="bc-about-pages-para bc-no-margin bc-bold">Airfare and Transfers</h4>
+                                </div>
+                            </div>
+                        </div>
 
-                <!-- Button -->
-                <div class="mdl-grid">
-                     <div class="mdl-layout-spacer">  </div>
-                  <div class="mdl-cell mdl-cell--2-col">
-                    <button class="mdl-button mdl-js-button mdl-button--raised">
-                        Learn More
-                      </button>
-                  </div>
-                     <div class="mdl-layout-spacer">  </div>
-                </div>
-              </div> <!-- End Sec3 inner grid -->
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <span><i id="bc-icon-styles" class="material-icons">stars</i></span>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <h4 class="bc-about-pages-para bc-no-margin bc-bold">Full-time Guide</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <span><i id="bc-icon-styles" class="material-icons">local_hotel</i></span>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <h4 class="bc-about-pages-para bc-no-margin bc-bold">Accommodations</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <span><i id="bc-icon-styles" class="material-icons">person_pin_circle</i></span>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <h4 class="bc-about-pages-para bc-no-margin bc-bold">Local Experiences</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone bc-icon-hover">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <span><i id="bc-icon-styles" class="material-icons">local_bar</i></span>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                    <h4 class="bc-about-pages-para bc-no-margin bc-bold">Cool Surprises</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!--End Icon Grid -->
+
+                    <!-- Button -->
+                    <div class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--2-col">
+                            <button class="mdl-button mdl-js-button mdl-button--raised">
+                                Learn More
+                            </button>
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
+                </div> <!-- End Sec3 inner grid -->
             </div>   <!--End Section 3 why to book -->
 
 
             <!-- Section 4 Itinerary Hero -->
             <div class="mdl-grid">
-              <div id="bc-trip-bottopmargin" class="mdl-cell mdl-cell--12-col">
-              <img class="bc-trip-hero-style" src="{% static 'images\Eastmap.jpg' %}" alt="">
-              </div>
+                <div id="bc-trip-bottopmargin" class="mdl-cell mdl-cell--12-col">
+                    <img class="bc-trip-hero-style" src="{% static 'images\Eastmap.jpg' %}" alt="">
+                </div>
             </div>     <!-- End Section 4 Itinerary Hero -->
 
 
             <!-- Section 5 Itinerary -->
             <div class="mdl-grid">
 
-            <!-- Section 5 Itinerary inner Grid -->
-              <div id="bc-trip-topmargin" class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
+                <!-- Section 5 Itinerary inner Grid -->
+                <div id="bc-trip-topmargin" class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
 
-                <!-- Title -->
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col">
-                      <h4 class="bc-about-pages-subtitle">Itinerary</h4>
-                  </div>
-                </div>
+                    <!-- Title -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-about-pages-subtitle">Itinerary</h4>
+                        </div>
+                    </div>
 
-                <!-- Days -->
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--12-col">
-                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 1 - Overnight Flight to Budapest</h4>
-                      <h4 class="bc-about-pages-para">Overnight flight to Budapest. The total fight is around 8 hours, plus customs & other assorted inconveniences.</h4>
-                  </div>
-                </div>
+                    <!-- Days -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--12-col">
+                            <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 1 - Overnight Flight to
+                                Budapest</h4>
+                            <h4 class="bc-about-pages-para">Overnight flight to Budapest. The total fight is around 8
+                                hours, plus customs & other assorted inconveniences.</h4>
+                        </div>
+                    </div>
 
-                <hr>
+                    <hr>
 
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                    <img class="bc-standard-img" src="{% static 'images\IMG_2590.JPG' %}" alt="">
-                  </div>
-                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 2 - Arrival in Budapest</h4>
-                        <h4 class="bc-about-pages-para">Budapest, Hungary’s capital, is bisected by the River Danube, and the 19th-century Chain Bridge connects its hilly Buda district with flat Pest. A funicular runs up Castle Hill to Buda’s Old Town, where the Budapest History Museum traces life from Roman times onwards. Trinity Square is home to 13th-century Matthias Church and the turrets of the Fishermen’s Bastion, which offer sweeping views.
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                            <img class="bc-standard-img" src="{% static 'images\IMG_2590.JPG' %}" alt="">
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                            <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 2 - Arrival in Budapest</h4>
+                            <h4 class="bc-about-pages-para">Budapest, Hungary’s capital, is bisected by the River
+                                Danube, and the 19th-century Chain Bridge connects its hilly Buda district with flat
+                                Pest. A funicular runs up Castle Hill to Buda’s Old Town, where the Budapest History
+                                Museum traces life from Roman times onwards. Trinity Square is home to 13th-century
+                                Matthias Church and the turrets of the Fishermen’s Bastion, which offer sweeping views.
 
-                          <br><br>Arrive in Budapest, where our guide will meet you outside your arrival gate. From there, we'll go into the city center. The trip takes around 2 hours. Afterwards, we will check into our accommodation, which is located right in the center of town.
-                        </h4>
-                  </div>
-                </div>
+                                <br><br>Arrive in Budapest, where our guide will meet you outside your arrival gate.
+                                From there, we'll go into the city center. The trip takes around 2 hours. Afterwards, we
+                                will check into our accommodation, which is located right in the center of town.
+                            </h4>
+                        </div>
+                    </div>
 
-                <hr>
+                    <hr>
 
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                    <img class="bc-standard-img" src="{% static 'images\IMG_2577.jpg' %}" alt="">
-                  </div>
-                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 3 - Free Day in Budapest </h4>
-                        <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
-                          <br> - The Buda Castle is the historical castle and palace complex of the Hungarian kings in Budapest, and was first completed in 1265. In the past, it has been called Royal Palace and Royal Castle.
-                          <br> - The Széchenyi Medicinal Bath in Budapest is the largest medicinal bath in Europe. Its water is supplied by two thermal springs, their temperature is 74 °C and 77 °C, respectively.
-                          <br> - St. Stephen's Basilica is a Roman Catholic basilica in Budapest, Hungary. It is named in honour of Stephen, the first King of Hungary, whose supposed right hand is housed in the reliquary.
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                            <img class="bc-standard-img" src="{% static 'images\IMG_2577.jpg' %}" alt="">
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                            <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 3 - Free Day in Budapest </h4>
+                            <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
+                                <br> - The Buda Castle is the historical castle and palace complex of the Hungarian
+                                kings in Budapest, and was first completed in 1265. In the past, it has been called
+                                Royal Palace and Royal Castle.
+                                <br> - The Széchenyi Medicinal Bath in Budapest is the largest medicinal bath in Europe.
+                                Its water is supplied by two thermal springs, their temperature is 74 °C and 77 °C,
+                                respectively.
+                                <br> - St. Stephen's Basilica is a Roman Catholic basilica in Budapest, Hungary. It is
+                                named in honour of Stephen, the first King of Hungary, whose supposed right hand is
+                                housed in the reliquary.
 
-                          <br><br>At night we'll surprise you with something cool!
-                        </h4>
-                  </div>
-                </div>
+                                <br><br>At night we'll surprise you with something cool!
+                            </h4>
+                        </div>
+                    </div>
 
-                <hr>
+                    <hr>
 
-                <div style="display:none" id="tripsshowhide">
+                    <div style="display:none" id="tripsshowhide">
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\Tokaj_Hetszolo_vineyard.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 4 - Optional Trip to Tokaj</h4>
-                                        <h4 class="bc-about-pages-para"> Taste the sweet side of Hungary’s wine region on a full-day tour of Tokaj from Budapest. Led by a local guide, you'll travel through the scenic countryside famous for its dessert wine. Your trip includes stops at three wineries to taste the unique varietals of each. Listen in on the winemakers’ best secrets and take a tour of a local cellar and vineyard. You’ll also be treated to a delicious 3-course lunch, along with meat and cheese samples at the third and final winery.
-                                        </h4>
-                                  </div>
-                                </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\Tokaj_Hetszolo_vineyard.jpg' %}"
+                                     alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 4 - Optional Trip to Tokaj</h4>
+                                <h4 class="bc-about-pages-para"> Taste the sweet side of Hungary’s wine region on a
+                                    full-day tour of Tokaj from Budapest. Led by a local guide, you'll travel through
+                                    the scenic countryside famous for its dessert wine. Your trip includes stops at
+                                    three wineries to taste the unique varietals of each. Listen in on the winemakers’
+                                    best secrets and take a tour of a local cellar and vineyard. You’ll also be treated
+                                    to a delicious 3-course lunch, along with meat and cheese samples at the third and
+                                    final winery.
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\Krakow_rynek_01.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 5 - Arrive in Kraków</h4>
-                                        <h4 class="bc-about-pages-para">Kraków, a southern Poland city near the border of the Czech Republic, is known for its well-preserved medieval core and Jewish quarter. Old Town – ringed by Planty Park and remnants of the city’s medieval walls – is centered on the stately, expansive Rynek Glówny (market square), site of Cloth Hall, a Renaissance-era trading outpost, and St. Mary’s Basilica, a 14th-century Gothic church.
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\Krakow_rynek_01.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 5 - Arrive in Kraków</h4>
+                                <h4 class="bc-about-pages-para">Kraków, a southern Poland city near the border of the
+                                    Czech Republic, is known for its well-preserved medieval core and Jewish quarter.
+                                    Old Town – ringed by Planty Park and remnants of the city’s medieval walls – is
+                                    centered on the stately, expansive Rynek Glówny (market square), site of Cloth Hall,
+                                    a Renaissance-era trading outpost, and St. Mary’s Basilica, a 14th-century Gothic
+                                    church.
 
-                                          <br><br>Arrive in Kraków, we'll head into the city center, go to our accommodation and check in.
-                                        </h4>
-                                  </div>
-                                </div>
+                                    <br><br>Arrive in Kraków, we'll head into the city center, go to our accommodation
+                                    and check in.
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\11242786_865599198011_2307427385873040275_o.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 6 - Free Day in Kraków</h4>
-                                        <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
-                                          <br> - The Gothic Wawel Castle in Krakow in Poland was built at the behest of Casimir III the Great, who reigned from 1333 to 1370, and consists of a number of structures situated around the central courtyard.
-                                          <br> - The main square of the Old Town of Kraków, Lesser Poland, is the principal urban space located at the center of the city. It dates back to the 13th century, and at roughly 40,000 m² is one of the largest medieval town squares in Europe.
-                                          <br> - The Wieliczka Salt Mine, located in the town of Wieliczka in southern Poland, lies within the Kraków metropolitan area.
-                                          <br><br>Rest up! At night we've got something cool planned!
-                                        </h4>
-                                  </div>
-                                </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img"
+                                     src="{% static 'images\11242786_865599198011_2307427385873040275_o.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 6 - Free Day in Kraków</h4>
+                                <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
+                                    <br> - The Gothic Wawel Castle in Krakow in Poland was built at the behest of
+                                    Casimir III the Great, who reigned from 1333 to 1370, and consists of a number of
+                                    structures situated around the central courtyard.
+                                    <br> - The main square of the Old Town of Kraków, Lesser Poland, is the principal
+                                    urban space located at the center of the city. It dates back to the 13th century,
+                                    and at roughly 40,000 m² is one of the largest medieval town squares in Europe.
+                                    <br> - The Wieliczka Salt Mine, located in the town of Wieliczka in southern Poland,
+                                    lies within the Kraków metropolitan area.
+                                    <br><br>Rest up! At night we've got something cool planned!
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\1187014_691695716981_573134453_n.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 7 - Optional Trip to Auschwitz Concentration Camp </h4>
-                                        <h4 class="bc-about-pages-para"> Auschwitz concentration camp was a network of German Nazi concentration camps and extermination camps built and operated by the Third Reich in Polish areas annexed by Nazi Germany during World War II.
-                                        </h4>
-                                  </div>
-                                </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img"
+                                     src="{% static 'images\1187014_691695716981_573134453_n.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 7 - Optional Trip to Auschwitz
+                                    Concentration Camp </h4>
+                                <h4 class="bc-about-pages-para"> Auschwitz concentration camp was a network of German
+                                    Nazi concentration camps and extermination camps built and operated by the Third
+                                    Reich in Polish areas annexed by Nazi Germany during World War II.
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\485603_675621210421_1182772053_n.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 8 - Arrive in Prague</h4>
-                                        <h4 class="bc-about-pages-para"> Prague, capital of the Czech Republic, is bisected by the Vltava River. Nicknamed “the City of a Hundred Spires,” it's known for its Old Town Square, the heart of its historic core, with colorful baroque buildings, Gothic churches and the medieval Astronomical Clock, with a popular show. Completed in 1402, pedestrian Charles Bridge is lined with 30 statues of saints.
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img"
+                                     src="{% static 'images\485603_675621210421_1182772053_n.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 8 - Arrive in Prague</h4>
+                                <h4 class="bc-about-pages-para"> Prague, capital of the Czech Republic, is bisected by
+                                    the Vltava River. Nicknamed “the City of a Hundred Spires,” it's known for its Old
+                                    Town Square, the heart of its historic core, with colorful baroque buildings, Gothic
+                                    churches and the medieval Astronomical Clock, with a popular show. Completed in
+                                    1402, pedestrian Charles Bridge is lined with 30 statues of saints.
 
-                                          <br><br>Arrive in Prague. Take a short ride into town and check into our central accommodation.
-                                        </h4>
-                                  </div>
-                                </div>
+                                    <br><br>Arrive in Prague. Take a short ride into town and check into our central
+                                    accommodation.
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\954799_675621385071_448346893_n.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 9 - Free Day in Prague</h4>
-                                        <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
-                                          <br> - The Charles Bridge is a famous historic bridge that crosses the Vltava river in Prague, Czech Republic. Its construction started in 1357 under the auspices of King Charles IV, and finished in the beginning of the 15th century.
-                                          <br> - Prague Castle is a castle complex in Prague, Czech Republic, dating from the 9th century and the official residence of the President of the Czech Republic.
-                                          <br> - The Prague astronomical clock, or Prague orloj, is a medieval astronomical clock located in Prague, the capital of the Czech Republic.
-                                          <br><br>But don't go too far! We have something cool planned for the afternoon!
-                                        </h4>
-                                  </div>
-                                </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img"
+                                     src="{% static 'images\954799_675621385071_448346893_n.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 9 - Free Day in Prague</h4>
+                                <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
+                                    <br> - The Charles Bridge is a famous historic bridge that crosses the Vltava river
+                                    in Prague, Czech Republic. Its construction started in 1357 under the auspices of
+                                    King Charles IV, and finished in the beginning of the 15th century.
+                                    <br> - Prague Castle is a castle complex in Prague, Czech Republic, dating from the
+                                    9th century and the official residence of the President of the Czech Republic.
+                                    <br> - The Prague astronomical clock, or Prague orloj, is a medieval astronomical
+                                    clock located in Prague, the capital of the Czech Republic.
+                                    <br><br>But don't go too far! We have something cool planned for the afternoon!
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\Krumlov.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 10 - Optional trip to Cesky Krumlov</h4>
-                                        <h4 class="bc-about-pages-para"> Explore the UNESCO-listed town of Cesky Krumlov on this day trip from Prague. Accompanied by an expert guide, travel through the scenic Bohemian countryside to arrive in the medieval town. See the church of St. Vitus, the historic town center and the Cesky Krumlov Castle, dating back to 1240. After a full day of sightseeing, your tour will conclude with transportation back to Prague.
-                                          <br>The trip is a full day.
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\Krumlov.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 10 - Optional trip to Cesky
+                                    Krumlov</h4>
+                                <h4 class="bc-about-pages-para"> Explore the UNESCO-listed town of Cesky Krumlov on this
+                                    day trip from Prague. Accompanied by an expert guide, travel through the scenic
+                                    Bohemian countryside to arrive in the medieval town. See the church of St. Vitus,
+                                    the historic town center and the Cesky Krumlov Castle, dating back to 1240. After a
+                                    full day of sightseeing, your tour will conclude with transportation back to Prague.
+                                    <br>The trip is a full day.
 
-                                          <br><br> Some of our group will head home, while the rest head to Berlin tomorrow.
-                                        </h4>
-                                  </div>
-                                </div>
+                                    <br><br> Some of our group will head home, while the rest head to Berlin tomorrow.
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\IMG_2523.JPG' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 11 - Arrive in Berlin </h4>
-                                        <h4 class="bc-about-pages-para"> Berlin, Germany’s capital and cultural center, dates to the 13th century. Divided during the Cold War, today it's known for its art scene, nightlife and modern architecture, such as Mies van der Rohe’s landmark Neue Nationalgalerie. Reminders of the city's turbulent 20th-century history include its Holocaust Memorial and the Berlin Wall's graffitied remains. Its 18th-century Brandenburg Gate has become an iconic symbol of reunification.
-                                          <br><br>Check into our accommodation, located walking distance to Potsdamer platz - the historic center of Berlin.
-                                        </h4>
-                                  </div>
-                                </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\IMG_2523.JPG' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 11 - Arrive in Berlin </h4>
+                                <h4 class="bc-about-pages-para"> Berlin, Germany’s capital and cultural center, dates to
+                                    the 13th century. Divided during the Cold War, today it's known for its art scene,
+                                    nightlife and modern architecture, such as Mies van der Rohe’s landmark Neue
+                                    Nationalgalerie. Reminders of the city's turbulent 20th-century history include its
+                                    Holocaust Memorial and the Berlin Wall's graffitied remains. Its 18th-century
+                                    Brandenburg Gate has become an iconic symbol of reunification.
+                                    <br><br>Check into our accommodation, located walking distance to Potsdamer platz -
+                                    the historic center of Berlin.
+                                </h4>
+                            </div>
+                        </div>
 
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\IMG_2493.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 12 - Free Day in Berlin </h4>
-                                        <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
-                                          <br>Check out some of the famous sights in Berlin. Examples include; the Berlin wall, Brandenburg gate, Checkpoint Charlie,  and much more...
-                                          <br> - The Brandenburg Gate is an 18th-century neoclassical triumphal arch in Berlin, and one of the best-known landmarks of Germany.
-                                          <br> - Checkpoint Charlie was the name given by the Western Allies to the best-known Berlin Wall crossing point between East Berlin and West Berlin, during the Cold War.
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\IMG_2493.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 12 - Free Day in Berlin </h4>
+                                <h4 class="bc-about-pages-para"> Go with our guides, or just venture out on your own!
+                                    <br>Check out some of the famous sights in Berlin. Examples include; the Berlin
+                                    wall, Brandenburg gate, Checkpoint Charlie, and much more...
+                                    <br> - The Brandenburg Gate is an 18th-century neoclassical triumphal arch in
+                                    Berlin, and one of the best-known landmarks of Germany.
+                                    <br> - Checkpoint Charlie was the name given by the Western Allies to the best-known
+                                    Berlin Wall crossing point between East Berlin and West Berlin, during the Cold War.
 
-                                          <br><br> We'll go to one of the famous berlin underground clubs tonight.
-                                        </h4>
-                                  </div>
-                                </div>
+                                    <br><br> We'll go to one of the famous berlin underground clubs tonight.
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\IMG_2554.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 13 - Walking Tour of Berlin </h4>
-                                        <h4 class="bc-about-pages-para"> A walking tour is free (Tips only) and gives further information about the incredible history of the city.
-                                          <br><br>At night we'll have one last party before heading home.
-                                        </h4>
-                                  </div>
-                                </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\IMG_2554.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 13 - Walking Tour of
+                                    Berlin </h4>
+                                <h4 class="bc-about-pages-para"> A walking tour is free (Tips only) and gives further
+                                    information about the incredible history of the city.
+                                    <br><br>At night we'll have one last party before heading home.
+                                </h4>
+                            </div>
+                        </div>
 
-                                <hr>
+                        <hr>
 
-                                <div class="mdl-grid">
-                                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
-                                    <img class="bc-standard-img" src="{% static 'images\IMG_1745.jpg' %}" alt="">
-                                  </div>
-                                  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
-                                      <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 14 - Flight Home </h4>
-                                        <h4 class="bc-about-pages-para"> After saying our goodbyes to Europe, we head to the airport for your flight back home.
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\IMG_1745.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col">
+                                <h4 class="bc-about-pages-para bc-bold bc-no-margin">Day 14 - Flight Home </h4>
+                                <h4 class="bc-about-pages-para"> After saying our goodbyes to Europe, we head to the
+                                    airport for your flight back home.
 
-                                          <br><br>However, You can always contact us for special leaving instructions!
-                                          <br>Want to fly somewhere else? Stay longer? No problem! Just let us know.
-                                        </h4>
-                                  </div>
-                                </div>
+                                    <br><br>However, You can always contact us for special leaving instructions!
+                                    <br>Want to fly somewhere else? Stay longer? No problem! Just let us know.
+                                </h4>
+                            </div>
+                        </div>
 
-                </div> <!-- Hidden Days -->
+                    </div> <!-- Hidden Days -->
 
-                                <!-- See More Button -->
-                                <div class="mdl-grid">
-                                       <div class="mdl-layout-spacer">  </div>
-                                  <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col">
-                                    <button onclick="myFunction()" class="mdl-button mdl-js-button mdl-button--raised bc-about-pages-para bc-no-margin">
-                                      See Full Itinerary
-                                      </button>
-                                </div>
-                                     <div class="mdl-layout-spacer">  </div>
-                              </div>
+                    <!-- See More Button -->
+                    <div class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col">
+                            <button onclick="myFunction()"
+                                    class="mdl-button mdl-js-button mdl-button--raised bc-about-pages-para bc-no-margin">
+                                See Full Itinerary
+                            </button>
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
 
-              </div>   <!-- END Section 5 Itinerary inner Grid -->
+                </div>   <!-- END Section 5 Itinerary inner Grid -->
             </div> <!-- END Section 5 Itinerary -->
 
 
-          </div> <!-- End Section 3 to Guides Inner Grid -->
-         <div class="mdl-layout-spacer">  </div>
-     </div>   <!--  End Section 3 to Guides background  -->
+        </div> <!-- End Section 3 to Guides Inner Grid -->
+        <div class="mdl-layout-spacer"></div>
+    </div>   <!--  End Section 3 to Guides background  -->
 
 
-     <!-- UX GAP -->
+    <!-- UX GAP -->
 
-     <!-- Guides to Accom  -->
-     <div class="mdl-grid bc-site-grey-background">
-         <div class="mdl-layout-spacer">  </div>
+    <!-- Guides to Accom  -->
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
 
-      <!-- Guides to Accom Inner Grid -->
-      <div id="bc-trip-botmargin" class="mdl-cell mdl-cell--11-col">
+        <!-- Guides to Accom Inner Grid -->
+        <div id="bc-trip-botmargin" class="mdl-cell mdl-cell--11-col">
 
-        <!-- Section 6 Guides -->
-        <div class="mdl-grid">
-
-          <!-- inner grid -->
-          <div id="bc-trip-botmargin" class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
-
-            <!-- Discription -->
+            <!-- Section 6 Guides -->
             <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--12-col">
-                <h4 class="bc-about-pages-subtitle"> Your Guides
-                </h4>
-              </div>
-            </div>
 
-            <!-- Guide profile -->
-            <div class="mdl-grid">
-              <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--5-col mdl-cell--4-col-phone">
-                  <img class="bc-standard-img" src="{% static 'images\kyle.jpg' %}" alt="">
+                <!-- inner grid -->
+                <div id="bc-trip-botmargin" class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
+
+                    <!-- Discription -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-about-pages-subtitle"> Your Guides
+                            </h4>
+                        </div>
+                    </div>
+
+                    <!-- Guide profile -->
+                    <div class="mdl-grid">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--5-col mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\kyle.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col">
+                                <h4 class="bc-about-pages-para-title bc-no-margin">Kyle Cannon</h4>
+                                <h4 class="bc-about-pages-para">
+                                    Kyle is currently climbing the seven summits (Seven highest mountains on each
+                                    continent; he has already climbed 3). He graduated from West Chester University....
+                                    <span class="bc-trip-hover">(See more)</span>
+
+                                    <br><span class="bc-bold-underline">What to expect with Kyle:</span>
+                                    <br> - Loves food markets,
+                                    <br> - Interesting bars/clubs,
+                                    <br> - meeting Local friends.
+
+                                    <br><span class="bc-bold-underline">European Pit Stop's with Kyle:</span>
+                                    <br> June 1st to June 12th
+                                    <br> June 10th to June 22th</h4>
+
+                                <h4 class="bc-about-pages-para bc-no-margin bc-text-center bc-trip-hover">See Full
+                                    Profile</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Inverse Guide profile -->
+                    <div class="mdl-grid">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-layout--small-screen-only mdl-cell--4-col-phone">
+                                <img class="bc-standard-img" src="{% static 'images\lexi.jpg' %}" alt="">
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col">
+                                <h4 class="bc-about-pages-para-title bc-no-margin">Lexi Quinn</h4>
+                                <h4 class="bc-about-pages-para">
+                                    Lexi is currently raising local lizards. She graduated from Temple University....
+                                    <span class="bc-trip-hover">(See more)</span>
+
+                                    <br><span class="bc-bold-underline">What to expect with Lexi:</span>
+                                    <br> - Loves local lizards,
+                                    <br> - Stuff,
+                                    <br> - meeting Local friends.
+
+                                    <br><span class="bc-bold-underline">European Pit Stop's with Lexi:</span>
+                                    <br> June 20th to July 4th</h4>
+
+                                <h4 class="bc-about-pages-para bc-no-margin bc-text-center bc-trip-hover">See Full
+                                    Profile</h4>
+                            </div>
+                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone">
+                                <img class="bc-standard-img" src="{% static 'images\lexi.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                  <div class="mdl-layout-spacer">  </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col">
-                    <h4 class="bc-about-pages-para-title bc-no-margin">Kyle Cannon</h4>
-                      <h4 class="bc-about-pages-para">
-                         Kyle is currently climbing the seven summits (Seven highest mountains on each continent; he has already climbed 3). He graduated from West Chester University.... <span class="bc-trip-hover">(See more)</span>
-
-                        <br><span class="bc-bold-underline">What to expect with Kyle:</span>
-                        <br> - Loves food markets,
-                        <br> - Interesting bars/clubs,
-                        <br> - meeting Local friends.
-
-                        <br><span class="bc-bold-underline">European Pit Stop's with Kyle:</span>
-                        <br> June 1st to June 12th
-                        <br> June 10th to June 22th</h4>
-
-                          <h4 class="bc-about-pages-para bc-no-margin bc-text-center bc-trip-hover">See Full Profile</h4>
-                </div>
-              </div>
             </div>
+        </div> <!-- End Guides to Accom Inner Grid -->
+        <div class="mdl-layout-spacer"></div>
+    </div>   <!--  End Guides to Accom background  -->
 
-     <hr>
 
-          <!-- Inverse Guide profile -->
-          <div class="mdl-grid">
-            <div class="mdl-grid">
-              <div class="mdl-cell mdl-layout--small-screen-only mdl-cell--4-col-phone">
-                <img class="bc-standard-img" src="{% static 'images\lexi.jpg' %}" alt="">
-              </div>
-              <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col">
-                  <h4 class="bc-about-pages-para-title bc-no-margin">Lexi Quinn</h4>
-                    <h4 class="bc-about-pages-para">
-                       Lexi is currently raising local lizards. She graduated from Temple University.... <span class="bc-trip-hover">(See more)</span>
+    <!-- Accommodations -->
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <h4 class="bc-about-pages-subtitle">Your Accommodations</h4>
+            <img class="AccomSlides bc-photogrid-height" src="{% static 'images\budapest.jpg' %}" style="width:100%">
+            <img class="AccomSlides bc-photogrid-height" src="{% static 'images\budapest2.jpg' %}" style="width:100%">
+            <img class="AccomSlides bc-photogrid-height" src="{% static 'images\krakow.jpg' %}" style="width:100%">
+            <img class="AccomSlides bc-photogrid-height" src="{% static 'images\krakow2.jpg' %}" style="width:100%">
+            <img class="AccomSlides bc-photogrid-height" src="{% static 'images\berlin.jpg' %}" style="width:100%">
+            <img class="AccomSlides bc-photogrid-height" src="{% static 'images\berlin2.jpg' %}" style="width:100%">
+            <img class="AccomSlides bc-photogrid-height" src="{% static 'images\berlin3.jpg' %}" style="width:100%">
 
-                      <br><span class="bc-bold-underline">What to expect with Lexi:</span>
-                      <br> - Loves local lizards,
-                      <br> - Stuff,
-                      <br> - meeting Local friends.
-
-                      <br><span class="bc-bold-underline">European Pit Stop's with Lexi:</span>
-                      <br> June 20th to July 4th</h4>
-
-                      <h4 class="bc-about-pages-para bc-no-margin bc-text-center bc-trip-hover">See Full Profile</h4>
-              </div>
-                <div class="mdl-layout-spacer">  </div>
-              <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone">
-                <img class="bc-standard-img" src="{% static 'images\lexi.jpg' %}" alt="">
-              </div>
-            </div>
-          </div>
-
-          </div>
+            <button class="arrow-display-left bc-black mdl-button" onclick="AccomplusDivs(-1)">&#10094;</button>
+            <button class="arrow-display-right bc-black mdl-button" onclick="AccomplusDivs(1)">&#10095;</button>
         </div>
-      </div> <!-- End Guides to Accom Inner Grid -->
-          <div class="mdl-layout-spacer">  </div>
-         </div>   <!--  End Guides to Accom background  -->
+    </div>
 
 
-         <!-- Accommodations -->
-         <div class="mdl-grid">
-           <div class="mdl-cell mdl-cell--12-col">
-             <h4 class="bc-about-pages-subtitle">Your Accommodations</h4>
-             <img class="AccomSlides bc-photogrid-height" src="{% static 'images\budapest.jpg' %}" style="width:100%">
-             <img class="AccomSlides bc-photogrid-height" src="{% static 'images\budapest2.jpg' %}" style="width:100%">
-             <img class="AccomSlides bc-photogrid-height" src="{% static 'images\krakow.jpg' %}" style="width:100%">
-             <img class="AccomSlides bc-photogrid-height" src="{% static 'images\krakow2.jpg' %}" style="width:100%">
-             <img class="AccomSlides bc-photogrid-height" src="{% static 'images\berlin.jpg' %}" style="width:100%">
-             <img class="AccomSlides bc-photogrid-height" src="{% static 'images\berlin2.jpg' %}" style="width:100%">
-             <img class="AccomSlides bc-photogrid-height" src="{% static 'images\berlin3.jpg' %}" style="width:100%">
-
-           <button class="arrow-display-left bc-black mdl-button" onclick="AccomplusDivs(-1)">&#10094;</button>
-           <button class="arrow-display-right bc-black mdl-button" onclick="AccomplusDivs(1)">&#10095;</button>
-           </div>
-         </div>
-
-
-     <!-- More information to Footer -->
-      <div class="mdl-grid bc-site-grey-background">
-        <div class="mdl-layout-spacer">  </div>
+    <!-- More information to Footer -->
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
 
         <!-- More information to Footer Inner Grid -->
         <div class="mdl-cell mdl-cell--11-col">
 
-          <!-- More information and FAQ Grid -->
-          <div class="mdl-grid">
-
-            <!-- More information -->
-            <div class="mdl-cell mdl-cell--7-col bc-about-pages-template-background">
-              <h4 class="bc-about-pages-subtitle"> More Information </h4>
-
-                <h4 class="bc-about-pages-para">
-                  <span class="bc-bold-underline">Safety in Europe</span>
-                  <br> Europe in general is incredibly safe, especially in our chosen countries. That being said, every major city has neighborhoods that are less safe than others. Please <strong>LISTEN TO YOUR GUIDES</strong> and get advice before going or doing something alone.
-                  <br><br>We at Black Crow absolutely encourage individual freedom; however, some ideas are just not smart.
-                  <br><br>Our guides will help with making things possible. For example: some wonderful attractions are in ‘not so wonderful’ areas. It’s still very possible to see these things, just with proper planning.
-                </h4>
-
-                <h4 class="bc-about-pages-para">
-                  <span class="bc-bold-underline">Cool Surprises</span>
-                  <br> - Elaborate restaurant escapes
-                  <br> - Entrance to some ridiculous clubs
-                  <br> - And much more that you'll have to wait and see!
-                </h4>
-            </div>
-
-            <!-- FAQ -->
-            <div class="mdl-cell mdl-cell--5-col bc-about-pages-template-background">
-                <h4 class="bc-about-pages-subtitle">Frequently Asked Questions </h4>
-
-                <h4 class="bc-about-pages-para">
-                  <span class="bc-bold-underline">Do I need a Visa?</span>
-                  <br>As of right now, not for Western Europe. However, that could change and we'll update you in the event of such.
-                </h4>
-
-                <h4 class="bc-about-pages-para">
-                  <span class="bc-bold-underline">Can I change or extend my flight?</span>
-                  <br> Yes! Absolutely. Just message us and we’ll be happy to plan something out with you.
-                </h4>
-
-                <h4 class="bc-about-pages-para">
-                  <span class="bc-bold-underline">What should I pack?</span>
-                  <br>Please check our <span><a href="{% url 'packing' %}">packing page</a></span> dedicated to Europe.
-                </h4>
-
-               <h4 class="bc-about-pages-para bc-no-margin bc-text-center bc-trip-hover">See More FAQs</h4>
-            </div>
-          </div>  <!-- END More information and FAQ Grid -->
-
-
-          <!-- Booking Form -->
-          <div class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
-
+            <!-- More information and FAQ Grid -->
             <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
-              <h4 class="bc-about-pages-subtitle bc-no-margin">Book here</h4>
-              </div>
 
-              <!-- Year -->
-              <div class="mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle">
-                <button class="mdl-button mdl-js-button mdl-button--raised">
-                    2017
-                  </button>
-              </div>
-                <div class="mdl-layout-spacer">  </div>
-              <div class="mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle">
-                <button class="mdl-button mdl-js-button mdl-button--raised" disabled>
-                    2018
-                  </button>
-              </div>
-            </div>
+                <!-- More information -->
+                <div class="mdl-cell mdl-cell--7-col bc-about-pages-template-background">
+                    <h4 class="bc-about-pages-subtitle"> More Information </h4>
 
-            <hr>
+                    <h4 class="bc-about-pages-para">
+                        <span class="bc-bold-underline">Safety in Europe</span>
+                        <br> Europe in general is incredibly safe, especially in our chosen countries. That being said,
+                        every major city has neighborhoods that are less safe than others. Please <strong>LISTEN TO YOUR
+                        GUIDES</strong> and get advice before going or doing something alone.
+                        <br><br>We at Black Crow absolutely encourage individual freedom; however, some ideas are just
+                        not smart.
+                        <br><br>Our guides will help with making things possible. For example: some wonderful
+                        attractions are in ‘not so wonderful’ areas. It’s still very possible to see these things, just
+                        with proper planning.
+                    </h4>
 
-            <!-- Flights -->
-            <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-              <h4 class="bc-trip-pages-subtitle">Flying from</h4>
-              </div>
-              <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone mdl-cell--middle">
-                      <form action="#">
-                       <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                         <select class="mdl-select__input" id="professsion" name="professsion">
-                           <option value=""></option>
-                           <option value="option1">option 1</option>
-                           <option value="option2">option 2</option>
-                           <option value="option3">option 3</option>
-                           <option value="option4">option 4</option>
-                           <option value="option5">option 5</option>
-                         </select>
-                         <label class="mdl-select__label" for="professsion">All Places</label>
-                       </div>
-                     </form>
-              </div>
-            </div>
-
-            <hr>
-
-            <!-- Day Options -->
-            <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone ">
-              </div>
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ">
-              <button class="mdl-button mdl-js-button mdl-button--raised" disabled>
-                  8 Days
-                </button>
-              </div>
-                <div class="mdl-layout-spacer">  </div>
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone">
-              <button class="mdl-button mdl-js-button mdl-button--raised">
-                  12 Days
-                </button>
-              </div>
-            </div>
-
-            <!-- Dates -->
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin bc-bold">Event</h4>
+                    <h4 class="bc-about-pages-para">
+                        <span class="bc-bold-underline">Cool Surprises</span>
+                        <br> - Elaborate restaurant escapes
+                        <br> - Entrance to some ridiculous clubs
+                        <br> - And much more that you'll have to wait and see!
+                    </h4>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin bc-bold"> Arrives</h4>
+
+                <!-- FAQ -->
+                <div class="mdl-cell mdl-cell--5-col bc-about-pages-template-background">
+                    <h4 class="bc-about-pages-subtitle">Frequently Asked Questions </h4>
+
+                    <h4 class="bc-about-pages-para">
+                        <span class="bc-bold-underline">Do I need a Visa?</span>
+                        <br>As of right now, not for Western Europe. However, that could change and we'll update you in
+                        the event of such.
+                    </h4>
+
+                    <h4 class="bc-about-pages-para">
+                        <span class="bc-bold-underline">Can I change or extend my flight?</span>
+                        <br> Yes! Absolutely. Just message us and we’ll be happy to plan something out with you.
+                    </h4>
+
+                    <h4 class="bc-about-pages-para">
+                        <span class="bc-bold-underline">What should I pack?</span>
+                        <br>Please check our <span><a href="{% url 'packing' %}">packing page</a></span> dedicated to
+                        Europe.
+                    </h4>
+
+                    <h4 class="bc-about-pages-para bc-no-margin bc-text-center bc-trip-hover">See More FAQs</h4>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin bc-bold">Returns</h4>
+            </div>  <!-- END More information and FAQ Grid -->
+
+
+            <!-- Booking Form -->
+            <div class="mdl-cell mdl-cell--12-col bc-about-pages-template-background">
+
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
+                        <h4 class="bc-about-pages-subtitle bc-no-margin">Book here</h4>
+                    </div>
+
+                    <!-- Year -->
+                    <div class="mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle">
+                        <button class="mdl-button mdl-js-button mdl-button--raised">
+                            2017
+                        </button>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle">
+                        <button class="mdl-button mdl-js-button mdl-button--raised" disabled>
+                            2018
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="mdl-grid bc-trip-hover">
-                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">London Summer Fest</h4>
+                <hr>
+
+                <!-- Flights -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                        <h4 class="bc-trip-pages-subtitle">Flying from</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone mdl-cell--middle">
+                        <form action="#">
+                            <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                                <select class="mdl-select__input" id="professsion" name="professsion">
+                                    <option value=""></option>
+                                    <option value="option1">option 1</option>
+                                    <option value="option2">option 2</option>
+                                    <option value="option3">option 3</option>
+                                    <option value="option4">option 4</option>
+                                    <option value="option5">option 5</option>
+                                </select>
+                                <label class="mdl-select__label" for="professsion">All Places</label>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">June 1st</h4>
+
+                <hr>
+
+                <!-- Day Options -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone ">
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ">
+                        <button class="mdl-button mdl-js-button mdl-button--raised" disabled>
+                            8 Days
+                        </button>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone">
+                        <button class="mdl-button mdl-js-button mdl-button--raised">
+                            12 Days
+                        </button>
+                    </div>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">June 12th</h4>
+
+                <!-- Dates -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin bc-bold">Event</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin bc-bold"> Arrives</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin bc-bold">Returns</h4>
+                    </div>
                 </div>
-            </div>
 
-            <div class="mdl-grid bc-trip-hover">
-                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">Paris Fringe Fest</h4>
+                <div class="mdl-grid bc-trip-hover">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">London Summer Fest</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">June 1st</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">June 12th</h4>
+                    </div>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">June 10th</h4>
+
+                <div class="mdl-grid bc-trip-hover">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">Paris Fringe Fest</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">June 10th</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">June 22th</h4>
+                    </div>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">June 22th</h4>
+
+                <div class="mdl-grid bc-trip-hover">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">Something Random</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">June 20th</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
+                        <h4 class="bc-about-pages-para bc-no-margin">July 4th</h4>
+                    </div>
                 </div>
-            </div>
 
-            <div class="mdl-grid bc-trip-hover">
-                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">Something Random</h4>
+                <hr>
+
+                <!-- Book Button -->
+                <div class="mdl-grid">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone">
+                        <button class="mdl-button mdl-js-button mdl-button--raised">
+                            Book Now
+                        </button>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">June 20th</h4>
-                </div>
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone">
-                  <h4 class="bc-about-pages-para bc-no-margin">July 4th</h4>
-                </div>
-            </div>
-
-            <hr>
-
-            <!-- Book Button -->
-            <div class="mdl-grid">
-                <div class="mdl-layout-spacer"> </div>
-                  <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-phone">
-                    <button class="mdl-button mdl-js-button mdl-button--raised">
-                        Book Now
-                      </button>
-                  </div>
-                  <div class="mdl-layout-spacer"> </div>
-            </div>
-          </div>   <!--End Booking Form -->
+            </div>   <!--End Booking Form -->
 
 
-     </div> <!-- End More information to Footer Inner Grid -->
-     <div class="mdl-layout-spacer">  </div>
-     </div>   <!--  End More information to Footer background -->
+        </div> <!-- End More information to Footer Inner Grid -->
+        <div class="mdl-layout-spacer"></div>
+    </div>   <!--  End More information to Footer background -->
 
-     <script>
-     function myFunction() {
-         var x = document.getElementById('tripsshowhide');
-         if (x.style.display === 'none') {
-             x.style.display = 'block';
-         } else {
-             x.style.display = 'none';
-         }
-     }
-     </script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById('tripsshowhide');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+            } else {
+                x.style.display = 'none';
+            }
+        }
+    </script>
 
-     <script>
-     var slideIndex = 1;
-     showDivs(slideIndex);
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
 
-     function plusDivs(n) {
-       showDivs(slideIndex += n);
-     }
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
 
-     function currentDiv(n) {
-       showDivs(slideIndex = n);
-     }
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
 
-     function showDivs(n) {
-       var i;
-       var x = document.getElementsByClassName("bcSlides");
-       var dots = document.getElementsByClassName("bc-trip-photogrid");
-       if (n > x.length) {slideIndex = 1}
-       if (n < 1) {slideIndex = x.length}
-       for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-       }
-       for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" bc-opacity-off", "");
-       }
-       x[slideIndex-1].style.display = "block";
-       dots[slideIndex-1].className += " bc-opacity-off";
-     }
-     </script>
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("bcSlides");
+            var dots = document.getElementsByClassName("bc-trip-photogrid");
+            if (n > x.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" bc-opacity-off", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " bc-opacity-off";
+        }
+    </script>
 
-     <script>
+    <script>
         var AccomIndex = 1;
         AccomshowDivs(AccomIndex);
 
         function AccomplusDivs(n) {
-          AccomshowDivs(AccomIndex += n);
+            AccomshowDivs(AccomIndex += n);
         }
 
         function AccomshowDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("AccomSlides");
-          if (n > x.length) {AccomIndex = 1}
-          if (n < 1) {AccomIndex = x.length}
-          for (i = 0; i < x.length; i++) {
-             x[i].style.display = "none";
-          }
-          x[AccomIndex-1].style.display = "block";
+            var i;
+            var x = document.getElementsByClassName("AccomSlides");
+            if (n > x.length) {
+                AccomIndex = 1
+            }
+            if (n < 1) {
+                AccomIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[AccomIndex - 1].style.display = "block";
         }
-      </script>
+    </script>
 
 {% endblock %}
