@@ -1,15 +1,18 @@
 import stripe
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from django.utils import timezone
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import FormMixin, FormView
+from django.views.generic.detail import SingleObjectMixin
 
-from django.views.generic.edit import UpdateView
+from django.views import View
+from django.views.generic.edit import UpdateView, CreateView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.views import (
     LoginView,
@@ -24,8 +27,9 @@ from django.contrib.auth.views import (
 
 from .models import Account, UserStripe
 from trips.models import Trip, TripDate
+from blog.models import Post
 
-from .forms import SignUpForm, PaymentForm
+from .forms import SignUpForm, PaymentForm, CreateBlogPostForm
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_text
@@ -33,7 +37,7 @@ from django.template.loader import render_to_string
 
 from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 
 
 class UserHomePageView(LoginRequiredMixin, TemplateView):
@@ -46,7 +50,34 @@ class UserHomePageView(LoginRequiredMixin, TemplateView):
         context['user_trips'] = TripDate.objects.filter(account=self.request.user.account, departure__gte=timezone.now())
         context['user_past_trips'] = TripDate.objects.filter(account=self.request.user.account,
                                                              departure__lt=timezone.now())[:3]
+        context['user_blog_post'] = Post.objects.filter(author=self.request.user.account)
         return context
+
+
+class UserPublicView(TemplateView):
+    template_name = 'accounts/public-home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserPublicView, self).get_context_data(**kwargs)
+        user = get_object_or_404(User, username=self.kwargs['username'])
+        context['user_profile'] = get_object_or_404(Account, id=user.account.pk)
+        context['user_blog_post'] = Post.objects.filter(author=user.account.pk).exclude(is_draft=True)
+        return context
+
+
+class UserBlogPostCreateView(LoginRequiredMixin, CreateView):
+    template_name = 'blog/create_blog_post.html'
+    model = Post
+    form_class = CreateBlogPostForm
+    success_url = reverse_lazy('accounts:home')
+
+    # def get_initial(self):
+    #     initial = super(UserBlogPostCreateView, self).get_initial()
+    #     initial['author'] = self.request.user.account
+    #     return initial
+    def form_valid(self, form):
+        form.instance.author = self.request.user.account
+        return super().form_valid(form)
 
 
 def signup(request):
@@ -182,6 +213,17 @@ class UserMembershipView(LoginRequiredMixin, TemplateView):
         return context
 
 
+class UserTripDetail(View):
+
+    def get(self, request, *args, **kwargs):
+        view = UserTripDetailView.as_view()
+        return view(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        view = UserTripBookingView.as_view()
+        return view(request, *args, **kwargs)
+
+
 class UserTripDetailView(LoginRequiredMixin, DetailView):
     model = TripDate
     template_name = 'accounts/trip.html'
@@ -189,6 +231,7 @@ class UserTripDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(UserTripDetailView, self).get_context_data(**kwargs)
+
         trip = TripDate.objects.get(pk=self.kwargs['pk'])
         trip_arrival_date = trip.arrival
         current_date = timezone.now().date()
@@ -197,19 +240,81 @@ class UserTripDetailView(LoginRequiredMixin, DetailView):
             context['time_left'] = 'You need to pay entire sum'
         else:
             context['time_left'] = 'allow'
+
+        context['form'] = PaymentForm(page_id=self.kwargs['pk'], delta=delta)
         return context
 
 
-def usertripdetail(request):
-    if request.method == 'POST':
-        form = PaymentForm(request.POST)
+class UserTripBookingView(SingleObjectMixin, FormView):
+    form_class = PaymentForm
+    model = TripDate
+    template_name = 'accounts/trip.html'
+
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden()
+        self.object = self.get_object()
+        form = self.get_form()
         if form.is_valid():
-            print('all is ok')
-            return redirect('accounts:home')
-    else:
-        form = PaymentForm()
-        print('need to send form')
-    return render(request, 'accounts/trip2.html', {'form': form})
+            exc = form.cleaned_data['excursions']
+            sum = 0
+            for i in exc:
+                sum += i.price
+            return self.form_valid(form)
+        else:
+            a = form.errors
+            return self.form_invalid(form)
+
+    def get_success_url(self):
+        return reverse('accounts:home')
+
+    def get_form_kwargs(self):
+        kwargs = super(UserTripBookingView, self).get_form_kwargs()
+        kwargs['page_id'] = self.kwargs['pk']
+
+        trip = TripDate.objects.get(pk=self.kwargs['pk'])
+        trip_arrival_date = trip.arrival
+        current_date = timezone.now().date()
+        delta = (trip_arrival_date - current_date).days
+
+        kwargs['delta'] = delta
+        return kwargs
+
+
+# class UserTripDetailView(LoginRequiredMixin, FormMixin, DetailView):
+#     model = TripDate
+#     form_class = PaymentForm
+#     template_name = 'accounts/trip.html'
+#     context_object_name = 'trip'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super(UserTripDetailView, self).get_context_data(**kwargs)
+#         trip = TripDate.objects.get(pk=self.kwargs['pk'])
+#         trip_arrival_date = trip.arrival
+#         current_date = timezone.now().date()
+#         delta = (trip_arrival_date - current_date).days
+#         if delta <= 20:
+#             context['time_left'] = 'You need to pay entire sum'
+#         else:
+#             context['time_left'] = 'allow'
+#         return context
+#
+#     def get_form_kwargs(self):
+#         kwargs = super(UserTripDetailView, self).get_form_kwargs()
+#         kwargs.update({'page_id': self.kwargs['pk']})
+#         return kwargs
+
+# def usertripdetail(request, pk):
+#     if request.method == 'POST':
+#         form = PaymentForm(request.POST)
+#         if form.is_valid():
+#             print('all is ok')
+#             return redirect('accounts:home')
+#     else:
+#         trip_page_id = pk
+#         form = PaymentForm(page_id=trip_page_id)
+#         print('need to send form')
+#     return render(request, 'accounts/trip2.html', {'form': form})
 
 
 def membership_payment(request):
