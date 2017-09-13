@@ -1,8 +1,13 @@
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from trips.models import TripDate, Excursion
+from blog.models import Post
+
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
@@ -12,7 +17,29 @@ class SignUpForm(UserCreationForm):
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
 
+class CreateBlogPostForm(ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget(config_name='blog'))
+
+    class Meta:
+        model = Post
+        fields = ('category', 'title', 'text')
+
+
 class PaymentForm(forms.Form):
-    name = forms.CharField(required=False, help_text='for test')
-    excursions = forms.ModelMultipleChoiceField(queryset=Excursion.objects.filter(), widget=forms.CheckboxSelectMultiple)
-    token_igor = forms.CharField(required=False, widget=forms.HiddenInput())
+    comments = forms.CharField(widget=CKEditorUploadingWidget())
+    excursions = forms.ModelMultipleChoiceField(queryset=None, required=False, to_field_name='title', widget=forms.CheckboxSelectMultiple)
+
+    def __init__(self, *args, **kwargs):
+        self.trip = kwargs.pop('page_id', None)
+        delta = kwargs.pop('delta', None)
+        super(PaymentForm, self).__init__(*args, **kwargs)
+        self.fields['excursions'].queryset = Excursion.objects.filter(trip=self.trip)
+        a = self.fields['excursions']
+        # TODO count how much months normally
+        delta_months = delta / 30
+        months = int(delta_months)
+        if delta >= 20:
+            self.fields['sub'] = forms.IntegerField(min_value=1, max_value=months, required=False)
+            # self.fields['sub'].widget.attrs['class'] = 'mdl-textfield__input'
+
+        pass
