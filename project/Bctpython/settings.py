@@ -162,6 +162,22 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_BROWSE_SHOW_DIRS = True
 CKEDITOR_RESTRICT_BY_DATE = True
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+    },
+    'blog': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source', 'Image']
+        ],
+        'width': 800,
+    },
+}
+
 # Instagram API settings
 INSTAGRAM_ACCESS_TOKEN = '2604665802.a200e72.9da5a0eac5e645e89a2245e555921b40'
 INSTAGRAM_CLIENT_ID = 'a200e726a2be40beb58239cf02c08a63'
