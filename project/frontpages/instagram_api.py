@@ -11,7 +11,9 @@ INSTAGRAM_CLIENT_SECRET = settings.INSTAGRAM_CLIENT_SECRET
 
 class GetUserMedia(object):
 
-    # From views in count we determine how many photos will show. Can be only 1-20 photos. We set default to 18.
+    # From views in count we determine how many photos will show. Can be only 1-20 photos.
+    # We set default to 20 in views.py.
+    @staticmethod
     def recent_media(count):
         api = InstagramAPI(access_token=INSTAGRAM_ACCESS_TOKEN, client_id=INSTAGRAM_CLIENT_ID,
                            client_secret=INSTAGRAM_CLIENT_SECRET)
