@@ -285,4 +285,18 @@
 .bc-instagram-item-text{color:white;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%)}
 
 /*Style for membership badge*/
-.bc-membership-badge{display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#fff;background-color:#007bff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25rem;}
+.bc-blue-badge{display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#fff;background-color:#007bff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25rem;}
+.bc-red-badge{display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#fff;background-color:#d9534f;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25rem;}
+.bc-green-badge{display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#fff;background-color:#5cb85c;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25rem;}
+.bc-light-blue-badge{display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#fff;background-color:#5bc0de;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25rem;}
+
+/*Style for excursions card*/
+.bc-excursions-card.mdl-card{width:512px;}
+.bc-excursions-card > .mdl-card__title{color:#fff;height:176px;}
+.bc-excursions-card-menu > .mdl-card__menu{color:#fff;}
+
+/*Style for Stripe payment field*/
+.StripeElement{width:300px;background-color:white;padding:8px 12px;border-radius:4px;border:1px solid transparent;box-shadow:0 1px 3px 0 #e6ebf1;-webkit-transition:box-shadow 150ms ease;transition:box-shadow 150ms ease;}
+.StripeElement--focus{box-shadow:0 1px 3px 0 #cfd7df;}
+.StripeElement--invalid{border-color:#fa755a;}
+.StripeElement--webkit-autofill{background-color:#fefde5 !important;}
