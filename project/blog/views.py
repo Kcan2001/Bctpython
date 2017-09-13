@@ -10,7 +10,7 @@ class BlogHomePageView(ListView):
     model = Post
     template_name = 'blog/home.html'
     paginate_by = 2
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().exclude(is_draft=True)
 
 
 class BlogPostPageView(DetailView):
