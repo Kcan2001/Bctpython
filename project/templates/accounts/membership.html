@@ -5,44 +5,11 @@
 {% block head_title %}- Log In{% endblock %}
 
 {% block content %}
-    <style>
-        /**
-         * The CSS shown here will not be introduced in the Quickstart guide, but shows
-         * how you can use CSS to style your Element's container.
-         */
-        .StripeElement {
-            width: 300px;
-            background-color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            border: 1px solid transparent;
-            box-shadow: 0 1px 3px 0 #e6ebf1;
-            -webkit-transition: box-shadow 150ms ease;
-            transition: box-shadow 150ms ease;
-        }
-
-        .StripeElement--focus {
-            box-shadow: 0 1px 3px 0 #cfd7df;
-        }
-
-        .StripeElement--invalid {
-            border-color: #fa755a;
-        }
-
-        .StripeElement--webkit-autofill {
-            background-color: #fefde5 !important;
-        }
-
-    </style>
     <div class="mdl-grid bc-site-grey-background bc-spacer">
         <div class="mdl-layout-spacer"></div>
-    </div>
 
-    <!-- Inner Grid  -->
-
-    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-grid">
         <div class="mdl-layout-spacer"></div>
-
         <div class="mdl-cell mdl-cell--5-col mdl-shadow--2dp bc-about-pages-template-background">
 
             <!-- Section 1 Mission  -->
@@ -58,28 +25,34 @@
                 {% endif %}
 
                 <div class="mdl-grid">
-                    <div class="mdl-layout-spacer"></div>
+
                     {% if request.user.account.is_membership is False %}
 
-                        <div class="mdl-cell mdl-cell--9-col bc-text-center">
+                        <div class="mdl-cell mdl-cell--12-col">
                             <form action="/accounts/membership/payment/" id="payment-form" method="POST">
                                 {% csrf_token %}
 
-
-                                <label for="card-element">
-                                    Credit or debit card
-                                </label>
                                 <div id="card-element">
                                     <!-- a Stripe Element will be inserted here. -->
                                 </div>
                                 <!-- Used to display form errors -->
                                 <div id="card-errors" role="alert"></div>
-                                <div class="outcome">
-                                    <div class="error" role="alert"></div>
-                                    <div class="success">
-                                        Success! Your Stripe token is <span class="token"></span>
+                                <br>
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col">
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                               for="terms">
+                                            <input type="checkbox" name="terms"
+                                                   id="terms"
+                                                   class="mdl-checkbox__input"/>
+                                            <label class="mdl-checkbox__label bc-about-pages-para" for="terms">I
+                                                agree with
+                                                <a href="{% url 'terms' %}" target="_blank">terms</a> and ready to pay!</label>
+                                        </label>
                                     </div>
                                 </div>
+                                <div id="terms-errors"></div>
+                                <br>
                                 <div class="mdl-grid">
                                     <div class="mdl-cell mdl-cell--12-col bc-text-center">
                                         <button class="mdl-button mdl-js-button mdl-button--raised">
@@ -90,17 +63,32 @@
                             </form>
                         </div>
                     {% else %}
-                        <div class="mdl-cell mdl-cell--9-col bc-text-center">
+                        <div class="mdl-cell mdl-cell--12-col bc-text-center">
                             You already bought premium membership, thanks!
                         </div>
                     {% endif %}
-                    <div class="mdl-layout-spacer"></div>
+
                 </div>
             </div>
 
             <br>
             <hr>
 
+        </div>
+        <div class="mdl-cell mdl-cell--5-col">
+                        <!-- Section 1 Mission  -->
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--12-col">
+                                <h4>Payment instruction:</h4>
+                                1) You will be charged for 50$ for lifetime premium membership;<br><br>
+                                2) You can explore all benefits of being premium <a href="{% url 'premium' %}" target="_blank">here</a>;<br><br>
+                                3) Fill in your CC number, dates, CVC. We use stripe for online payments and NEVER
+                                store your credit card information!<br><br>
+                                4) Stripe is secure. Check stripe.com<br><br>
+                            </div>
+                        </div>
+                    </div>
+        <div class="mdl-layout-spacer"></div>
         </div>
         <div class="mdl-layout-spacer"></div>
     </div>
@@ -143,14 +131,21 @@
             event.preventDefault();
 
             stripe.createToken(card).then(function (result) {
-                if (result.error) {
+                if (!document.getElementById('terms').checked) {
                     // Inform the user if there was an error
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
+                    var errorElement = document.getElementById('terms-errors');
+                    errorElement.textContent = 'You need to agree with our terms!';
                 } else {
-                    // Send the token to your server
-                    stripeTokenHandler(result.token);
+                    if (result.error) {
+                        // Inform the user if there was an error
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                    } else {
+                        // Send the token to your server
+                        stripeTokenHandler(result.token);
+                    }
                 }
+
             });
         });
 

@@ -33,13 +33,20 @@
                                 {% csrf_token %}
 
                                 <div class="mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" type="text" name="title" id="id_title"/>
-                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_title">Title</label>
+                                    <input class="mdl-textfield__input" type="text" name="title" id="id_title"
+                                           style="width: 400px;"/>
+                                    <label class="mdl-textfield__label bc-about-pages-para" for="id_title"
+                                           style="width: 400px;">Title</label>
                                 </div>
 
                                 <div class="mdl-grid">
-                                    <div class="mdl-cell mdl-cell--12-col">
-                                        {{ form.category }}
+                                    <div class="mdl-cell mdl-cell--3-col">
+                                        Choose post category:
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--9-col">
+                                        <div class="bc-multi-select">
+                                            {{ form.category }}
+                                        </div>
                                     </div>
                                 </div>
 
