@@ -26,6 +26,9 @@
                                 </div>
                                 {% if request.user.account.is_membership is True %}
                                     <span class="bc-blue-badge">PREMIUM</span>
+                                {% else %}
+                                    <a href="{% url 'premium' %}" target="_blank"><span
+                                            class="bc-red-badge">NOT PREMIUM</span></a>
                                 {% endif %}
                             </h4>
                         </div>
@@ -50,6 +53,8 @@
                                     </h4>
                                     {% if request.user.account.is_membership is True %}
                                         <span class="bc-blue-badge">PREMIUM</span>
+                                    {% else %}
+                                        <a href="{% url 'premium' %}" target="_blank"><span class="bc-red-badge">NOT PREMIUM</span></a>
                                     {% endif %}
                                     <a href="{% url 'accounts:public-home' username=request.user.username %}"
                                        title="Your public profile">
