@@ -1,4 +1,5 @@
 import stripe
+import math
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
@@ -50,6 +51,7 @@ class UserHomePageView(LoginRequiredMixin, TemplateView):
         context['user_trips'] = TripDate.objects.filter(account=self.request.user.account, departure__gte=timezone.now())
         context['user_past_trips'] = TripDate.objects.filter(account=self.request.user.account,
                                                              departure__lt=timezone.now())[:3]
+        # Will show all blog post at user profile: approved and not approved
         context['user_blog_post'] = Post.objects.filter(author=self.request.user.account)
         return context
 
@@ -59,8 +61,11 @@ class UserPublicView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserPublicView, self).get_context_data(**kwargs)
+        # Get User Username for page kwargs
         user = get_object_or_404(User, username=self.kwargs['username'])
+        # Get User Account or show 404
         context['user_profile'] = get_object_or_404(Account, id=user.account.pk)
+        # Will show at public page only approved blog posts
         context['user_blog_post'] = Post.objects.filter(author=user.account.pk).exclude(is_draft=True)
         return context
 
@@ -69,7 +74,7 @@ class UserBlogPostCreateView(LoginRequiredMixin, CreateView):
     template_name = 'blog/create_blog_post.html'
     model = Post
     form_class = CreateBlogPostForm
-    success_url = reverse_lazy('accounts:home')
+    success_url = reverse_lazy('accounts:blog_post_created')
 
     # def get_initial(self):
     #     initial = super(UserBlogPostCreateView, self).get_initial()
@@ -78,6 +83,10 @@ class UserBlogPostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user.account
         return super().form_valid(form)
+
+
+class UserBlogPostCreatedView(LoginRequiredMixin, TemplateView):
+    template_name = 'blog/blog_post_created.html'
 
 
 def signup(request):
@@ -236,8 +245,10 @@ class UserTripDetailView(LoginRequiredMixin, DetailView):
         trip_arrival_date = trip.arrival
         current_date = timezone.now().date()
         delta = (trip_arrival_date - current_date).days
-        if delta <= 20:
-            context['time_left'] = 'You need to pay entire sum'
+        if delta < 0:
+            context['time_left'] = 'expired'
+        elif delta <= 60:
+            context['time_left'] = 'deny'
         else:
             context['time_left'] = 'allow'
 
@@ -257,9 +268,56 @@ class UserTripBookingView(SingleObjectMixin, FormView):
         form = self.get_form()
         if form.is_valid():
             exc = form.cleaned_data['excursions']
-            sum = 0
+            general_price = self.object.price
             for i in exc:
-                sum += i.price
+                general_price += i.price
+            general_price_cents = int(general_price * 100)
+            stripe.api_key = settings.STRIPE_SECRET_KEY
+            # Price of website premium is 50$, amount in cents:
+            # Will check if User Account already has stripe account identification:
+            if hasattr(request.user.account, 'stripe_account'):
+                # Get stored customer_id from previous operations:
+                user_stripe_id = request.user.account.stripe_account.customer_id
+                if form.cleaned_data['sub']:
+                    month_payment = general_price_cents / form.cleaned_data['sub']
+                    month2 = math.ceil(month_payment)
+                    plan = stripe.Plan.create(name="Basic Plan", id="basic-monthly", interval="month", currency="usd", amount=month2)
+                    subs = stripe.Subscription.create(customer=user_stripe_id,
+                                               items=[
+                                                   {
+                                                       "plan": plan.stripe_id,
+                                                   },
+                                               ]
+                                               )
+                else:
+                    # Making charge for amount $
+                    charge = stripe.Charge.create(customer=user_stripe_id, amount=general_price_cents, currency='usd',
+                                                  description='Payment for tour')
+                # paid = charge.paid
+                # status = charge.status
+                # If charge was successful:
+                if subs.status == 'active':
+                    # self.object.entry_set.add(request.user.account)
+                    user = request.user.account
+                    trip = self.object
+                    user.trips.add(trip)
+                return redirect('accounts:home')
+            else:
+                # If request.user has not customer instance in stripe database will create it:
+                customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
+                # Then will add stripe customer id to our request user (OneToOne Relation)
+                UserStripe.objects.get_or_create(user_id=request.user.account.id, customer_id=customer.id)
+                # After stripe_account was created will try to make a charge
+                charge = stripe.Charge.create(customer=customer.id, amount=amount, currency='usd',
+                                              description='Payment for premium membership')
+                # paid = charge.paid
+                # status = charge.status
+                # If charge was successful:
+                if charge.status == 'succeeded':
+                    user = request.user.account
+                    trip = self.object
+                    user.trips.add(trip)
+                return redirect('accounts:home')
             return self.form_valid(form)
         else:
             a = form.errors
