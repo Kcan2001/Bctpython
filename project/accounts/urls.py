@@ -12,6 +12,7 @@ urlpatterns = [
 
     url(r'^trip/(?P<pk>[-\w]+)/$', views.UserTripDetail.as_view(), name='trip'),
     url(r'^create-post/$', views.UserBlogPostCreateView.as_view(), name='create_blog_post'),
+    url(r'^create-post/thanks/$', views.UserBlogPostCreatedView.as_view(), name='blog_post_created'),
     # url(r'^trip/$', views.usertripdetail, name='trip2'),
     # User sign up and account activation via email address
     url(r'^signup/', views.signup, name='signup'),
