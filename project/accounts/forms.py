@@ -18,6 +18,7 @@ class SignUpForm(UserCreationForm):
 
 
 class CreateBlogPostForm(ModelForm):
+    title = forms.CharField(max_length=200)
     text = forms.CharField(widget=CKEditorUploadingWidget(config_name='blog'))
 
     class Meta:
@@ -26,7 +27,6 @@ class CreateBlogPostForm(ModelForm):
 
 
 class PaymentForm(forms.Form):
-    comments = forms.CharField(widget=CKEditorUploadingWidget())
     excursions = forms.ModelMultipleChoiceField(queryset=None, required=False, to_field_name='title', widget=forms.CheckboxSelectMultiple)
 
     def __init__(self, *args, **kwargs):
@@ -38,8 +38,8 @@ class PaymentForm(forms.Form):
         # TODO count how much months normally
         delta_months = delta / 30
         months = int(delta_months)
-        if delta >= 20:
-            self.fields['sub'] = forms.IntegerField(min_value=1, max_value=months, required=False)
-            # self.fields['sub'].widget.attrs['class'] = 'mdl-textfield__input'
+        if delta >= 60:
+            self.fields['sub'] = forms.IntegerField(min_value=1, max_value=months)
+            self.fields['sub'].widget.attrs['class'] = 'bc-input-number'
 
         pass
