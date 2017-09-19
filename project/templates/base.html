@@ -80,8 +80,8 @@
 
                 <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect"
                    id="bc-navigation-font-style" href="{% url 'gallery' %}">Gallery</a>
-                <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect"
-                   id="bc-navigation-font-style" href="#">Shop</a>
+{#                <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect"#}
+{#                   id="bc-navigation-font-style" href="#">Shop</a>#}
 
                 {% if request.user.is_authenticated %}
                     <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect"
@@ -152,7 +152,7 @@
             </ul>
 
             <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="{% url 'gallery' %}">Gallery</a>
-            <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="#">Shop</a>
+{#            <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style" href="#">Shop</a>#}
             {% if request.user.is_authenticated %}
                 <a class="mdl-navigation__link" id="bc-navigation-drawer-font-style-account">Account</a>
 
