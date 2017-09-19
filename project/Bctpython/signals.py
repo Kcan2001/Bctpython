@@ -43,12 +43,12 @@ import django.dispatch
 
 WEBHOOK_ARGS = ["customer", "full_json"]
 
-recurring_payment_failed = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
-invoice_ready = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
-recurring_payment_succeeded = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
-subscription_trial_ending = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
-subscription_final_payment_attempt_failed = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
-subscription_ping_sent = django.dispatch.Signal(providing_args=[])
+webhook_recurring_payment_failed = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
+webhook_invoice_ready = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
+webhook_recurring_payment_succeeded = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
+webhook_subscription_trial_ending = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
+webhook_subscription_final_payment_attempt_failed = django.dispatch.Signal(providing_args=WEBHOOK_ARGS)
+webhook_subscription_ping_sent = django.dispatch.Signal(providing_args=[])
 
 # v2 webhooks
 WEBHOOK2_ARGS = ["full_json"]
