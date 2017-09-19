@@ -82,7 +82,8 @@ def webhooks_v2(request):
     Plug in as you need.
     """
     payload = request.body.decode('utf-8')
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    # sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    sig_header = request.META.get('HTTP_STRIPE_SIGNATURE', None)
     event = None
 
     try:
@@ -94,13 +95,13 @@ def webhooks_v2(request):
         # Invalid signature
         return HttpResponse(status=400)
 
-    event_json = json.loads(payload)
-    event_key = event_json['type'].replace('.', '_')
-    print(event_json)
-    print(event_key)
-
-    if event_key in WEBHOOK_MAP:
-        WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
+    # event_json = json.loads(payload)
+    # event_key = event_json['type'].replace('.', '_')
+    # print(event_json)
+    # print(event_key)
+    #
+    # if event_key in WEBHOOK_MAP:
+    #     WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
 
     print('test')
 
