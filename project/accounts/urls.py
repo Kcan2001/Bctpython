@@ -9,8 +9,11 @@ urlpatterns = [
     url(r'public/(?P<username>[-\w]+)/$', views.UserPublicView.as_view(), name='public-home'),
     url(r'^membership/$', views.UserMembershipView.as_view(), name='membership'),
     url(r'^membership/payment/$', views.membership_payment, name='membership_payment'),
+    url(r'^membership/payment-success/$', views.PremiumMembershipPaymentSuccessView.as_view(),
+        name='membership_success'),
 
     url(r'^trip/(?P<pk>[-\w]+)/$', views.UserTripDetail.as_view(), name='trip'),
+    url(r'^payment-success/$', views.TripPaymentSuccessView.as_view(), name='trip_success'),
     url(r'^create-post/$', views.UserBlogPostCreateView.as_view(), name='create_blog_post'),
     url(r'^create-post/thanks/$', views.UserBlogPostCreatedView.as_view(), name='blog_post_created'),
     # url(r'^trip/$', views.usertripdetail, name='trip2'),
