@@ -1,6 +1,6 @@
 import django.dispatch
 from django.dispatch import receiver
-from Bctpython.signals import webhook_invoice_payment_failed
+from Bctpython.signals import webhook_charge_succeeded
 from .models import Account, UserStripeSubscription
 from decimal import Decimal
 
@@ -18,6 +18,15 @@ def add_score(sender, **kwargs):
     print('Signal received')
     print(kwargs['customer'])
     print(kwargs['amount'])
+
+
+@receiver(webhook_charge_succeeded, sender=None)
+def add_score(sender, **kwargs):
+    amount = 1000 / 100
+    amount2 = 2600
+    debt2 = Decimal(amount2) - Decimal(amount)
+    query = UserStripeSubscription.objects.filter(subscription_id='sub_BQbcotf5gKozwF').update(debt=debt2)
+    print(query)
 
 
 @receiver(webhook_invoice_payment_succeeded, sender=None)

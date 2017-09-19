@@ -13,7 +13,6 @@ from django.conf import settings
 from .signals import *
 from django.views.decorators.csrf import csrf_exempt
 
-
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -95,38 +94,12 @@ def webhooks_v2(request):
         # Invalid signature
         return HttpResponse(status=400)
 
-    # event_json = json.loads(payload)
-    # event_key = event_json['type'].replace('.', '_')
-    # print(event_json)
-    # print(event_key)
-    #
-    # if event_key in WEBHOOK_MAP:
-    #     WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
+    event_json = json.loads(payload)
+    event_key = event_json['type'].replace('.', '_')
+
+    if event_key in WEBHOOK_MAP:
+        WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
 
     print('test')
 
     return HttpResponse(status=200)
-
-#     if request.method != "POST":
-#         return HttpResponse("Invalid Request.", status=400)
-#
-#     try:
-#         event_json = json.loads(request.body)
-#     except AttributeError:
-#         # Backwords compatibility
-#         # Prior to Django 1.4, request.body was named request.raw_post_data
-#         event_json = json.loads(request.raw_post_data)
-#     event_key = event_json['type'].replace('.', '_')
-#
-#     if event_key in WEBHOOK_MAP:
-#         WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
-#
-#     return HttpResponse(status=200)
-#
-# def my_webhook_view(request):
-#   # Retrieve the request's body and parse it as JSON
-#   event_json = json.loads(request.body)
-#
-#   # Do something with event_json
-#
-#   return HttpResponse(status=200)
