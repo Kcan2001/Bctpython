@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from frontpages import views
+from .views import webhooks_v2
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from ckeditor_uploader import views as ckeditor_views
@@ -42,7 +43,7 @@ urlpatterns = [
 
     # stripe webhooks
     # url(r'webhooks/$', views.webhooks, name='webhooks'),
-    url(r'webhooks/v2/$', views.webhooks_v2, name='webhooks_v2'),
+    url(r'webhooks/v2/$', webhooks_v2, name='webhooks_v2'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
