@@ -39,7 +39,7 @@ class PaymentForm(forms.Form):
         delta_months = delta / 30
         months = int(delta_months)
         if delta >= 60:
-            self.fields['sub'] = forms.IntegerField(min_value=1, max_value=months)
-            self.fields['sub'].widget.attrs['class'] = 'bc-input-number'
+            self.fields['subscription'] = forms.IntegerField(min_value=1, max_value=months, required=False)
+            self.fields['subscription'].widget.attrs['class'] = 'bc-input-number'
 
         pass
