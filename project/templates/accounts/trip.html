@@ -106,14 +106,14 @@
                                 <div class="mdl-cell mdl-cell--10-col">
                                     <form id="payment-form" method="POST">
                                         {% csrf_token %}
-                                        {% if form.sub %}
+                                        {% if form.subscription %}
 
                                             <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--8-col">
                                                     Divide payment for _ months:
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--4-col">
-                                                    {{ form.sub }}
+                                                    {{ form.subscription }}
                                                 </div>
                                             </div>
                                         {% endif %}
