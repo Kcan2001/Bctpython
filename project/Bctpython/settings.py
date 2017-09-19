@@ -154,7 +154,7 @@ STATICFILES_DIRS = (
 )
 
 # Backend for email sending to console, only for dev
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Settings for CKEditor
 CKEDITOR_UPLOAD_PATH = 'uploads/'
