@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}- Trip payment successful! Thank you!{% endblock %}
+
+{% block content %}
+
+    <div class="mdl-grid bc-site-grey-background">
+        <div class="mdl-layout-spacer"></div>
+
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="bc-text-center">
+                <h4>You successfully paid for your trip! Thank you!<br></h4>
+                Back to <a href="{% url 'accounts:home' %}">your profile</a>
+            </div>
+        </div>
+
+        <div class="mdl-layout-spacer"></div>
+    </div>
+
+{% endblock %}
