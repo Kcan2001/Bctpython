@@ -42,7 +42,7 @@ urlpatterns = [
 
     # stripe webhooks
     # url(r'webhooks/$', views.webhooks, name='webhooks'),
-    # url(r'webhooks/v2/$', views.webhooks_v2, name='webhooks_v2'),
+    url(r'webhooks/v2/$', views.webhooks_v2, name='webhooks_v2'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
