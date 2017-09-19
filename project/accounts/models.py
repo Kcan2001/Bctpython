@@ -32,6 +32,27 @@ class UserStripe(models.Model):
         return self.customer_id
 
 
+class StripePlanNames(models.Model):
+    plan_id = models.CharField(max_length=70)
+    plan_name = models.CharField(max_length=70)
+    plan_price = models.DecimalField(decimal_places=2, max_digits=7)
+
+    def __str__(self):
+        return self.plan_id
+
+
+class UserStripeSubscription(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.PROTECT, related_name='stripe_account_subscription')
+    trip = models.ForeignKey('trips.TripDate', on_delete=models.PROTECT, related_name='stripe_trip_subscription')
+    plan = models.ForeignKey(StripePlanNames, on_delete=models.PROTECT, null=True,
+                             related_name='stripe_plan_subscription')
+    subscription_id = models.CharField(max_length=50)
+    debt = models.DecimalField(decimal_places=2, max_digits=7)
+
+    def __str__(self):
+        return self.subscription_id
+
+
 @receiver(post_save, sender=User)
 def update_user_account(sender, instance, created, **kwargs):
     if created:
