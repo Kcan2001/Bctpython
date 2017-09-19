@@ -71,7 +71,7 @@ def webhooks(request):
     return HttpResponse(status=200)
 
 
-endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
+endpoint_secret = 'whsec_Vcgs4oARNMP3fp7RJwrhQzHHvulNLBDf'
 
 
 @require_POST
