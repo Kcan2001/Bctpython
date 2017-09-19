@@ -1,4 +1,5 @@
 import stripe
+from django.views.decorators.http import require_http_methods
 
 from django.http import HttpResponse
 import json
@@ -6,7 +7,7 @@ import json
 #     import json as simplejson
 # except:
 #     from django.utils import simplejson
-
+from django.views.decorators.http import require_POST
 from accounts.models import Account
 from django.conf import settings
 from .signals import *
@@ -70,24 +71,57 @@ def webhooks(request):
     return HttpResponse(status=200)
 
 
+endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
+
+
+@require_POST
 @csrf_exempt
 def webhooks_v2(request):
     """
     Handles all known webhooks from stripe, and calls signals.
     Plug in as you need.
     """
-    if request.method != "POST":
-        return HttpResponse("Invalid Request.", status=400)
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
 
     try:
-        event_json = json.loads(request.body)
-    except AttributeError:
-        # Backwords compatibility
-        # Prior to Django 1.4, request.body was named request.raw_post_data
-        event_json = json.loads(request.raw_post_data)
+        event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
+    except ValueError as e:
+        # Invalid payload
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return HttpResponse(status=400)
+
+    event_json = json.loads(request.body)
     event_key = event_json['type'].replace('.', '_')
 
     if event_key in WEBHOOK_MAP:
         WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
 
     return HttpResponse(status=200)
+
+#     if request.method != "POST":
+#         return HttpResponse("Invalid Request.", status=400)
+#
+#     try:
+#         event_json = json.loads(request.body)
+#     except AttributeError:
+#         # Backwords compatibility
+#         # Prior to Django 1.4, request.body was named request.raw_post_data
+#         event_json = json.loads(request.raw_post_data)
+#     event_key = event_json['type'].replace('.', '_')
+#
+#     if event_key in WEBHOOK_MAP:
+#         WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
+#
+#     return HttpResponse(status=200)
+#
+# def my_webhook_view(request):
+#   # Retrieve the request's body and parse it as JSON
+#   event_json = json.loads(request.body)
+#
+#   # Do something with event_json
+#
+#   return HttpResponse(status=200)
