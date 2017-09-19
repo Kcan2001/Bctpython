@@ -1,11 +1,11 @@
 import stripe
 
 from django.http import HttpResponse
-
-try:
-    import json as simplejson
-except:
-    from django.utils import simplejson
+import json
+# try:
+#     import json as simplejson
+# except:
+#     from django.utils import simplejson
 
 from accounts.models import Account
 from django.conf import settings
@@ -80,11 +80,11 @@ def webhooks_v2(request):
         return HttpResponse("Invalid Request.", status=400)
 
     try:
-        event_json = simplejson.loads(request.body)
+        event_json = json.loads(request.body)
     except AttributeError:
         # Backwords compatibility
         # Prior to Django 1.4, request.body was named request.raw_post_data
-        event_json = simplejson.loads(request.raw_post_data)
+        event_json = json.loads(request.raw_post_data)
     event_key = event_json['type'].replace('.', '_')
 
     if event_key in WEBHOOK_MAP:
