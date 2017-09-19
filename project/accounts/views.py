@@ -117,6 +117,8 @@ class UserHomePageView(LoginRequiredMixin, TemplateView):
                                                              departure__lt=timezone.now())[:3]
         # Will show all blog post at user profile: approved and not approved
         context['user_blog_post'] = Post.objects.filter(author=self.request.user.account)
+        context['user_subscriptions'] = UserStripeSubscription.objects.filter(user=self.request.user.account,
+                                                                              debt__gt=0)
         return context
 
 
@@ -368,7 +370,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                                                                                             plan_price=general_price)
                         # If stripe_plan_create is created, then we need to create this plan at stripe service
                         if created is True:
-                            stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month", currency="usd",
+                            stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month",
+                                                             currency="usd",
                                                              amount=month_payment)
                         # If stripe_plan_create is False, then we already have this plan, so just use plan_id
                         stripe_subscription = stripe.Subscription.create(customer=user_stripe_id,
@@ -435,7 +438,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                                                                                             plan_price=general_price)
                         # If stripe_plan_create is created, then we need to create this plan at stripe service
                         if created is True:
-                            stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month", currency="usd",
+                            stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month",
+                                                             currency="usd",
                                                              amount=month_payment)
                         # If stripe_plan_create is False, then we already have this plan, so just use plan_id
                         stripe_subscription = stripe.Subscription.create(customer=customer.id,
