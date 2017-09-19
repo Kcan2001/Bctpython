@@ -81,7 +81,7 @@ def webhooks_v2(request):
     Handles all known webhooks from stripe, and calls signals.
     Plug in as you need.
     """
-    payload = request.body
+    payload = request.body.decode('utf-8')
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
 
@@ -99,6 +99,8 @@ def webhooks_v2(request):
 
     if event_key in WEBHOOK_MAP:
         WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
+
+    print('test')
 
     return HttpResponse(status=200)
 
