@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Account
+from .models import Account, UserStripeSubscription, StripePlanNames
 from django.contrib.auth.models import User
 
 
@@ -80,3 +80,5 @@ class AccountAdmin(admin.ModelAdmin):
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Account, AccountAdmin)
+admin.site.register(UserStripeSubscription)
+admin.site.register(StripePlanNames)
