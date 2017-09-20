@@ -22,9 +22,9 @@ def add_score(sender, **kwargs):
 
 @receiver(webhook_charge_succeeded, sender=None)
 def add_score2(sender, **kwargs):
-    amount2 = kwargs['full_json']['data']['object']['amount']
-    debt2 = Decimal(amount2)
-    query = UserStripeSubscription.objects.filter(subscription_id='sub_BQbcotf5gKozwF').update(debt=debt2)
+    amount = kwargs['full_json']['data']['object']['amount']
+    debt = amount/100
+    query = UserStripeSubscription.objects.filter(subscription_id='sub_BQbcotf5gKozwF').update(debt=debt)
 
 
 @receiver(webhook_invoice_payment_succeeded, sender=None)
