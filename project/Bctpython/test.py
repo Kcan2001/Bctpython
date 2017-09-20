@@ -24,4 +24,4 @@ ADMINS = (
     ("""Michal""", 'msoltysek@milosolutions.com'),
     ("""Igor""", 'idubovik@milosolutions.com'),
 )
-ALLOWED_HOSTS = ['http://bct-dev.milosolutions.com/']
+ALLOWED_HOSTS = ['bct-dev.milosolutions.com']
