@@ -1,6 +1,6 @@
 import stripe
 import math
-from .signals import test_amount, webhook_invoice_payment_succeeded
+from .signals import test_amount, webhook_invoice_payment_succeeded2
 from .stripe_api import generate_plan_name
 
 from django.shortcuts import render, redirect, get_object_or_404
@@ -50,8 +50,11 @@ answer = {
     "data": {
         "object": {
             "id": "ch_1B3QgEGAgTsJnMYTlXpU2ZOl",
+            "subscription": "sub_BQbcotf5gKozwF",
+            "total": 261000,
             "object": "charge",
             "amount": 5000,
+            "paid": True,
             "amount_refunded": 0,
             "balance_transaction": "txn_1B3QgFGAgTsJnMYTl8F72yMp",
             "created": 1505746622,
@@ -353,13 +356,15 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                 user_stripe_id = request.user.account.stripe_account.customer_id
                 # Check if user choose pay for month
                 if 'subscription' in form.cleaned_data:
-                    if form.cleaned_data['subscription'] is not None and form.cleaned_data['subscription'] > 1:
+                    # Define subscription:
+                    subscription = form.cleaned_data['subscription']
+                    if subscription is not None and subscription > 1:
                         # Count month payment and round up this sum
-                        month_payment = math.ceil(general_price_cents / form.cleaned_data['subscription'])
-                        month2 = general_price_cents / form.cleaned_data['subscription']
+                        month_payment = math.ceil(general_price_cents / subscription)
+                        month2 = general_price_cents / subscription
                         # Generate plan_id and plan_name values from inputed data
                         stripe_plan_data = generate_plan_name(trip=self.object.trip.title,
-                                                              payments=form.cleaned_data['subscription'],
+                                                              payments=subscription,
                                                               price=general_price)
                         # Define plan_id and plan_name from returned tuple (generate_plan_name)
                         plan_id = stripe_plan_data[0]
@@ -393,11 +398,12 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                             user.trips.add(trip)
                             # Create StripeSubscription in database and link it to User Account
                             create_subscription = UserStripeSubscription.objects.create(user=user, trip=trip,
+                                                                                        payments=subscription,
                                                                                         subscription_id=stripe_subscription.id,
                                                                                         debt=general_price)
                             # Link Stripe Subscription object to Stripe Plan Name object
                             link = stripe_plan.stripe_plan_subscription.add(create_subscription)
-                            webhook_invoice_payment_succeeded.send(sender=None, full_json=answer)
+                            webhook_invoice_payment_succeeded2.send(sender=None, full_json=answer)
                         return redirect('accounts:trip_success')
                 # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
                 else:
