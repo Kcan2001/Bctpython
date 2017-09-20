@@ -347,9 +347,6 @@ class UserTripBookingView(SingleObjectMixin, FormView):
             general_price_cents = int(general_price * 100)
             # Read stripe secret key from settings file
             stripe.api_key = settings.STRIPE_SECRET_KEY
-            k2 = self.request.user.account.stripe_account
-            k1 = self.request.user.account.stripe_account.customer_id
-            kk = Account.objects.get(stripe_account__customer_id=self.request.user.account.stripe_account.customer_id)
             # Check if User Account already has stripe account identificator:
             if hasattr(request.user.account, 'stripe_account'):
                 # Get stored customer_id from previous operations:
