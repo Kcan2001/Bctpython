@@ -19,6 +19,7 @@ class Account(models.Model):
     passport_expire_date = models.DateField(null=True, blank=True)
     email_confirmed = models.BooleanField(default=False)
     is_membership = models.BooleanField(default=False)
+    points = models.PositiveSmallIntegerField(default=0)
 
     def __str__(self):
         return self.user.username
