@@ -144,7 +144,7 @@
                                         <strong>{{ trip.trip.title }}</strong>
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--border">
-                                        {{ trip.trip.description|truncatewords:18 }}
+                                        {{ trip.trip.description|safe|truncatewords:18 }}
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--border">
                                         <strong>Price: {{ trip.price }}$</strong>
@@ -197,7 +197,7 @@
 
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--border">
-                                        {{ trip.trip.description|truncatewords:18 }}
+                                        {{ trip.trip.description|safe|truncatewords:18 }}
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--border">
                                         <strong>Price: {{ trip.price }}$</strong>
@@ -317,7 +317,7 @@
                             <div class="mdl-cell mdl-cell--12-col">
 
                                 You don't show your adventures to others. Will you <a
-                                    href="{% url 'accounts:create_blog_post' %}">create</a> your blog posts?
+                                    href="{% url 'accounts:create_blog_post' %}">create</a> your first blog post?
 
 
                             </div>
