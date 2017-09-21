@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^guides/', views.guides,  name='guides'),
     url(r'^reviews/', views.reviews,  name='reviews'),
     url(r'^terms/', views.terms, name='terms'),
-    url(r'^premium/', views.premium, name='premium'),
+    url(r'^premium/', views.AboutPremiumView.as_view(), name='premium'),
 
     # ckeditor urls with rewrited decorators (staff required - standard decorator)
     url(r'^upload/', login_required(ckeditor_views.upload), name='ckeditor_upload'),

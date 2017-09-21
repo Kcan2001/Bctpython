@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.views import TemplateView
+from django.conf import settings
 
 from .instagram_api import GetUserMedia
 
@@ -9,17 +10,22 @@ class GalleryInstagramView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(GalleryInstagramView, self).get_context_data(**kwargs)
-        # You can set how many photos will be shown in .recent_media($how_many_photos$)
-        context['photos'] = GetUserMedia.recent_media(20)
+        # You can set how many photos will be shown in settings file
+        context['photos'] = GetUserMedia.recent_media(settings.INSTAGRAM_SHOW_MEDIA_COUNT)
+        return context
+
+
+class AboutPremiumView(TemplateView):
+    template_name = 'frontpages/about/premium.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutPremiumView, self).get_context_data(**kwargs)
+        context['premium_membership_price'] = settings.PREMIUM_MEMBERSHIP_PRICE
         return context
 
 
 def about(request):
     return render(request, 'frontpages/about/about.html')
-
-
-def premium(request):
-    return render(request, 'frontpages/about/premium.html')
 
 
 def home(request):

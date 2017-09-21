@@ -1,6 +1,6 @@
 import stripe
 import math
-from .signals import test_amount, webhook_invoice_payment_succeeded2
+from .signals import webhook_invoice_payment_succeeded2, count_points
 from .stripe_api import generate_plan_name
 
 from django.shortcuts import render, redirect, get_object_or_404
@@ -41,69 +41,6 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
 from django.http import HttpResponseRedirect, HttpResponseForbidden
-
-answer = {
-    "id": "evt_1B3QgFGAgTsJnMYTH7L9pjLW",
-    "object": "event",
-    "api_version": "2017-08-15",
-    "created": 1505746623,
-    "data": {
-        "object": {
-            "id": "ch_1B3QgEGAgTsJnMYTlXpU2ZOl",
-            "subscription": "sub_BQbcotf5gKozwF",
-            "total": 261000,
-            "object": "charge",
-            "amount": 5000,
-            "paid": True,
-            "amount_refunded": 0,
-            "balance_transaction": "txn_1B3QgFGAgTsJnMYTl8F72yMp",
-            "created": 1505746622,
-            "currency": "usd",
-            "customer": "cus_BL3mWDgHRu7h2D",
-            "description": "Payment for premium membership for real user",
-            "fraud_details": {
-            },
-            "metadata": {
-            },
-            "outcome": {
-                "network_status": "approved_by_network",
-                "risk_level": "normal",
-                "seller_message": "Payment complete.",
-                "type": "authorized"
-            },
-            "refunds": {
-                "object": "list",
-                "data": [
-
-                ],
-                "total_count": 0,
-                "url": "/v1/charges/ch_1B3QgEGAgTsJnMYTlXpU2ZOl/refunds"
-            },
-            "source": {
-                "id": "card_1AyNehGAgTsJnMYTKpeQjO9n",
-                "object": "card",
-                "address_zip": "12365",
-                "address_zip_check": "pass",
-                "brand": "Visa",
-                "country": "US",
-                "customer": "cus_BL3mWDgHRu7h2D",
-                "exp_month": 10,
-                "exp_year": 2025,
-                "fingerprint": "8df5r8wpgVKDntzE",
-                "funding": "credit",
-                "last4": "4242",
-                "metadata": {
-                },
-            },
-            "status": "succeeded",
-        }
-    },
-    "pending_webhooks": 1,
-    "request": {
-        "id": "req_Ref0o2lDc8SYxi",
-    },
-    "type": "charge.succeeded"
-}
 
 
 class UserHomePageView(LoginRequiredMixin, TemplateView):
@@ -289,6 +226,7 @@ class UserMembershipView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(UserMembershipView, self).get_context_data(**kwargs)
         context['stripe_public_key'] = settings.STRIPE_PUBLIC_KEY
+        context['premium_membership_price'] = settings.PREMIUM_MEMBERSHIP_PRICE
         return context
 
 
@@ -309,7 +247,7 @@ class UserTripDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(UserTripDetailView, self).get_context_data(**kwargs)
-
+        context['stripe_public_key'] = settings.STRIPE_PUBLIC_KEY
         trip = TripDate.objects.get(pk=self.kwargs['pk'])
         trip_arrival_date = trip.arrival
         current_date = timezone.now().date()
@@ -350,144 +288,75 @@ class UserTripBookingView(SingleObjectMixin, FormView):
             # Check if User Account already has stripe account identificator:
             if hasattr(request.user.account, 'stripe_account'):
                 # Get stored customer_id from previous operations:
-                user_stripe_id = request.user.account.stripe_account.customer_id
-                # Check if user choose pay for month
-                if 'subscription' in form.cleaned_data:
-                    # Define subscription:
-                    subscription = form.cleaned_data['subscription']
-                    if subscription is not None and subscription > 1:
-                        # Count month payment and round up this sum
-                        month_payment = math.ceil(general_price_cents / subscription)
-                        # month2 = general_price_cents / subscription
-                        # Generate plan_id and plan_name values from inputed data
-                        stripe_plan_data = generate_plan_name(trip=self.object.trip.title,
-                                                              payments=subscription,
-                                                              price=general_price)
-                        # Define plan_id and plan_name from returned tuple (generate_plan_name)
-                        plan_id = stripe_plan_data[0]
-                        plan_name = stripe_plan_data[1]
-                        # Try to get or create StripePlanNames objects for generated data in generate_plan_name
-                        stripe_plan_create, created = StripePlanNames.objects.get_or_create(plan_id=plan_id,
-                                                                                            plan_name=plan_name,
-                                                                                            plan_price=general_price)
-                        # If stripe_plan_create is created, then we need to create this plan at stripe service
-                        if created is True:
-                            stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month",
-                                                             currency="usd",
-                                                             amount=month_payment)
-                        # If stripe_plan_create is False, then we already have this plan, so just use plan_id
-                        stripe_subscription = stripe.Subscription.create(customer=user_stripe_id,
-                                                                         items=[
-                                                                             {
-                                                                                 "plan": plan_id,
-                                                                             },
-                                                                         ]
-                                                                         )
-                        # If stripe_subscription got active status
-                        if stripe_subscription.status == 'active':
-                            # self.object.entry_set.add(request.user.account)
-                            user = request.user.account
-                            stripe_plan = stripe_plan_create
-                            l = stripe_subscription.stripe_id
-                            ll = stripe_subscription.id
-                            trip = self.object
-                            # Link TripDate object and User Account
-                            user.trips.add(trip)
-                            # Create StripeSubscription in database and link it to User Account
-                            create_subscription = UserStripeSubscription.objects.create(user=user, trip=trip,
-                                                                                        payments=subscription,
-                                                                                        subscription_id=stripe_subscription.id,
-                                                                                        debt=general_price)
-                            # Link Stripe Subscription object to Stripe Plan Name object
-                            link = stripe_plan.stripe_plan_subscription.add(create_subscription)
-                            # webhook_invoice_payment_succeeded2.send(sender=None, full_json=answer)
-                        return redirect('accounts:trip_success')
-                # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
-                else:
-                    charge = stripe.Charge.create(customer=user_stripe_id, amount=general_price_cents, currency='usd',
-                                                  description="Payment for tour (entire sum)")
-                    # paid = charge.paid
-                    # status = charge.status
-                    # If charge was successful:
-                    if charge.status == 'succeeded':
-                        # self.object.entry_set.add(request.user.account)
-                        user = request.user.account
-                        trip = self.object
-                        user.trips.add(trip)
-                        # webhook_invoice_payment_succeeded.send(sender=None, full_json=answer)
-                    return redirect('accounts:trip_success')
-            # At last, if User Account does not have stripe identificator, will create it
+                customer = request.user.account.stripe_account.customer_id
             else:
                 # If request.user has not customer instance in stripe database will create it:
                 customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
+                # Will get id from stripe for new customer
+                customer = customer.id
                 # Then will add stripe customer id to our request user (OneToOne Relation)
-                UserStripe.objects.create(user_id=request.user.account.id, customer_id=customer.id)
-                # Check if user choose pay for month
-                if 'subscription' in form.cleaned_data:
-                    # Define subscription:
-                    subscription = form.cleaned_data['subscription']
-                    if subscription is not None and subscription > 1:
-                        # Count month payment and round up this sum
-                        month_payment = math.ceil(general_price_cents / subscription)
-                        # month2 = general_price_cents / form.cleaned_data['subscription']
-                        # Generate plan_id and plan_name values from inputed data
-                        stripe_plan_data = generate_plan_name(trip=self.object.trip.title,
-                                                              payments=subscription,
-                                                              price=general_price)
-                        # Define plan_id and plan_name from returned tuple (generate_plan_name)
-                        plan_id = stripe_plan_data[0]
-                        plan_name = stripe_plan_data[1]
-                        # Try to get or create StripePlanNames objects for generated data in generate_plan_name
-                        stripe_plan_create, created = StripePlanNames.objects.get_or_create(plan_id=plan_id,
-                                                                                            plan_name=plan_name,
-                                                                                            plan_price=general_price)
-                        # If stripe_plan_create is created, then we need to create this plan at stripe service
-                        if created is True:
-                            stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month",
-                                                             currency="usd",
-                                                             amount=month_payment)
-                        # If stripe_plan_create is False, then we already have this plan, so just use plan_id
-                        stripe_subscription = stripe.Subscription.create(customer=customer.id,
-                                                                         items=[
-                                                                             {
-                                                                                 "plan": plan_id,
-                                                                             },
-                                                                         ]
-                                                                         )
-                        # If stripe_subscription got active status
-                        if stripe_subscription.status == 'active':
-                            # self.object.entry_set.add(request.user.account)
-                            user = request.user.account
-                            stripe_plan = stripe_plan_create
-                            l = stripe_subscription.stripe_id
-                            ll = stripe_subscription.id
-                            trip = self.object
-                            # Link TripDate object and User Account
-                            user.trips.add(trip)
-                            # Create StripeSubscription in database and link it to User Account
-                            create_subscription = UserStripeSubscription.objects.create(user=user, trip=trip,
-                                                                                        payments=subscription,
-                                                                                        subscription_id=stripe_subscription.id,
-                                                                                        debt=general_price)
-                            # Link Stripe Subscription object to Stripe Plan Name object
-                            link = stripe_plan.stripe_plan_subscription.add(create_subscription)
-                            # webhook_invoice_payment_succeeded.send(sender=None, full_json=answer)
-                        return redirect('accounts:trip_success')
-                # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
-                else:
-                    charge = stripe.Charge.create(customer=customer.id, amount=general_price_cents, currency='usd',
-                                                  description="Payment for tour (entire sum)")
-                    # paid = charge.paid
-                    # status = charge.status
-                    # If charge was successful:
-                    if charge.status == 'succeeded':
+                UserStripe.objects.create(user_id=request.user.account.id, customer_id=customer)
+
+            # Check if user choose pay for month
+            if 'subscription' in form.cleaned_data:
+                # Define subscription:
+                subscription = form.cleaned_data['subscription']
+                if subscription is not None and subscription > 1:
+                    # Count month payment and round up this sum
+                    month_payment = math.ceil(general_price_cents / subscription)
+                    # Generate plan_id and plan_name values from inputed data
+                    stripe_plan_data = generate_plan_name(trip=self.object.trip.title,
+                                                          payments=subscription,
+                                                          price=general_price)
+                    # Define plan_id and plan_name from returned tuple (generate_plan_name)
+                    plan_id = stripe_plan_data[0]
+                    plan_name = stripe_plan_data[1]
+                    # Try to get or create StripePlanNames objects for generated data in generate_plan_name
+                    stripe_plan_create, created = StripePlanNames.objects.get_or_create(plan_id=plan_id,
+                                                                                        plan_name=plan_name,
+                                                                                        plan_price=general_price)
+                    # If stripe_plan_create is created, then we need to create this plan at stripe service
+                    if created is True:
+                        stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month",
+                                                         currency="usd", amount=month_payment)
+                    # If stripe_plan_create is False, then we already have this plan, so just use plan_id
+                    stripe_subscription = stripe.Subscription.create(customer=customer,
+                                                                     items=[
+                                                                         {
+                                                                             "plan": plan_id,
+                                                                         },
+                                                                     ]
+                                                                     )
+                    # If stripe_subscription got active status
+                    if stripe_subscription.status == 'active':
                         # self.object.entry_set.add(request.user.account)
                         user = request.user.account
+                        stripe_plan = stripe_plan_create
                         trip = self.object
+                        # Link TripDate object and User Account
                         user.trips.add(trip)
-                        # webhook_invoice_payment_succeeded.send(sender=None, full_json=answer)
-                    return redirect('accounts:trip_success')
-                return redirect('accounts:trip_success')
+                        # Create StripeSubscription in database and link it to User Account
+                        create_subscription = UserStripeSubscription.objects.create(user=user, trip=trip,
+                                                                                    payments=subscription,
+                                                                                    subscription_id=stripe_subscription.id,
+                                                                                    debt=general_price)
+                        # Link Stripe Subscription object to Stripe Plan Name object
+                        link = stripe_plan.stripe_plan_subscription.add(create_subscription)
+                        # webhook_invoice_payment_succeeded2.send(sender=None, full_json=answer)
+                    # return redirect('accounts:trip_success')
+            else:
+                # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
+                charge = stripe.Charge.create(customer=customer, amount=general_price_cents, currency='usd',
+                                              description="Payment for tour (entire sum)")
+                # If charge was successful:
+                if charge.status == 'succeeded':
+                    # self.object.entry_set.add(request.user.account)
+                    user = request.user.account
+                    trip = self.object
+                    user.trips.add(trip)
+                    count_points.send(sender=None, amount=general_price, user=request.user.account)
+                # return redirect('accounts:trip_success')
+
             return self.form_valid(form)
         else:
             a = form.errors
@@ -509,6 +378,56 @@ class UserTripBookingView(SingleObjectMixin, FormView):
         return kwargs
 
 
+# Function for payment for user premium membership
+def membership_payment(request):
+    # Will accept only POST requests to our view
+    if request.method == 'POST':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        # Get premium price in $ from settings file
+        amount = settings.PREMIUM_MEMBERSHIP_PRICE
+        # Stripe works with cents, so count amount in cents:
+        amount_in_cents = amount * 100
+        # Will check if User Account already has stripe account identification:
+        if hasattr(request.user.account, 'stripe_account'):
+            # Get stored customer_id from previous operations:
+            customer = request.user.account.stripe_account.customer_id
+        else:
+            # If request.user has not customer instance in stripe database will create it:
+            customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
+            # Will get id from stripe for new customer
+            customer = customer.id
+            # Then will add stripe customer id to our request user (OneToOne Relation)
+            UserStripe.objects.create(user_id=request.user.account.id, customer_id=customer)
+
+        # Trying to make charge
+        charge = stripe.Charge.create(customer=customer, amount=amount_in_cents, currency='usd',
+                                      description='Payment for premium membership')
+
+        # If charge was successful:
+        if charge.status == 'succeeded':
+            # Add premium access for paid user
+            request.user.account.is_membership = True
+            request.user.save()
+            # Add new tag 'BC Member' in Active Campaign service
+            ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
+                                        last_name=request.user.last_name, tags='BC Member')
+            count_points.send(sender=None, amount=amount, user=request.user.account)
+            # test_amount.send(sender=None, subscription_id='sub_BQycXSvTzP1y5A')
+
+        return redirect('accounts:membership_success')
+    else:
+        return redirect('accounts:home')
+
+
+class TripPaymentSuccessView(LoginRequiredMixin, TemplateView):
+    template_name = 'accounts/trip_payment_success.html'
+
+
+class PremiumMembershipPaymentSuccessView(LoginRequiredMixin, TemplateView):
+    template_name = 'accounts/premium_payment_success.html'
+
+
+# Old multiply views
 # class UserTripDetailView(LoginRequiredMixin, FormMixin, DetailView):
 #     model = TripDate
 #     form_class = PaymentForm
@@ -543,57 +462,3 @@ class UserTripBookingView(SingleObjectMixin, FormView):
 #         form = PaymentForm(page_id=trip_page_id)
 #         print('need to send form')
 #     return render(request, 'accounts/trip2.html', {'form': form})
-class TripPaymentSuccessView(LoginRequiredMixin, TemplateView):
-    template_name = 'accounts/trip_payment_success.html'
-
-
-class PremiumMembershipPaymentSuccessView(LoginRequiredMixin, TemplateView):
-    template_name = 'accounts/premium_payment_success.html'
-
-
-def membership_payment(request):
-    # Will accept only post request to our view
-    if request.method == 'POST':
-        stripe.api_key = settings.STRIPE_SECRET_KEY
-        # Price of website premium is 50$, amount in cents:
-        amount = 5000
-        # Will check if User Account already has stripe account identification:
-        if hasattr(request.user.account, 'stripe_account'):
-            # Get stored customer_id from previous operations:
-            user_stripe_id = request.user.account.stripe_account.customer_id
-            # Making charge for amount $
-            charge = stripe.Charge.create(customer=user_stripe_id, amount=amount, currency='usd',
-                                          description='Payment for premium membership for real user')
-            # paid = charge.paid
-            # status = charge.status
-            # If charge was successful:
-            if charge.status == 'succeeded':
-                # Add premium access for paid user
-                request.user.account.is_membership = True
-                request.user.save()
-                # And add new tag in Active Campaign service
-                ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
-                                            last_name=request.user.last_name, tags='BC Member')
-                test_amount.send(sender=None, amount=amount, customer=user_stripe_id)
-            return redirect('accounts:membership_success')
-        else:
-            # If request.user has not customer instance in stripe database will create it:
-            customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
-            # Then will add stripe customer id to our request user (OneToOne Relation)
-            UserStripe.objects.get_or_create(user_id=request.user.account.id, customer_id=customer.id)
-            # After stripe_account was created will try to make a charge
-            charge = stripe.Charge.create(customer=customer.id, amount=amount, currency='usd',
-                                          description='Payment for premium membership')
-            # paid = charge.paid
-            # status = charge.status
-            # If charge was successful:
-            if charge.status == 'succeeded':
-                # Add premium access for paid user
-                request.user.account.is_membership = True
-                request.user.save()
-                # And add new tag in Active Campaign service
-                ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
-                                            last_name=request.user.last_name, tags='BC Member')
-                test_amount.send(sender=None, amount=amount, customer=customer.id)
-                return redirect('accounts:membership_success')
-        return redirect('accounts:home')

@@ -35,11 +35,6 @@ class PaymentForm(forms.Form):
         super(PaymentForm, self).__init__(*args, **kwargs)
         self.fields['excursions'].queryset = Excursion.objects.filter(trip=self.trip)
         a = self.fields['excursions']
-        # TODO count how much months normally
-        delta_months = delta / 30
-        months = int(delta_months)
         if delta >= 60:
             self.fields['subscription'] = forms.IntegerField(min_value=1, max_value=months, required=False)
             self.fields['subscription'].widget.attrs['class'] = 'bc-input-number'
-
-        pass

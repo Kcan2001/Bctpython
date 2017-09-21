@@ -44,6 +44,8 @@ class UserAdmin(admin.ModelAdmin):
 
 # ModelAdmin for Accounts in django admin site
 class AccountAdmin(admin.ModelAdmin):
+    # Exclude trips field from save/edit page, cuz with blank trip field we can't save Account instance
+    exclude = ('trips',)
     # Will show this fields at Accounts list page
     list_display = ['user', 'get_user_names', 'get_user_email', 'get_user_trips_count', 'email_confirmed',
                     'is_membership']
