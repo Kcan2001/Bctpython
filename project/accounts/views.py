@@ -1,7 +1,6 @@
 import stripe
 import math
 from .signals import webhook_invoice_payment_succeeded2, count_points
-from .stripe_api import generate_plan_name
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
@@ -376,6 +375,17 @@ class UserTripBookingView(SingleObjectMixin, FormView):
 
         kwargs['delta'] = delta
         return kwargs
+
+
+# Function to generate stripe plan id and name
+def generate_plan_name(trip, payments, price):
+    trip2 = trip
+    trip_for_name = trip.replace('.', '-')
+    trip_lowercase = trip2.lower().replace(' ', '-')
+    plan_id = '%s-%s-%s' % (trip_lowercase, payments, price)
+    plan_name = '%s - %s - %s' % (trip_for_name, payments, price)
+    plan = (plan_id, plan_name)
+    return plan
 
 
 # Function for payment for user premium membership
