@@ -6,7 +6,7 @@ app_name = 'accounts'
 urlpatterns = [
     # Account home page
     url(r'^$', views.UserHomePageView.as_view(), name='home'),
-    url(r'public/(?P<username>[-\w]+)/$', views.UserPublicView.as_view(), name='public-home'),
+    url(r'public/(?P<pk>[-\w]+)/$', views.UserPublicView.as_view(), name='public-home'),
     url(r'^membership/$', views.UserMembershipView.as_view(), name='membership'),
     url(r'^membership/payment/$', views.membership_payment, name='membership_payment'),
     url(r'^membership/payment-success/$', views.PremiumMembershipPaymentSuccessView.as_view(),
