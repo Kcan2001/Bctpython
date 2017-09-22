@@ -24,11 +24,11 @@
                         {% endif %}
                     </div>
                     <div class="mdl-cell mdl-cell--5-col">
-                        {{ user_profile.user.first_name }}'s blog posts:<br>
+                        {{ user_profile.user.first_name }}'s blog posts:<br><br>
                         {% for post in user_blog_post %}
                             <a href="{% url 'blog:blog_post' pk=post.pk %}">{{ post.title }}</a><br>
                         {% empty %}
-                            {{ user_profile.user.first_name }} does not post anything yet, maybe you can ask
+                            {{ user_profile.user.first_name }} did not posted anything yet, maybe you can ask
                             him/her to share his adventures?
                         {% endfor %}
                     </div>
