@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Trip, TripDate, TripImage, Excursion
 from accounts.models import Account
+from .models import Trip, TripDate, TripImage, Excursion
 
 
 # Will add users who payed for tour to tour date edit/save page
@@ -11,7 +11,6 @@ class UserInline(admin.StackedInline):
     verbose_name_plural = 'Clients'
 
 
-# Determine what we want to see on Trip Dates (Tours) list page
 class TripDateAdmin(admin.ModelAdmin):
     # Which inline we use here:
     inlines = [UserInline]
@@ -43,7 +42,6 @@ class TripDateAdmin(admin.ModelAdmin):
         return query.excursions.count()
     get_trip_excursions_count.short_description = 'Excursions'
 
-    # Performance optimization
     def get_inline_instances(self, request, obj=None):
         if not obj:
             return list()
@@ -54,7 +52,6 @@ class TripDateAdmin(admin.ModelAdmin):
                                                                                                         'account')
 
 
-# Determine what we want to see on Excursions list page
 class ExcursionAdmin(admin.ModelAdmin):
     list_display = ['title', 'duration', 'price']
     list_filter = ['price', 'duration']
@@ -62,12 +59,10 @@ class ExcursionAdmin(admin.ModelAdmin):
     class Meta:
         model = Excursion
 
-    # Optimization
     def get_queryset(self, request):
         return super(ExcursionAdmin, self).get_queryset(request).prefetch_related('trip')
 
 
-# Determine what we want to see on Trip Images list page
 class TripImageAdmin(admin.ModelAdmin):
     list_display = ['trip', 'featured', 'thumbnail', 'active', 'updated']
     list_filter = ['featured', 'thumbnail', 'active']
@@ -75,7 +70,6 @@ class TripImageAdmin(admin.ModelAdmin):
     class Meta:
         model = TripImage
 
-    # Optimization
     def get_queryset(self, request):
         return super(TripImageAdmin, self).get_queryset(request).select_related('trip')
 
