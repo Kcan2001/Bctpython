@@ -1,6 +1,5 @@
-from django.db import models
-from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db import models
 
 
 class Category(models.Model):
@@ -24,11 +23,6 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-published_date']
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.is_draft = True
-        self.save()
 
     def __str__(self):
         return self.title

@@ -154,7 +154,7 @@ STATICFILES_DIRS = (
 )
 
 # Backend for email sending to console, only for dev
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Settings for CKEditor
 CKEDITOR_UPLOAD_PATH = 'uploads/'
@@ -201,6 +201,6 @@ STRIPE_WEBHOOK_SECRET = 'whsec_Vcgs4oARNMP3fp7RJwrhQzHHvulNLBDf'
 
 # User Premium and Points settings
 # Premium membership in dollars
-# Points: for example for membership 50 * 0.2 = 10 points user will earn
+# Points: for example: membership 50 * 0.2 = 10 points user will earn
 PREMIUM_MEMBERSHIP_PRICE = 50
 POINTS_PER_DOLLAR = 0.2

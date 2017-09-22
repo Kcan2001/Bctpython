@@ -1,9 +1,10 @@
 # Please note, we use not official python-instagram, because it's not actively maintained anymore
 # We use https://github.com/shackra/python-instagram/ instead
-from django.conf import settings
 from instagram.client import InstagramAPI
 
-# Access token, client id and client secret for your instagram account
+from django.conf import settings
+
+
 INSTAGRAM_ACCESS_TOKEN = settings.INSTAGRAM_ACCESS_TOKEN
 INSTAGRAM_CLIENT_ID = settings.INSTAGRAM_CLIENT_ID
 INSTAGRAM_CLIENT_SECRET = settings.INSTAGRAM_CLIENT_SECRET
@@ -20,20 +21,15 @@ class GetUserMedia(object):
 
         recent_media, next_ = api.user_recent_media(count=count)
 
-        # Will make our list blank
-        photos = list()
+        photos = []
 
         for media in recent_media:
+            if media.type != 'video':
+                photos.append({
+                    'link': media.link,
+                    'image': media.images['standard_resolution'].url,
+                    'likes': media.like_count,
+                    'comments': media.comment_count
+                })
 
-            # Create dict for every instance from user's instagram
-            recent_photos = dict()
-            # Will show only images, without video, cuz we can't control their responsiveness in template
-            if media.type == 'video':
-                pass
-            else:
-                recent_photos['link'] = media.link
-                recent_photos['image'] = media.images['standard_resolution'].url
-                recent_photos['likes'] = media.like_count
-                recent_photos['comments'] = media.comment_count
-                photos.append(recent_photos)
         return photos

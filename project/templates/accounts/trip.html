@@ -100,9 +100,11 @@
                                     {{ form.errors }}
                                 </div>
                             {% endif %}
-
                             <div class="mdl-grid">
                                 <div class="mdl-layout-spacer"></div>
+
+                                {% if request.user.account.pk not in trip.trip_users %}
+
                                 <div class="mdl-cell mdl-cell--10-col">
                                     <form id="payment-form" method="POST">
                                         {% csrf_token %}
@@ -162,6 +164,13 @@
                                         </div>
                                     </form>
                                 </div>
+
+                                {% else %}
+                                    <div class="mdl-cell mdl-cell--10-col bc-text-center">
+                                        You already paid for this tour, thanks!
+                                    </div>
+                                {% endif %}
+
                                 <div class="mdl-layout-spacer"></div>
                             </div>
                         </div>
@@ -187,6 +196,8 @@
         </div>
         <div class="mdl-layout-spacer"></div>
     </div>
+
+    {% if request.user.account.pk not in trip.trip_users %}
 
     <script type="application/javascript">
         var stripe = Stripe('{{ stripe_public_key }}');
@@ -253,4 +264,6 @@
             form.submit();
         }
     </script>
+
+    {% endif %}
 {% endblock %}

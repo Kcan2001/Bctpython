@@ -61,7 +61,7 @@
                                     {% else %}
                                         <a href="{% url 'premium' %}" target="_blank"><span class="bc-red-badge">NOT PREMIUM</span></a>
                                     {% endif %}
-                                    <a href="{% url 'accounts:public-home' username=request.user.username %}"
+                                    <a href="{% url 'accounts:public-home' pk=request.user.account.pk %}"
                                        title="Your public profile">
                                         <span class="bc-blue-badge">YOUR PUBLIC PROFILE</span></a>
                                     <a href="{% url 'accounts:create_blog_post' %}" title="Create blog post">
