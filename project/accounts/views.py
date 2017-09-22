@@ -1,21 +1,23 @@
-import stripe
 import math
-from .signals import webhook_invoice_payment_succeeded2, count_points
+import stripe
 
-from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from django.utils import timezone
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_text
 from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseRedirect, HttpResponseForbidden
+from django.template.loader import render_to_string
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import FormMixin, FormView
-from django.views.generic.detail import SingleObjectMixin
-
 from django.views import View
-from django.views.generic.edit import UpdateView, CreateView
-from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView, CreateView, FormView
+from django.views.generic.detail import DetailView, SingleObjectMixin
 from django.contrib.auth.views import (
     LoginView,
     LogoutView,
@@ -27,19 +29,15 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView,
     TemplateView)
 
-from .models import Account, UserStripe, UserStripeSubscription, StripePlanNames
 from trips.models import Trip, TripDate
 from blog.models import Post
 
 from .forms import SignUpForm, PaymentForm, CreateBlogPostForm
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_text
-from django.template.loader import render_to_string
-
+from .models import Account, UserStripe, UserStripeSubscription, StripePlanNames
 from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
-from django.http import HttpResponseRedirect, HttpResponseForbidden
+from .helpers import generate_plan_name
+from .signals import count_points
 
 
 class UserHomePageView(LoginRequiredMixin, TemplateView):
@@ -67,11 +65,11 @@ class UserPublicView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(UserPublicView, self).get_context_data(**kwargs)
         # Get User Username for page kwargs
-        user = get_object_or_404(User, username=self.kwargs['username'])
+        user = get_object_or_404(Account, pk=self.kwargs['pk'])
         # Get User Account or show 404
-        context['user_profile'] = get_object_or_404(Account, id=user.account.pk)
+        context['user_profile'] = get_object_or_404(Account, id=user.pk)
         # Will show at public page only approved blog posts
-        context['user_blog_post'] = Post.objects.filter(author=user.account.pk).exclude(is_draft=True)
+        context['user_blog_post'] = Post.objects.filter(author=user.pk).exclude(is_draft=True)
         return context
 
 
@@ -81,10 +79,6 @@ class UserBlogPostCreateView(LoginRequiredMixin, CreateView):
     form_class = CreateBlogPostForm
     success_url = reverse_lazy('accounts:blog_post_created')
 
-    # def get_initial(self):
-    #     initial = super(UserBlogPostCreateView, self).get_initial()
-    #     initial['author'] = self.request.user.account
-    #     return initial
     def form_valid(self, form):
         form.instance.author = self.request.user.account
         return super().form_valid(form)
@@ -143,8 +137,6 @@ def activate(request, uidb64, token):
 class UserLoginView(LoginView):
     template_name = 'accounts/login.html'
 
-    # success_url = reverse_lazy('accounts:home')
-
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
             return HttpResponseRedirect(reverse_lazy('accounts:home'))
@@ -153,7 +145,6 @@ class UserLoginView(LoginView):
 
 
 class UserLogoutView(LogoutView):
-    # TODO When we will deploy, need to make reverse_lazy to homepage
     next_page = '/yourtrips/'
     # template_name = 'frontpages/index.html'
 
@@ -165,7 +156,6 @@ class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
 
 
 class UserPasswordChangeDoneView(LoginRequiredMixin, PasswordChangeDoneView):
-    # TODO need to make fixed height for this page
     template_name = 'accounts/registration/password_change_done.html'
 
 
@@ -304,12 +294,9 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                     # Count month payment and round up this sum
                     month_payment = math.ceil(general_price_cents / subscription)
                     # Generate plan_id and plan_name values from inputed data
-                    stripe_plan_data = generate_plan_name(trip=self.object.trip.title,
-                                                          payments=subscription,
-                                                          price=general_price)
-                    # Define plan_id and plan_name from returned tuple (generate_plan_name)
-                    plan_id = stripe_plan_data[0]
-                    plan_name = stripe_plan_data[1]
+                    plan_id, plan_name = generate_plan_name(trip=self.object.trip.title,
+                                                            payments=subscription,
+                                                            price=general_price)
                     # Try to get or create StripePlanNames objects for generated data in generate_plan_name
                     stripe_plan_create, created = StripePlanNames.objects.get_or_create(plan_id=plan_id,
                                                                                         plan_name=plan_name,
@@ -342,6 +329,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                         # Link Stripe Subscription object to Stripe Plan Name object
                         link = stripe_plan.stripe_plan_subscription.add(create_subscription)
                         # webhook_invoice_payment_succeeded2.send(sender=None, full_json=answer)
+                    else:
+                        return redirect('accounts:payment_failed')
                     # return redirect('accounts:trip_success')
             else:
                 # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
@@ -354,6 +343,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                     trip = self.object
                     user.trips.add(trip)
                     count_points.send(sender=None, amount=general_price, user=request.user.account)
+                else:
+                    return redirect('accounts:payment_failed')
                 # return redirect('accounts:trip_success')
 
             return self.form_valid(form)
@@ -377,18 +368,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
         return kwargs
 
 
-# Function to generate stripe plan id and name
-def generate_plan_name(trip, payments, price):
-    trip2 = trip
-    trip_for_name = trip.replace('.', '-')
-    trip_lowercase = trip2.lower().replace(' ', '-')
-    plan_id = '%s-%s-%s' % (trip_lowercase, payments, price)
-    plan_name = '%s - %s - %s' % (trip_for_name, payments, price)
-    plan = (plan_id, plan_name)
-    return plan
-
-
 # Function for payment for user premium membership
+@login_required
 def membership_payment(request):
     # Will accept only POST requests to our view
     if request.method == 'POST':
@@ -423,6 +404,8 @@ def membership_payment(request):
                                         last_name=request.user.last_name, tags='BC Member')
             count_points.send(sender=None, amount=amount, user=request.user.account)
             # test_amount.send(sender=None, subscription_id='sub_BQycXSvTzP1y5A')
+        else:
+            return redirect('accounts:payment_failed')
 
         return redirect('accounts:membership_success')
     else:
@@ -435,40 +418,3 @@ class TripPaymentSuccessView(LoginRequiredMixin, TemplateView):
 
 class PremiumMembershipPaymentSuccessView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/premium_payment_success.html'
-
-
-# Old multiply views
-# class UserTripDetailView(LoginRequiredMixin, FormMixin, DetailView):
-#     model = TripDate
-#     form_class = PaymentForm
-#     template_name = 'accounts/trip.html'
-#     context_object_name = 'trip'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(UserTripDetailView, self).get_context_data(**kwargs)
-#         trip = TripDate.objects.get(pk=self.kwargs['pk'])
-#         trip_arrival_date = trip.arrival
-#         current_date = timezone.now().date()
-#         delta = (trip_arrival_date - current_date).days
-#         if delta <= 20:
-#             context['time_left'] = 'You need to pay entire sum'
-#         else:
-#             context['time_left'] = 'allow'
-#         return context
-#
-#     def get_form_kwargs(self):
-#         kwargs = super(UserTripDetailView, self).get_form_kwargs()
-#         kwargs.update({'page_id': self.kwargs['pk']})
-#         return kwargs
-
-# def usertripdetail(request, pk):
-#     if request.method == 'POST':
-#         form = PaymentForm(request.POST)
-#         if form.is_valid():
-#             print('all is ok')
-#             return redirect('accounts:home')
-#     else:
-#         trip_page_id = pk
-#         form = PaymentForm(page_id=trip_page_id)
-#         print('need to send form')
-#     return render(request, 'accounts/trip2.html', {'form': form})

@@ -1,13 +1,11 @@
-import stripe
 import math
+import stripe
 from decimal import Decimal
-
 import django.dispatch
 from django.dispatch import receiver
 from django.conf import settings
-
-from .models import Account, UserStripeSubscription
 from Bctpython.signals import webhook_invoice_payment_succeeded
+from .models import Account, UserStripeSubscription
 
 
 # Define signals
