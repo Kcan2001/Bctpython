@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>QuickBooks private area</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        if (window.opener) {
+            window.opener.location.href = '{% url 'index' %}'
+            window.close()
+        }
+    </script>
+</head>
+<body>
+<h3>Here you can update your tokens for QuickBooks Account</h3>
+<p>Welcome {{ request.user.first_name }}!</p>
+<p>Short instruction:<br><br>
+    1) Connect to QuickBooks - this needed to allow your QuickBook application access to your QuickBooks company. Also
+    used if you revoked your tokens.<br><br>
+    Also you need to use it after ~1 year after you allowed access to your company. (in
+    other words, you need to use it 1 time per year). This is QuickBooks feature, not ours idea :)<br><br>
+    2) If you already allowed access to your application, just click "<a href="{% url 'connected' %}">Already
+        connected</a>"</p>
+<!-- Connect To QuickBooks Button -->
+<b>Connect to QuickBooks</b><br/>
+<a href="#" onclick="launchPopup('/quickbooks/connect-to-quickbooks/')">Connect now</a>
+<br/><br/><br/>
+<b><a href="{% url 'connected' %}">Already connected?</a></b>
+<script>
+    function launchPopup(path) {
+        var win;
+        var checkConnect;
+        var parameters = "location=1,width=800,height=650";
+        parameters += ",left=" + (screen.width - 800) / 2 + ",top=" + (screen.height - 650) / 2;
+        // Launch Popup
+        win = window.open(path, 'connectPopup', parameters);
+    }
+</script>
+
+</body>
+</html>
