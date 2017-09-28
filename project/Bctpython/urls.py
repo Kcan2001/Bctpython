@@ -6,13 +6,14 @@ from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from frontpages import views
-from .views import webhooks
+from .views import *
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^blog/', include('blog.urls')),
+    url(r'^quickbooks/', include('quickbooks.urls')),
 
     url(r'^$', views.home,  name='home'),
 
