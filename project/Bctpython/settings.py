@@ -210,6 +210,6 @@ POINTS_PER_DOLLAR = 1
 DISCOVERY_DOCUMENT = 'https://developer.api.intuit.com/.well-known/openid_sandbox_configuration/'
 CLIENT_ID = 'Q06R45NHwOMcYycjFmG8noSgUkswAyeOglWeqRSIb2LXn5Y6Fe'
 CLIENT_SECRET = '5GboyQKO8y7zV4mgDgSt0MTBIH3NSxdXYFPSUVkV'
-REDIRECT_URI = 'http://localhost:8000/quickbooks/auth-code-handler'
+REDIRECT_URI = 'https://bct-dev.milosolutions.com/quickbooks/auth-code-handler'
 ACCOUNTING_SCOPE = 'com.intuit.quickbooks.accounting'
 SANDBOX_QBO_BASEURL = 'https://sandbox-quickbooks.api.intuit.com'
