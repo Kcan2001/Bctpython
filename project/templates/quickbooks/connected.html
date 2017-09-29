@@ -30,6 +30,13 @@
             })
         }
 
+        function discovery() {
+            $("#result").html('Loading...')
+            $.get("/quickbooks/discovery", function (data) {
+                $("#result").html(JSON.stringify(data, null, 2))
+            })
+        }
+
     </script>
 </head>
 <body>
@@ -40,11 +47,14 @@
     2) Update tokens - you can manually update your access/refresh tokens<br><br>
     3) Revoke tokens - this will revoke (delete) your access and refresh tokens. BE CAREFUL! After revoking you will
     need to allow access to your QuickBooks account again. Little remainder: you can do that <a
-            href="{% url 'index' %}">here</a></p>
+            href="{% url 'index' %}">here</a><br><br>
+    4) Get latest discovery document - you can manually update QuickBooks discovery document, if think you have an old
+    data in your db. Anyway this doc automatically updated each 12h. </p>
 <div>
     <button onclick="apiCall()">Make test API call</button>
     <button onclick="refreshCall()">Update tokens</button>
     <button onclick="revokeCall()">Revoke (delete) tokens</button>
+    <button onclick="discovery()">Get latest discovery document</button>
     <br><br>
     <div><code id="result"></code></div>
 </div>
