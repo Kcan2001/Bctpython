@@ -33,9 +33,10 @@ from trips.models import Trip, TripDate
 from blog.models import Post
 
 from .forms import SignUpForm, PaymentForm, CreateBlogPostForm
-from .models import Account, UserStripe, UserStripeSubscription, StripePlanNames
+from .models import Account, UserStripe, UserStripeSubscription, StripePlanNames, UserQuickBooks
 from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
+from .quickbooks_api import create_user, create_and_pay_invoice
 from .helpers import generate_plan_name
 from .signals import count_points
 
@@ -285,6 +286,16 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                 customer = customer.id
                 # Then will add stripe customer id to our request user (OneToOne Relation)
                 UserStripe.objects.create(user_id=request.user.account.id, customer_id=customer)
+            # Check if User Account already has quickbooks account identificator:
+            if hasattr(request.user.account, 'quickbooks_account'):
+                quickbooks_customer_id = request.user.account.quickbooks_account.customer_id
+            else:
+                # Create customer at QuickBooks
+                create_quickbooks_customer = create_user(request.user.first_name, request.user.last_name,
+                                                         request.user.email)
+                quickbooks_customer_id = create_quickbooks_customer['Customer']['Id']
+                # Add quickbooks customer id to our request user (OneToOne Relation)
+                UserQuickBooks.objects.create(user_id=request.user.account.id, customer_id=quickbooks_customer_id)
 
             # Check if user choose pay for month
             if 'subscription' in form.cleaned_data:
@@ -328,7 +339,7 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                                                                                     debt=general_price)
                         # Link Stripe Subscription object to Stripe Plan Name object
                         link = stripe_plan.stripe_plan_subscription.add(create_subscription)
-                        # webhook_invoice_payment_succeeded2.send(sender=None, full_json=answer)
+                        # webhook_invoice_payment_succeeded2.send(sender=None)
                     else:
                         return redirect('accounts:payment_failed')
                     # return redirect('accounts:trip_success')
@@ -343,6 +354,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                     trip = self.object
                     user.trips.add(trip)
                     count_points.send(sender=None, amount=general_price, user=request.user.account)
+                    # Create Invoice and Pay for it at QuickBooks
+                    create_invoice_and_pay = create_and_pay_invoice(quickbooks_customer_id, float(general_price))
                 else:
                     return redirect('accounts:payment_failed')
                 # return redirect('accounts:trip_success')
@@ -389,6 +402,16 @@ def membership_payment(request):
             customer = customer.id
             # Then will add stripe customer id to our request user (OneToOne Relation)
             UserStripe.objects.create(user_id=request.user.account.id, customer_id=customer)
+        # Check if User Account already has quickbooks account identificator:
+        if hasattr(request.user.account, 'quickbooks_account'):
+            quickbooks_customer_id = request.user.account.quickbooks_account.customer_id
+        else:
+            # Create customer at QuickBooks
+            create_quickbooks_customer = create_user(request.user.first_name, request.user.last_name,
+                                                     request.user.email)
+            quickbooks_customer_id = create_quickbooks_customer['Customer']['Id']
+            # Add quickbooks customer id to our request user (OneToOne Relation)
+            UserQuickBooks.objects.create(user_id=request.user.account.id, customer_id=quickbooks_customer_id)
 
         # Trying to make charge
         charge = stripe.Charge.create(customer=customer, amount=amount_in_cents, currency='usd',
@@ -403,7 +426,8 @@ def membership_payment(request):
             ActiveCampaign.sync_contact(email=request.user.email, first_name=request.user.first_name,
                                         last_name=request.user.last_name, tags='BC Member')
             count_points.send(sender=None, amount=amount, user=request.user.account)
-            # test_amount.send(sender=None, subscription_id='sub_BQycXSvTzP1y5A')
+            # Create Invoice and Pay for it at QuickBooks
+            create_invoice_and_pay = create_and_pay_invoice(quickbooks_customer_id, float(amount))
         else:
             return redirect('accounts:payment_failed')
 

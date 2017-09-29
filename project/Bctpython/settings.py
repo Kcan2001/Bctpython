@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'trips',
     'blog',
+    'quickbooks',
     'ckeditor',
     'ckeditor_uploader',
 
@@ -203,4 +204,12 @@ STRIPE_WEBHOOK_SECRET = 'whsec_Vcgs4oARNMP3fp7RJwrhQzHHvulNLBDf'
 # Premium membership in dollars
 # Points: for example: membership 50 * 0.2 = 10 points user will earn
 PREMIUM_MEMBERSHIP_PRICE = 50
-POINTS_PER_DOLLAR = 0.2
+POINTS_PER_DOLLAR = 1
+
+# OAuth variables
+DISCOVERY_DOCUMENT = 'https://developer.api.intuit.com/.well-known/openid_sandbox_configuration/'
+CLIENT_ID = 'Q06R45NHwOMcYycjFmG8noSgUkswAyeOglWeqRSIb2LXn5Y6Fe'
+CLIENT_SECRET = '5GboyQKO8y7zV4mgDgSt0MTBIH3NSxdXYFPSUVkV'
+REDIRECT_URI = 'http://localhost:8000/quickbooks/auth-code-handler'
+ACCOUNTING_SCOPE = 'com.intuit.quickbooks.accounting'
+SANDBOX_QBO_BASEURL = 'https://sandbox-quickbooks.api.intuit.com'
