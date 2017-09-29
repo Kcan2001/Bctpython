@@ -5,8 +5,8 @@ import django.dispatch
 from django.dispatch import receiver
 from django.conf import settings
 from Bctpython.signals import webhook_invoice_payment_succeeded
+from .quickbooks_api import create_invoice, invoice_payment
 from .models import Account, UserStripeSubscription
-
 
 # Define signals
 count_points = django.dispatch.Signal(providing_args=['user', 'amount'])
@@ -41,6 +41,8 @@ def invoice_payment_succeeded(sender, **kwargs):
     total = kwargs['full_json']['data']['object']['total']
     # Get Subscription instance from database
     local_subscription = UserStripeSubscription.objects.filter(subscription_id=subscription_id).get()
+    # Get quickbooks customer from subscription
+    quickbooks_customer_id = local_subscription.user.quickbooks_account.customer_id
     # If invoice paid
     if status is True:
         # Strip works with cents, but our database storing dollars, will count sum in dollars:
@@ -68,6 +70,20 @@ def invoice_payment_succeeded(sender, **kwargs):
             stripe_account_subscription__subscription_id=subscription_id)
         # Send signal to update user bonus points
         count_points.send(sender=None, amount=sum_in_dollars, user=get_account)
+
+        create_quickbooks_invoice, status_code = create_invoice(quickbooks_customer_id, float(debt))
+
+        if not status_code >= 400:
+            invoice_id = create_quickbooks_invoice['Invoice']['Id']
+
+            set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
+                quickbooks_invoice_id=invoice_id)
+
+            create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(total))
+
+            return
+        else:
+            pass
 
 
 @receiver(webhook_invoice_payment_succeeded2, sender=None)
@@ -75,13 +91,15 @@ def subscription_payment(sender, **kwargs):
     # Define stripe secret key
     stripe.api_key = settings.STRIPE_SECRET_KEY
     # Get data from kwargs
-    customer_id = kwargs['full_json']['data']['object']['customer']
+    customer_id = 'cus_BUJF2swMjhQs19'
     # subscription_id = kwargs['full_json']['data']['object']['subscription']
-    status = kwargs['full_json']['data']['object']['paid']
-    total = kwargs['full_json']['data']['object']['total']
+    status = True
+    total = 600
     # Get Subscription instance from database
     local_subscription = UserStripeSubscription.objects.filter(user='1').get()
     subscription_id = local_subscription.subscription_id
+    # Get quickbooks customer from subscription
+    quickbooks_customer_id = local_subscription.user.quickbooks_account.customer_id
     # If invoice paid
     if status is True:
         # Strip works with cents, but our database storing dollars, will count sum in dollars:
@@ -110,6 +128,19 @@ def subscription_payment(sender, **kwargs):
         # Send signal to update user bonus points
         count_points.send(sender=None, amount=sum_in_dollars, user=get_account)
 
+    create_quickbooks_invoice, status_code = create_invoice(quickbooks_customer_id, float(debt))
+
+    if not status_code >= 400:
+        invoice_id = create_quickbooks_invoice['Invoice']['Id']
+
+        set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
+            quickbooks_invoice_id=invoice_id)
+
+        create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(total))
+
+        return
+    else:
+        pass
 
 # @receiver(webhook_charge_succeeded, sender=None)
 # def add_score2(sender, **kwargs):
