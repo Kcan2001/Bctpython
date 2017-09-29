@@ -79,7 +79,7 @@ def invoice_payment_succeeded(sender, **kwargs):
             set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
                 quickbooks_invoice_id=invoice_id)
 
-            create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(total))
+            create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(sum_in_dollars))
 
             return
         else:
@@ -136,7 +136,7 @@ def subscription_payment(sender, **kwargs):
         set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
             quickbooks_invoice_id=invoice_id)
 
-        create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(total))
+        create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(sum_in_dollars))
 
         return
     else:
