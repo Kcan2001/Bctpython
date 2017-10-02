@@ -28,18 +28,6 @@ class TripDate(models.Model):
         return query
 
 
-class TripImage(models.Model):
-    trip = models.ForeignKey(Trip, on_delete=models.PROTECT, related_name='trip_image')
-    image = models.ImageField(upload_to='trips/images/')
-    featured = models.BooleanField(default=False)
-    thumbnail = models.BooleanField(default=False)
-    active = models.BooleanField(default=True)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-    def __str__(self):
-        return self.trip.title
-
-
 class Excursion(models.Model):
     title = models.CharField(max_length=100)
     trip = models.ManyToManyField(TripDate, related_name='excursions')

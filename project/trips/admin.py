@@ -1,6 +1,6 @@
 from django.contrib import admin
 from accounts.models import Account
-from .models import Trip, TripDate, TripImage, Excursion, TripFlightCost
+from .models import Trip, TripDate, Excursion, TripFlightCost
 
 
 # Will add users who payed for tour to tour date edit/save page
@@ -15,7 +15,7 @@ class TripDateAdmin(admin.ModelAdmin):
     # Which inline we use here:
     inlines = [UserInline]
     # Which fields will show at tour save/edit page:
-    fields = ('trip', 'arrival', 'departure', 'price')
+    fields = ('trip', 'itinerary_days', 'arrival', 'departure', 'price', 'image_main', 'image_thumbnail')
     # Hierarchy by arrival field at Tour list page
     date_hierarchy = 'arrival'
     # Will order our tours at Tour list for descending arrival date
@@ -23,7 +23,8 @@ class TripDateAdmin(admin.ModelAdmin):
     # Will use this fields while search
     search_fields = ['trip__title', 'arrival', 'departure', 'price']
     # Will show this fields at Tour list page
-    list_display = ['trip', 'arrival', 'departure', 'get_trip_excursions_count', 'price', 'get_user_trips_count']
+    list_display = ['trip', 'itinerary_days', 'arrival', 'departure', 'get_trip_excursions_count', 'price',
+                    'get_user_trips_count']
     # Will use this fields for filter
     list_filter = ['arrival', 'departure', 'price']
 
@@ -34,12 +35,14 @@ class TripDateAdmin(admin.ModelAdmin):
     def get_user_trips_count(self, obj):
         query = TripDate.objects.get(pk=obj.pk)
         return query.account.count()
+
     get_user_trips_count.short_description = 'Orders'
 
     # Count how many excursions in tours
     def get_trip_excursions_count(self, obj):
         query = TripDate.objects.get(pk=obj.pk)
         return query.excursions.count()
+
     get_trip_excursions_count.short_description = 'Excursions'
 
     def get_inline_instances(self, request, obj=None):
@@ -67,17 +70,6 @@ class ExcursionAdmin(admin.ModelAdmin):
         return super(ExcursionAdmin, self).get_queryset(request).prefetch_related('trip')
 
 
-class TripImageAdmin(admin.ModelAdmin):
-    list_display = ['trip', 'featured', 'thumbnail', 'active', 'updated']
-    list_filter = ['featured', 'thumbnail', 'active']
-
-    class Meta:
-        model = TripImage
-
-    def get_queryset(self, request):
-        return super(TripImageAdmin, self).get_queryset(request).select_related('trip')
-
-
 class TripFlightCostAdmin(admin.ModelAdmin):
     search_fields = ['trip', 'airport', 'price']
     list_display = ['trip', 'airport', 'price']
@@ -93,6 +85,5 @@ class TripFlightCostAdmin(admin.ModelAdmin):
 
 admin.site.register(Trip)
 admin.site.register(TripDate, TripDateAdmin)
-admin.site.register(TripImage, TripImageAdmin)
 admin.site.register(Excursion, ExcursionAdmin)
 admin.site.register(TripFlightCost, TripFlightCostAdmin)
