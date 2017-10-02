@@ -16,6 +16,8 @@ class TripDate(models.Model):
     arrival = models.DateField(blank=True)
     departure = models.DateField(blank=True)
     price = models.DecimalField(decimal_places=2, max_digits=7)
+    image_main = models.ImageField(upload_to='trips/images/', default='trip_defaults/image_main.jpg')
+    image_thumbnail = models.ImageField(upload_to='trips/images/', default='trip_defaults/image_thumbnail.jpg')
 
     def __str__(self):
         return '%s - %s - %s' % (self.trip.title, self.arrival, self.departure)
