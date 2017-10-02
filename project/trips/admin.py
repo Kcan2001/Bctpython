@@ -1,6 +1,6 @@
 from django.contrib import admin
 from accounts.models import Account
-from .models import Trip, TripDate, TripImage, Excursion
+from .models import Trip, TripDate, TripImage, Excursion, TripFlightCost
 
 
 # Will add users who payed for tour to tour date edit/save page
@@ -48,8 +48,12 @@ class TripDateAdmin(admin.ModelAdmin):
         return super(TripDateAdmin, self).get_inline_instances(request, obj)
 
     def get_queryset(self, request):
-        return super(TripDateAdmin, self).get_queryset(request).select_related('trip').prefetch_related('excursions',
-                                                                                                        'account')
+        return super(TripDateAdmin, self).get_queryset(request).select_related(
+            'trip'
+        ).prefetch_related(
+            'excursions',
+            'account'
+        )
 
 
 class ExcursionAdmin(admin.ModelAdmin):
@@ -74,7 +78,21 @@ class TripImageAdmin(admin.ModelAdmin):
         return super(TripImageAdmin, self).get_queryset(request).select_related('trip')
 
 
+class TripFlightCostAdmin(admin.ModelAdmin):
+    search_fields = ['trip', 'airport', 'price']
+    list_display = ['trip', 'airport', 'price']
+    ordering = ['trip', 'airport']
+    list_filter = ['trip']
+
+    class Meta:
+        model = TripFlightCost
+
+    def get_queryset(self, request):
+        return super(TripFlightCostAdmin, self).get_queryset(request).select_related('trip')
+
+
 admin.site.register(Trip)
 admin.site.register(TripDate, TripDateAdmin)
 admin.site.register(TripImage, TripImageAdmin)
 admin.site.register(Excursion, ExcursionAdmin)
+admin.site.register(TripFlightCost, TripFlightCostAdmin)
