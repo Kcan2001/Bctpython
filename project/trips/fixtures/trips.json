@@ -1,0 +1,18 @@
+[
+  {
+    "model": "trips.trip",
+    "pk": 1,
+    "fields": {
+      "title": "Kilimanjaro",
+      "description": "<p>Kilimanjaro <strong>description</strong>!</p>"
+    }
+  },
+  {
+    "model": "trips.trip",
+    "pk": 2,
+    "fields": {
+      "title": "Scandinavia",
+      "description": "<p>Scandinavia <strong>description</strong>!</p>"
+    }
+  }
+]
