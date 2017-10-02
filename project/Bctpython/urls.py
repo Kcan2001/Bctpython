@@ -4,7 +4,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.cache import never_cache
+from django.views.decorators.cache import never_cache, cache_page
 from frontpages import views
 from .views import *
 
@@ -17,7 +17,7 @@ urlpatterns = [
 
     url(r'^$', views.home,  name='home'),
 
-    url(r'^gallery/', views.GalleryInstagramView.as_view(),  name='gallery'),
+    url(r'^gallery/', cache_page(60 * 30)(views.GalleryInstagramView.as_view()),  name='gallery'),
     url(r'^yourtrips/', views.yourtrips, name='yourtrips'),
     url(r'^westeuro/', views.westeuro,  name='westeuro'),
     url(r'^easteuro/', views.easteuro, name='easteuro'),
