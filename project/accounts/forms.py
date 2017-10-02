@@ -3,18 +3,29 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from trips.models import TripDate, Excursion
+from trips.models import TripDate, Excursion, TripFlightCost
 from blog.models import Post
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    email = forms.EmailField(max_length=254)
+    first_name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
 
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+
+
+class UpdateUserForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name')
 
 
 class CreateBlogPostForm(ModelForm):
@@ -28,11 +39,16 @@ class CreateBlogPostForm(ModelForm):
 
 class PaymentForm(forms.Form):
     excursions = forms.ModelMultipleChoiceField(queryset=None, required=False, to_field_name='title', widget=forms.CheckboxSelectMultiple)
+    flight_cost = forms.ModelChoiceField(queryset=None, required=False, empty_label='No Flights Included')
 
     def __init__(self, *args, **kwargs):
         self.trip = kwargs.pop('page_id', None)
         delta = kwargs.pop('delta', None)
         super(PaymentForm, self).__init__(*args, **kwargs)
+        # Query for flight costs and put in to select field
+        q = TripDate.objects.filter(pk=self.trip).get()
+        self.fields['flight_cost'].queryset = TripFlightCost.objects.filter(trip=q.trip.pk)
+        # Query for excursions
         self.fields['excursions'].queryset = Excursion.objects.filter(trip=self.trip)
         a = self.fields['excursions']
         delta_months = delta / 30
