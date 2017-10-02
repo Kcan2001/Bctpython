@@ -306,3 +306,7 @@
 
 /*Style for payment form choice field*/
 .bc-input-number{padding:7px 7px;font-size:16px;font-family:"Helvetica","Arial",sans-serif;width:100%;background:0 0;text-align:left;color:inherit;}
+
+/* Style for form errors*/
+.bc-form-errors-alert{width:300px;margin-top:-10px;display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#a94442;background-color:#f2dede;text-align:center;white-space:normal;vertical-align:baseline;border-radius:.25rem;}
+.bc-form-errors-alert .errorlist{list-style:none;padding:0;margin:5px;text-align:left;}
