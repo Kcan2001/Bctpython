@@ -18,9 +18,9 @@
                 </div>
 
 
-                {% if form.errors %}
+                {% if form.non_field_errors %}
                     <div class="mdl-cell mdl-cell--12-col">
-                        {{ form.errors }}
+                        <div class="bc-form-errors-alert" style="width: 100%;">{{ form.non_field_errors }}</div>
                     </div>
                 {% endif %}
 
@@ -31,6 +31,11 @@
                         <div class="mdl-cell mdl-cell--10-col">
                             <form method="POST">
                                 {% csrf_token %}
+
+                                {% if form.title.errors %}
+                                    <span class="bc-form-errors-alert"
+                                          style="width: 100%">{{ form.title.errors }}</span>
+                                {% endif %}
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <input class="mdl-textfield__input" type="text" name="title" id="id_title"
@@ -55,6 +60,10 @@
                                         {{ form.media }}
                                         {{ form.text }}
                                     </div>
+                                    {% if form.text.errors %}
+                                        <span class="bc-form-errors-alert"
+                                              style="width: 100%">{{ form.text.errors }}</span>
+                                    {% endif %}
                                 </div>
 
                                 <div class="mdl-grid">
