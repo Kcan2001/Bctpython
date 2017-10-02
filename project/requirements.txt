@@ -3,4 +3,4 @@ stripe==1.63.0
 Pillow==4.2.1
 requests==2.18.4
 git+git://github.com/wardal/django-ckeditor.git#egg=django-ckeditor
-git+git://github.com/shackra/python-instagram.git#egg=python-instagram
+git+git://github.com/wkoot/python-instagram.git#egg=python-instagram
