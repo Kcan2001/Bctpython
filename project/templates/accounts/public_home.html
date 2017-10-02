@@ -24,6 +24,7 @@
                         {% endif %}
                     </div>
                     <div class="mdl-cell mdl-cell--5-col">
+                        Black Crow Tours bonus points: {{ user_profile.points }}<br><br>
                         {{ user_profile.user.first_name }}'s blog posts:<br><br>
                         {% for post in user_blog_post %}
                             <a href="{% url 'blog:blog_post' pk=post.pk %}">{{ post.title }}</a><br>
