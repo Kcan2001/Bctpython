@@ -1,0 +1,1640 @@
+[
+  {
+    "model": "trips.tripflightcost",
+    "pk": 1,
+    "fields": {
+      "trip": 1,
+      "airport": "Albuquerque, NM",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 2,
+    "fields": {
+      "trip": 2,
+      "airport": "Albuquerque, NM",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 3,
+    "fields": {
+      "trip": 1,
+      "airport": "Amarillo, TX",
+      "price": "1270.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 4,
+    "fields": {
+      "trip": 2,
+      "airport": "Amarillo, TX",
+      "price": "1270.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 5,
+    "fields": {
+      "trip": 1,
+      "airport": "Anchorage, AK",
+      "price": "1600.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 6,
+    "fields": {
+      "trip": 2,
+      "airport": "Anchorage, AK",
+      "price": "1600.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 7,
+    "fields": {
+      "trip": 1,
+      "airport": "Atlanta, GA",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 8,
+    "fields": {
+      "trip": 2,
+      "airport": "Atlanta, GA",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 9,
+    "fields": {
+      "trip": 1,
+      "airport": "Austin, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 10,
+    "fields": {
+      "trip": 2,
+      "airport": "Austin, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 11,
+    "fields": {
+      "trip": 1,
+      "airport": "Baton Rouge, LA",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 12,
+    "fields": {
+      "trip": 2,
+      "airport": "Baton Rouge, LA",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 13,
+    "fields": {
+      "trip": 1,
+      "airport": "Billings, MT",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 14,
+    "fields": {
+      "trip": 2,
+      "airport": "Billings, MT",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 15,
+    "fields": {
+      "trip": 1,
+      "airport": "Birmingham, AL",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 16,
+    "fields": {
+      "trip": 2,
+      "airport": "Birmingham, AL",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 17,
+    "fields": {
+      "trip": 1,
+      "airport": "Bismarck, ND",
+      "price": "1320.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 18,
+    "fields": {
+      "trip": 2,
+      "airport": "Bismarck, ND",
+      "price": "1320.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 19,
+    "fields": {
+      "trip": 1,
+      "airport": "Boise, ID",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 20,
+    "fields": {
+      "trip": 2,
+      "airport": "Boise, ID",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 21,
+    "fields": {
+      "trip": 1,
+      "airport": "Boston, MA",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 22,
+    "fields": {
+      "trip": 2,
+      "airport": "Boston, MA",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 23,
+    "fields": {
+      "trip": 1,
+      "airport": "Bozeman, MT",
+      "price": "1600.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 24,
+    "fields": {
+      "trip": 2,
+      "airport": "Bozeman, MT",
+      "price": "1600.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 25,
+    "fields": {
+      "trip": 1,
+      "airport": "Bristol, TN",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 26,
+    "fields": {
+      "trip": 2,
+      "airport": "Bristol, TN",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 27,
+    "fields": {
+      "trip": 1,
+      "airport": "Buffalo, NY",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 28,
+    "fields": {
+      "trip": 2,
+      "airport": "Buffalo, NY",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 29,
+    "fields": {
+      "trip": 1,
+      "airport": "Cedar Rapids",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 30,
+    "fields": {
+      "trip": 2,
+      "airport": "Cedar Rapids",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 31,
+    "fields": {
+      "trip": 1,
+      "airport": "Charleston, SC",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 32,
+    "fields": {
+      "trip": 2,
+      "airport": "Charleston, SC",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 33,
+    "fields": {
+      "trip": 1,
+      "airport": "Charleston, WV",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 34,
+    "fields": {
+      "trip": 2,
+      "airport": "Charleston, WV",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 35,
+    "fields": {
+      "trip": 1,
+      "airport": "Charlotte, NC",
+      "price": "1220.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 36,
+    "fields": {
+      "trip": 2,
+      "airport": "Charlotte, NC",
+      "price": "1220.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 37,
+    "fields": {
+      "trip": 1,
+      "airport": "Chicago, IL",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 38,
+    "fields": {
+      "trip": 2,
+      "airport": "Chicago, IL",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 39,
+    "fields": {
+      "trip": 1,
+      "airport": "Cinncinati",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 40,
+    "fields": {
+      "trip": 2,
+      "airport": "Cinncinati",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 41,
+    "fields": {
+      "trip": 1,
+      "airport": "Cleveland, OH",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 42,
+    "fields": {
+      "trip": 2,
+      "airport": "Cleveland, OH",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 43,
+    "fields": {
+      "trip": 1,
+      "airport": "Coronado Spring, CO",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 44,
+    "fields": {
+      "trip": 2,
+      "airport": "Coronado Spring, CO",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 45,
+    "fields": {
+      "trip": 1,
+      "airport": "Columbus, OH",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 46,
+    "fields": {
+      "trip": 2,
+      "airport": "Columbus, OH",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 47,
+    "fields": {
+      "trip": 1,
+      "airport": "Corpus Christi, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 48,
+    "fields": {
+      "trip": 2,
+      "airport": "Corpus Christi, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 49,
+    "fields": {
+      "trip": 1,
+      "airport": "Dallas, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 50,
+    "fields": {
+      "trip": 2,
+      "airport": "Dallas, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 51,
+    "fields": {
+      "trip": 1,
+      "airport": "Dayton, OH",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 52,
+    "fields": {
+      "trip": 2,
+      "airport": "Dayton, OH",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 53,
+    "fields": {
+      "trip": 1,
+      "airport": "Denver, CO",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 54,
+    "fields": {
+      "trip": 2,
+      "airport": "Denver, CO",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 55,
+    "fields": {
+      "trip": 1,
+      "airport": "Des Moines, IA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 56,
+    "fields": {
+      "trip": 2,
+      "airport": "Des Moines, IA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 57,
+    "fields": {
+      "trip": 1,
+      "airport": "Detroit, MI",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 58,
+    "fields": {
+      "trip": 2,
+      "airport": "Detroit, MI",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 59,
+    "fields": {
+      "trip": 1,
+      "airport": "EI Paso, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 60,
+    "fields": {
+      "trip": 2,
+      "airport": "EI Paso, TX",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 61,
+    "fields": {
+      "trip": 1,
+      "airport": "Fairbanks, AK",
+      "price": "1500.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 62,
+    "fields": {
+      "trip": 2,
+      "airport": "Fairbanks, AK",
+      "price": "1500.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 63,
+    "fields": {
+      "trip": 1,
+      "airport": "Grand Rapids, MI",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 64,
+    "fields": {
+      "trip": 2,
+      "airport": "Grand Rapids, MI",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 65,
+    "fields": {
+      "trip": 1,
+      "airport": "Great Falls, MT",
+      "price": "1320.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 66,
+    "fields": {
+      "trip": 2,
+      "airport": "Great Falls, MT",
+      "price": "1320.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 67,
+    "fields": {
+      "trip": 1,
+      "airport": "Greensboro, NC",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 68,
+    "fields": {
+      "trip": 2,
+      "airport": "Greensboro, NC",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 69,
+    "fields": {
+      "trip": 1,
+      "airport": "Honolulu, HI",
+      "price": "1600.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 70,
+    "fields": {
+      "trip": 2,
+      "airport": "Honolulu, HI",
+      "price": "1600.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 71,
+    "fields": {
+      "trip": 1,
+      "airport": "Houston, TX",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 72,
+    "fields": {
+      "trip": 2,
+      "airport": "Houston, TX",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 73,
+    "fields": {
+      "trip": 1,
+      "airport": "Indianapolis, IN",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 74,
+    "fields": {
+      "trip": 2,
+      "airport": "Indianapolis, IN",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 75,
+    "fields": {
+      "trip": 1,
+      "airport": "Jackson, MS",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 76,
+    "fields": {
+      "trip": 2,
+      "airport": "Jackson, MS",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 77,
+    "fields": {
+      "trip": 1,
+      "airport": "Jacksonville, FL",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 78,
+    "fields": {
+      "trip": 2,
+      "airport": "Jacksonville, FL",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 79,
+    "fields": {
+      "trip": 1,
+      "airport": "Kansas City, MO",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 80,
+    "fields": {
+      "trip": 2,
+      "airport": "Kansas City, MO",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 81,
+    "fields": {
+      "trip": 1,
+      "airport": "Knoxville, TN",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 82,
+    "fields": {
+      "trip": 2,
+      "airport": "Knoxville, TN",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 83,
+    "fields": {
+      "trip": 1,
+      "airport": "Las Vegas, NV",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 84,
+    "fields": {
+      "trip": 2,
+      "airport": "Las Vegas, NV",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 85,
+    "fields": {
+      "trip": 1,
+      "airport": "Little Rock, AR",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 86,
+    "fields": {
+      "trip": 2,
+      "airport": "Little Rock, AR",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 87,
+    "fields": {
+      "trip": 1,
+      "airport": "Los Angeles, CA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 88,
+    "fields": {
+      "trip": 2,
+      "airport": "Los Angeles, CA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 89,
+    "fields": {
+      "trip": 1,
+      "airport": "Louisville, KY",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 90,
+    "fields": {
+      "trip": 2,
+      "airport": "Louisville, KY",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 91,
+    "fields": {
+      "trip": 1,
+      "airport": "Lubbock, TX",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 92,
+    "fields": {
+      "trip": 2,
+      "airport": "Lubbock, TX",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 93,
+    "fields": {
+      "trip": 1,
+      "airport": "Madison, WI",
+      "price": "1500.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 94,
+    "fields": {
+      "trip": 2,
+      "airport": "Madison, WI",
+      "price": "1500.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 95,
+    "fields": {
+      "trip": 1,
+      "airport": "Memphis, TN",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 96,
+    "fields": {
+      "trip": 2,
+      "airport": "Memphis, TN",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 97,
+    "fields": {
+      "trip": 1,
+      "airport": "Miami (MIA, FLL)",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 98,
+    "fields": {
+      "trip": 2,
+      "airport": "Miami (MIA, FLL)",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 99,
+    "fields": {
+      "trip": 1,
+      "airport": "Midland, TX",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 100,
+    "fields": {
+      "trip": 2,
+      "airport": "Midland, TX",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 101,
+    "fields": {
+      "trip": 1,
+      "airport": "Milwaukee, WI",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 102,
+    "fields": {
+      "trip": 2,
+      "airport": "Milwaukee, WI",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 103,
+    "fields": {
+      "trip": 1,
+      "airport": "Minneapolis, MN",
+      "price": "1340.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 104,
+    "fields": {
+      "trip": 2,
+      "airport": "Minneapolis, MN",
+      "price": "1340.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 105,
+    "fields": {
+      "trip": 1,
+      "airport": "Missoula, MT",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 106,
+    "fields": {
+      "trip": 2,
+      "airport": "Missoula, MT",
+      "price": "1350.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 107,
+    "fields": {
+      "trip": 1,
+      "airport": "Mobile, AL",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 108,
+    "fields": {
+      "trip": 2,
+      "airport": "Mobile, AL",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 109,
+    "fields": {
+      "trip": 1,
+      "airport": "Montreal",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 110,
+    "fields": {
+      "trip": 2,
+      "airport": "Montreal",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 111,
+    "fields": {
+      "trip": 1,
+      "airport": "Nashville, TN",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 112,
+    "fields": {
+      "trip": 2,
+      "airport": "Nashville, TN",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 113,
+    "fields": {
+      "trip": 1,
+      "airport": "New Orleans, LA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 114,
+    "fields": {
+      "trip": 2,
+      "airport": "New Orleans, LA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 115,
+    "fields": {
+      "trip": 1,
+      "airport": "New York/New Jersey (EWR, LGA, JFK)",
+      "price": "1000.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 116,
+    "fields": {
+      "trip": 2,
+      "airport": "New York/New Jersey (EWR, LGA, JFK)",
+      "price": "1000.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 117,
+    "fields": {
+      "trip": 1,
+      "airport": "Norfolk, VA",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 118,
+    "fields": {
+      "trip": 2,
+      "airport": "Norfolk, VA",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 119,
+    "fields": {
+      "trip": 1,
+      "airport": "Oklahoma City, OK",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 120,
+    "fields": {
+      "trip": 2,
+      "airport": "Oklahoma City, OK",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 121,
+    "fields": {
+      "trip": 1,
+      "airport": "Omaha, NE",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 122,
+    "fields": {
+      "trip": 2,
+      "airport": "Omaha, NE",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 123,
+    "fields": {
+      "trip": 1,
+      "airport": "Orlando, FL",
+      "price": "1220.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 124,
+    "fields": {
+      "trip": 2,
+      "airport": "Orlando, FL",
+      "price": "1220.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 125,
+    "fields": {
+      "trip": 1,
+      "airport": "Philadelphia, PA",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 126,
+    "fields": {
+      "trip": 2,
+      "airport": "Philadelphia, PA",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 127,
+    "fields": {
+      "trip": 1,
+      "airport": "Phoenix, AZ",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 128,
+    "fields": {
+      "trip": 2,
+      "airport": "Phoenix, AZ",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 129,
+    "fields": {
+      "trip": 1,
+      "airport": "Pittsburgh, PA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 130,
+    "fields": {
+      "trip": 2,
+      "airport": "Pittsburgh, PA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 131,
+    "fields": {
+      "trip": 1,
+      "airport": "Portland, ME",
+      "price": "1220.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 132,
+    "fields": {
+      "trip": 2,
+      "airport": "Portland, ME",
+      "price": "1220.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 133,
+    "fields": {
+      "trip": 1,
+      "airport": "Portland, OR",
+      "price": "1330.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 134,
+    "fields": {
+      "trip": 2,
+      "airport": "Portland, OR",
+      "price": "1330.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 135,
+    "fields": {
+      "trip": 1,
+      "airport": "Raleigh Durham, NC",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 136,
+    "fields": {
+      "trip": 2,
+      "airport": "Raleigh Durham, NC",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 137,
+    "fields": {
+      "trip": 1,
+      "airport": "Rapid City, SD",
+      "price": "1330.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 138,
+    "fields": {
+      "trip": 2,
+      "airport": "Rapid City, SD",
+      "price": "1330.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 139,
+    "fields": {
+      "trip": 1,
+      "airport": "Reno, NV",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 140,
+    "fields": {
+      "trip": 2,
+      "airport": "Reno, NV",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 141,
+    "fields": {
+      "trip": 1,
+      "airport": "Richmond, VA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 142,
+    "fields": {
+      "trip": 2,
+      "airport": "Richmond, VA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 143,
+    "fields": {
+      "trip": 1,
+      "airport": "Roanoke, VA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 144,
+    "fields": {
+      "trip": 2,
+      "airport": "Roanoke, VA",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 145,
+    "fields": {
+      "trip": 1,
+      "airport": "Rochester, NY",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 146,
+    "fields": {
+      "trip": 2,
+      "airport": "Rochester, NY",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 147,
+    "fields": {
+      "trip": 1,
+      "airport": "Salt Lake City, UT",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 148,
+    "fields": {
+      "trip": 2,
+      "airport": "Salt Lake City, UT",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 149,
+    "fields": {
+      "trip": 1,
+      "airport": "San Antonio, TX",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 150,
+    "fields": {
+      "trip": 2,
+      "airport": "San Antonio, TX",
+      "price": "1260.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 151,
+    "fields": {
+      "trip": 1,
+      "airport": "San Diego, CA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 152,
+    "fields": {
+      "trip": 2,
+      "airport": "San Diego, CA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 153,
+    "fields": {
+      "trip": 1,
+      "airport": "San Francisco, CA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 154,
+    "fields": {
+      "trip": 2,
+      "airport": "San Francisco, CA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 155,
+    "fields": {
+      "trip": 1,
+      "airport": "San Juan, PR",
+      "price": "1400.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 156,
+    "fields": {
+      "trip": 2,
+      "airport": "San Juan, PR",
+      "price": "1400.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 157,
+    "fields": {
+      "trip": 1,
+      "airport": "Seattle, WA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 158,
+    "fields": {
+      "trip": 2,
+      "airport": "Seattle, WA",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 159,
+    "fields": {
+      "trip": 1,
+      "airport": "Shreveport, LA",
+      "price": "1360.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 160,
+    "fields": {
+      "trip": 2,
+      "airport": "Shreveport, LA",
+      "price": "1360.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 161,
+    "fields": {
+      "trip": 1,
+      "airport": "Sioux Falls, SD",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 162,
+    "fields": {
+      "trip": 2,
+      "airport": "Sioux Falls, SD",
+      "price": "1300.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 163,
+    "fields": {
+      "trip": 1,
+      "airport": "Spokane, WA",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 164,
+    "fields": {
+      "trip": 2,
+      "airport": "Spokane, WA",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 165,
+    "fields": {
+      "trip": 1,
+      "airport": "St.Louis, MO",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 166,
+    "fields": {
+      "trip": 2,
+      "airport": "St.Louis, MO",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 167,
+    "fields": {
+      "trip": 1,
+      "airport": "Syracuse, NY",
+      "price": "1150.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 168,
+    "fields": {
+      "trip": 2,
+      "airport": "Syracuse, NY",
+      "price": "1150.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 169,
+    "fields": {
+      "trip": 1,
+      "airport": "Tampa, FL",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 170,
+    "fields": {
+      "trip": 2,
+      "airport": "Tampa, FL",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 171,
+    "fields": {
+      "trip": 1,
+      "airport": "Toronto",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 172,
+    "fields": {
+      "trip": 2,
+      "airport": "Toronto",
+      "price": "1100.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 173,
+    "fields": {
+      "trip": 1,
+      "airport": "Tucson, AZ",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 174,
+    "fields": {
+      "trip": 2,
+      "airport": "Tucson, AZ",
+      "price": "1280.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 175,
+    "fields": {
+      "trip": 1,
+      "airport": "Tulsa, OK",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 176,
+    "fields": {
+      "trip": 2,
+      "airport": "Tulsa, OK",
+      "price": "1200.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 177,
+    "fields": {
+      "trip": 1,
+      "airport": "Vancouver",
+      "price": "1400.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 178,
+    "fields": {
+      "trip": 2,
+      "airport": "Vancouver",
+      "price": "1400.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 179,
+    "fields": {
+      "trip": 1,
+      "airport": "Washington DC (BWI, IAD, DCA)",
+      "price": "1150.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 180,
+    "fields": {
+      "trip": 2,
+      "airport": "Washington DC (BWI, IAD, DCA)",
+      "price": "1150.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 181,
+    "fields": {
+      "trip": 1,
+      "airport": "Wichita, KS",
+      "price": "1250.00"
+    }
+  },
+  {
+    "model": "trips.tripflightcost",
+    "pk": 182,
+    "fields": {
+      "trip": 2,
+      "airport": "Wichita, KS",
+      "price": "1250.00"
+    }
+  }
+]
