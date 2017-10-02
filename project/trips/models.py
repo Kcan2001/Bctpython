@@ -12,6 +12,7 @@ class Trip(models.Model):
 
 class TripDate(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.PROTECT, related_name='trip_date')
+    itinerary_days = models.PositiveSmallIntegerField(blank=True)
     arrival = models.DateField(blank=True)
     departure = models.DateField(blank=True)
     price = models.DecimalField(decimal_places=2, max_digits=7)
@@ -47,3 +48,12 @@ class Excursion(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class TripFlightCost(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.PROTECT, related_name='flight_cost')
+    airport = models.CharField(max_length=50)
+    price = models.DecimalField(decimal_places=2, max_digits=7)
+
+    def __str__(self):
+        return '%s - $%s' % (self.airport, self.price)
