@@ -59,7 +59,8 @@ node_modules/
 .env
 
 # User-uploaded media
-project/static/media
+project/static/media/*
+!project/static/media/trip_defaults/
 
 # Vagrant hidden dir
 .vagrant/
