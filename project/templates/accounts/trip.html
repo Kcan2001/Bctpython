@@ -14,12 +14,10 @@
                 <h2 class="bc-text-center">{{ trip.trip.title }}</h2>
                 <h3 class="bc-text-center">{{ trip.arrival|date:"d.m.Y" }} - {{ trip.departure|date:"d.m.Y" }}</h3>
 
-                {% if trip.trip.trip_image.all.0.image.url %}
-                    <div class="bc-text-center">
-                        <img class="bc-standard-img" src="{{ trip.trip.trip_image.all.0.image.url }}">
-                    </div>
-                    <br><br>
-                {% endif %}
+                <div class="bc-text-center">
+                    <img class="bc-standard-img" src="{{ trip.image_main.url }}">
+                </div>
+                <br><br>
 
                 <div class="bc-text-center">
                     In:
@@ -37,28 +35,14 @@
 
                 {% if trip.excursions.all %}
 
-
                     <h3 class="bc-text-center">Available excursions in this tour:</h3>
-                    <style>
-                        .demo-card-wide.mdl-card {
-                            width: 512px;
-                        }
 
-                        .demo-card-wide > .mdl-card__title {
-                            color: #fff;
-                            height: 176px;
-                        }
-
-                        .demo-card-wide > .mdl-card__menu {
-                            color: #fff;
-                        }
-                    </style>
                     <div class="mdl-grid">
 
                         {% for excursion in trip.excursions.all %}
                             <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--12-col-phone">
-                                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title"
+                                <div class="bc-excursion-card-wide mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title bc-standard-img"
                                          style="background: url('{{ excursion.image.url }}') center / cover;"></div>
                                     <div class="mdl-card__supporting-text">
                                         <strong>{{ excursion.title }}</strong>
@@ -105,65 +89,75 @@
 
                                 {% if request.user.account.pk not in trip.trip_users %}
 
-                                <div class="mdl-cell mdl-cell--10-col">
-                                    <form id="payment-form" method="POST">
-                                        {% csrf_token %}
-                                        {% if form.subscription %}
+                                    <div class="mdl-cell mdl-cell--10-col">
+                                        <form id="payment-form" method="POST">
+                                            {% csrf_token %}
+                                            {% if form.subscription %}
 
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    Divide payment for _ months:
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell mdl-cell--8-col">
+                                                        Divide payment for _ months:
+                                                    </div>
+                                                    <div class="mdl-cell mdl-cell--4-col">
+                                                        {{ form.subscription }}
+                                                    </div>
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    {{ form.subscription }}
+                                            {% endif %}
+                                            {% for excursion in form.excursions %}
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell mdl-cell--9-col">
+                                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                                               for="{{ excursion.id_for_label }}">
+                                                            <input type="checkbox" name="excursions"
+                                                                   id="{{ excursion.id_for_label }}"
+                                                                   value="{{ excursion.choice_label }}"
+                                                                   class="mdl-checkbox__input"/>
+                                                            <label for="{{ excursion.id_for_label }}"
+                                                                   class="mdl-checkbox__label bc-about-pages-para">{{ excursion.choice_label }}</label>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--3-col">
+                                                    Flights from:
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--9-col">
+                                                    {{ form.flight_cost }}
                                                 </div>
                                             </div>
-                                        {% endif %}
-                                        {% for excursion in form.excursions %}
+                                            <br>
+                                            <div id="card-element">
+                                                <!-- a Stripe Element will be inserted here. -->
+                                            </div>
+                                            <!-- Used to display form errors -->
+                                            <div id="card-errors" role="alert"></div>
+                                            <br>
                                             <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--9-col">
+                                                <div class="mdl-cell mdl-cell--12-col">
                                                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
-                                                           for="{{ excursion.id_for_label }}">
-                                                        <input type="checkbox" name="excursions"
-                                                               id="{{ excursion.id_for_label }}"
-                                                               value="{{ excursion.choice_label }}"
+                                                           for="terms">
+                                                        <input type="checkbox" name="terms"
+                                                               id="terms"
                                                                class="mdl-checkbox__input"/>
-                                                        <label for="{{ excursion.id_for_label }}"
-                                                               class="mdl-checkbox__label bc-about-pages-para">{{ excursion.choice_label }}</label>
+                                                        <label class="mdl-checkbox__label bc-about-pages-para"
+                                                               for="terms">I
+                                                            agree with
+                                                            <a href="{% url 'terms' %}" target="_blank">terms</a> and
+                                                            ready to pay!</label>
                                                     </label>
                                                 </div>
                                             </div>
-                                        {% endfor %}
-                                        <br>
-                                        <div id="card-element">
-                                            <!-- a Stripe Element will be inserted here. -->
-                                        </div>
-                                        <!-- Used to display form errors -->
-                                        <div id="card-errors" role="alert"></div>
-                                        <br>
-                                        <div class="mdl-grid">
-                                            <div class="mdl-cell mdl-cell--12-col">
-                                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
-                                                       for="terms">
-                                                    <input type="checkbox" name="terms"
-                                                           id="terms"
-                                                           class="mdl-checkbox__input"/>
-                                                    <label class="mdl-checkbox__label bc-about-pages-para" for="terms">I
-                                                        agree with
-                                                        <a href="{% url 'terms' %}" target="_blank">terms</a> and ready to pay!</label>
-                                                </label>
+                                            <div id="terms-errors"></div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--12-col bc-text-center">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised">
+                                                        Submit Payment
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div id="terms-errors"></div>
-                                        <div class="mdl-grid">
-                                            <div class="mdl-cell mdl-cell--12-col bc-text-center">
-                                                <button class="mdl-button mdl-js-button mdl-button--raised">
-                                                    Submit Payment
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        </form>
+                                    </div>
 
                                 {% else %}
                                     <div class="mdl-cell mdl-cell--10-col bc-text-center">
@@ -199,71 +193,71 @@
 
     {% if request.user.account.pk not in trip.trip_users %}
 
-    <script type="application/javascript">
-        var stripe = Stripe('{{ stripe_public_key }}');
-        var elements = stripe.elements();
+        <script type="application/javascript">
+            var stripe = Stripe('{{ stripe_public_key }}');
+            var elements = stripe.elements();
 
-        // Custom styling can be passed to options when creating an Element.
-        var style = {
-            base: {
-                // Add your base input styles here. For example:
-                fontSize: '16px',
-                lineHeight: '24px'
-            }
-        };
-
-        // Create an instance of the card Element
-        var card = elements.create('card', {style: style});
-
-        // Add an instance of the card Element into the `card-element` <div>
-        card.mount('#card-element');
-
-        card.addEventListener('change', function (event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
-
-        // Create a token or display an error when the form is submitted.
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            stripe.createToken(card).then(function (result) {
-                if (!document.getElementById('terms').checked) {
-                    // Inform the user if there was an error
-                    var errorElement = document.getElementById('terms-errors');
-                    errorElement.textContent = 'You need to agree with our terms!';
-                } else {
-                    if (result.error) {
-                        // Inform the user if there was an error
-                        var errorElement = document.getElementById('card-errors');
-                        errorElement.textContent = result.error.message;
-                    } else {
-                        // Send the token to your server
-                        stripeTokenHandler(result.token);
-                    }
+            // Custom styling can be passed to options when creating an Element.
+            var style = {
+                base: {
+                    // Add your base input styles here. For example:
+                    fontSize: '16px',
+                    lineHeight: '24px'
                 }
+            };
 
+            // Create an instance of the card Element
+            var card = elements.create('card', {style: style});
+
+            // Add an instance of the card Element into the `card-element` <div>
+            card.mount('#card-element');
+
+            card.addEventListener('change', function (event) {
+                var displayError = document.getElementById('card-errors');
+                if (event.error) {
+                    displayError.textContent = event.error.message;
+                } else {
+                    displayError.textContent = '';
+                }
             });
-        });
 
-        function stripeTokenHandler(token) {
-            // Insert the token ID into the form so it gets submitted to the server
+            // Create a token or display an error when the form is submitted.
             var form = document.getElementById('payment-form');
-            var hiddenInput = document.createElement('input');
-            hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'stripeToken');
-            hiddenInput.setAttribute('value', token.id);
-            form.appendChild(hiddenInput);
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
 
-            // Submit the form
-            form.submit();
-        }
-    </script>
+                stripe.createToken(card).then(function (result) {
+                    if (!document.getElementById('terms').checked) {
+                        // Inform the user if there was an error
+                        var errorElement = document.getElementById('terms-errors');
+                        errorElement.textContent = 'You need to agree with our terms!';
+                    } else {
+                        if (result.error) {
+                            // Inform the user if there was an error
+                            var errorElement = document.getElementById('card-errors');
+                            errorElement.textContent = result.error.message;
+                        } else {
+                            // Send the token to your server
+                            stripeTokenHandler(result.token);
+                        }
+                    }
+
+                });
+            });
+
+            function stripeTokenHandler(token) {
+                // Insert the token ID into the form so it gets submitted to the server
+                var form = document.getElementById('payment-form');
+                var hiddenInput = document.createElement('input');
+                hiddenInput.setAttribute('type', 'hidden');
+                hiddenInput.setAttribute('name', 'stripeToken');
+                hiddenInput.setAttribute('value', token.id);
+                form.appendChild(hiddenInput);
+
+                // Submit the form
+                form.submit();
+            }
+        </script>
 
     {% endif %}
 {% endblock %}
