@@ -20,9 +20,9 @@
                     <h4 class="bc-about-pages-title bc-text-center">- Update your account information -</h4>
                 </div>
 
-                {% if form.errors %}
+                {% if form.non_field_errors %}
                     <div class="mdl-cell mdl-cell--12-col">
-                        {{ form.errors }}
+                        <div class="bc-form-errors-alert" style="width: 100%;">{{ form.non_field_errors }}</div>
                     </div>
                 {% endif %}
 
