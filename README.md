@@ -1,7 +1,9 @@
 # Black Crow Tours
 
-### Open Questions:
-- Local dev on SQL Lite or PosgreSQL/MySQL ?
+### Remainder:
+- Tell how to set up QuickBooks account
+- Tell how to set up Active Campaign
+- Tell how to set up Stripe account
 
 ### Development
 
