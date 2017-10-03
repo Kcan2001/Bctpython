@@ -37,7 +37,7 @@ class Excursion(models.Model):
     image = models.ImageField(upload_to='excursions/images/')
 
     def __str__(self):
-        return self.title
+        return '%s - $%s' % (self.title, self.price)
 
 
 class TripFlightCost(models.Model):
