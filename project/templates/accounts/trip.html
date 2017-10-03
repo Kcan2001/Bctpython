@@ -69,8 +69,7 @@
                     </div>
                 {% endif %}
             </div>
-            {% if time_left == 'expired' %}
-            {% else %}
+            {% if not time_left == 'expired' %}
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp bc-about-pages-template-background">
                         <!-- Section 1 Mission  -->
@@ -132,6 +131,16 @@
                                             </div>
                                             <!-- Used to display form errors -->
                                             <div id="card-errors" role="alert"></div>
+                                            <br><br>
+                                            <div class="mdl-grid" style="font-size: 16px">
+                                                <div class="mdl-cell mdl-cell--3-col">
+                                                    Your Total:
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--9-col">
+                                                    <div id='total_price'></div>
+                                                    <div id='subscription_price'></div>
+                                                </div>
+                                            </div>
                                             <br>
                                             <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--12-col">
@@ -257,6 +266,62 @@
                 // Submit the form
                 form.submit();
             }
+        </script>
+
+        <script type="application/javascript">
+
+            function total_price() {
+
+                var trip_price = {{ trip.price }},
+                    select = document.getElementById('id_flight_cost'),
+                    subscription = document.getElementById('id_subscription'),
+                    inputs = document.getElementsByName("excursions"),
+                    excursion_price = 0,
+                    total_price = 0;
+
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].type == "checkbox") {
+                        if (inputs[i].checked) {
+                            var checkbox_text = inputs[i].value;
+                            excursion_price += checkbox_text.substr(checkbox_text.indexOf("$") + 1) * 1 || 0;
+
+                        }
+                    }
+                }
+
+                var select_text = select.options[select.selectedIndex].text;
+
+                var selected_price = select_text.substr(select_text.indexOf("$") + 1) * 1 || 0;
+
+                total_price = trip_price + selected_price + excursion_price;
+
+                document.getElementById('total_price').innerHTML = 'Tour land-only price: ' + trip_price + '$' + '<br><br>Total price: ' + total_price + '$';
+
+                var subscription_value = subscription ? subscription.value : 0;
+
+                if (subscription_value > 1) {
+                    var sum_in_cents = Math.ceil((total_price / subscription_value) * 100);
+                    document.getElementById('subscription_price').innerHTML = '<br>You will pay ' + sum_in_cents / 100 + '$ per month';
+                } else {
+                    document.getElementById('subscription_price').innerHTML = '';
+                }
+
+            }
+
+            total_price();
+
+            document.getElementById('id_flight_cost').onchange = total_price
+
+            var try_subscription = document.getElementById('id_subscription');
+
+            if (try_subscription) try_subscription.onchange = total_price;
+
+            var checkboxes = document.getElementsByName("excursions");
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].onchange = total_price;
+            }
+
         </script>
 
     {% endif %}
