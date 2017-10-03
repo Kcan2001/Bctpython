@@ -44,7 +44,9 @@ class CreateBlogPostForm(ModelForm):
 
 
 class PaymentForm(forms.Form):
-    excursions = forms.ModelMultipleChoiceField(queryset=None, required=False, to_field_name='title', widget=forms.CheckboxSelectMultiple)
+    excursions = forms.ModelMultipleChoiceField(queryset=None, required=False, to_field_name='price',
+                                                widget=forms.CheckboxSelectMultiple(
+                                                    attrs={'class': 'mdl-checkbox__input'}))
     flight_cost = forms.ModelChoiceField(queryset=None, required=False, empty_label='No Flights Included')
 
     def __init__(self, *args, **kwargs):
