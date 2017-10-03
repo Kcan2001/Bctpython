@@ -32,7 +32,7 @@ from django.contrib.auth.views import (
 from trips.models import Trip, TripDate
 from blog.models import Post
 
-from .forms import SignUpForm, PaymentForm, CreateBlogPostForm
+from .forms import SignUpForm, PaymentForm, CreateBlogPostForm, UpdateUserForm
 from .models import Account, UserStripe, UserStripeSubscription, StripePlanNames, UserQuickBooks
 from .tokens import account_activation_token
 from .active_campaign_api import ActiveCampaign
@@ -186,15 +186,12 @@ class UserPasswordResetComplete(PasswordResetCompleteView):
     template_name = 'accounts/registration/password_reset_complete.html'
 
 
-# CBV for models update
 class AccountUpdate(LoginRequiredMixin, UpdateView):
-    # slug_field = 'user_id'
-    # slug_url_kwarg = 'user_id'
     model = Account
     fields = ['phone', 'emergency_contact', 'birth_date', 'address', 'passport_number', 'passport_nationality',
               'passport_issue_date', 'passport_expire_date', 'photo']
-    success_url = reverse_lazy('accounts:home')
     template_name = 'accounts/update_account.html'
+    success_url = reverse_lazy('accounts:home')
 
     def get_object(self):
         return Account.objects.get(user_id=self.request.user.id)
@@ -202,7 +199,7 @@ class AccountUpdate(LoginRequiredMixin, UpdateView):
 
 class UserUpdate(LoginRequiredMixin, UpdateView):
     model = User
-    fields = ['first_name', 'last_name']
+    form_class = UpdateUserForm
     success_url = reverse_lazy('accounts:home')
     template_name = 'accounts/update_user.html'
 
@@ -266,11 +263,14 @@ class UserTripBookingView(SingleObjectMixin, FormView):
         if form.is_valid():
             # Get excursions list from form
             excursions = form.cleaned_data['excursions']
+            flight_cost = form.cleaned_data['flight_cost']
             # General trip price without excursions
             general_price = self.object.price
             # Add excursions price to general trip price = general tour price
             for excursion in excursions:
                 general_price += excursion.price
+            if flight_cost:
+                general_price = general_price + flight_cost.price
             # Count general tour price in cents (stripe works with cents)
             general_price_cents = int(general_price * 100)
             # Read stripe secret key from settings file
