@@ -71,19 +71,20 @@ def invoice_payment_succeeded(sender, **kwargs):
         # Send signal to update user bonus points
         count_points.send(sender=None, amount=sum_in_dollars, user=get_account)
 
-        create_quickbooks_invoice, status_code = create_invoice(quickbooks_customer_id, float(debt))
-
-        if not status_code >= 400:
-            invoice_id = create_quickbooks_invoice['Invoice']['Id']
-
-            set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
-                quickbooks_invoice_id=invoice_id)
-
-            create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(sum_in_dollars))
-
-            return
+        if local_subscription.quickbooks_invoice_id:
+            quickbooks_invoice_id = local_subscription.quickbooks_invoice_id
         else:
-            pass
+            create_quickbooks_invoice, status_code = create_invoice(quickbooks_customer_id, float(debt))
+
+            if not status_code >= 400:
+                quickbooks_invoice_id = create_quickbooks_invoice['Invoice']['Id']
+                set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
+                    quickbooks_invoice_id=quickbooks_invoice_id)
+            else:
+                return
+
+        create_quickbooks_tour_payment, status_code = invoice_payment(quickbooks_customer_id, quickbooks_invoice_id,
+                                                                      float(sum_in_dollars))
 
 
 @receiver(webhook_invoice_payment_succeeded2, sender=None)
@@ -127,20 +128,33 @@ def subscription_payment(sender, **kwargs):
             stripe_account_subscription__subscription_id=subscription_id)
         # Send signal to update user bonus points
         count_points.send(sender=None, amount=sum_in_dollars, user=get_account)
+        test = UserStripeSubscription.objects.filter(user='1').get()
+        if test.quickbooks_invoice_id:
+            quickbooks_invoice_id = local_subscription.quickbooks_invoice_id
+        else:
+            create_quickbooks_invoice, status_code = create_invoice(quickbooks_customer_id, float(debt))
 
-    create_quickbooks_invoice, status_code = create_invoice(quickbooks_customer_id, float(debt))
+            if not status_code >= 400:
+                quickbooks_invoice_id = create_quickbooks_invoice['Invoice']['Id']
+                set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
+                    quickbooks_invoice_id=quickbooks_invoice_id)
+            else:
+                return
+        # if hasattr(test, 'quickbooks_invoice_id'):
+        #     quickbooks_invoice_id = local_subscription.quickbooks_invoice_id
+        # else:
+        #     create_quickbooks_invoice, status_code = create_invoice(quickbooks_customer_id, float(debt))
+        #
+        #     if not status_code >= 400:
+        #         quickbooks_invoice_id = create_quickbooks_invoice['Invoice']['Id']
+        #         set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
+        #             quickbooks_invoice_id=quickbooks_invoice_id)
+        #     else:
+        #         return
 
-    if not status_code >= 400:
-        invoice_id = create_quickbooks_invoice['Invoice']['Id']
+        create_quickbooks_tour_payment, status_code = invoice_payment(quickbooks_customer_id, quickbooks_invoice_id,
+                                                                      float(sum_in_dollars))
 
-        set_invoice_id = UserStripeSubscription.objects.filter(subscription_id=subscription_id).update(
-            quickbooks_invoice_id=invoice_id)
-
-        create_quickbooks_tour_payment = invoice_payment(quickbooks_customer_id, invoice_id, float(sum_in_dollars))
-
-        return
-    else:
-        pass
 
 # @receiver(webhook_charge_succeeded, sender=None)
 # def add_score2(sender, **kwargs):
