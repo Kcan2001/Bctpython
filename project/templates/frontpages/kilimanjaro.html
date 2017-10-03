@@ -1,821 +1,489 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv=“Content-Type” content=“text/html; charset=utf-8”>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
 
-    {% load static %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'bc-flav.fw.png' %}"/>
-    <title>Black Crow Tours {% block head_title %}{% endblock %}</title>
+{% load static %}
 
+{% block head_title %}- Kilimanjaro{% endblock %}
 
-    <!-- Google Mdl -->
-    <link rel="stylesheet" href="{% static 'material.min.css' %}"/>
-    <script defer src="{% static 'material.min.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+{% block content %}
 
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    <!-- Section 2 video Background-->
+    <div class="mdl-grid bc-trip-top-video bc-site-brown-background">
 
-        ga('create', 'UA-45025242-2', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window,
-            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '537178703072709'); // Insert your pixel ID here.
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-                   src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- DO NOT MODIFY -->
-    <!-- End Facebook Pixel Code -->
+        <!-- Inner Grid -->
+        <iframe width="100%" height="780px" src="https://www.youtube.com/embed/BneXp6vljiA" frameborder="0"
+                allowfullscreen>
+        </iframe>
+    </div> <!-- End Section 2 Hero Background -->
 
 
-    <base href="/">
-</head>
-<body>
-<div class="mdl-layout">
+    <!-- Icon Grid -->
+    <div class="mdl-grid bc-trip-background-icons">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--10-col">
+            <br><br><br>
 
-    <main class="mdl-layout__content">
+            <div class="mdl-grid">
 
-        {% load static %}
-
-        <!-- Section 2 video Background-->
-        <div class="mdl-grid bc-trip-top-video bc-site-brown-background">
-
-            <!-- Inner Grid -->
-            <iframe width="100%" height="780px" src="https://www.youtube.com/embed/BneXp6vljiA" frameborder="0"
-                    allowfullscreen>
-            </iframe>
-        </div> <!-- End Section 2 Hero Background -->
-
-
-        <!-- Icon Grid -->
-        <div class="mdl-grid bc-trip-background-icons">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-cell mdl-cell--10-col">
-                <br><br><br>
-
-                <div class="mdl-grid">
-
-                    <!-- Icon 1 -->
-                    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">12 Day Trip</h4>
-                            </div>
-                        </div>
-
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <h4 class="bc-trips-dates-text bc-no-margin">
-                                    - Two day Flight to Kilimanjaro Airport
-                                    <br> - <strong>2 Days</strong> in <strong>Moshi</strong>
-                                    <br> - <strong>6 Day</strong> <strong>Kilimanjaro</strong> Climb
-                                    <br> - <strong>1 Day</strong> in <strong>Moshi</strong> to rest
-                                    <br> - Overnight Flight Home
-                                </h4>
-
-                            </div>
+                <!-- Icon 1 -->
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">12 Day Trip</h4>
                         </div>
                     </div>
 
-                    <!-- Icon 2 -->
-                    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">16 Day Trip</h4>
-                            </div>
-                        </div>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-trips-dates-text bc-no-margin">
+                                - Two day Flight to Kilimanjaro Airport
+                                <br> - <strong>2 Days</strong> in <strong>Moshi</strong>
+                                <br> - <strong>6 Day</strong> <strong>Kilimanjaro</strong> Climb
+                                <br> - <strong>1 Day</strong> in <strong>Moshi</strong> to rest
+                                <br> - Overnight Flight Home
+                            </h4>
 
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <h4 class="bc-trips-dates-text bc-no-margin">
-                                    - Two day Flight to Kilimanjaro Airport
-                                    <br> - <strong>2 Days</strong> in <strong>Moshi</strong>
-                                    <br> - <strong>6 Day</strong> <strong>Kilimanjaro</strong> Climb
-                                    <br> - <strong>1 Day</strong> in <strong>Moshi</strong> to rest
-                                    <br> - <strong>3 Day</strong> <strong>Safari</strong> to the Ngorongoro crater and
-                                    much more
-                                    <br> - <strong>1 Day</strong> in <strong>Moshi</strong>
-                                    <br> - Overnight Flight Home
-                                </h4>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Icon 2 -->
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">16 Day Trip</h4>
                         </div>
                     </div>
 
-                    <!-- Icon 3 -->
-                    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">Our Trip Includes:</h4>
-                            </div>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-trips-dates-text bc-no-margin">
+                                - Two day Flight to Kilimanjaro Airport
+                                <br> - <strong>2 Days</strong> in <strong>Moshi</strong>
+                                <br> - <strong>6 Day</strong> <strong>Kilimanjaro</strong> Climb
+                                <br> - <strong>1 Day</strong> in <strong>Moshi</strong> to rest
+                                <br> - <strong>3 Day</strong> <strong>Safari</strong> to the Ngorongoro crater and
+                                much more
+                                <br> - <strong>1 Day</strong> in <strong>Moshi</strong>
+                                <br> - Overnight Flight Home
+                            </h4>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <h4 class="bc-trips-dates-text bc-no-margin">
-                                    - A Complete Mountain tour; with local guides, cooks and porters!
-                                    <br> - pro-tips to get you ready ahead of time
-                                    <br> - Tent
-                                    <br> - Sleeping bag
-                                    <br> - Sleeping Pads
-                                    <br> - Cooking Equipment (and we do all the cooking!)
-                                    <br> - Food
-                                    <br> - Chairs, tables, and utensils
-                                    <br> - Oxygen (Just in case)
-                                    <br> - And other medical supplies (better to be safe)
-                                </h4></div>
+                <!-- Icon 3 -->
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">Our Trip Includes:</h4>
                         </div>
                     </div>
 
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h4 class="bc-trips-dates-text bc-no-margin">
+                                - A Complete Mountain tour; with local guides, cooks and porters!
+                                <br> - pro-tips to get you ready ahead of time
+                                <br> - Tent
+                                <br> - Sleeping bag
+                                <br> - Sleeping Pads
+                                <br> - Cooking Equipment (and we do all the cooking!)
+                                <br> - Food
+                                <br> - Chairs, tables, and utensils
+                                <br> - Oxygen (Just in case)
+                                <br> - And other medical supplies (better to be safe)
+                            </h4></div>
+                    </div>
                 </div>
 
             </div>
-            <div class="mdl-layout-spacer"></div>
-        </div> <!--End Icon Grid -->
+
+        </div>
+        <div class="mdl-layout-spacer"></div>
+    </div> <!--End Icon Grid -->
 
 
-        <!-- Section 4 Itinerary map -->
-        <div class="bc-kilitrip-map mdl-grid">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-cell mdl-cell--5-col mdl-cell--middle mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                <img class="bc-standard-img" src="{% static 'maps\tanz.fw.png' %}" alt="">
-            </div>
-            <div class="mdl-cell mdl-cell--5-col mdl-cell--middle mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                <h4 class="bc-trips-map-text bc-no-margin">
-                    1. Moshi
-                    <br>2. Machame Gate
-                    <br>3. Shira Camp
-                    <br>4. Barafu Camp
-                    <br>5. Summit
-                    <br>6. Ngorongoro Crater
+    <!-- Section 4 Itinerary map -->
+    <div class="bc-kilitrip-map mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--middle mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+            <img class="bc-standard-img" src="{% static 'maps\tanz.fw.png' %}" alt="">
+        </div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--middle mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+            <h4 class="bc-trips-map-text bc-no-margin">
+                1. Moshi
+                <br>2. Machame Gate
+                <br>3. Shira Camp
+                <br>4. Barafu Camp
+                <br>5. Summit
+                <br>6. Ngorongoro Crater
 
-                </h4>
-                <br><br>
-                <img class="bc-standard-img" src="{% static 'maps\ledger.fw.png' %}" alt="">
-            </div>
-
-        </div>     <!-- End Section 4 Itinerary map -->
-
-
-        <div class="mdl-grid bc-site-brown-background">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-cell mdl-cell--10-col">
-
-
-                <!-- Title -->
-                <div class="mdl-grid">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                        <br>
-                        <img class="bc-standard-img" src="{% static 'itin-ribbon.png' %}" alt="">
-                    </div>
-                    <div class="mdl-layout-spacer"></div>
-                </div>
-
-            </div>
-            <div class="mdl-layout-spacer"></div>
+            </h4>
+            <br><br>
+            <img class="bc-standard-img" src="{% static 'maps\ledger.fw.png' %}" alt="">
         </div>
 
-        <!-- Desktop Days -->
-        <div class="mdl-grid mdl-cell--hide-phone mdl-cell--hide-tablet bc-trip-background-itinerary">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-cell mdl-cell--10-col">
+    </div>     <!-- End Section 4 Itinerary map -->
 
 
-                <!-- left side Days -->
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--6-col">
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        </div>
-
-                        <!-- Day 3 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 3</span> - Arrival in Moshi</h4>
-                                <h4 class="bc-trips-itinerary-text">Arrive in Kilimanjaro Airport, where our guide will
-                                    meet you outside your gate. From there we will travel back to the hotel, Check in
-                                    and get some well needed rest.
-                                    <br>Today will give you a chance to catch up on some well needed rest. However, if
-                                    you're too excited to sleep, we'll be happy to explore the city of Moshi with you!
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col mdl-cell--middle bc-text-center">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_1268.jpg' %}" alt="">
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- days 3-4 day trips -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
-                                <h4 class="bc-trips-itinerary-text"><strong> Waterfall/ Coffee Hike - </strong>Take a
-                                    hike to see some truely incredible waterfalls inside of the Kilimanjaro National
-                                    Park. During the hike we'll also stop by a coffee plantation for a change to see how
-                                    it's grown and harvested.
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col bc-text-center">
-                                <img style="margin-top:32px" class="bc-intin-img-trip"
-                                     src="{% static 'images\IMG_1341.jpg' %}" alt="">
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 5 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-layout-spacer"></div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 5</span> - We start on our Machame
-                                    route Climb </h4>
-                                <h4 class="bc-trips-itinerary-text"> One of, if not the best, routes to climb. Our route
-                                    has the highest success rates and some of the best scenery.
-                                    <br><br><span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
-                                    <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately
-                                    6.7 Miles
-                                    <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Montane forest
-                                    <br><br>Your day starts with a 45-minute drive to the Machame Gate (6,000ft). The
-                                    guides and porters pack your supplies and head for the first camp. Rain is a strong
-                                    possibility, So having rain gear is highly recommended. We'll stop for lunch stop
-                                    about halfway to the Machame camp (9,908ft) in the late afternoon.
-                                    <br>Porters will have already set up your tent prior to arrival to the camp. The
-                                    cook will prepare dinner, before you retire to your tent for the night.
-
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col mdl-cell--middle bc-text-center">
-                                <img style="margin-top:225px" class="bc-intin-img-trip"
-                                     src="{% static 'images\IMG_1443.jpg' %}" alt="">
-                            </div>
-                        </div>
+    <div class="mdl-grid bc-site-brown-background">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--10-col">
 
 
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 7 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 7</span> - Shira Camp (12,621Ft.) to
-                                    the Lava Tower (15,229Ft.) to Barranco Camp (13,070Ft.) </h4>
-                                <h4 class="bc-trips-itinerary-text">
-                                    <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
-                                    <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately
-                                    6.5 Miles
-                                    <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Semi-desert
-                                    <br><br>The route turns into a semi-desert surrounding the Lava Tower (15,229Ft.),
-                                    which we'll reach in about 5 hours. Lunch is served and we continue. The Lava Tower
-                                    is where some climbers start experiencing the symptoms of higher altitudes.
-                                    Descending 2200Ft. to the Barranco camp will help to relieve some of those early
-                                    symptoms. This is normal and serves as a good warm up for higher elevations.
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col bc-text-right">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_1518.jpg' %}" alt="">
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 10 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 10</span> - Mweka Camp (10,137Ft.)
-                                    to the Mweka Gate (5383Ft.)</h4>
-                                <h4 class="bc-trips-itinerary-text">
-                                    <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 4 to 6 hours
-                                    <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 5
-                                    Miles
-                                    <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Rainforest
-                                    <br><br>After an early breakfast, it's a short 4-6 hour hike back to the Park gate.
-                                    This short hike is a great way to stretch out from yesterday and is extremely
-                                    scenic, often encountering wild monkeys and exotic birds.
-                                    <br><br> We then exit the park for a nice celebratory dinner in Moshi.
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom bc-text-right">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_15871.jpg' %}" alt="">
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 11 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 11</span> - Rest Day in Moshi</h4>
-                                <h4 class="bc-trips-itinerary-text"> Time to celebrate the climb and unwind a bit after
-                                    hiking for days.
-                                    <br> We'll get a big meal, some drinks, and celebrate your accomplishment!
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col bc-text-center">
-                                <img style="margin-top:40px" class="bc-intin-img-trip"
-                                     src="{% static 'images\IMG_1388.jpg' %}" alt="">
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br><br><br><br><br><br><br><br><br>
-                        </div>
-
-                        <!-- day 15 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 15</span> - Say your Final Goodbyes
-                                    to Moshi and Africa</h4>
-                                <h4 class="bc-trips-itinerary-text">
-                                    Saying goodbye can be so sad... expecially after you've seen how wonderful Moshi
-                                    town is.
-                                    <br>The last day will be used to rest, party, and see things other more rushed
-                                    toursists will never see.
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col bc-text-center">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_3386.jpg' %}" alt="">
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br><br><br><br><br><br><br>
-                        </div>
-
-                        <!-- Day 16 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 16</span> - Flight home</h4>
-                                <h4 class="bc-trips-itinerary-text"> After saying our goodbyes to Africa, we head to the
-                                    airport for your flight back home.
-                                    <br><br>However, You can always contact us for special leaving instructions!
-                                    <br>Want to fly somewhere else? Stay longer? No problem! Just let us know.
-                                </h4>
-                            </div>
-                            <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom bc-text-center">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_1745.jpg' %}" alt="">
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- Right side days -->
-                    <div class="mdl-cell mdl-cell--6-col">
-
-
-                        <!-- Day one -->
-                        <div class="mdl-grid">
-                            <div class="mdl-layout-spacer"></div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 1 & 2</span> - Overnight Flight to
-                                    Moshi</h4>
-                                <h4 class="bc-trips-itinerary-text">Overnight flight and transfer to Moshi. The total
-                                    flight is an exhausting 18-22 hours, plus customs & other assorted
-                                    inconveniences.</h4>
-                            </div>
-                        </div>
-
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        </div>
-
-
-                        <!-- Day 3 to 5 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--5-col">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_1380.jpg' %}" alt="">
-                            </div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Days 3 and 4</span> - Relax and Prepare
-                                    in Moshi </h4>
-                                <h4 class="bc-trips-itinerary-text"> Now that we're in Moshi, we'll take some time to
-                                    set up preparations for our climb. All gear will be checked; and rentals (clothing
-                                    and personal gear) will be available if needed.
-                                    <br>This will also give us a chance to take some interesting day trips.
-                                </h4>
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- days 3-5 day trips -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--5-col">
-                                <img class="bc-intin-img-trip" src="{% static 'images\color-222851.jpg' %}" alt="">
-                            </div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
-                                <h4 class="bc-trips-itinerary-text">
-                                    <strong> Shopping around Moshi with Irene - </strong>Our close friend Irene owns a
-                                    local dress shop in town, and makes her clothing from some of the best fabric in
-                                    Moshi. You can choose the fabric, the style, and have everything made to preference!
-                                    A perfect gift to bring home.
-                                </h4>
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 6 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
-                                <img style="margin-bottom:110px" class="bc-intin-img-trip"
-                                     src="{% static 'images\IMG_1475.jpg' %}" alt="">
-                            </div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 6</span> - Machame Camp (9908Ft.) to
-                                    Shira Camp (12621Ft.)</h4>
-                                <h4 class="bc-trips-itinerary-text">
-                                    <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 6 hours
-                                    <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately
-                                    3.2 Miles
-                                    <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Moorland
-                                    <br><br>After breakfast, we start our day. It takes about an hour or so to get to
-                                    the moorland zone. Then continuing to the Shira campsite at 12,621Ft. The porters
-                                    will again supply you with a fully set up campsite and dinner. The cold will start
-                                    to be more noticeable. This night even colder than the previous, with temperatures
-                                    dropping to well below freezing. Our sleeping bags are rated to -20 degrees to
-                                    ensure a well rest.
-                                </h4>
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br><br><br><br><br><br><br>
-                        </div>
-
-                        <!-- day 8 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_15331.jpg' %}" alt="">
-                            </div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 8</span> - Barranco Camp (13,070Ft.)
-                                    to Barafu Camp (15,357Ft.)</h4>
-                                <h4 class="bc-trips-itinerary-text">
-                                    <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
-                                    <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 6
-                                    Miles
-                                    <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Alpine desert
-                                    <br><br>After spending a night, you make your way up the Barranco Wall. Topping
-                                    results in some of the best views of our trip. After a couple more hours you reach
-                                    the Barafu Camp.
-                                </h4>
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 9 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--5-col">
-                                <img style="margin-top:140px" class="bc-intin-img-trip"
-                                     src="{% static 'images\IMG_1568.jpg' %}" alt="">
-                            </div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 9</span> - Summit Day </h4>
-                                <h4 class="bc-trips-itinerary-text">
-                                    <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 to 8 hours to
-                                    reach Uhuru Peak, 6 to 8 hours to descend to Mweka Camp
-                                    <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 3
-                                    Mile ascent and 6 Mile decent
-                                    <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Stone scree and
-                                    ice-capped summit
-                                    <br><br>Wake up around 11:30pm. We check gear again, get some tea and snacks, and
-                                    off we go!
-                                    <br>The ascent can be extremely cold, steep, and rocky until Stella Point. This is
-                                    the most mentally and physically challenging part of our trip.
-                                    <br>At Stella Point (18,828Ft.) we stop for a brief rest and experience the joy of
-                                    being so close to the top. From Stella Point, only 2 more hours to Uhuru Peak
-                                    (19,341Ft.). We try to reach summit around Sunrise, to catch some amazing views!
-                                    <br> <br>We then walk back to Barafu, takes about 3 hours, before heading down to
-                                    the Mweka hut where we'll spend our final night.
-                                </h4>
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 12-14 -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--5-col">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_1683.jpg' %}" alt="">
-                            </div>
-                            <div class="mdl-cell mdl-cell--7-col">
-                                <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                        class="bc-trips-itinerary-days bc-caps">Day 12 to 14</span> - Safari to
-                                    Ngorongoro crater and the Serengeti*</h4>
-                                <h4 class="bc-trips-itinerary-text"> At this point of the trip, the group members on our
-                                    12-day option will head back home in the morning.
-                                    <br> The rest will head to the Ngorongoro crater and our wonderful travel lodge.
-                                    <br><br>*-Since the animals migrate during specific seasons, we may adjust the
-                                    second Safari park location in order to 'get the most' out of the experience.
-                                </h4>
-                            </div>
-                        </div>
-
-                        <!-- spacer -->
-                        <div class="mdl-grid">
-                            <br><br><br>
-                        </div>
-
-                        <!-- day 15 trips -->
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
-                                <img class="bc-intin-img-trip" src="{% static 'images\IMG_1361.jpg' %}" alt="">
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col">
-                                <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips)</h4>
-                                <h4 class="bc-trips-itinerary-text"><strong>Additional Waterfalls - </strong>If you
-                                    haven't had enough beautiful nature... trust us there's <strong>PLENTY</strong> to
-                                    see and do in Moshi.
-                                    <br> <strong>Kikuletwa Hotsprings - </strong>See and bathe in crystal blue waters.
-                                </h4>
-                            </div>
-                        </div>
-
-
-                    </div>
+            <!-- Title -->
+            <div class="mdl-grid">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                    <br>
+                    <img class="bc-standard-img" src="{% static 'itin-ribbon.png' %}" alt="">
                 </div>
-
+                <div class="mdl-layout-spacer"></div>
             </div>
-            <div class="mdl-layout-spacer"></div>
-        </div> <!-- Desktop itinerary -->
 
-        <!-- Mobile itinerary  -->
-        <div class="mdl-grid mdl-cell--hide-desktop bc-site-brown-background">
-            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet">
+        </div>
+        <div class="mdl-layout-spacer"></div>
+    </div>
 
-                <!-- day 1 -->
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet">
-                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                class="bc-trips-itinerary-days bc-caps">Day 1 & 2</span> - Overnight Flight to Moshi
-                        </h4>
-                        <h4 class="bc-trips-itinerary-text">Overnight flight and transfer to Moshi. The total flight is
-                            an exhausting 18-22 hours, plus customs & other assorted inconveniences.</h4>
-                    </div>
-                </div>
-
-                <hr class="bc-trip-hr-phone">
-
-                <!-- day 3 -->
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--4-col-phone">
-                        <img class="bc-standard-img" src="{% static 'images\IMG_1268.jpg' %}" alt="">
-                    </div>
-                    <div class="mdl-cell mdl-cell--4-col-phone">
-                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                class="bc-trips-itinerary-days bc-caps">Day 3</span> - Arrival in Moshi</h4>
-                        <h4 class="bc-trips-itinerary-text">Arrive in Kilimanjaro Airport, where our guide will meet you
-                            outside your gate. From there we will travel back to the hotel, Check in and get some well
-                            needed rest.
-                            <br>Today will give you a chance to catch up on some well needed rest. However, if you're
-                            too excited to sleep, we'll be happy to explore the city of Moshi with you! </h4>
-                    </div>
-                </div>
+    <!-- Desktop Days -->
+    <div class="mdl-grid mdl-cell--hide-phone mdl-cell--hide-tablet bc-trip-background-itinerary">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--10-col">
 
 
-                <div id="phone" style="display:none">
-                    <hr class="bc-trip-hr-phone">
+            <!-- left side Days -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
 
-                    <!-- Day 3 to 4 -->
+                    <!-- spacer -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1380.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col">
                             <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Days 3 and 4</span> - Relax and Prepare in
-                                Moshi </h4>
-                            <h4 class="bc-trips-itinerary-text"> Now that we're in Moshi, we'll take some time to set up
-                                preparations for our climb. All gear will be checked; and rentals (clothing and personal
-                                gear) will be available if needed.
+                                    class="bc-trips-itinerary-days bc-caps">Day 3</span> - Arrival in Moshi</h4>
+                            <h4 class="bc-trips-itinerary-text">Arrive in Kilimanjaro Airport, where our guide will
+                                meet you outside your gate. From there we will travel back to the hotel, Check in
+                                and get some well needed rest.
+                                <br>Today will give you a chance to catch up on some well needed rest. However, if
+                                you're too excited to sleep, we'll be happy to explore the city of Moshi with you!
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--middle bc-text-center">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_1268.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br>
+                    </div>
+
+                    <!-- days 3-4 day trips -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
+                            <h4 class="bc-trips-itinerary-text"><strong> Waterfall/ Coffee Hike - </strong>Take a
+                                hike to see some truely incredible waterfalls inside of the Kilimanjaro National
+                                Park. During the hike we'll also stop by a coffee plantation for a change to see how
+                                it's grown and harvested.
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col bc-text-center">
+                            <img style="margin-top:32px" class="bc-intin-img-trip"
+                                 src="{% static 'images\IMG_1341.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br>
+                    </div>
+
+                    <!-- day 5 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Day 5</span> - We start on our Machame
+                                route Climb </h4>
+                            <h4 class="bc-trips-itinerary-text"> One of, if not the best, routes to climb. Our route
+                                has the highest success rates and some of the best scenery.
+                                <br><br><span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
+                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately
+                                6.7 Miles
+                                <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Montane forest
+                                <br><br>Your day starts with a 45-minute drive to the Machame Gate (6,000ft). The
+                                guides and porters pack your supplies and head for the first camp. Rain is a strong
+                                possibility, So having rain gear is highly recommended. We'll stop for lunch stop
+                                about halfway to the Machame camp (9,908ft) in the late afternoon.
+                                <br>Porters will have already set up your tent prior to arrival to the camp. The
+                                cook will prepare dinner, before you retire to your tent for the night.
+
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--middle bc-text-center">
+                            <img style="margin-top:225px" class="bc-intin-img-trip"
+                                 src="{% static 'images\IMG_1443.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br>
+                    </div>
+
+                    <!-- day 7 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Day 7</span> - Shira Camp (12,621Ft.) to
+                                the Lava Tower (15,229Ft.) to Barranco Camp (13,070Ft.) </h4>
+                            <h4 class="bc-trips-itinerary-text">
+                                <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
+                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately
+                                6.5 Miles
+                                <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Semi-desert
+                                <br><br>The route turns into a semi-desert surrounding the Lava Tower (15,229Ft.),
+                                which we'll reach in about 5 hours. Lunch is served and we continue. The Lava Tower
+                                is where some climbers start experiencing the symptoms of higher altitudes.
+                                Descending 2200Ft. to the Barranco camp will help to relieve some of those early
+                                symptoms. This is normal and serves as a good warm up for higher elevations.
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col bc-text-right">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_1518.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br>
+                    </div>
+
+                    <!-- day 10 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Day 10</span> - Mweka Camp (10,137Ft.)
+                                to the Mweka Gate (5383Ft.)</h4>
+                            <h4 class="bc-trips-itinerary-text">
+                                <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 4 to 6 hours
+                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 5
+                                Miles
+                                <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Rainforest
+                                <br><br>After an early breakfast, it's a short 4-6 hour hike back to the Park gate.
+                                This short hike is a great way to stretch out from yesterday and is extremely
+                                scenic, often encountering wild monkeys and exotic birds.
+                                <br><br> We then exit the park for a nice celebratory dinner in Moshi.
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom bc-text-right">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_15871.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br>
+                    </div>
+
+                    <!-- day 11 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Day 11</span> - Rest Day in Moshi</h4>
+                            <h4 class="bc-trips-itinerary-text"> Time to celebrate the climb and unwind a bit after
+                                hiking for days.
+                                <br> We'll get a big meal, some drinks, and celebrate your accomplishment!
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col bc-text-center">
+                            <img style="margin-top:40px" class="bc-intin-img-trip"
+                                 src="{% static 'images\IMG_1388.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+
+                    <!-- day 15 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Day 15</span> - Say your Final Goodbyes
+                                to Moshi and Africa</h4>
+                            <h4 class="bc-trips-itinerary-text">
+                                Saying goodbye can be so sad... expecially after you've seen how wonderful Moshi
+                                town is.
+                                <br>The last day will be used to rest, party, and see things other more rushed
+                                toursists will never see.
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col bc-text-center">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_3386.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br><br><br><br><br><br><br>
+                    </div>
+
+                    <!-- Day 16 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Day 16</span> - Flight home</h4>
+                            <h4 class="bc-trips-itinerary-text"> After saying our goodbyes to Africa, we head to the
+                                airport for your flight back home.
+                                <br><br>However, You can always contact us for special leaving instructions!
+                                <br>Want to fly somewhere else? Stay longer? No problem! Just let us know.
+                            </h4>
+                        </div>
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom bc-text-center">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_1745.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- Right side days -->
+                <div class="mdl-cell mdl-cell--6-col">
+
+
+                    <!-- Day one -->
+                    <div class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Day 1 & 2</span> - Overnight Flight to
+                                Moshi</h4>
+                            <h4 class="bc-trips-itinerary-text">Overnight flight and transfer to Moshi. The total
+                                flight is an exhausting 18-22 hours, plus customs & other assorted
+                                inconveniences.</h4>
+                        </div>
+                    </div>
+
+
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+
+
+                    <!-- Day 3 to 5 -->
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--5-col">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_1380.jpg' %}" alt="">
+                        </div>
+                        <div class="mdl-cell mdl-cell--7-col">
+                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                    class="bc-trips-itinerary-days bc-caps">Days 3 and 4</span> - Relax and Prepare
+                                in Moshi </h4>
+                            <h4 class="bc-trips-itinerary-text"> Now that we're in Moshi, we'll take some time to
+                                set up preparations for our climb. All gear will be checked; and rentals (clothing
+                                and personal gear) will be available if needed.
                                 <br>This will also give us a chance to take some interesting day trips.
                             </h4>
                         </div>
                     </div>
 
-                    <!-- days 3-4 day trips -->
+                    <!-- spacer -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1341.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
-                            <h4 class="bc-trips-itinerary-text"><strong> Waterfall/ Coffee Hike - </strong>Take a hike
-                                to see some truely incredible waterfalls inside of the Kilimanjaro National Park. During
-                                the hike we'll also stop by a coffee plantation for a change to see how it's grown and
-                                harvested.
-                            </h4>
-                        </div>
+                        <br><br><br>
                     </div>
 
-                    <!-- days 3-4 day trips -->
+                    <!-- days 3-5 day trips -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\color-222851.jpg' %}" alt="">
+                        <div class="mdl-cell mdl-cell--5-col">
+                            <img class="bc-intin-img-trip" src="{% static 'images\color-222851.jpg' %}" alt="">
                         </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
+                        <div class="mdl-cell mdl-cell--7-col">
                             <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
                             <h4 class="bc-trips-itinerary-text">
-                                <strong> Shopping around Moshi with Irene - </strong>Our close friend Irene owns a local
-                                dress shop in town, and makes her clothing from some of the best fabric in Moshi. You
-                                can choose the fabric, the style, and have everything made to preference! A perfect gift
-                                to bring home.
+                                <strong> Shopping around Moshi with Irene - </strong>Our close friend Irene owns a
+                                local dress shop in town, and makes her clothing from some of the best fabric in
+                                Moshi. You can choose the fabric, the style, and have everything made to preference!
+                                A perfect gift to bring home.
                             </h4>
                         </div>
                     </div>
 
-                    <hr class="bc-trip-hr-phone">
-
-                    <!-- day 5 -->
+                    <!-- spacer -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1443.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 5</span> - We start on our Machame route
-                                Climb </h4>
-                            <h4 class="bc-trips-itinerary-text"> One of, if not the best, routes to climb. Our route has
-                                the highest success rates and some of the best scenery.
-                                <br><br><span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
-                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 6.7
-                                Miles
-                                <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Montane forest
-                                <br><br>Your day starts with a 45-minute drive to the Machame Gate (6,000ft). The guides
-                                and porters pack your supplies and head for the first camp. Rain is a strong
-                                possibility, So having rain gear is highly recommended. We'll stop for lunch stop about
-                                halfway to the Machame camp (9,908ft) in the late afternoon.
-                                <br>Porters will have already set up your tent prior to arrival to the camp. The cook
-                                will prepare dinner, before you retire to your tent for the night.
-
-                            </h4>
-                        </div>
+                        <br><br><br>
                     </div>
-
-                    <hr class="bc-trip-hr-phone">
 
                     <!-- day 6 -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1475.jpg' %}" alt="">
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
+                            <img style="margin-bottom:110px" class="bc-intin-img-trip"
+                                 src="{% static 'images\IMG_1475.jpg' %}" alt="">
                         </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
+                        <div class="mdl-cell mdl-cell--7-col">
                             <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
                                     class="bc-trips-itinerary-days bc-caps">Day 6</span> - Machame Camp (9908Ft.) to
                                 Shira Camp (12621Ft.)</h4>
                             <h4 class="bc-trips-itinerary-text">
                                 <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 6 hours
-                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 3.2
-                                Miles
+                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately
+                                3.2 Miles
                                 <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Moorland
-                                <br><br>After breakfast, we start our day. It takes about an hour or so to get to the
-                                moorland zone. Then continuing to the Shira campsite at 12,621Ft. The porters will again
-                                supply you with a fully set up campsite and dinner. The cold will start to be more
-                                noticeable. This night even colder than the previous, with temperatures dropping to well
-                                below freezing. Our sleeping bags are rated to -20 degrees to ensure a well rest.
+                                <br><br>After breakfast, we start our day. It takes about an hour or so to get to
+                                the moorland zone. Then continuing to the Shira campsite at 12,621Ft. The porters
+                                will again supply you with a fully set up campsite and dinner. The cold will start
+                                to be more noticeable. This night even colder than the previous, with temperatures
+                                dropping to well below freezing. Our sleeping bags are rated to -20 degrees to
+                                ensure a well rest.
                             </h4>
                         </div>
                     </div>
 
-                    <hr class="bc-trip-hr-phone">
-
-                    <!-- day 7 -->
+                    <!-- spacer -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1518.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 7</span> - Shira Camp (12,621Ft.) to the
-                                Lava Tower (15,229Ft.) to Barranco Camp (13,070Ft.) </h4>
-                            <h4 class="bc-trips-itinerary-text">
-                                <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
-                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 6.5
-                                Miles
-                                <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Semi-desert
-                                <br><br>The route turns into a semi-desert surrounding the Lava Tower (15,229Ft.), which
-                                we'll reach in about 5 hours. Lunch is served and we continue. The Lava Tower is where
-                                some climbers start experiencing the symptoms of higher altitudes. Descending 2200Ft. to
-                                the Barranco camp will help to relieve some of those early symptoms. This is normal and
-                                serves as a good warm up for higher elevations.
-                            </h4>
-                        </div>
+                        <br><br><br><br><br><br><br><br><br>
                     </div>
-
-                    <hr class="bc-trip-hr-phone">
 
                     <!-- day 8 -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_15331.jpg' %}" alt="">
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_15331.jpg' %}" alt="">
                         </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
+                        <div class="mdl-cell mdl-cell--7-col">
                             <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 8</span> - Barranco Camp (13,070Ft.) to
-                                Barafu Camp (15,357Ft.)</h4>
+                                    class="bc-trips-itinerary-days bc-caps">Day 8</span> - Barranco Camp (13,070Ft.)
+                                to Barafu Camp (15,357Ft.)</h4>
                             <h4 class="bc-trips-itinerary-text">
                                 <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
                                 <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 6
                                 Miles
                                 <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Alpine desert
-                                <br><br>After spending a night, you make your way up the Barranco Wall. Topping results
-                                in some of the best views of our trip. After a couple more hours you reach the Barafu
-                                Camp.
+                                <br><br>After spending a night, you make your way up the Barranco Wall. Topping
+                                results in some of the best views of our trip. After a couple more hours you reach
+                                the Barafu Camp.
                             </h4>
                         </div>
                     </div>
 
-                    <hr class="bc-trip-hr-phone">
+                    <!-- spacer -->
+                    <div class="mdl-grid">
+                        <br><br><br>
+                    </div>
 
                     <!-- day 9 -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1568.jpg' %}" alt="">
+                        <div class="mdl-cell mdl-cell--5-col">
+                            <img style="margin-top:140px" class="bc-intin-img-trip"
+                                 src="{% static 'images\IMG_1568.jpg' %}" alt="">
                         </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
+                        <div class="mdl-cell mdl-cell--7-col">
                             <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
                                     class="bc-trips-itinerary-days bc-caps">Day 9</span> - Summit Day </h4>
                             <h4 class="bc-trips-itinerary-text">
@@ -825,786 +493,1035 @@
                                 Mile ascent and 6 Mile decent
                                 <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Stone scree and
                                 ice-capped summit
-                                <br><br>Wake up around 11:30pm. We check gear again, get some tea and snacks, and off we
-                                go!
-                                <br>The ascent can be extremely cold, steep, and rocky until Stella Point. This is the
-                                most mentally and physically challenging part of our trip.
-                                <br>At Stella Point (18,828Ft.) we stop for a brief rest and experience the joy of being
-                                so close to the top. From Stella Point, only 2 more hours to Uhuru Peak (19,341Ft.). We
-                                try to reach summit around Sunrise, to catch some amazing views!
-                                <br> <br>We then walk back to Barafu, takes about 3 hours, before heading down to the
-                                Mweka hut where we'll spend our final night.
+                                <br><br>Wake up around 11:30pm. We check gear again, get some tea and snacks, and
+                                off we go!
+                                <br>The ascent can be extremely cold, steep, and rocky until Stella Point. This is
+                                the most mentally and physically challenging part of our trip.
+                                <br>At Stella Point (18,828Ft.) we stop for a brief rest and experience the joy of
+                                being so close to the top. From Stella Point, only 2 more hours to Uhuru Peak
+                                (19,341Ft.). We try to reach summit around Sunrise, to catch some amazing views!
+                                <br> <br>We then walk back to Barafu, takes about 3 hours, before heading down to
+                                the Mweka hut where we'll spend our final night.
                             </h4>
                         </div>
                     </div>
 
-                    <hr class="bc-trip-hr-phone">
-
-                    <!-- day 10 -->
+                    <!-- spacer -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_15871.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 10</span> - Mweka Camp (10,137Ft.) to
-                                the Mweka Gate (5383Ft.)</h4>
-                            <h4 class="bc-trips-itinerary-text">
-                                <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 4 to 6 hours
-                                <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 5
-                                Miles
-                                <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Rainforest
-                                <br><br>After an early breakfast, it's a short 4-6 hour hike back to the Park gate. This
-                                short hike is a great way to stretch out from yesterday and is extremely scenic, often
-                                encountering wild monkeys and exotic birds.
-                                <br><br> We then exit the park for a nice celebratory dinner in Moshi.
-                            </h4>
-                        </div>
+                        <br><br><br>
                     </div>
-
-                    <hr class="bc-trip-hr-phone">
-
-                    <!-- day 11 -->
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1388.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 11</span> - Rest Day in Moshi</h4>
-                            <h4 class="bc-trips-itinerary-text"> Time to celebrate the climb and unwind a bit after
-                                hiking for days.
-                                <br> We'll get a big meal, some drinks, and celebrate your accomplishment!
-                            </h4>
-                        </div>
-                    </div>
-
-                    <hr class="bc-trip-hr-phone">
 
                     <!-- day 12-14 -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1683.jpg' %}" alt="">
+                        <div class="mdl-cell mdl-cell--5-col">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_1683.jpg' %}" alt="">
                         </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
+                        <div class="mdl-cell mdl-cell--7-col">
                             <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 12 to 14</span> - Safari to Ngorongoro
-                                crater and the Serengeti*</h4>
+                                    class="bc-trips-itinerary-days bc-caps">Day 12 to 14</span> - Safari to
+                                Ngorongoro crater and the Serengeti*</h4>
                             <h4 class="bc-trips-itinerary-text"> At this point of the trip, the group members on our
                                 12-day option will head back home in the morning.
                                 <br> The rest will head to the Ngorongoro crater and our wonderful travel lodge.
-                                <br><br>*-Since the animals migrate during specific seasons, we may adjust the second
-                                Safari park location in order to 'get the most' out of the experience.
+                                <br><br>*-Since the animals migrate during specific seasons, we may adjust the
+                                second Safari park location in order to 'get the most' out of the experience.
                             </h4>
                         </div>
                     </div>
 
-                    <hr class="bc-trip-hr-phone">
-
-                    <!-- day 15 -->
+                    <!-- spacer -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_3386.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 15</span> - Say your Final Goodbyes to
-                                Moshi and Africa</h4>
-                            <h4 class="bc-trips-itinerary-text">
-                                Saying goodbye can be so sad... expecially after you've seen how wonderful Moshitown is.
-                                <br>The last day will be used to rest, party, and see things other more rushed toursists
-                                will never see.
-                            </h4>
-                        </div>
+                        <br><br><br>
                     </div>
 
-                    <!-- days 15 trips -->
+                    <!-- day 15 trips -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1361.jpg' %}" alt="">
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
+                            <img class="bc-intin-img-trip" src="{% static 'images\IMG_1361.jpg' %}" alt="">
                         </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
+                        <div class="mdl-cell mdl-cell--6-col">
                             <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips)</h4>
-                            <h4 class="bc-trips-itinerary-text"><strong>Additional Waterfalls - </strong>If you haven't
-                                had enough beautiful nature... trust us there's <strong>PLENTY</strong> to see and do in
-                                Moshi.
+                            <h4 class="bc-trips-itinerary-text"><strong>Additional Waterfalls - </strong>If you
+                                haven't had enough beautiful nature... trust us there's <strong>PLENTY</strong> to
+                                see and do in Moshi.
                                 <br> <strong>Kikuletwa Hotsprings - </strong>See and bathe in crystal blue waters.
                             </h4>
                         </div>
                     </div>
 
-                    <hr class="bc-trip-hr-phone">
 
-                    <!-- Day 16 -->
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <img class="bc-standard-img" src="{% static 'images\IMG_1745.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--4-col-phone">
-                            <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
-                                    class="bc-trips-itinerary-days bc-caps">Day 16</span> - Flight home</h4>
-                            <h4 class="bc-trips-itinerary-text"> After saying our goodbyes to Africa, we head to the
-                                airport for your flight back home.
-                                <br><br>However, You can always contact us for special leaving instructions!
-                                <br>Want to fly somewhere else? Stay longer? No problem! Just let us know.
-                            </h4>
-                        </div>
-                    </div>
-
-
-                </div> <!-- Show/hide -->
-
-
-                <!-- Button -->
-                <button class="mdl-button mdl-js-buttonmdl-js-ripple-effect bc-form-text bc-home-submitbutton"
-                        onclick="myFunction()">See/Hide full Itinerary
-                </button>
-
-
+                </div>
             </div>
+
         </div>
+        <div class="mdl-layout-spacer"></div>
+    </div> <!-- Desktop itinerary -->
+
+    <!-- Mobile itinerary  -->
+    <div class="mdl-grid mdl-cell--hide-desktop bc-site-brown-background">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet">
+
+            <!-- day 1 -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet">
+                    <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                            class="bc-trips-itinerary-days bc-caps">Day 1 & 2</span> - Overnight Flight to Moshi
+                    </h4>
+                    <h4 class="bc-trips-itinerary-text">Overnight flight and transfer to Moshi. The total flight is
+                        an exhausting 18-22 hours, plus customs & other assorted inconveniences.</h4>
+                </div>
+            </div>
+
+            <hr class="bc-trip-hr-phone">
+
+            <!-- day 3 -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone">
+                    <img class="bc-standard-img" src="{% static 'images\IMG_1268.jpg' %}" alt="">
+                </div>
+                <div class="mdl-cell mdl-cell--4-col-phone">
+                    <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                            class="bc-trips-itinerary-days bc-caps">Day 3</span> - Arrival in Moshi</h4>
+                    <h4 class="bc-trips-itinerary-text">Arrive in Kilimanjaro Airport, where our guide will meet you
+                        outside your gate. From there we will travel back to the hotel, Check in and get some well
+                        needed rest.
+                        <br>Today will give you a chance to catch up on some well needed rest. However, if you're
+                        too excited to sleep, we'll be happy to explore the city of Moshi with you! </h4>
+                </div>
+            </div>
 
 
-        <div class="mdl-grid bc-trip-background-guides">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-cell mdl-cell--9-col">
+            <div id="phone" style="display:none">
+                <hr class="bc-trip-hr-phone">
 
-                <!-- Discription -->
+                <!-- Day 3 to 4 -->
                 <div class="mdl-grid">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--7-col">
-                        <h4 class="bc-trips-guides-heading bc-caps"> Your Tour Directors:
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1380.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Days 3 and 4</span> - Relax and Prepare in
+                            Moshi </h4>
+                        <h4 class="bc-trips-itinerary-text"> Now that we're in Moshi, we'll take some time to set up
+                            preparations for our climb. All gear will be checked; and rentals (clothing and personal
+                            gear) will be available if needed.
+                            <br>This will also give us a chance to take some interesting day trips.
                         </h4>
                     </div>
-                    <div class="mdl-layout-spacer"></div>
                 </div>
 
-                <!-- Guide profile -->
+                <!-- days 3-4 day trips -->
                 <div class="mdl-grid">
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--middle mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone bc-text-center">
-                            <img class="bc-profile-img-trip" src="{% static 'images\kyle1.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-layout-spacer"></div>
-                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col-tablet mdl-cell--6-col">
-                            <h4 class="bc-trips-guides-name bc-no-margin"><br>Kyle Cannon</h4>
-                            <h4 class="bc-trips-guides-text">
-                                Kyle is currently climbing the seven summits (Seven highest mountains on each continent;
-                                he has already climbed 3) and has summited Kilimanjaro multiple times.
-                                <br>
-                                <br><span class="bc-trips-guides-subheading">What to expect with Kyle:</span>
-                                <br> - Loves food markets
-                                <br> - Interesting bars/clubs
-                                <br> - Meeting Local friends/peoples
-                                <br>
-                                <br><span class="bc-trips-guides-subheading">Social Media:</span>
-                                <br> <a style="color: #4C4439"
-                                        href="https://www.instagram.com/kyle_a_cannon/">Instagram</a>
-                        </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1341.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
+                        <h4 class="bc-trips-itinerary-text"><strong> Waterfall/ Coffee Hike - </strong>Take a hike
+                            to see some truely incredible waterfalls inside of the Kilimanjaro National Park. During
+                            the hike we'll also stop by a coffee plantation for a change to see how it's grown and
+                            harvested.
+                        </h4>
                     </div>
                 </div>
 
-                <!-- Guide profile -->
+                <!-- days 3-4 day trips -->
                 <div class="mdl-grid">
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--middle mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone bc-text-center">
-                            <img class="bc-profile-img-trip" src="{% static 'images\jesse2.jpg' %}" alt="">
-                        </div>
-                        <div class="mdl-layout-spacer"></div>
-                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col-tablet mdl-cell--6-col">
-                            <h4 class="bc-trips-guides-name bc-no-margin"><br>Jesse Sangco</h4>
-                            <h4 class="bc-trips-guides-text">
-                                Jesse is a Philly native that rediscovered his passion for travel during his military
-                                service. Having a great passion for experiencing local culture and food.
-                                <br>
-                                <br><span class="bc-trips-guides-subheading">What to expect with Jesse:</span>
-                                <br> - Loves meeting new people
-                                <br> - Outdoors, camping, and nature
-                                <br> - Cooking and eating weird meals
-                                <br><br><br>
-
-                        </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\color-222851.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
+                        <h4 class="bc-trips-itinerary-text">
+                            <strong> Shopping around Moshi with Irene - </strong>Our close friend Irene owns a local
+                            dress shop in town, and makes her clothing from some of the best fabric in Moshi. You
+                            can choose the fabric, the style, and have everything made to preference! A perfect gift
+                            to bring home.
+                        </h4>
                     </div>
                 </div>
 
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 5 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1443.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 5</span> - We start on our Machame route
+                            Climb </h4>
+                        <h4 class="bc-trips-itinerary-text"> One of, if not the best, routes to climb. Our route has
+                            the highest success rates and some of the best scenery.
+                            <br><br><span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
+                            <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 6.7
+                            Miles
+                            <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Montane forest
+                            <br><br>Your day starts with a 45-minute drive to the Machame Gate (6,000ft). The guides
+                            and porters pack your supplies and head for the first camp. Rain is a strong
+                            possibility, So having rain gear is highly recommended. We'll stop for lunch stop about
+                            halfway to the Machame camp (9,908ft) in the late afternoon.
+                            <br>Porters will have already set up your tent prior to arrival to the camp. The cook
+                            will prepare dinner, before you retire to your tent for the night.
+
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 6 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1475.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 6</span> - Machame Camp (9908Ft.) to
+                            Shira Camp (12621Ft.)</h4>
+                        <h4 class="bc-trips-itinerary-text">
+                            <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 6 hours
+                            <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 3.2
+                            Miles
+                            <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Moorland
+                            <br><br>After breakfast, we start our day. It takes about an hour or so to get to the
+                            moorland zone. Then continuing to the Shira campsite at 12,621Ft. The porters will again
+                            supply you with a fully set up campsite and dinner. The cold will start to be more
+                            noticeable. This night even colder than the previous, with temperatures dropping to well
+                            below freezing. Our sleeping bags are rated to -20 degrees to ensure a well rest.
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 7 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1518.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 7</span> - Shira Camp (12,621Ft.) to the
+                            Lava Tower (15,229Ft.) to Barranco Camp (13,070Ft.) </h4>
+                        <h4 class="bc-trips-itinerary-text">
+                            <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
+                            <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 6.5
+                            Miles
+                            <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Semi-desert
+                            <br><br>The route turns into a semi-desert surrounding the Lava Tower (15,229Ft.), which
+                            we'll reach in about 5 hours. Lunch is served and we continue. The Lava Tower is where
+                            some climbers start experiencing the symptoms of higher altitudes. Descending 2200Ft. to
+                            the Barranco camp will help to relieve some of those early symptoms. This is normal and
+                            serves as a good warm up for higher elevations.
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 8 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_15331.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 8</span> - Barranco Camp (13,070Ft.) to
+                            Barafu Camp (15,357Ft.)</h4>
+                        <h4 class="bc-trips-itinerary-text">
+                            <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 hours
+                            <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 6
+                            Miles
+                            <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Alpine desert
+                            <br><br>After spending a night, you make your way up the Barranco Wall. Topping results
+                            in some of the best views of our trip. After a couple more hours you reach the Barafu
+                            Camp.
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 9 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1568.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 9</span> - Summit Day </h4>
+                        <h4 class="bc-trips-itinerary-text">
+                            <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 7 to 8 hours to
+                            reach Uhuru Peak, 6 to 8 hours to descend to Mweka Camp
+                            <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 3
+                            Mile ascent and 6 Mile decent
+                            <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Stone scree and
+                            ice-capped summit
+                            <br><br>Wake up around 11:30pm. We check gear again, get some tea and snacks, and off we
+                            go!
+                            <br>The ascent can be extremely cold, steep, and rocky until Stella Point. This is the
+                            most mentally and physically challenging part of our trip.
+                            <br>At Stella Point (18,828Ft.) we stop for a brief rest and experience the joy of being
+                            so close to the top. From Stella Point, only 2 more hours to Uhuru Peak (19,341Ft.). We
+                            try to reach summit around Sunrise, to catch some amazing views!
+                            <br> <br>We then walk back to Barafu, takes about 3 hours, before heading down to the
+                            Mweka hut where we'll spend our final night.
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 10 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_15871.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 10</span> - Mweka Camp (10,137Ft.) to
+                            the Mweka Gate (5383Ft.)</h4>
+                        <h4 class="bc-trips-itinerary-text">
+                            <span class="bc-trips-itinerary-days-subheader">Hiking time:</span> 4 to 6 hours
+                            <br><span class="bc-trips-itinerary-days-subheader">Distance:</span> Approximately 5
+                            Miles
+                            <br><span class="bc-trips-itinerary-days-subheader">Habitat:</span> Rainforest
+                            <br><br>After an early breakfast, it's a short 4-6 hour hike back to the Park gate. This
+                            short hike is a great way to stretch out from yesterday and is extremely scenic, often
+                            encountering wild monkeys and exotic birds.
+                            <br><br> We then exit the park for a nice celebratory dinner in Moshi.
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 11 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1388.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 11</span> - Rest Day in Moshi</h4>
+                        <h4 class="bc-trips-itinerary-text"> Time to celebrate the climb and unwind a bit after
+                            hiking for days.
+                            <br> We'll get a big meal, some drinks, and celebrate your accomplishment!
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 12-14 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1683.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 12 to 14</span> - Safari to Ngorongoro
+                            crater and the Serengeti*</h4>
+                        <h4 class="bc-trips-itinerary-text"> At this point of the trip, the group members on our
+                            12-day option will head back home in the morning.
+                            <br> The rest will head to the Ngorongoro crater and our wonderful travel lodge.
+                            <br><br>*-Since the animals migrate during specific seasons, we may adjust the second
+                            Safari park location in order to 'get the most' out of the experience.
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- day 15 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_3386.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 15</span> - Say your Final Goodbyes to
+                            Moshi and Africa</h4>
+                        <h4 class="bc-trips-itinerary-text">
+                            Saying goodbye can be so sad... expecially after you've seen how wonderful Moshitown is.
+                            <br>The last day will be used to rest, party, and see things other more rushed toursists
+                            will never see.
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- days 15 trips -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1361.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips)</h4>
+                        <h4 class="bc-trips-itinerary-text"><strong>Additional Waterfalls - </strong>If you haven't
+                            had enough beautiful nature... trust us there's <strong>PLENTY</strong> to see and do in
+                            Moshi.
+                            <br> <strong>Kikuletwa Hotsprings - </strong>See and bathe in crystal blue waters.
+                        </h4>
+                    </div>
+                </div>
+
+                <hr class="bc-trip-hr-phone">
+
+                <!-- Day 16 -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <img class="bc-standard-img" src="{% static 'images\IMG_1745.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col-phone">
+                        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span
+                                class="bc-trips-itinerary-days bc-caps">Day 16</span> - Flight home</h4>
+                        <h4 class="bc-trips-itinerary-text"> After saying our goodbyes to Africa, we head to the
+                            airport for your flight back home.
+                            <br><br>However, You can always contact us for special leaving instructions!
+                            <br>Want to fly somewhere else? Stay longer? No problem! Just let us know.
+                        </h4>
+                    </div>
+                </div>
+
+
+            </div> <!-- Show/hide -->
+
+
+            <!-- Button -->
+            <button class="mdl-button mdl-js-buttonmdl-js-ripple-effect bc-form-text bc-home-submitbutton"
+                    onclick="myFunction()">See/Hide full Itinerary
+            </button>
+
+
+        </div>
+    </div>
+
+
+    <div class="mdl-grid bc-trip-background-guides">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--9-col">
+
+            <!-- Discription -->
+            <div class="mdl-grid">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--7-col">
+                    <h4 class="bc-trips-guides-heading bc-caps"> Your Tour Directors:
+                    </h4>
+                </div>
+                <div class="mdl-layout-spacer"></div>
             </div>
-            <div class="mdl-layout-spacer"></div>
+
+            <!-- Guide profile -->
+            <div class="mdl-grid">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--middle mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone bc-text-center">
+                        <img class="bc-profile-img-trip" src="{% static 'images\kyle1.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col-tablet mdl-cell--6-col">
+                        <h4 class="bc-trips-guides-name bc-no-margin"><br>Kyle Cannon</h4>
+                        <h4 class="bc-trips-guides-text">
+                            Kyle is currently climbing the seven summits (Seven highest mountains on each continent;
+                            he has already climbed 3) and has summited Kilimanjaro multiple times.
+                            <br>
+                            <br><span class="bc-trips-guides-subheading">What to expect with Kyle:</span>
+                            <br> - Loves food markets
+                            <br> - Interesting bars/clubs
+                            <br> - Meeting Local friends/peoples
+                            <br>
+                            <br><span class="bc-trips-guides-subheading">Social Media:</span>
+                            <br> <a style="color: #4C4439"
+                                    href="https://www.instagram.com/kyle_a_cannon/">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide profile -->
+            <div class="mdl-grid">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--middle mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone bc-text-center">
+                        <img class="bc-profile-img-trip" src="{% static 'images\jesse2.jpg' %}" alt="">
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col-tablet mdl-cell--6-col">
+                        <h4 class="bc-trips-guides-name bc-no-margin"><br>Jesse Sangco</h4>
+                        <h4 class="bc-trips-guides-text">
+                            Jesse is a Philly native that rediscovered his passion for travel during his military
+                            service. Having a great passion for experiencing local culture and food.
+                            <br>
+                            <br><span class="bc-trips-guides-subheading">What to expect with Jesse:</span>
+                            <br> - Loves meeting new people
+                            <br> - Outdoors, camping, and nature
+                            <br> - Cooking and eating weird meals
+                            <br><br><br>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="mdl-layout-spacer"></div>
+    </div>
+
+    <!-- Accommodations -->
+    <div style="width: 104%" class="mdl-grid bc-site-grey-background mdl-cell--hide-phone">
+        <div class="mdl-cell mdl-cell--4-col bc-no-margin">
+            <img class="bc-photogrid" src="{% static 'images\africa.jpg' %}">
+        </div>
+        <div class="mdl-cell mdl-cell--4-col bc-no-margin">
+            <img class="bc-photogrid" src="{% static 'images\africa3.jpg' %}">
+        </div>
+        <div class="mdl-cell mdl-cell--4-col bc-no-margin mdl-cell--hide-tablet">
+            <img class="bc-photogrid" src="{% static 'images\africa2.jpg' %}">
+        </div>
+    </div>
+
+
+    <!-- More information to Footer -->
+    <div class="mdl-grid bc-site-brown-background bc-top-border">
+        <div class="mdl-layout-spacer"></div>
+
+        <!-- More information -->
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet bc-padding">
+            <h4 class="bc-trips-moreifo-heading bc-caps"> More Information </h4>
+
+            <h4 class="bc-trips-moreifo-text">
+                <span class="bc-trips-moreifo-subheading">Safety in Africa:</span>
+                <br>Tanzania is one of the safest countries in Africa.
+                <br>Crime is usually only theft, at it's worst (which is even rare), people are incredibly friendly
+                and welcoming; still using common sense goes a long way. You should <strong>NOT</strong> be out
+                walking alone at night or in general.
+                <br>Kilimanjaro is an extremely safe climb; with huts at most stops and popular routes, problems (if
+                they occur) are addressed immediately. Still Every year people get hurt or die. Usually from poor
+                planning or from using a poor guide service. A mountian climb is <strong>NOT</strong> the time to be
+                cheap or "just wing it".
+                <br>During the safari, most animals will either completely ignore you or try to steal your food.
+                Unless provoked or threatened. Please do not antagonize the animals.
+                <br>Nairobi <strong>CAN BE</strong> a little dangerous, but is an extremely interesting city if you
+                travel smart.
+                <br><br>The lesson is to exercise travel smarts and common sense. <strong>LISTEN TO YOUR
+                GUIDES!</strong> They are here to make sure you're having the best possible experience.
+            </h4>
+
+            <h4 class="bc-trips-moreifo-text">
+                <span class="bc-trips-moreifo-subheading">Cool Surprises:</span>
+                <br> - Delicious local dinners,
+                <br> - The best parties in Moshi,
+                <br> - And much more that you'll have to wait and see!
+            </h4>
         </div>
 
-        <!-- Accommodations -->
-        <div style="width: 104%" class="mdl-grid bc-site-grey-background mdl-cell--hide-phone">
-            <div class="mdl-cell mdl-cell--4-col bc-no-margin">
-                <img class="bc-photogrid" src="{% static 'images\africa.jpg' %}">
-            </div>
-            <div class="mdl-cell mdl-cell--4-col bc-no-margin">
-                <img class="bc-photogrid" src="{% static 'images\africa3.jpg' %}">
-            </div>
-            <div class="mdl-cell mdl-cell--4-col bc-no-margin mdl-cell--hide-tablet">
-                <img class="bc-photogrid" src="{% static 'images\africa2.jpg' %}">
-            </div>
+        <!-- FAQ -->
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet bc-padding">
+            <h4 class="bc-trips-moreifo-heading bc-caps">Frequently Asked Questions </h4>
+
+            <h4 class="bc-trips-moreifo-text">
+                <span class="bc-trips-moreifo-subheading">What is the tipping policy?</span>
+                <br>Tipping for the Kilimanjaro climb averages around $300/per person. This includes all of the
+                porters, cooks, and guides. Upwards of 20-30 per group.
+                <br>While our local guides are paid much higher than other companies and tipping is not 'required',
+                it is highly recommended; Every dollar means a ton in the world of tips.
+            </h4>
+
+            <h4 class="bc-trips-moreifo-text">
+                <span class="bc-trips-moreifo-subheading">What should I pack for the climb and for Africa?</span>
+                <br>Please check our <span><a style="color:#FCFAF4"
+                                              href="{% url 'packing' %}">packing page</a></span> dedicated to
+                Africa.
+            </h4>
+
+            <h4 class="bc-trips-moreifo-text">
+                <span class="bc-trips-moreifo-subheading">What kind of physical condition should I be in?</span>
+                <br>This question is a bit harder to answer. People in incredible physical shape can get altitude
+                sickness just as bad as people in horrible shape.
+                <br>But as a general guideline; the climb is very difficult. Do not underestimate it. You should be
+                in excellent ccardiovascular shape. <strong>DO NOT</strong> attempt if you have pre-existing heart
+                conditions or breathing conditions (Unless your doctor approves it).
+            </h4>
+
+            <h4 class="bc-trips-moreifo-text">
+                <span class="bc-trips-moreifo-subheading">Do I need any vaccine's?</span>
+                <br>We suggest going to the <span><a style="color:#FCFAF4"
+                                                     href="https://wwwnc.cdc.gov/travel/destinations/traveler/none/tanzania">CDC's website</a></span>.
+                But a Yellow fever vaccine is a must have.
+            </h4>
+
+            <h4 class="bc-trips-moreifo-text">
+                <span class="bc-trips-moreifo-subheading">Have More Quesions?</span>
+                <br><a style="color:#FCFAF4" href="mailto:admin@blackcrowtours.com">Send us a message! </a>
+            </h4>
+
+
         </div>
+        <div class="mdl-layout-spacer"></div>
+    </div>  <!-- END More information and FAQ Grid -->
 
 
-        <!-- More information to Footer -->
-        <div class="mdl-grid bc-site-brown-background bc-top-border">
-            <div class="mdl-layout-spacer"></div>
+    <!-- Final CTA -->
+    <div class="mdl-grid bc-scan-signup">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--9-col">
 
-            <!-- More information -->
-            <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet bc-padding">
-                <h4 class="bc-trips-moreifo-heading bc-caps"> More Information </h4>
-
-                <h4 class="bc-trips-moreifo-text">
-                    <span class="bc-trips-moreifo-subheading">Safety in Africa:</span>
-                    <br>Tanzania is one of the safest countries in Africa.
-                    <br>Crime is usually only theft, at it's worst (which is even rare), people are incredibly friendly
-                    and welcoming; still using common sense goes a long way. You should <strong>NOT</strong> be out
-                    walking alone at night or in general.
-                    <br>Kilimanjaro is an extremely safe climb; with huts at most stops and popular routes, problems (if
-                    they occur) are addressed immediately. Still Every year people get hurt or die. Usually from poor
-                    planning or from using a poor guide service. A mountian climb is <strong>NOT</strong> the time to be
-                    cheap or "just wing it".
-                    <br>During the safari, most animals will either completely ignore you or try to steal your food.
-                    Unless provoked or threatened. Please do not antagonize the animals.
-                    <br>Nairobi <strong>CAN BE</strong> a little dangerous, but is an extremely interesting city if you
-                    travel smart.
-                    <br><br>The lesson is to exercise travel smarts and common sense. <strong>LISTEN TO YOUR
-                    GUIDES!</strong> They are here to make sure you're having the best possible experience.
-                </h4>
-
-                <h4 class="bc-trips-moreifo-text">
-                    <span class="bc-trips-moreifo-subheading">Cool Surprises:</span>
-                    <br> - Delicious local dinners,
-                    <br> - The best parties in Moshi,
-                    <br> - And much more that you'll have to wait and see!
-                </h4>
-            </div>
-
-            <!-- FAQ -->
-            <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet bc-padding">
-                <h4 class="bc-trips-moreifo-heading bc-caps">Frequently Asked Questions </h4>
-
-                <h4 class="bc-trips-moreifo-text">
-                    <span class="bc-trips-moreifo-subheading">What is the tipping policy?</span>
-                    <br>Tipping for the Kilimanjaro climb averages around $300/per person. This includes all of the
-                    porters, cooks, and guides. Upwards of 20-30 per group.
-                    <br>While our local guides are paid much higher than other companies and tipping is not 'required',
-                    it is highly recommended; Every dollar means a ton in the world of tips.
-                </h4>
-
-                <h4 class="bc-trips-moreifo-text">
-                    <span class="bc-trips-moreifo-subheading">What should I pack for the climb and for Africa?</span>
-                    <br>Please check our <span><a style="color:#FCFAF4"
-                                                  href="{% url 'packing' %}">packing page</a></span> dedicated to
-                    Africa.
-                </h4>
-
-                <h4 class="bc-trips-moreifo-text">
-                    <span class="bc-trips-moreifo-subheading">What kind of physical condition should I be in?</span>
-                    <br>This question is a bit harder to answer. People in incredible physical shape can get altitude
-                    sickness just as bad as people in horrible shape.
-                    <br>But as a general guideline; the climb is very difficult. Do not underestimate it. You should be
-                    in excellent ccardiovascular shape. <strong>DO NOT</strong> attempt if you have pre-existing heart
-                    conditions or breathing conditions (Unless your doctor approves it).
-                </h4>
-
-                <h4 class="bc-trips-moreifo-text">
-                    <span class="bc-trips-moreifo-subheading">Do I need any vaccine's?</span>
-                    <br>We suggest going to the <span><a style="color:#FCFAF4"
-                                                         href="https://wwwnc.cdc.gov/travel/destinations/traveler/none/tanzania">CDC's website</a></span>.
-                    But a Yellow fever vaccine is a must have.
-                </h4>
-
-                <h4 class="bc-trips-moreifo-text">
-                    <span class="bc-trips-moreifo-subheading">Have More Quesions?</span>
-                    <br><a style="color:#FCFAF4" href="mailto:admin@blackcrowtours.com">Send us a message! </a>
-                </h4>
-
-
-            </div>
-            <div class="mdl-layout-spacer"></div>
-        </div>  <!-- END More information and FAQ Grid -->
-
-
-        <!-- Final CTA -->
-        <div class="mdl-grid bc-kili-signup">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-cell mdl-cell--9-col">
-
-                <div class="mdl-grid">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone">
-                        <br>
-                        <h4 class="bc-home-headlines bc-no-margin bc-caps">Want to join us?</h4>
-                        <h4 class="bc-packing-text bc-no-margin"><br>Don't let another year pass you by... be the
-                            <strong>FIRST</strong> to learn about our next trip.
-                            <br><br>Enter your email below to stay updated with Black Crow Tours!</h4>
-                    </div>
-                    <div class="mdl-layout-spacer"></div>
-                </div>
-
-                <!-- Desktop-Mobile form -->
-                <div class="mdl-grid mdl-cell--hide-tablet">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--9-col">
-                        <form method="POST" action="https://blackcrowtours.activehosted.com/proc.php" id="_form_17_"
-                              class="_form _form_17 _inline-form  _dark" novalidate>
-                            <input type="hidden" name="u" value="17"/>
-                            <input type="hidden" name="f" value="17"/>
-                            <input type="hidden" name="s"/>
-                            <input type="hidden" name="c" value="0"/>
-                            <input type="hidden" name="m" value="0"/>
-                            <input type="hidden" name="act" value="sub"/>
-                            <input type="hidden" name="v" value="2"/>
-                            <div class="_form-content mdl-grid">
-                                <div class=" mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                                    <div>
-                                        <input class="bc-home-formlines" type="text" name="fullname"
-                                               placeholder="Name"/>
-                                    </div>
-                                </div>
-
-                                <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                                    <div>
-                                        <input class="bc-home-formlines" type="text" name="email" placeholder="Email"
-                                               required/>
-                                    </div>
-                                </div>
-
-                                <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                                    <button id="_form_17_submit"
-                                            class="_submit bc-home-submitbutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bc-form-text"
-                                            type="submit">
-                                        Subscribe
-                                    </button>
-                                </div>
-                                <div class="_clear-element">
-                                </div>
-                            </div>
-                            <div class="_form-thank-you bc-form-text" style="display:none;">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="mdl-layout-spacer"></div>
-                </div>
-
-                <!-- Tablet form -->
-                <div class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-phone">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--hide-desktop">
-
-                        <form method="POST" action="https://blackcrowtours.activehosted.com/proc.php" id="_form_17_"
-                              class="_form _form_17 _inline-form  _dark" novalidate>
-                            <input type="hidden" name="u" value="17"/>
-                            <input type="hidden" name="f" value="17"/>
-                            <input type="hidden" name="s"/>
-                            <input type="hidden" name="c" value="0"/>
-                            <input type="hidden" name="m" value="0"/>
-                            <input type="hidden" name="act" value="sub"/>
-                            <input type="hidden" name="v" value="2"/>
-
-                            <div class="_form-content mdl-grid">
-                                <div class=" mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                                    <div>
-                                        <input class="bc-home-formlines-T" type="text" name="fullname"
-                                               placeholder="Name"/>
-                                    </div>
-                                </div>
-
-                                <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                                    <div>
-                                        <input class="bc-home-formlines-T" type="text" name="email" placeholder="Email"
-                                               required/>
-                                    </div>
-                                </div>
-
-                                <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                                    <button id="_form_17_submit"
-                                            class="_submit bc-home-submitbutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bc-form-text"
-                                            type="submit">
-                                        Subscribe
-                                    </button>
-                                </div>
-                                <div class="_clear-element">
-                                </div>
-                            </div>
-                            <div class="_form-thank-you bc-form-text" style="display:none;">
-                            </div>
-                        </form>
-
-                    </div>
-                    <div class="mdl-layout-spacer"></div>
-                </div>
-
-                <!-- Social Icons -->
-                <div class="mdl-grid">
+            <div class="mdl-grid">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone">
                     <br>
-                </div>
+                    <h4 class="bc-home-headlines bc-no-margin bc-caps">How to book this tour?</h4>
+                    <h4 class="bc-packing-text bc-no-margin"><br>We created personal panel where you can check and pay
+                        for any available Tour. <br><br>
+                        Also we have some unique features for registered <strong>Black Crown Tour</strong> members:<br>
+                        1) Premium accounts,<br>
+                        2) Bonus points,<br>
+                        3) Public pages,<br>
+                        4) Blog post creation,<br>
+                        5) And a lot of amazing features in future!<br><br>
 
-                <div class="mdl-grid">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--1-col">
-                        <span><a href="https://www.facebook.com/Blackcrowtours/"><img class="bc-standard-img-icons"
-                                                                                      src="{% static 'icons/fb.fw.png' %}"
-                                                                                      alt=""></a></span>
-                    </div>
-                    <div class="mdl-cell mdl-cell--1-col">
-                        <span><a href="https://twitter.com/BlackCrowTours"><img class="bc-standard-img-icons"
-                                                                                src="{% static 'icons/twitter.fw.png' %}"
-                                                                                alt=""></a></span>
-                    </div>
-                    <div class="mdl-cell mdl-cell--1-col">
-                        <span><a href="https://www.instagram.com/blackcrowtours/"><img class="bc-standard-img-icons"
-                                                                                       src="{% static 'icons/insta.fw.png' %}"
-                                                                                       alt=""></a></span>
-                    </div>
-                    <div class="mdl-cell mdl-cell--1-col">
-                        <span><a href="mailto:admin@blackcrowtours.com"><img class="bc-standard-img-icons"
-                                                                             src="{% static 'icons/mail.fw.png' %}"
-                                                                             alt=""></a></span>
-                    </div>
-                    <div class="mdl-layout-spacer"></div>
-                </div>
-
-                <!-- Copyright -->
-                <div class="mdl-grid">
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone mdl-cell--8-col-tablet">
-                        <h4 class="bc-home-icon-text">Copyright 2017 Black Crow Tours</h4>
-                    </div>
-                    <div class="mdl-layout-spacer"></div>
-                </div>
-
-
+                        If you are ready to become a member of our Black Crown Tour family, please sign up <a
+                                href="{% url 'accounts:signup' %}"> here.</a><br>
+                        If you already signed up, you can log in <a href="{% url 'accounts:login' %}">here.</a>
+                    </h4></div>
+                <div class="mdl-layout-spacer"></div>
             </div>
-            <div class="mdl-layout-spacer"></div>
+
         </div>
+        <div class="mdl-layout-spacer"></div>
+    </div>
 
+    <div class="mdl-grid bc-kili-signup">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--9-col">
 
-        <script>
-            function myFunction() {
-                var x = document.getElementById('phone');
-                if (x.style.display === 'none') {
-                    x.style.display = 'block';
-                } else {
-                    x.style.display = 'none';
-                }
+            <div class="mdl-grid">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone">
+                    <br>
+                    <h4 class="bc-home-headlines bc-no-margin bc-caps">Want to join us?</h4>
+                    <h4 class="bc-packing-text bc-no-margin"><br>Don't let another year pass you by... be the
+                        <strong>FIRST</strong> to learn about our next trip.
+                        <br><br>Enter your email below to stay updated with Black Crow Tours!</h4>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+
+            <!-- Desktop-Mobile form -->
+            <div class="mdl-grid mdl-cell--hide-tablet">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--9-col">
+                    <form method="POST" action="https://blackcrowtours.activehosted.com/proc.php" id="_form_17_"
+                          class="_form _form_17 _inline-form  _dark" novalidate>
+                        <input type="hidden" name="u" value="17"/>
+                        <input type="hidden" name="f" value="17"/>
+                        <input type="hidden" name="s"/>
+                        <input type="hidden" name="c" value="0"/>
+                        <input type="hidden" name="m" value="0"/>
+                        <input type="hidden" name="act" value="sub"/>
+                        <input type="hidden" name="v" value="2"/>
+                        <div class="_form-content mdl-grid">
+                            <div class=" mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+                                <div>
+                                    <input class="bc-home-formlines" type="text" name="fullname" placeholder="Name"/>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+                                <div>
+                                    <input class="bc-home-formlines" type="text" name="email" placeholder="Email"
+                                           required/>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+                                <button id="_form_17_submit"
+                                        class="_submit bc-home-submitbutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bc-form-text"
+                                        type="submit">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <div class="_clear-element">
+                            </div>
+                        </div>
+                        <div class="_form-thank-you bc-form-text" style="display:none;">
+                        </div>
+                    </form>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+
+            <!-- Tablet form -->
+            <div class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-phone">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--hide-desktop">
+
+                    <form method="POST" action="https://blackcrowtours.activehosted.com/proc.php" id="_form_17_"
+                          class="_form _form_17 _inline-form  _dark" novalidate>
+                        <input type="hidden" name="u" value="17"/>
+                        <input type="hidden" name="f" value="17"/>
+                        <input type="hidden" name="s"/>
+                        <input type="hidden" name="c" value="0"/>
+                        <input type="hidden" name="m" value="0"/>
+                        <input type="hidden" name="act" value="sub"/>
+                        <input type="hidden" name="v" value="2"/>
+
+                        <div class="_form-content mdl-grid">
+                            <div class=" mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+                                <div>
+                                    <input class="bc-home-formlines-T" type="text" name="fullname" placeholder="Name"/>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+                                <div>
+                                    <input class="bc-home-formlines-T" type="text" name="email" placeholder="Email"
+                                           required/>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+                                <button id="_form_17_submit"
+                                        class="_submit bc-home-submitbutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bc-form-text"
+                                        type="submit">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <div class="_clear-element">
+                            </div>
+                        </div>
+                        <div class="_form-thank-you bc-form-text" style="display:none;">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+
+        </div>
+        <div class="mdl-layout-spacer"></div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById('phone');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+            } else {
+                x.style.display = 'none';
             }
-        </script>
+        }
+    </script>
 
-        <script type="text/javascript">
-            window.cfields = [];
-            window._show_thank_you = function (id, message, trackcmp_url) {
-                var form = document.getElementById('_form_' + id + '_'),
-                    thank_you = form.querySelector('._form-thank-you');
-                form.querySelector('._form-content').style.display = 'none';
-                thank_you.innerHTML = message;
-                thank_you.style.display = 'block';
-                if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
-                    // Site tracking URL to use after inline form submission.
-                    _load_script(trackcmp_url);
-                }
-                if (typeof window._form_callback !== 'undefined') window._form_callback(id);
-            };
-            window._show_error = function (id, message, html) {
-                var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'),
-                    button = form.querySelector('button'), old_error = form.querySelector('._form_error');
-                if (old_error) old_error.parentNode.removeChild(old_error);
-                err.innerHTML = message;
-                err.className = '_error-inner _form_error _no_arrow';
-                var wrapper = document.createElement('div');
-                wrapper.className = '_form-inner';
-                wrapper.appendChild(err);
-                button.parentNode.insertBefore(wrapper, button);
-                document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
-                if (html) {
-                    var div = document.createElement('div');
-                    div.className = '_error-html';
-                    div.innerHTML = html;
-                    err.appendChild(div);
-                }
-            };
-            window._load_script = function (url, callback) {
-                var head = document.querySelector('head'), script = document.createElement('script'), r = false;
-                script.type = 'text/javascript';
-                script.charset = 'utf-8';
-                script.src = url;
-                if (callback) {
-                    script.onload = script.onreadystatechange = function () {
-                        if (!r && (!this.readyState || this.readyState == 'complete')) {
-                            r = true;
-                            callback();
-                        }
+    <script type="text/javascript">
+        window.cfields = [];
+        window._show_thank_you = function (id, message, trackcmp_url) {
+            var form = document.getElementById('_form_' + id + '_'),
+                thank_you = form.querySelector('._form-thank-you');
+            form.querySelector('._form-content').style.display = 'none';
+            thank_you.innerHTML = message;
+            thank_you.style.display = 'block';
+            if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+                // Site tracking URL to use after inline form submission.
+                _load_script(trackcmp_url);
+            }
+            if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+        };
+        window._show_error = function (id, message, html) {
+            var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'),
+                button = form.querySelector('button'), old_error = form.querySelector('._form_error');
+            if (old_error) old_error.parentNode.removeChild(old_error);
+            err.innerHTML = message;
+            err.className = '_error-inner _form_error _no_arrow';
+            var wrapper = document.createElement('div');
+            wrapper.className = '_form-inner';
+            wrapper.appendChild(err);
+            button.parentNode.insertBefore(wrapper, button);
+            document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
+            if (html) {
+                var div = document.createElement('div');
+                div.className = '_error-html';
+                div.innerHTML = html;
+                err.appendChild(div);
+            }
+        };
+        window._load_script = function (url, callback) {
+            var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.src = url;
+            if (callback) {
+                script.onload = script.onreadystatechange = function () {
+                    if (!r && (!this.readyState || this.readyState == 'complete')) {
+                        r = true;
+                        callback();
+                    }
+                };
+            }
+            head.appendChild(script);
+        };
+        (function () {
+            if (window.location.search.search("excludeform") !== -1) return false;
+            var getCookie = function (name) {
+                var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+                return match ? match[2] : null;
+            }
+            var setCookie = function (name, value) {
+                var now = new Date();
+                var time = now.getTime();
+                var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+                now.setTime(expireTime);
+                document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
+            }
+            var addEvent = function (element, event, func) {
+                if (element.addEventListener) {
+                    element.addEventListener(event, func);
+                } else {
+                    var oldFunc = element['on' + event];
+                    element['on' + event] = function () {
+                        oldFunc.apply(this, arguments);
+                        func.apply(this, arguments);
                     };
                 }
-                head.appendChild(script);
+            }
+            var _removed = false;
+            var form_to_submit = document.getElementById('_form_17_');
+            var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [],
+                submitted = false;
+
+            var getUrlParam = function (name) {
+                var regexStr = '[\?&]' + name + '=([^&#]*)';
+                var results = new RegExp(regexStr, 'i').exec(window.location.href);
+                return results != undefined ? decodeURIComponent(results[1]) : false;
             };
-            (function () {
-                if (window.location.search.search("excludeform") !== -1) return false;
-                var getCookie = function (name) {
-                    var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
-                    return match ? match[2] : null;
+
+            for (var i = 0; i < allInputs.length; i++) {
+                var regexStr = "field\\[(\\d+)\\]";
+                var results = new RegExp(regexStr).exec(allInputs[i].name);
+                if (results != undefined) {
+                    allInputs[i].dataset.name = window.cfields[results[1]];
+                } else {
+                    allInputs[i].dataset.name = allInputs[i].name;
                 }
-                var setCookie = function (name, value) {
-                    var now = new Date();
-                    var time = now.getTime();
-                    var expireTime = time + 1000 * 60 * 60 * 24 * 365;
-                    now.setTime(expireTime);
-                    document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
-                }
-                var addEvent = function (element, event, func) {
-                    if (element.addEventListener) {
-                        element.addEventListener(event, func);
+                var fieldVal = getUrlParam(allInputs[i].dataset.name);
+
+                if (fieldVal) {
+                    if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+                        if (allInputs[i].value == fieldVal) {
+                            allInputs[i].checked = true;
+                        }
                     } else {
-                        var oldFunc = element['on' + event];
-                        element['on' + event] = function () {
-                            oldFunc.apply(this, arguments);
-                            func.apply(this, arguments);
-                        };
+                        allInputs[i].value = fieldVal;
                     }
                 }
-                var _removed = false;
-                var form_to_submit = document.getElementById('_form_17_');
-                var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [],
-                    submitted = false;
+            }
 
-                var getUrlParam = function (name) {
-                    var regexStr = '[\?&]' + name + '=([^&#]*)';
-                    var results = new RegExp(regexStr, 'i').exec(window.location.href);
-                    return results != undefined ? decodeURIComponent(results[1]) : false;
-                };
-
-                for (var i = 0; i < allInputs.length; i++) {
-                    var regexStr = "field\\[(\\d+)\\]";
-                    var results = new RegExp(regexStr).exec(allInputs[i].name);
-                    if (results != undefined) {
-                        allInputs[i].dataset.name = window.cfields[results[1]];
-                    } else {
-                        allInputs[i].dataset.name = allInputs[i].name;
+            var remove_tooltips = function () {
+                for (var i = 0; i < tooltips.length; i++) {
+                    tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+                }
+                tooltips = [];
+            };
+            var remove_tooltip = function (elem) {
+                for (var i = 0; i < tooltips.length; i++) {
+                    if (tooltips[i].elem === elem) {
+                        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+                        tooltips.splice(i, 1);
+                        return;
                     }
-                    var fieldVal = getUrlParam(allInputs[i].dataset.name);
-
-                    if (fieldVal) {
-                        if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
-                            if (allInputs[i].value == fieldVal) {
-                                allInputs[i].checked = true;
+                }
+            };
+            var create_tooltip = function (elem, text) {
+                var tooltip = document.createElement('div'), arrow = document.createElement('div'),
+                    inner = document.createElement('div'), new_tooltip = {};
+                if (elem.type != 'radio' && elem.type != 'checkbox') {
+                    tooltip.className = '_error';
+                    arrow.className = '_error-arrow';
+                    inner.className = '_error-inner';
+                    inner.innerHTML = text;
+                    tooltip.appendChild(arrow);
+                    tooltip.appendChild(inner);
+                    elem.parentNode.appendChild(tooltip);
+                } else {
+                    tooltip.className = '_error-inner _no_arrow';
+                    tooltip.innerHTML = text;
+                    elem.parentNode.insertBefore(tooltip, elem);
+                    new_tooltip.no_arrow = true;
+                }
+                new_tooltip.tip = tooltip;
+                new_tooltip.elem = elem;
+                tooltips.push(new_tooltip);
+                return new_tooltip;
+            };
+            var resize_tooltip = function (tooltip) {
+                var rect = tooltip.elem.getBoundingClientRect();
+                var doc = document.documentElement,
+                    scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
+                if (scrollPosition < 40) {
+                    tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+                } else {
+                    tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+                }
+            };
+            var resize_tooltips = function () {
+                if (_removed) return;
+                for (var i = 0; i < tooltips.length; i++) {
+                    if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+                }
+            };
+            var validate_field = function (elem, remove) {
+                var tooltip = null, value = elem.value, no_error = true;
+                remove ? remove_tooltip(elem) : false;
+                if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+                if (elem.getAttribute('required') !== null) {
+                    if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+                        var elems = form_to_submit.elements[elem.name];
+                        if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
+                            no_error = elem.checked;
+                        }
+                        else {
+                            no_error = false;
+                            for (var i = 0; i < elems.length; i++) {
+                                if (elems[i].checked) no_error = true;
+                            }
+                        }
+                        if (!no_error) {
+                            tooltip = create_tooltip(elem, "Please select an option.");
+                        }
+                    } else if (elem.type == 'checkbox') {
+                        var elems = form_to_submit.elements[elem.name], found = false, err = [];
+                        no_error = true;
+                        for (var i = 0; i < elems.length; i++) {
+                            if (elems[i].getAttribute('required') === null) continue;
+                            if (!found && elems[i] !== elem) return true;
+                            found = true;
+                            elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+                            if (!elems[i].checked) {
+                                no_error = false;
+                                elems[i].className = elems[i].className + ' _has_error';
+                                err.push("Checking %s is required".replace("%s", elems[i].value));
+                            }
+                        }
+                        if (!no_error) {
+                            tooltip = create_tooltip(elem, err.join('<br/>'));
+                        }
+                    } else if (elem.tagName == 'SELECT') {
+                        var selected = true;
+                        if (elem.multiple) {
+                            selected = false;
+                            for (var i = 0; i < elem.options.length; i++) {
+                                if (elem.options[i].selected) {
+                                    selected = true;
+                                    break;
+                                }
                             }
                         } else {
-                            allInputs[i].value = fieldVal;
+                            for (var i = 0; i < elem.options.length; i++) {
+                                if (elem.options[i].selected && !elem.options[i].value) {
+                                    selected = false;
+                                }
+                            }
+                        }
+                        if (!selected) {
+                            no_error = false;
+                            tooltip = create_tooltip(elem, "Please select an option.");
+                        }
+                    } else if (value === undefined || value === null || value === '') {
+                        elem.className = elem.className + ' _has_error';
+                        no_error = false;
+                        tooltip = create_tooltip(elem, "This field is required.");
+                    }
+                }
+                if (no_error && elem.name == 'email') {
+                    if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+                        elem.className = elem.className + ' _has_error';
+                        no_error = false;
+                        tooltip = create_tooltip(elem, "Enter a valid email address.");
+                    }
+                }
+                if (no_error && /date_field/.test(elem.className)) {
+                    if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+                        elem.className = elem.className + ' _has_error';
+                        no_error = false;
+                        tooltip = create_tooltip(elem, "Enter a valid date.");
+                    }
+                }
+                tooltip ? resize_tooltip(tooltip) : false;
+                return no_error;
+            };
+            var needs_validate = function (el) {
+                return el.name == 'email' || el.getAttribute('required') !== null;
+            };
+            var validate_form = function (e) {
+                var err = form_to_submit.querySelector('._form_error'), no_error = true;
+                if (!submitted) {
+                    submitted = true;
+                    for (var i = 0, len = allInputs.length; i < len; i++) {
+                        var input = allInputs[i];
+                        if (needs_validate(input)) {
+                            if (input.type == 'text') {
+                                addEvent(input, 'blur', function () {
+                                    this.value = this.value.trim();
+                                    validate_field(this, true);
+                                });
+                                addEvent(input, 'input', function () {
+                                    validate_field(this, true);
+                                });
+                            } else if (input.type == 'radio' || input.type == 'checkbox') {
+                                (function (el) {
+                                    var radios = form_to_submit.elements[el.name];
+                                    for (var i = 0; i < radios.length; i++) {
+                                        addEvent(radios[i], 'click', function () {
+                                            validate_field(el, true);
+                                        });
+                                    }
+                                })(input);
+                            } else if (input.tagName == 'SELECT') {
+                                addEvent(input, 'change', function () {
+                                    validate_field(input, true);
+                                });
+                            }
                         }
                     }
                 }
-
-                var remove_tooltips = function () {
-                    for (var i = 0; i < tooltips.length; i++) {
-                        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
-                    }
-                    tooltips = [];
-                };
-                var remove_tooltip = function (elem) {
-                    for (var i = 0; i < tooltips.length; i++) {
-                        if (tooltips[i].elem === elem) {
-                            tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
-                            tooltips.splice(i, 1);
-                            return;
+                remove_tooltips();
+                for (var i = 0, len = allInputs.length; i < len; i++) {
+                    var elem = allInputs[i];
+                    if (needs_validate(elem)) {
+                        if (elem.tagName.toLowerCase() !== "select") {
+                            elem.value = elem.value.trim();
                         }
+                        validate_field(elem) ? true : no_error = false;
                     }
-                };
-                var create_tooltip = function (elem, text) {
-                    var tooltip = document.createElement('div'), arrow = document.createElement('div'),
-                        inner = document.createElement('div'), new_tooltip = {};
-                    if (elem.type != 'radio' && elem.type != 'checkbox') {
-                        tooltip.className = '_error';
-                        arrow.className = '_error-arrow';
-                        inner.className = '_error-inner';
-                        inner.innerHTML = text;
-                        tooltip.appendChild(arrow);
-                        tooltip.appendChild(inner);
-                        elem.parentNode.appendChild(tooltip);
-                    } else {
-                        tooltip.className = '_error-inner _no_arrow';
-                        tooltip.innerHTML = text;
-                        elem.parentNode.insertBefore(tooltip, elem);
-                        new_tooltip.no_arrow = true;
-                    }
-                    new_tooltip.tip = tooltip;
-                    new_tooltip.elem = elem;
-                    tooltips.push(new_tooltip);
-                    return new_tooltip;
-                };
-                var resize_tooltip = function (tooltip) {
-                    var rect = tooltip.elem.getBoundingClientRect();
-                    var doc = document.documentElement,
-                        scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
-                    if (scrollPosition < 40) {
-                        tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
-                    } else {
-                        tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
-                    }
-                };
-                var resize_tooltips = function () {
-                    if (_removed) return;
-                    for (var i = 0; i < tooltips.length; i++) {
-                        if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
-                    }
-                };
-                var validate_field = function (elem, remove) {
-                    var tooltip = null, value = elem.value, no_error = true;
-                    remove ? remove_tooltip(elem) : false;
-                    if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
-                    if (elem.getAttribute('required') !== null) {
-                        if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
-                            var elems = form_to_submit.elements[elem.name];
-                            if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
-                                no_error = elem.checked;
-                            }
-                            else {
-                                no_error = false;
-                                for (var i = 0; i < elems.length; i++) {
-                                    if (elems[i].checked) no_error = true;
-                                }
-                            }
-                            if (!no_error) {
-                                tooltip = create_tooltip(elem, "Please select an option.");
-                            }
-                        } else if (elem.type == 'checkbox') {
-                            var elems = form_to_submit.elements[elem.name], found = false, err = [];
-                            no_error = true;
-                            for (var i = 0; i < elems.length; i++) {
-                                if (elems[i].getAttribute('required') === null) continue;
-                                if (!found && elems[i] !== elem) return true;
-                                found = true;
-                                elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
-                                if (!elems[i].checked) {
-                                    no_error = false;
-                                    elems[i].className = elems[i].className + ' _has_error';
-                                    err.push("Checking %s is required".replace("%s", elems[i].value));
-                                }
-                            }
-                            if (!no_error) {
-                                tooltip = create_tooltip(elem, err.join('<br/>'));
-                            }
-                        } else if (elem.tagName == 'SELECT') {
-                            var selected = true;
-                            if (elem.multiple) {
-                                selected = false;
-                                for (var i = 0; i < elem.options.length; i++) {
-                                    if (elem.options[i].selected) {
-                                        selected = true;
-                                        break;
-                                    }
-                                }
-                            } else {
-                                for (var i = 0; i < elem.options.length; i++) {
-                                    if (elem.options[i].selected && !elem.options[i].value) {
-                                        selected = false;
-                                    }
-                                }
-                            }
-                            if (!selected) {
-                                no_error = false;
-                                tooltip = create_tooltip(elem, "Please select an option.");
-                            }
-                        } else if (value === undefined || value === null || value === '') {
-                            elem.className = elem.className + ' _has_error';
-                            no_error = false;
-                            tooltip = create_tooltip(elem, "This field is required.");
-                        }
-                    }
-                    if (no_error && elem.name == 'email') {
-                        if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
-                            elem.className = elem.className + ' _has_error';
-                            no_error = false;
-                            tooltip = create_tooltip(elem, "Enter a valid email address.");
-                        }
-                    }
-                    if (no_error && /date_field/.test(elem.className)) {
-                        if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
-                            elem.className = elem.className + ' _has_error';
-                            no_error = false;
-                            tooltip = create_tooltip(elem, "Enter a valid date.");
-                        }
-                    }
-                    tooltip ? resize_tooltip(tooltip) : false;
-                    return no_error;
-                };
-                var needs_validate = function (el) {
-                    return el.name == 'email' || el.getAttribute('required') !== null;
-                };
-                var validate_form = function (e) {
-                    var err = form_to_submit.querySelector('._form_error'), no_error = true;
-                    if (!submitted) {
-                        submitted = true;
-                        for (var i = 0, len = allInputs.length; i < len; i++) {
-                            var input = allInputs[i];
-                            if (needs_validate(input)) {
-                                if (input.type == 'text') {
-                                    addEvent(input, 'blur', function () {
-                                        this.value = this.value.trim();
-                                        validate_field(this, true);
-                                    });
-                                    addEvent(input, 'input', function () {
-                                        validate_field(this, true);
-                                    });
-                                } else if (input.type == 'radio' || input.type == 'checkbox') {
-                                    (function (el) {
-                                        var radios = form_to_submit.elements[el.name];
-                                        for (var i = 0; i < radios.length; i++) {
-                                            addEvent(radios[i], 'click', function () {
-                                                validate_field(el, true);
-                                            });
-                                        }
-                                    })(input);
-                                } else if (input.tagName == 'SELECT') {
-                                    addEvent(input, 'change', function () {
-                                        validate_field(input, true);
-                                    });
-                                }
-                            }
-                        }
-                    }
-                    remove_tooltips();
-                    for (var i = 0, len = allInputs.length; i < len; i++) {
-                        var elem = allInputs[i];
-                        if (needs_validate(elem)) {
-                            if (elem.tagName.toLowerCase() !== "select") {
-                                elem.value = elem.value.trim();
-                            }
-                            validate_field(elem) ? true : no_error = false;
-                        }
-                    }
-                    if (!no_error && e) {
-                        e.preventDefault();
-                    }
-                    resize_tooltips();
-                    return no_error;
-                };
-                addEvent(window, 'resize', resize_tooltips);
-                addEvent(window, 'scroll', resize_tooltips);
-                window._old_serialize = null;
-                if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
-                _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function () {
-                    window._form_serialize = window.serialize;
-                    if (window._old_serialize) window.serialize = window._old_serialize;
-                });
-                var form_submit = function (e) {
+                }
+                if (!no_error && e) {
                     e.preventDefault();
-                    if (validate_form()) {
-                        // use this trick to get the submit button & disable it using plain javascript
-                        document.querySelector('[id^="_form"][id$="_submit"]').disabled = true;
-                        var serialized = _form_serialize(document.getElementById('_form_17_'));
-                        var err = form_to_submit.querySelector('._form_error');
-                        err ? err.parentNode.removeChild(err) : false;
-                        _load_script('https://blackcrowtours.activehosted.com/proc.php?' + serialized + '&jsonp=true');
-                    }
-                    return false;
-                };
-                addEvent(form_to_submit, 'submit', form_submit);
-            })();
+                }
+                resize_tooltips();
+                return no_error;
+            };
+            addEvent(window, 'resize', resize_tooltips);
+            addEvent(window, 'scroll', resize_tooltips);
+            window._old_serialize = null;
+            if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
+            _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function () {
+                window._form_serialize = window.serialize;
+                if (window._old_serialize) window.serialize = window._old_serialize;
+            });
+            var form_submit = function (e) {
+                e.preventDefault();
+                if (validate_form()) {
+                    // use this trick to get the submit button & disable it using plain javascript
+                    document.querySelector('[id^="_form"][id$="_submit"]').disabled = true;
+                    var serialized = _form_serialize(document.getElementById('_form_17_'));
+                    var err = form_to_submit.querySelector('._form_error');
+                    err ? err.parentNode.removeChild(err) : false;
+                    _load_script('https://blackcrowtours.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+                }
+                return false;
+            };
+            addEvent(form_to_submit, 'submit', form_submit);
+        })();
 
-        </script>
+    </script>
 
-
-</div>
-</main>
-</body>
-</html>
+{% endblock %}
