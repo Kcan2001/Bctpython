@@ -154,6 +154,9 @@ STATICFILES_DIRS = (
 
 )
 
+# Determine custom login redirect url (fix bug)
+LOGIN_REDIRECT_URL = '/accounts/'
+
 # Backend for email sending to console, only for dev
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -165,7 +168,18 @@ CKEDITOR_RESTRICT_BY_DATE = True
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Full',
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['Undo', 'Redo'],
+            ['TextColor', 'BGColor'],
+            ['Maximize', 'ShowBlocks', 'Source'],
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'],
+        ],
     },
     'blog': {
         'toolbar': 'Custom',
