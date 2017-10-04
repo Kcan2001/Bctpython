@@ -100,74 +100,6 @@ def get_user_profile(access_token):
     return response, status_code
 
 
-def create_user(access_token, realm_id):
-    route = '/v3/company/{0}/customer'.format(realm_id)
-    auth_header = 'Bearer ' + access_token
-    headers = {'Authorization': auth_header, 'Accept': 'application/json', 'Content-type': 'application/json'}
-    payload = {
-        'GivenName': 'Igor10',
-        'FamilyName': 'Dubovik10',
-        'Taxable': False
-    }
-    r = requests.post(settings.SANDBOX_QBO_BASEURL + route, data=json.dumps(payload), headers=headers)
-    status_code = r.status_code
-    response = json.loads(r.text)
-    return response, status_code
-
-
-def create_invoice(access_token, realm_id, customer_id):
-    route = '/v3/company/{0}/invoice'.format(realm_id)
-    auth_header = 'Bearer ' + access_token
-    headers = {'Authorization': auth_header, 'Accept': 'application/json', 'Content-type': 'application/json'}
-    payload = {
-        'Line': [
-            {
-                'Amount': 50.00,
-                'DetailType': 'SalesItemLineDetail',
-                'SalesItemLineDetail': {
-                    'ItemRef': {
-                        'value': '1'
-                    }
-                }
-            }
-        ],
-        'CustomerRef': {
-            'value': customer_id
-        }
-    }
-    r = requests.post(settings.SANDBOX_QBO_BASEURL + route, data=json.dumps(payload), headers=headers)
-    status_code = r.status_code
-    response = json.loads(r.text)
-    return response, status_code
-
-
-def invoice_payment(access_token, realm_id, customer_id, invoice_id, invoice_amount):
-    route = '/v3/company/{0}/payment'.format(realm_id)
-    auth_header = 'Bearer ' + access_token
-    headers = {'Authorization': auth_header, 'Accept': 'application/json', 'Content-type': 'application/json'}
-    payload = {
-        'CustomerRef': {
-            'value': customer_id
-        },
-        'TotalAmt': invoice_amount,
-        'Line': [
-            {
-                'Amount': invoice_amount,
-                'LinkedTxn': [
-                    {
-                        'TxnId': invoice_id,
-                        'TxnType': 'Invoice'
-                    }
-                ]
-            }
-        ]
-    }
-    r = requests.post(settings.SANDBOX_QBO_BASEURL + route, data=json.dumps(payload), headers=headers)
-    status_code = r.status_code
-    response = json.loads(r.text)
-    return response, status_code
-
-
 def get_company_info(access_token, realm_id):
     route = '/v3/company/{0}/companyinfo/{0}'.format(realm_id)
     auth_header = 'Bearer ' + access_token
@@ -176,9 +108,9 @@ def get_company_info(access_token, realm_id):
     status_code = r.status_code
     if status_code == 200:
         response = json.loads(r.text)
+        return response, status_code
     else:
-        response = ''
-    return response, status_code
+        return status_code
 
 
 def string_to_base64(s):
