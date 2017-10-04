@@ -1,10 +1,11 @@
 import requests
 from django.conf import settings
-from django.http import HttpResponse
+from Bctpython.celery import app
 from .models import QuickBooksDiscoveryDocument
 
 
-def get_discovery_document(self):
+@app.task
+def get_discovery_document():
     r = requests.get(settings.DISCOVERY_DOCUMENT)
     if r.status_code >= 400:
         return 'Error! Connection to discovery document failed!'
@@ -22,6 +23,6 @@ def get_discovery_document(self):
     query, created = QuickBooksDiscoveryDocument.objects.update_or_create(data_dict)
 
     if created is True:
-        return HttpResponse('Your Discovery Document was created!')
+        return 'Your Discovery Document was created!'
     else:
-        return HttpResponse('Your Discovery Document was updated!')
+        return 'Your Discovery Document was updated!'
