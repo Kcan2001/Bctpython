@@ -45,4 +45,5 @@ class QuickBooksErrorRequest(models.Model):
     request_headers = models.CharField(max_length=1000, null=True)
     request_url = models.CharField(max_length=1000, null=True)
     status_code = models.PositiveSmallIntegerField(null=True)
+    response_text = models.CharField(max_length=2000, null=True)
     successful = models.BooleanField(default=False)
