@@ -1,13 +1,12 @@
 import requests
 import json
 from django.utils import timezone
-from django.http import HttpResponse, HttpResponseServerError
 from django.conf import settings
 from quickbooks.models import QuickBooksToken, QuickBooksErrorRequest
 from quickbooks.utils import get_bearer_token_from_refresh_token
 
 
-def create_user(first_name, last_name, email):
+def create_user(username, first_name, last_name, email):
     query = QuickBooksToken.objects.first()
     access_token = query.quickbooks_access_token
     realm_id = query.quickbooks_realm_id
@@ -17,6 +16,7 @@ def create_user(first_name, last_name, email):
     auth_header = 'Bearer ' + access_token
     headers = {'Authorization': auth_header, 'Accept': 'application/json', 'Content-type': 'application/json'}
     payload = {
+        'DisplayName': username,
         'GivenName': first_name,
         'FamilyName': last_name,
         'PrimaryEmailAddr': {
@@ -49,10 +49,12 @@ def create_user(first_name, last_name, email):
         if status_code >= 400:
             query = QuickBooksErrorRequest.objects.create(request_type='Customer', request_body=r.request.body,
                                                           request_headers=r.request.headers, request_url=r.request.url,
-                                                          status_code=r.status_code, successful=False)
-            return
+                                                          status_code=r.status_code, response_text=r.text,
+                                                          successful=False)
+            return status_code
+
     response = json.loads(r.text)
-    return response
+    return response, status_code
 
 
 def create_and_pay_invoice(customer_id, general_price):
@@ -62,11 +64,9 @@ def create_and_pay_invoice(customer_id, general_price):
         invoice_id = invoice['Invoice']['Id']
         invoice_amount = invoice['Invoice']['TotalAmt']
 
-        payment = invoice_payment(customer_id, invoice_id, invoice_amount)
+        payment, status_code = invoice_payment(customer_id, invoice_id, invoice_amount)
 
-        return
-    else:
-        pass
+    return status_code
 
 
 def create_invoice(customer_id, general_price):
@@ -118,9 +118,9 @@ def create_invoice(customer_id, general_price):
         if status_code >= 400:
             query = QuickBooksErrorRequest.objects.create(request_type='Invoice', request_body=r.request.body,
                                                           request_headers=r.request.headers, request_url=r.request.url,
-                                                          status_code=r.status_code, successful=False)
-            response = ''
-            return response, status_code
+                                                          status_code=r.status_code, response_text=r.text,
+                                                          successful=False)
+            return status_code
 
     response = json.loads(r.text)
     return response, status_code
@@ -176,9 +176,9 @@ def invoice_payment(customer_id, invoice_id, invoice_amount):
         if status_code >= 400:
             query = QuickBooksErrorRequest.objects.create(request_type='Payment', request_body=r.request.body,
                                                           request_headers=r.request.headers, request_url=r.request.url,
-                                                          status_code=r.status_code, successful=False)
-            response = ''
-            return response, status_code
+                                                          status_code=r.status_code, response_text=r.text,
+                                                          successful=False)
+            return status_code
 
     response = json.loads(r.text)
     return response, status_code
