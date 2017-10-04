@@ -22,7 +22,7 @@
                 <div class="bc-text-center">
                     In:
                     <i class="material-icons">access_time</i>
-                    {{ trip.departure|timeuntil }}
+                    {{ trip.arrival|timeuntil }}
                     | Dates:
                     <i class="material-icons">date_range</i>
                     {{ trip.arrival|date:"d.m.Y" }} - {{ trip.departure|date:"d.m.Y" }}

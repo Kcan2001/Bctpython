@@ -152,11 +152,11 @@
                                         {% endif %}
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--border">
-                                        <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }}
-                                        - {{ trip.arrival|date:"d.m.Y" }}
+                                        <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }}
+                                        - {{ trip.departure|date:"d.m.Y" }}
                                     </div>
                                     <div class="mdl-card__supporting-text">
-                                        <strong>How soon:</strong> {{ trip.departure|timeuntil }}
+                                        <strong>How soon:</strong> {{ trip.arrival|timeuntil }}
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <a href="{% url 'accounts:trip' pk=trip.pk %}"
@@ -204,8 +204,8 @@
                                         {% endif %}
                                     </div>
                                     <div class="mdl-card__supporting-text">
-                                        <strong>Dates:</strong> {{ trip.departure|date:"d.m.Y" }}
-                                        - {{ trip.arrival|date:"d.m.Y" }}
+                                        <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }}
+                                        - {{ trip.departure|date:"d.m.Y" }}
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <a href="{% url 'accounts:trip' pk=trip.pk %}"
@@ -253,9 +253,12 @@
                                             No
                                         {% endif %}
                                     </div>
-                                    <div class="mdl-card__supporting-text">
+                                    <div class="mdl-card__supporting-text mdl-card--border">
                                         <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }}
                                         - {{ trip.departure|date:"d.m.Y" }}
+                                    </div>
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>How soon:</strong> {{ trip.arrival|timeuntil }}
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <a href="{% url 'accounts:trip' pk=trip.pk %}"
