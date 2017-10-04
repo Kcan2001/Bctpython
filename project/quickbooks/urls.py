@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from .views import index, connect_to_quickbooks, auth_code_handler, disconnect, api_call, connected, refresh_token_call
-from .task_for_celery import get_discovery_document
+from .views import index, connect_to_quickbooks, auth_code_handler, disconnect, api_call, connected, refresh_token_call, \
+    manual_update_discovery_doc
 
 urlpatterns = [
     url(r'^$', index, name='index'),
@@ -9,6 +9,6 @@ urlpatterns = [
     url(r'^disconnect/?$', disconnect, name='disconnect'),
     url(r'^api-call/?$', api_call, name='api_call'),
     url(r'^connected/?$', connected, name='connected'),
-    url(r'^discovery/?$', get_discovery_document, name='get_discovery_document'),
+    url(r'^discovery/?$', manual_update_discovery_doc, name='get_discovery_document'),
     url(r'^refresh-token-call/?$', refresh_token_call, name='refresh_token_call')
 ]

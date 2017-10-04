@@ -5,9 +5,6 @@ from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseServer
 from django.conf import settings
 from .models import QuickBooksToken, QuickBooksDiscoveryDocument
 from .utils import (
-    create_user,
-    create_invoice,
-    invoice_payment,
     get_discovery_document,
     get_bearer_token,
     get_user_profile,
@@ -165,6 +162,14 @@ def refresh_token_call(request):
         return HttpResponse(bearer)
     else:
         return HttpResponse('Access Token: ' + bearer.access_token + ', Refresh Token: ' + bearer.refresh_token)
+
+
+def manual_update_discovery_doc(request):
+    update_discovery_document = get_discovery_document()
+    if update_discovery_document is True:
+        return HttpResponse('Your Discovery Document was created!')
+    else:
+        return HttpResponse('Your Discovery Document was updated!')
 
 
 def api_call(request):
