@@ -2,5 +2,9 @@ django==1.11.1
 stripe==1.63.0
 Pillow==4.2.1
 requests==2.18.4
+celery==4.1.0
+redis==2.10.6
+django-celery-beat==1.0.1
+django-celery-results==1.0.1
 git+git://github.com/wardal/django-ckeditor.git#egg=django-ckeditor
-git+git://github.com/wkoot/python-instagram.git#egg=python-instagram
+git+git://github.com/wkoot/python-instagram.git#egg=instagram
