@@ -311,6 +311,9 @@
 .bc-form-errors-alert{width:300px;margin-top:-10px;display:inline-block;padding: .25em .4em;font-size:75%;font-weight:700;line-height:1;color:#a94442;background-color:#f2dede;text-align:center;white-space:normal;vertical-align:baseline;border-radius:.25rem;}
 .bc-form-errors-alert .errorlist{list-style:none;padding:0;margin:5px;text-align:left;}
 
+/*Style for form tips*/
+.bc-form-tips{width:300px;margin:10px 0 10px 0;display:inline-block;padding:10px;font-size:14px;color:#31708f;background-color:#d9edf7;border-color:#bce8f1;text-align:center;white-space:normal;vertical-align:baseline;border-radius:.25rem;}
+
 /*Styles for trips block at user home page*/
 .bc-trip-card-square.mdl-card {width:280px;height:600px;}
 .bc-trip-card-square > .mdl-card__title {color:#fff;}

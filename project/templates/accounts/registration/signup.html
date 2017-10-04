@@ -96,8 +96,10 @@
                                     password</label>
                             </div>
                             {% if form.password2.errors %}
-                                <span class="bc-form-errors-alert ">{{ form.password2.errors }}</span>
+                                <span class="bc-form-errors-alert">{{ form.password2.errors }}</span>
                             {% endif %}
+                            <span class="bc-form-tips">Your password need to contain at least 8 characters
+                                with numbers and letters.</span>
 
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--12-col bc-text-center">
