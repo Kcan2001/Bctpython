@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'quickbooks',
     'ckeditor',
     'ckeditor_uploader',
+    'django_celery_beat',
+    'django_celery_results',
 
 ]
 
@@ -227,3 +229,11 @@ CLIENT_SECRET = '5GboyQKO8y7zV4mgDgSt0MTBIH3NSxdXYFPSUVkV'
 REDIRECT_URI = 'https://bct-dev.milosolutions.com/quickbooks/auth-code-handler'
 ACCOUNTING_SCOPE = 'com.intuit.quickbooks.accounting'
 SANDBOX_QBO_BASEURL = 'https://sandbox-quickbooks.api.intuit.com'
+
+# Configuration for Celery
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
