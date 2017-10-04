@@ -46,13 +46,12 @@ class UserHomePageView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserHomePageView, self).get_context_data(**kwargs)
-        context['trips'] = TripDate.objects.select_related('trip').exclude(account=self.request.user.account).order_by(
-            'arrival').all()[:5]
-        # context['trips'] = Trip.objects.order_by('arrival').all()[:3]
+        context['trips'] = TripDate.objects.select_related('trip').exclude(account=self.request.user.account).filter(
+            arrival__gt=timezone.now()).order_by('arrival').all()[:5]
         context['user_trips'] = TripDate.objects.filter(account=self.request.user.account,
-                                                        departure__gte=timezone.now())
+                                                        arrival__gte=timezone.now())
         context['user_past_trips'] = TripDate.objects.filter(account=self.request.user.account,
-                                                             departure__lt=timezone.now())[:3]
+                                                             arrival__lt=timezone.now())[:3]
         # Will show all blog post at user profile: approved and not approved
         context['user_blog_post'] = Post.objects.filter(author=self.request.user.account)
         context['user_subscriptions'] = UserStripeSubscription.objects.filter(user=self.request.user.account,
@@ -342,7 +341,6 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                         # webhook_invoice_payment_succeeded2.send(sender=None)
                     else:
                         return redirect('accounts:payment_failed')
-                    # return redirect('accounts:trip_success')
                 else:
                     # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
                     charge = stripe.Charge.create(customer=customer, amount=general_price_cents, currency='usd',
@@ -358,7 +356,6 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                         create_invoice_and_pay = create_and_pay_invoice(quickbooks_customer_id, float(general_price))
                     else:
                         return redirect('accounts:payment_failed')
-                # return redirect('accounts:trip_success')
 
             return self.form_valid(form)
         else:
