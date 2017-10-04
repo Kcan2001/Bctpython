@@ -132,7 +132,7 @@ def activate(request, uidb64, token):
         login(request, user)
         return redirect('accounts:home')
     else:
-        return render(request, 'account_activation_invalid.html')
+        return render(request, 'accounts/registration/account_activation_invalid.html')
 
 
 class UserLoginView(LoginView):
@@ -343,21 +343,21 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                     else:
                         return redirect('accounts:payment_failed')
                     # return redirect('accounts:trip_success')
-            else:
-                # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
-                charge = stripe.Charge.create(customer=customer, amount=general_price_cents, currency='usd',
-                                              description="Payment for tour (entire sum)")
-                # If charge was successful:
-                if charge.status == 'succeeded':
-                    # self.object.entry_set.add(request.user.account)
-                    user = request.user.account
-                    trip = self.object
-                    user.trips.add(trip)
-                    count_points.send(sender=None, amount=general_price, user=request.user.account)
-                    # Create Invoice and Pay for it at QuickBooks
-                    create_invoice_and_pay = create_and_pay_invoice(quickbooks_customer_id, float(general_price))
                 else:
-                    return redirect('accounts:payment_failed')
+                    # Else if form.cleaned_data['subscription'] is None or == 1 just make charge for entire sum
+                    charge = stripe.Charge.create(customer=customer, amount=general_price_cents, currency='usd',
+                                                  description="Payment for tour (entire sum)")
+                    # If charge was successful:
+                    if charge.status == 'succeeded':
+                        # self.object.entry_set.add(request.user.account)
+                        user = request.user.account
+                        trip = self.object
+                        user.trips.add(trip)
+                        count_points.send(sender=None, amount=general_price, user=request.user.account)
+                        # Create Invoice and Pay for it at QuickBooks
+                        create_invoice_and_pay = create_and_pay_invoice(quickbooks_customer_id, float(general_price))
+                    else:
+                        return redirect('accounts:payment_failed')
                 # return redirect('accounts:trip_success')
 
             return self.form_valid(form)
