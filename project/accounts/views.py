@@ -290,8 +290,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                 quickbooks_customer_id = request.user.account.quickbooks_account.customer_id
             else:
                 # Create customer at QuickBooks
-                create_quickbooks_customer = create_user(request.user.first_name, request.user.last_name,
-                                                         request.user.email)
+                create_quickbooks_customer, status_code = create_user(request.user.username, request.user.first_name,
+                                                                      request.user.last_name, request.user.email)
                 quickbooks_customer_id = create_quickbooks_customer['Customer']['Id']
                 # Add quickbooks customer id to our request user (OneToOne Relation)
                 UserQuickBooks.objects.create(user_id=request.user.account.id, customer_id=quickbooks_customer_id)
@@ -404,8 +404,8 @@ def membership_payment(request):
             quickbooks_customer_id = request.user.account.quickbooks_account.customer_id
         else:
             # Create customer at QuickBooks
-            create_quickbooks_customer = create_user(request.user.first_name, request.user.last_name,
-                                                     request.user.email)
+            create_quickbooks_customer, status_code = create_user(request.user.username, request.user.first_name,
+                                                                  request.user.last_name, request.user.email)
             quickbooks_customer_id = create_quickbooks_customer['Customer']['Id']
             # Add quickbooks customer id to our request user (OneToOne Relation)
             UserQuickBooks.objects.create(user_id=request.user.account.id, customer_id=quickbooks_customer_id)
