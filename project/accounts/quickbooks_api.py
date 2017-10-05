@@ -1,9 +1,12 @@
 import requests
 import json
+from raven import Client
 from django.utils import timezone
 from django.conf import settings
 from quickbooks.models import QuickBooksToken, QuickBooksErrorRequest
 from quickbooks.utils import get_bearer_token_from_refresh_token
+
+client = Client('http://da385935ce644993bc71402cf42a45aa:f12c65a8409e40eb8158350f274f193a@sentry.milosolutions.com/64')
 
 
 def create_user(username, first_name, last_name, email):
@@ -51,7 +54,17 @@ def create_user(username, first_name, last_name, email):
                                                           request_headers=r.request.headers, request_url=r.request.url,
                                                           status_code=r.status_code, response_text=r.text,
                                                           successful=False)
-            return status_code
+            client.captureMessage('QuickBooks API Error for Customer', extra={'Request': r,
+                                                                              'Request type': 'Customer',
+                                                                              'request_body': r.request.body,
+                                                                              'request_headers': r.request.headers,
+                                                                              'request_url': r.request.url,
+                                                                              'status_code': r.status_code,
+                                                                              'response_text': r.text,
+                                                                              'successful': False,
+                                                                              })
+            response = ''
+            return response, status_code
 
     response = json.loads(r.text)
     return response, status_code
@@ -120,7 +133,17 @@ def create_invoice(customer_id, general_price):
                                                           request_headers=r.request.headers, request_url=r.request.url,
                                                           status_code=r.status_code, response_text=r.text,
                                                           successful=False)
-            return status_code
+            client.captureMessage('QuickBooks API Error for Invoice', extra={'Request': r,
+                                                                             'Request type': 'Invoice',
+                                                                             'request_body': r.request.body,
+                                                                             'request_headers': r.request.headers,
+                                                                             'request_url': r.request.url,
+                                                                             'status_code': r.status_code,
+                                                                             'response_text': r.text,
+                                                                             'successful': False,
+                                                                             })
+            response = ''
+            return response, status_code
 
     response = json.loads(r.text)
     return response, status_code
@@ -178,7 +201,17 @@ def invoice_payment(customer_id, invoice_id, invoice_amount):
                                                           request_headers=r.request.headers, request_url=r.request.url,
                                                           status_code=r.status_code, response_text=r.text,
                                                           successful=False)
-            return status_code
+            client.captureMessage('QuickBooks API Error for Payment', extra={'Request': r,
+                                                                             'Request type': 'Payment',
+                                                                             'request_body': r.request.body,
+                                                                             'request_headers': r.request.headers,
+                                                                             'request_url': r.request.url,
+                                                                             'status_code': r.status_code,
+                                                                             'response_text': r.text,
+                                                                             'successful': False,
+                                                                             })
+            response = ''
+            return response, status_code
 
     response = json.loads(r.text)
     return response, status_code
