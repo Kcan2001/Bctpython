@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import raven
+
+RAVEN_CONFIG = {
+    'dsn': 'http://da385935ce644993bc71402cf42a45aa:f12c65a8409e40eb8158350f274f193a@sentry.milosolutions.com/64',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,6 +53,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'django_celery_beat',
     'django_celery_results',
+    'raven.contrib.django.raven_compat',
 
 ]
 
