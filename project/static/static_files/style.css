@@ -315,8 +315,8 @@
 .bc-form-tips{width:300px;margin:10px 0 10px 0;display:inline-block;padding:10px;font-size:14px;color:#31708f;background-color:#d9edf7;border-color:#bce8f1;text-align:center;white-space:normal;vertical-align:baseline;border-radius:.25rem;}
 
 /*Styles for trips block at user home page*/
-.bc-trip-card-square.mdl-card {width:280px;height:600px;}
-.bc-trip-card-square > .mdl-card__title {color:#fff;}
+.bc-trip-card-square.mdl-card {width:280px;height:700px;}
+.bc-trip-card-square > .mdl-card__title {color:#fff;max-height:250px;}
 
 /*Style for excursions block at the trip page*/
 .bc-excursion-card-wide.mdl-card {width:512px;}

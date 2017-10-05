@@ -152,6 +152,9 @@
                                         {% endif %}
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Itinerary:</strong> {{ trip.itinerary_days }} day option
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
                                         <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }}
                                         - {{ trip.departure|date:"d.m.Y" }}
                                     </div>
@@ -203,9 +206,15 @@
                                             No
                                         {% endif %}
                                     </div>
-                                    <div class="mdl-card__supporting-text">
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Itinerary:</strong> {{ trip.itinerary_days }} day option
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
                                         <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }}
                                         - {{ trip.departure|date:"d.m.Y" }}
+                                    </div>
+                                    <div class="mdl-card__supporting-text">
+                                        <strong>How soon:</strong> ended
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <a href="{% url 'accounts:trip' pk=trip.pk %}"
@@ -252,6 +261,9 @@
                                         {% else %}
                                             No
                                         {% endif %}
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--border">
+                                        <strong>Itinerary:</strong> {{ trip.itinerary_days }} day option
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--border">
                                         <strong>Dates:</strong> {{ trip.arrival|date:"d.m.Y" }}
