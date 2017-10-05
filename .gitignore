@@ -62,6 +62,11 @@ node_modules/
 project/static/media/*
 !project/static/media/trip_defaults/
 
+# User static root folder
+project/static/static_root/*
+!project/static/static_root/admin/
+!project/static/static_root/ckeditor/
+
 # Vagrant hidden dir
 .vagrant/
 
