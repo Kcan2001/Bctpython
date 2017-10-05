@@ -6,5 +6,6 @@ celery==4.1.0
 redis==2.10.6
 django-celery-beat==1.0.1
 django-celery-results==1.0.1
+raven==6.2.1
 git+git://github.com/wardal/django-ckeditor.git#egg=django-ckeditor
 git+git://github.com/wkoot/python-instagram.git#egg=instagram
