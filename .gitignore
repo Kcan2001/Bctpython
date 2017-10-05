@@ -72,3 +72,7 @@ project/static/static_root/*
 
 # Local DB SQLite
 db.sqlite3
+
+# Celery schedules
+project/celerybeat-schedule
+project/celerybeat.pid
