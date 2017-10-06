@@ -338,7 +338,6 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                                                                                     debt=general_price)
                         # Link Stripe Subscription object to Stripe Plan Name object
                         link = stripe_plan.stripe_plan_subscription.add(create_subscription)
-                        # webhook_invoice_payment_succeeded2.send(sender=None)
                     else:
                         return redirect('accounts:payment_failed')
                 else:
