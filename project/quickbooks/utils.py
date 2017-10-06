@@ -89,17 +89,6 @@ def revoke_token(token):
         return 'Revoke successful'
 
 
-def get_user_profile(access_token):
-    discovery_document = QuickBooksDiscoveryDocument.objects.first()
-    profile_url = discovery_document.userinfo_endpoint
-    auth_header = 'Bearer ' + access_token
-    headers = {'Accept': 'application/json', 'Authorization': auth_header}
-    r = requests.get(profile_url, headers=headers)
-    status_code = r.status_code
-    response = json.loads(r.text)
-    return response, status_code
-
-
 def get_company_info(access_token, realm_id):
     route = '/v3/company/{0}/companyinfo/{0}'.format(realm_id)
     auth_header = 'Bearer ' + access_token
@@ -110,7 +99,8 @@ def get_company_info(access_token, realm_id):
         response = json.loads(r.text)
         return response, status_code
     else:
-        return status_code
+        response = ''
+        return response, status_code
 
 
 def string_to_base64(s):
