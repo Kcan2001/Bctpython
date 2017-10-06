@@ -1,5 +1,6 @@
 import requests
 import json
+from raven import Client
 from django.conf import settings
 from Bctpython.celery import app
 from accounts.quickbooks_api import create_user, create_invoice, invoice_payment
@@ -10,6 +11,17 @@ from .models import QuickBooksDiscoveryDocument, QuickBooksErrorRequest
 def get_discovery_document():
     r = requests.get(settings.DISCOVERY_DOCUMENT)
     if r.status_code >= 400:
+        client = Client(
+            'http://da385935ce644993bc71402cf42a45aa:f12c65a8409e40eb8158350f274f193a@sentry.milosolutions.com/64')
+        client.captureMessage('QuickBooks Error for Discovery Doc Updating', extra={'Request': r,
+                                                                                    'Request type': 'Update Discovery Doc',
+                                                                                    'request_body': r.request.body,
+                                                                                    'request_headers': r.request.headers,
+                                                                                    'request_url': r.request.url,
+                                                                                    'status_code': r.status_code,
+                                                                                    'response_text': r.text,
+                                                                                    'successful': False,
+                                                                                    })
         return 'Error! Connection to discovery document failed!'
     discovery_doc_json = r.json()
 
