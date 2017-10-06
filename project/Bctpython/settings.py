@@ -17,7 +17,7 @@ RAVEN_CONFIG = {
     'dsn': 'http://da385935ce644993bc71402cf42a45aa:f12c65a8409e40eb8158350f274f193a@sentry.milosolutions.com/64',
     # If you are using git, you can also automatically configure the
     # release based on the git info.
-    'release': raven.fetch_git_sha((os.path.abspath(os.pardir))),
+    #'release': raven.fetch_git_sha((os.path.abspath(os.pardir))),
 }
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
