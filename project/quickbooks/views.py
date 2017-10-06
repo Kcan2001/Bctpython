@@ -7,7 +7,6 @@ from .models import QuickBooksToken, QuickBooksDiscoveryDocument
 from .utils import (
     get_discovery_document,
     get_bearer_token,
-    get_user_profile,
     get_bearer_token_from_refresh_token,
     revoke_token, get_company_info,
     get_secret_key
@@ -56,26 +55,17 @@ def auth_code_handler(request):
     realm_id = request.GET.get('realmId', None)
     update_session(request, bearer.access_token, bearer.refresh_token, realm_id)
     query = QuickBooksToken.objects.first()
-    if not query:
-        create = QuickBooksToken.objects.create(
-            quickbooks_realm_id=realm_id,
-            quickbooks_access_token=bearer.access_token,
-            quickbooks_access_token_expires_in=bearer.access_token_expire,
-            quickbooks_access_token_updated=timezone.now(),
-            quickbooks_refresh_token=bearer.refresh_token,
-            quickbooks_refresh_token_expires_in=bearer.refresh_token_expire,
-            quickbooks_refresh_token_updated=timezone.now()
-        )
-    else:
-        update = QuickBooksToken.objects.update(
-            quickbooks_realm_id=realm_id,
-            quickbooks_access_token=bearer.access_token,
-            quickbooks_access_token_expires_in=bearer.access_token_expire,
-            quickbooks_access_token_updated=timezone.now(),
-            quickbooks_refresh_token=bearer.refresh_token,
-            quickbooks_refresh_token_expires_in=bearer.refresh_token_expire,
-            quickbooks_refresh_token_updated=timezone.now()
-        )
+    if query:
+        query.delete()
+    create = QuickBooksToken.objects.create(
+        quickbooks_realm_id=realm_id,
+        quickbooks_access_token=bearer.access_token,
+        quickbooks_access_token_expires_in=bearer.access_token_expire,
+        quickbooks_access_token_updated=timezone.now(),
+        quickbooks_refresh_token=bearer.refresh_token,
+        quickbooks_refresh_token_expires_in=bearer.refresh_token_expire,
+        quickbooks_refresh_token_updated=timezone.now()
+    )
 
     return redirect('connected')
 
@@ -83,46 +73,12 @@ def auth_code_handler(request):
 def connected(request):
     query = QuickBooksToken.objects.first()
     access_token = query.quickbooks_access_token
+    allow_access_again_date = query.quickbooks_allow_access_again
 
     if access_token is None:
         return HttpResponse('Your Bearer token has expired, please initiate connect to QuickBooks again')
 
-    refresh_token = query.quickbooks_refresh_token
-
-    realm_id = query.quickbooks_realm_id
-    if realm_id is None:
-        user_profile_response, status_code = get_user_profile(access_token)
-
-        if status_code >= 400:
-            # if call to User Profile Service doesn't succeed then get a new bearer token from refresh token and try again
-            bearer = get_bearer_token_from_refresh_token(refresh_token)
-            query = QuickBooksToken.objects.update(
-                quickbooks_realm_id=realm_id,
-                quickbooks_access_token=bearer.access_token,
-                quickbooks_access_token_expires_in=bearer.access_token_expire,
-                quickbooks_access_token_updated=timezone.now(),
-                quickbooks_refresh_token=bearer.refresh_token,
-                quickbooks_refresh_token_expires_in=bearer.refresh_token_expire,
-                quickbooks_refresh_token_updated=timezone.now()
-            )
-            user_profile_response, status_code = get_user_profile(bearer.access_token)
-            update_session(request, bearer.access_token, bearer.refresh_token, realm_id)
-
-            if status_code >= 400:
-                return HttpResponseServerError()
-        c = {
-            'first_name': user_profile_response.get('givenName', ' '),
-        }
-    else:
-        if request.session.get('name') is None:
-            name = ''
-        else:
-            name = request.session.get('name')
-        c = {
-            'first_name': name,
-        }
-
-    return render(request, 'quickbooks/connected.html', context=c)
+    return render(request, 'quickbooks/connected.html', {'allow_access_again_date': allow_access_again_date})
 
 
 def disconnect(request):
@@ -131,14 +87,15 @@ def disconnect(request):
     refresh_token = query.quickbooks_refresh_token
 
     revoke_response = ''
-    if not access_token is None:
+    if access_token is not None:
         revoke_response = revoke_token(access_token)
-    elif not refresh_token is None:
+    elif refresh_token is not None:
         revoke_response = revoke_token(refresh_token)
     else:
         return HttpResponse('No accessToken or refreshToken found, Please connect again')
-
-    # request.session.flush()
+    query.quickbooks_access_token = None
+    query.quickbooks_refresh_token = None
+    query.save()
     return HttpResponse(revoke_response)
 
 
@@ -205,15 +162,6 @@ def api_call(request):
         if status_code >= 400:
             return HttpResponseServerError()
 
-    # create_user_response, status_code = create_user(access_token, realm_id)
-    # customer_id = create_user_response['Customer']['Id']
-    #
-    # create_invoice_response, status_code = create_invoice(access_token, realm_id, customer_id)
-    # invoice_id = create_invoice_response['Invoice']['Id']
-    # invoice_amount = create_invoice_response['Invoice']['TotalAmt']
-    #
-    # invoice_payment_response, status_code = invoice_payment(access_token, realm_id, customer_id, invoice_id,
-    #                                                         invoice_amount)
     company_name = company_info_response['CompanyInfo']['CompanyName']
     address = company_info_response['CompanyInfo']['CompanyAddr']
     return HttpResponse('Company Name: ' + company_name + ', Company Address: ' + address['Line1'] + ', ' + address[
