@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from django.db import models
 
 
@@ -14,7 +15,9 @@ class Bearer:
 
 class QuickBooksToken(models.Model):
     quickbooks_realm_id = models.IntegerField(null=True)
+    quickbooks_allow_access_again = models.DateField(default=date.today() + timedelta(days=300))
     quickbooks_access_token = models.CharField(max_length=1000, null=True)
+    quickbooks_access_token_first_created = models.DateField(auto_now_add=True)
     quickbooks_access_token_expires_in = models.PositiveIntegerField(null=True)
     quickbooks_access_token_updated = models.DateTimeField(null=True)
     quickbooks_refresh_token = models.CharField(max_length=100, null=True)
