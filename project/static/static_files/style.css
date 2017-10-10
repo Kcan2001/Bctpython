@@ -325,4 +325,4 @@
 
 /* Styles for instagram masonry feed - fluid 3 columns */
 .bc-instagram-grid-sizer,
-.bc-instagram-grid-item {width:33.3333%;}
+.bc-instagram-grid-item {width:33%;margin:1px;}

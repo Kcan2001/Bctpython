@@ -7,22 +7,24 @@
 {% block content %}
 
     <div class="mdl-grid">
-        <div id="container" class="grid mdl-cell mdl-cell--12-col"
-             data-masonry='{ "itemSelector": ".bc-instagram-grid-item" }'>
-            <div class="bc-instagram-grid-sizer"></div>
-            {% for photo in photos %}
-                <div class="bc-instagram-grid-item bc-instagram-item">
-                    <img src="{{ photo.image }}" class="bc-instagram-item-image">
-                    <a href="{{ photo.link }}" target="_blank">
-                        <div class="bc-instagram-item-overlay">
-                            <div class="bc-instagram-item-text">
-                                <i class="material-icons">favorite</i> {{ photo.likes }}
-                                <i class="material-icons">comment</i> {{ photo.comments }}
+        <div class="mdl-cell mdl-cell--12-col">
+            <div id="container" class="grid"
+                 data-masonry='{ "itemSelector": ".bc-instagram-grid-item", "columnWidth": ".bc-instagram-grid-sizer", "percentPosition": true }'>
+                <div class="bc-instagram-grid-sizer"></div>
+                {% for photo in photos %}
+                    <div class="bc-instagram-grid-item bc-instagram-item">
+                        <img src="{{ photo.image }}" class="bc-instagram-item-image">
+                        <a href="{{ photo.link }}" target="_blank">
+                            <div class="bc-instagram-item-overlay">
+                                <div class="bc-instagram-item-text">
+                                    <i class="material-icons">favorite</i> {{ photo.likes }}
+                                    <i class="material-icons">comment</i> {{ photo.comments }}
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <script src="{% static 'instagram-masonry-grid/masonry.pkgd.min.js' %}"></script>
