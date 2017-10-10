@@ -322,3 +322,7 @@
 .bc-excursion-card-wide.mdl-card {width:512px;}
 .bc-excursion-card-wide > .mdl-card__title {color:#fff;height:176px;}
 .bc-excursion-card-wide > .mdl-card__menu {color:#fff;}
+
+/* Styles for instagram masonry feed - fluid 3 columns */
+.bc-instagram-grid-sizer,
+.bc-instagram-grid-item {width:33.3333%;}
