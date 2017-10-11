@@ -10,37 +10,29 @@
         <div class="mdl-layout-spacer"></div>
 
         <div class="mdl-cell mdl-cell--10-col">
-            {% if user_profile.is_membership is True %}
-                <div>
-                    <h2 class="bc-text-center">{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}
-                        public profile</h2>
-                </div>
+            <div>
+                <h2 class="bc-text-center">{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}
+                    public profile</h2>
+            </div>
 
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--5-col">
-                        {% if user_profile.photo %}
-                            <img class="bc-standard-img" src="{{ user_profile.photo.url }}"
-                                 alt="{{ user_profile.user.first_name }} {{ user_profile.user.last_name }} photo">
-                        {% endif %}
-                    </div>
-                    <div class="mdl-cell mdl-cell--5-col">
-                        Black Crow Tours bonus points: {{ user_profile.points }}<br><br>
-                        {{ user_profile.user.first_name }}'s blog posts:<br><br>
-                        {% for post in user_blog_post %}
-                            <a href="{% url 'blog:blog_post' pk=post.pk %}">{{ post.title }}</a><br>
-                        {% empty %}
-                            {{ user_profile.user.first_name }} did not posted anything yet, maybe you can ask
-                            him/her to share his adventures?
-                        {% endfor %}
-                    </div>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--5-col">
+                    {% if user_profile.photo %}
+                        <img class="bc-standard-img" src="{{ user_profile.photo.url }}"
+                             alt="{{ user_profile.user.first_name }} {{ user_profile.user.last_name }} photo">
+                    {% endif %}
                 </div>
-
-            {% else %}
-
-                <div>
-                    <h2 class="bc-text-center">{{ user_profile.user.username }} does not have public profile yet :(</h2>
+                <div class="mdl-cell mdl-cell--5-col">
+                    Black Crow Tours bonus points: {{ user_profile.points }}<br><br>
+                    {{ user_profile.user.first_name }}'s blog posts:<br><br>
+                    {% for post in user_blog_post %}
+                        <a href="{% url 'blog:blog_post' pk=post.pk %}">{{ post.title }}</a><br>
+                    {% empty %}
+                        {{ user_profile.user.first_name }} did not posted anything yet, maybe you can ask
+                        him/her to share his adventures?
+                    {% endfor %}
                 </div>
-            {% endif %}
+            </div>
         </div>
 
         <div class="mdl-layout-spacer"></div>
