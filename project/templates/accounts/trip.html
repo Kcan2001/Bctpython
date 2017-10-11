@@ -297,8 +297,8 @@
                 var subscription_value = subscription ? subscription.value : 0;
 
                 if (subscription_value > 1) {
-                    var sum_in_cents = Math.ceil((total_price / subscription_value) * 100);
-                    document.getElementById('subscription_price').innerHTML = '<br>You will pay ' + sum_in_cents / 100 + '$ per month';
+                    var sum_in_cents = Math.ceil((total_price / subscription_value));
+                    document.getElementById('subscription_price').innerHTML = '<br>You will pay ' + sum_in_cents + '$ per month';
                 } else {
                     document.getElementById('subscription_price').innerHTML = '';
                 }
