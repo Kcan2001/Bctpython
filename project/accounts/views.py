@@ -302,7 +302,8 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                 subscription = form.cleaned_data['subscription']
                 if subscription is not None and subscription > 1:
                     # Count month payment and round up this sum
-                    month_payment = math.ceil(general_price_cents / subscription)
+                    month_payment_dollars = math.ceil(general_price / subscription)
+                    month_payment_cents = month_payment_dollars * 100
                     # Generate plan_id and plan_name values from inputed data
                     plan_id, plan_name = generate_plan_name(trip=self.object.trip.title,
                                                             payments=subscription,
@@ -314,7 +315,7 @@ class UserTripBookingView(SingleObjectMixin, FormView):
                     # If stripe_plan_create is created, then we need to create this plan at stripe service
                     if created is True:
                         stripe_plan = stripe.Plan.create(name=plan_name, id=plan_id, interval="month",
-                                                         currency="usd", amount=month_payment)
+                                                         currency="usd", amount=month_payment_cents)
                     # If stripe_plan_create is False, then we already have this plan, so just use plan_id
                     stripe_subscription = stripe.Subscription.create(customer=customer,
                                                                      items=[
