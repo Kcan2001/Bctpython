@@ -29,6 +29,9 @@ class UserStripe(models.Model):
     user = models.OneToOneField(Account, on_delete=models.PROTECT, related_name='stripe_account')
     customer_id = models.CharField(max_length=50)
 
+    class Meta:
+        verbose_name_plural = 'User Stripe accounts'
+
     def __str__(self):
         return self.customer_id
 
@@ -36,6 +39,9 @@ class UserStripe(models.Model):
 class UserQuickBooks(models.Model):
     user = models.OneToOneField(Account, on_delete=models.PROTECT, related_name='quickbooks_account')
     customer_id = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = 'User QuickBooks accounts'
 
     def __str__(self):
         return self.customer_id
@@ -45,6 +51,9 @@ class StripePlanNames(models.Model):
     plan_id = models.CharField(max_length=70)
     plan_name = models.CharField(max_length=70)
     plan_price = models.DecimalField(decimal_places=2, max_digits=7)
+
+    class Meta:
+        verbose_name_plural = 'Stripe plan names'
 
     def __str__(self):
         return self.plan_id
@@ -59,6 +68,9 @@ class UserStripeSubscription(models.Model):
     quickbooks_invoice_id = models.PositiveIntegerField(null=True, blank=True)
     payments = models.PositiveSmallIntegerField()
     debt = models.DecimalField(decimal_places=2, max_digits=7)
+
+    class Meta:
+        verbose_name_plural = 'User Stripe subscriptions'
 
     def __str__(self):
         return self.subscription_id
