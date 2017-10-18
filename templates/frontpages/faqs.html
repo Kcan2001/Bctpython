@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block head_title %}- About{% endblock %}
+{% block head_title %}Frequently Asked Questions{% endblock %}
+{% block description %}Frequently Asked Questions from Past Satisfied Customers.{% endblock %}
 
 
 {% block content %}
@@ -15,8 +16,8 @@
 
        <!-- Section 1 Mission  -->
     <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--12-col">
-        <h4 class="bc-terms-heading">- Frequently Asked Questions -</h4>
+      <div class="mdl-cell mdl-cell--3-col">
+        <h4 class="bc-terms-heading"><br><br><br><br>Frequently Asked Questions</h4>
       </div>
     </div>
 
@@ -28,25 +29,25 @@
           <strong>Who are your trips designed for?</strong>
           <br>Men and Women aged 21-35; who are craving adventure and the time of their lives.
 
-          <br><br><strong>Can I go on a trip if I’m over 30? or under 18?</strong>
-          <br>Under 18; definitely not. Liabilities, accommodations policies, etc…
-          <br>Over 30; only for our Kilimanjaro/Wine trips, which are up to 35. European party hostels are very strict about age limits in order to keep a youthful atmosphere.
+          <br><br><strong>Can I go on a trip if I’m over 35? or under 21?</strong>
+          <br>Under 21; definitely not. Liabilities, accommodations policies, etc… Many of our trips feature alcohol and we don't want to present this message to minors.
+          <br>Over 35; European hostels are very strict about age limits in order to keep a youthful atmosphere. We also like this atmosphere for our trips.
 
           <br><br><strong>How strict are the itineraries?</strong>
-          <br>The trips follow a general plan, but things are ultimately left up to the group and individual. This is not a school trip. We’re here to do what you WANT to do.
+          <br>The trips follow a general itinerary, but things are ultimately left up to the individual. This is not a school trip. We’re here to do what you WANT to do.
 
           <br><br><strong>What does “guided” mean?</strong>
-          <br>The guides are basically ‘friends’ who are responsible for logistics. They know where the hostels are, the clubs, the travel details, make suggestions, and keep people safe…. that’s it. No boring lectures, no dragging people all over town, and things are ultimately left up to you.
+          <br>The guides are basically advisors who are responsible for logistics. They know where the hostels are, the clubs, the travel details, make suggestions, and keep people safe… that’s it. No boring lectures, no dragging people to things you don't want to see, and things are ultimately left up to you.
           <br>Think of them as ‘that person in the group who handles all the work… so that everyone else can have fun’
 
           <br><br><strong>When is the latest I can sign up?</strong>
           <br>The latest you can sign-up is 60 days before the trip starts. However, the total price of the trip is subject to change as well as the availability. It is highly recommended you sign up as soon as possible to guaranteed a spot and the lowest possible price.
 
           <br><br><strong>What if I have to change my trip?</strong>
-          <br>We charge a deposit when you sign up… Which is used to immediately book your flights (to lock in pricing). This money is hard to get back (as airline companies are notoriously hard to negotiate with). However, if chanced later than 90 days we will be fully refund your trip.
+          <br>We charge a deposit when you sign up, which is used to immediately book your flights (to lock in pricing). This money is hard to get back (as airline companies are notoriously hard to negotiate with). However, if canceled within 2 days of booking we can fully refund your money.
 
           <br><br><strong>Can I extend my trip abroad?</strong>
-          <br>Of Course! Just message us! You could always backpack from where ever your trip ends. We can also book a flight to a different location for you… which will (probably)  be included in your tour price. Either way we’re happy to work with you!
+          <br>Of Course! Just message us! We love and always support Backpacking, We can book a flight to a different location or just help with general suggestions. Either way we’re happy to work with you!
 
           <br><br><strong>What is the payment schedule?</strong>
           <br>The deposit is $200, to reserve the flights. After that, payments are broken into even monthly payments. The full amount has to be paid 60 days before the start of your trip.
@@ -55,10 +56,10 @@
           <br>Contact us and we’ll set-up a custom deposit & payment plan.
 
           <br><br><strong>Is my payment secure?</strong>
-          <br>Yes. We use Paypal for all payment processing.
+          <br>Yes. We use Paypal and Stripe for all payment processing.
 
           <br><br><strong>On the monthly payment plan, when will my card/account be charged?</strong>
-          <br>An invoice will be sent two days before your card is charged, but usually on the 15th of every month.
+          <br>The standard is on the 15th of every month, but just message us if you want it taken out on different days.
 
           <br><br><strong>When will I see my discount? Can an early sign-up discount be combined?</strong>
           <br>Discounts will be shown in each invoice.
@@ -67,16 +68,16 @@
           <br>Contact us Immediately! Customs are extremely strict about passport control.
 
           <br><br><strong>Do I need a visa?</strong>
-          <br>For Kilimanjaro, yes. This can be purchased upon arrival. So there’s no need to worry. For Europe, no visa is needed.
+          <br>For Kilimanjaro, yes. This can be purchased upon arrival. So there’s no need to worry. For Europe, no visa is needed... however, things may change, we will always notify you of changes to your trip.
 
           <br><br><strong>Will I need any vaccinations?</strong>
-          <br>While there is no “Need” to be vaccinated. For Africa, it is recommended. Check the Center for Disease Control for more information.
+          <br>While there is no “Need” to be vaccinated. For Africa, it is highly recommended. Check the <a href="https://www.cdc.gov/">Center for Disease Control</a> for more information.
 
           <br><br><strong>When will I get my flight and hotel information?</strong>
-          <br>We will send all of the information by Email, usually 2 months before your trip. You will be invited to the Facebook event Immediately, to see the others going.
+          <br>We will send all of the information by Email and will be updated on your account page, usually 2 months before your trip. You will be invited to the Facebook event Immediately, to see the others going.
 
           <br><br><strong>What should I pack?</strong>
-          <br>Check out our Gear List for advice!
+          <br>Check out our <a href="{% url 'packing' %}">Gear List</a> for advice!
 
           <br><br><strong>Do people ever join the tours on their own?</strong>
           <br>Yes! This is actually encouraged. You won’t experience new things if you never leave your comfort zone.</h4>
@@ -88,44 +89,30 @@
       <div class="mdl-cell mdl-cell--12-col">
         <h4 class="bc-terms-heading">TRIP INFORMATION</h4>
         <h4 class="bc-terms-text">
-          <strong>What airlines does BlackCrow use?</strong>
+          <strong>What airlines does Black Crow use?</strong>
           <br>Major Airlines. Depending on the trip.
 
           <br><br><strong>How long will my flight be?</strong>
-          <br>Depends on the trip. Check your itinerary. We try to keep the flights as short as possible.
+          <br>Depends on the trip. Check your itinerary. We always try to keep the flights as short as possible.
 
           <br><br><strong>What will my accommodations be like?</strong>
-          <br>All accommodations are personally recommended. Most are boutique style party hostels; since they are always clean, safe, central, and have a wonderfully fun youth atmosphere. Places where you can actually meet people!
+          <br>All <a href="{% url 'accom' %}">accommodations</a> are personally recommended. Most are boutique style party hostels; since they are always clean, safe, central, and have a wonderfully fun youth atmosphere. Places where you can actually meet people!
 
           <br><br><strong>How does rooming work?</strong>
-          <br>For the most part, our group will be in one room. A 2-10 bed hostel room. This arrangement is extremely common in Europe and also helps make sure our group is safe and ‘Together’… buddy system for late nights.
-          <br>However, upon requested we can book a private/double room for an additional charge. Just contact us.
-          <br>Sexes can also be separated upon request, for no additional cost.
+          <br>For the most part, our group will be in one room. A 2-4 bed same sex room.
+          <br>However, upon requested we can book a private room for an additional charge. Just contact us.
 
           <br><br><strong>Do I have to bring a pillow, sheets, or anything like that?</strong>
           <br>No. All Accommodations are fully furnished. However, a travel pillow is recommended for flights.
 
           <br><br><strong>Where do my flights leave from?</strong>
-          <br>All flights are priced RT from JFK. Getting to JFK is up to you, however we can help you get there. Just contact us.
-          <br>(Flights can also be booked outside of JFK. We’ll set it up, you’ll just pay the difference. Contact us to learn more!)
-
-          <br><br><strong>How do I get to JFK?</strong>
-          <br>The cheapest way is to take the Megabus to NYC. Then the Long Island Rail Road (LIRR) from Penn Station to JFK.
-          <br>This costs around $30 from Philadelphia, Baltimore, NYC, Boston, or any other city in the area.
-          <br>We can also help organize a shuttle, or help with flights if you live farther away. Either way we’re here to help.
-
-          <br><br><strong>Why JFK?</strong>
-          <br>Centrally located
-          <br>Cheapest flights
-          <br>Easy to get to
-          <br>Consistent flight times
-          <br>What if I want to leave from somewhere else? or Book the Tour without flights? No problem! Just Contact us!
+          <br>Flights can be purchased from a variation of locations. Use our form to find the most convenient location, book a 'land only' flight, or just contact us and we'll help!
 
           <br><br><strong>Is travel in the US ever an issue?</strong>
-          <br>No. In our Facebook event, things are organized pretty quickly. For the most part, people are able to carpool or figure things out to get to JFK.
+          <br>No. In our Facebook event, things are organized pretty quickly. For the most part, people are able to carpool or figure things out.
 
           <br><br><strong>How will we get from city to city?</strong>
-          <br>Depends. Buses, ferries, flights, or trains. The cost of which is also included in your trip.
+          <br>Depends. Buses, ferries, flights, or trains. The cost of which is included in your trip.
 
           <br><br><strong>How much spending money will I need?</strong>
           <br>On our trips: we cover the flights, accommodations (Which usually includes a meal per day), transport between cities, and special event entrances. This leaves food, alcohol, souvenirs, tips (When applicable), and any other miscellaneous purchases. So “spending money” really depends on your general spending habits and what country you’re in. Scandinavia is notoriously more expensive than anywhere else on Earth (A beer costing $10 on average). Berlin is much cheaper…
@@ -136,11 +123,11 @@
 
           <br><br><strong>What currency does my destination use? How do I exchange money?</strong>
           <br>Scandinavia – Is the Krona. Africa – is the Shilling. Europe – Euro.
-          <br>Easiest way is just by using ATMs. Your bank automatically exchanges your money on market rates. Just MAKE SURE TO CALL YOUR BANK, to tell them you’re traveling! Otherwise, they will cancel your card.
+          <br>Easiest way is just by using ATMs. Your bank automatically exchanges your money on market rates. Just <span class="bc-bold bc-underline">MAKE SURE TO CALL YOUR BANK</span>, to tell them you’re traveling! Otherwise, they might cancel your card.
 
           <br><br><strong>Can I use my cell phone while abroad? Should I bring my Laptop?</strong>
-          <br>While it could be borderline impossible to make a phone call, WIFI is everywhere.  Skype is free and works wonders. You can also use your phone for Snapchat, Instagram, and much more…  bringing it is very useful. Just remember to turn off data.
-          <br>Bringing a Laptop can be a burden. It’s heavy, a smart phone can easily do all the things you’ll want to do (Facebook, etc), and they are easily stolen. You’re better off leaving it at home.
+          <br>While it might be hard make a phone call, WIFI is everywhere.  Skype is free and works wonders. You can also use your phone for Snapchat, Instagram, maps, and much more…  bringing it is very useful. Just remember to turn off data.
+          <br>Bringing a Laptop can be a burden. It’s heavy, a smart phone can easily do all the things you’ll want to do (Facebook, etc), and they can be stolen. You’re better off leaving it at home.
 
           <br><br><strong>What about Travel Insurance?</strong>
           <br>While we do support refunds and a satisfaction guarantee. We do not provide Travel Insurance for your personal items.
@@ -161,23 +148,17 @@
           <br>Of Course! Almost all of our accommodations have laundry services.
 
           <br><br><strong>Will my child be flying with his/her friends?</strong>
-          <br>If they booked at the same time, then yes. Even if booked later, it is still very likely that everyone will fly together. However, in extreme cases (extremely late booking), flights may end up being different. Regardless, a guide will meet you at the airport and everyone will be together on day 2.
+          <br>If they booked at the same time, then yes. Even if booked later, it is still very likely that everyone will fly together. However, in extreme cases (late bookings), flights may end up being different. Regardless, a guide will meet you at the airport and everyone will be together on day 2.
 
           <br><br><strong>How do I contact my son/daughter during the tour?</strong>
-          <br>While their own personal WIFI device is the best option. You can also contact us directly and we will relay the message.
+          <br>While their own personal WIFI device is the best option. You can also <a href="mailto:admin@blackcrowtours.com">contact us</a> directly and we will relay the message.
 
           <br><br><strong>What if I my child gets sick or hurt during the trip?</strong>
-          <br>Our guides know the best hospitals & medical centers assuming there is an emergency. This is extremely rare; though an occasional trip to the pharmacy might happen.
+          <br>Our guides know the best hospitals & medical centers assuming there's an emergency. This is extremely rare; though an occasional trip to the pharmacy might happen.
 
-          <br><br><strong>How long has BCT been in business?</strong>
-          <br>Two years, but traveling/backpacking for way longer. For more details, read our about us section.
-
-          <br><br><strong>How are the trips so cheap?</strong>
-          <br>We don’t think they are. By backpacking for years, we learned the best valued places and how to get them cheaper.
-          Compared to “backpacking” our trips are much more expensive… but you’ll never need to sleep on a couch or hitch hike.
-          Compared to other tour companies we’re much cheaper. Lower overhead, much lower profit percentage, cheaper accommodations, etc…
-          But yes, the trips are the total cost… no hidden costs, no scams.
-        </h4>
+          <br><br><strong>How long has Black Crow Tours been in business?</strong>
+          <br>Two years, but traveling/backpacking for way longer. For more details, read our <a href="{% url 'about' %}">about us</a> section.
+</h4>
  </div>
     </div>
 

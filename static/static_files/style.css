@@ -2,6 +2,11 @@
 .mdl-grid {padding: 0!important;}
 #no-margins {margin: 0}
 .mdl-button {text-transform: none}
+.mdl-layout__content {
+  flex-shrink: 0;
+}
+
+
 
 /*Fonts*/
 
@@ -44,21 +49,37 @@
 
 
 /*Header and footer*/
-#bc-logo-style {max-width: 250px; width: auto; height: 70px;}
+#bc-logo-style {max-width: 200px;}
 #bc-drawer-logo-style {max-width: 100px; margin-top: 10px}
-#bc-main-navigation__header-style {background-color: white}
+#bc-main-navigation__header-style {background-color: rgba(0,0,0,.3);
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   padding: 0;
+   margin: 0;
+}
+
+.bc-about-backgroundcolor{background-color: #FCFAF4}
+
 #bc-navigation-height-style {height: 70px}
-#bc-navigation-font-style {font-family: 'Raleway', sans-serif; font-size: 22px; color: #444; font-weight: 600; text-transform: none; line-height: 38px;}
-.bc-navigation-subfont-style {font-family: 'Raleway', sans-serif; font-size: 16px; color: #444; font-weight: 600; text-decoration: none;}
-#bc-navigation-font-style-1 {font-family: 'Raleway', sans-serif; font-size: 22px; color: #444; font-weight: 600; cursor:pointer; text-transform: none; line-height: 38px;}
-#bc-navigation-drawer-font-style {font-family: 'Raleway', sans-serif; font-size: 18px; color: #444; font-weight: 600;}
-.mdl-layout__header .mdl-layout__drawer-button .material-icons {color: #444; font-size: 24px;}
+#bc-navigation-font-style {font-family: 'brocha-book', sans-serif; font-size: 22px; color: #FCFAF4; font-weight: 600; text-transform: none; line-height: 36px;}
+.bc-navigation-subfont-style {font-family: 'brocha-book', sans-serif; font-size: 16px; color: #4C443A; font-weight: 600; text-decoration: none;}
+#bc-navigation-font-style-1 {font-family: 'brocha-book', sans-serif; font-size: 22px; color: #FCFAF4; font-weight: 600; cursor:pointer; text-transform: none; line-height: 36px;}
+
+#bc-navigation-drawer-font-style {font-family: 'brocha-book', sans-serif; font-size: 18px; color: #4C443A; font-weight: 600;}
+#bc-navigation-drawer-font-style-1 {font-family: 'brocha-book', sans-serif; font-size: 18px; color: #4C443A; font-weight: 600;}
+.mdl-layout__header .mdl-layout__drawer-button .material-icons {color: #FCFAF4; font-size: 28px; background-color: none}
+.mdl-layout__header .mdl-layout__drawer-button {background-color: transparent}
+
+
 /*footer*/
-.bc-footerfont {font-family: 'Raleway', sans-serif; font-size: 16px; color: white; font-weight: 700; text-decoration: none; line-height: 38px;}
 .bc-footer-background{background: #2c2721; height: 80px; border-top: 5px solid #FCFAF4 }
 
 
 /*Global styles*/
+.bc-no-color-change {color: #FCFAF4;}
+.bc-no-color-change-1 {color: #4C443A;}
 .bc-site-grey-background{background: #FCFBF5;}
 .bc-site-brown-background{background: #4C443A;}
 .bc-site-dark-background {background: #2c2721}
@@ -83,48 +104,52 @@
 .bc-top-border {border-top: 5px solid #FCFAF4;}
 
 /*Grids*/
-.bc-home-main-heroimage {min-height: 850px; background: url("kili.jpg") center 65% no-repeat; background-size: cover}
-.bc-home-mobile {background: url("kili.jpg") center 65% no-repeat; background-size: cover; min-height: 480px}
-.bc-home-icons {min-height: 650px; background-color: #4C443A; border-top: 5px solid #FCFAF4}
+.bc-home-main-heroimage {min-height: 780px; background: url("main.jpg") center 65% no-repeat; background-size: cover}
+.bc-home-mobile {background: url("main.jpg") center 65% no-repeat; background-size: cover; min-height: 480px}
+.bc-home-icons {min-height: 650px; background-color: #4C443A;}
 .bc-home-cool {min-height: 325px; background-color: #FCFBF5;}
 .bc-home-past-crows {min-height: 100px; background-color: #FCFBF5;}
-.bc-home-past-crows-phone {min-height: 100px; background-color: #4C443A;}
-.bc-home-journey {min-height: 660px; background-color: #4C443A;}
+.bc-home-past-crows-phone {min-height: 100px; background-color: #A8A424;}
+.bc-home-journey {min-height: 660px; background-color: #4C443A; border-top: 5px solid #FCFAF4}
 .bc-home-packing-signup {min-height: 450px; background-color: #2c2721; border-top: 10px solid #FCFAF4}
-.bc-kili-signup {min-height: 450px; background-color: #2c2721; border-top: 10px solid #FCFAF4}
+.bc-kili-signup {min-height: 275px; background-color: #2c2721; border-top: 10px solid #FCFAF4}
 .bc-scan-signup {min-height: 275px; background-color: #2c2721; border-top: 10px solid #FCFAF4}
 
 /*trip grids*/
-.bc-trip-top-video {min-height: 780px;}
-.bc-trip-background-icons {min-height: 640px; background-color: #4C443A; border-top: 5px solid #FCFAF4}
+.bc-trip-kili-main-heroimage {min-height: 780px; background: url("kili.jpg") center 65% no-repeat; background-size: cover}
+.bc-trip-scan-main-heroimage {min-height: 780px; background: url("scan2.jpg") center 65% no-repeat; background-size: cover}
+.bc-trip-button-background {min-height: 250px}
+.bc-trip-top-video {min-height: 600px;  border-top: 5px solid #FCFAF4}
+.bc-trip-background-icons {min-height: 640px; background-color: #4C443A;}
+.bc-trip-background-icons2 {min-height: 540px; background-color: #4C443A;}
 .bc-trip-background-itinerary {min-height: 1250px; background: url("maps/itinback.fw.png") center center no-repeat; background-size: cover}
 .bc-trip-background-guides {min-height: 720px; background-color: #FCFBF5;}
 
 /*about grids*/
-.bc-about-main-hero {min-height: 800px; background: url("images/4653714_l.jpg") center 65% no-repeat; background-size: cover}
+.bc-about-main-hero {min-height: 780px; background: url("images/4653714_l.jpg") center 65% no-repeat; background-size: cover}
 .bc-about-mission {min-height: 1600px; background: url("images/mission.png") center center no-repeat; background-size: cover}
 
 /*your trips Grid*/
-.bc-your-trips-hero {min-height: 800px; background: url("images/yourtrips.jpg") center 65% no-repeat; background-size: cover}
+.bc-your-trips-hero {min-height: 780px; background: url("images/yourtrips.jpg") center 65% no-repeat; background-size: cover}
 .bc-your-trips {min-height: 800px; background-color: #4C443A; border-top: 5px solid #FCFAF4}
 .bc-your-trips-text-back {background-color: #FCFAF4; border-bottom:.5em solid #A8A424}
 
 
 /*packing grid*/
-.bc-packing-hero {min-height: 800px; background: url("images/packing.jpg") center 65% no-repeat; background-size: cover}
+.bc-packing-hero {min-height: 780px; background: url("images/packing.jpg") center 65% no-repeat; background-size: cover}
 .bc-packing-items {min-height: 640px; background-color: #4C443A; border-top: 5px solid #FCFAF4}
 
 /*Thank you grid*/
-.bc-thankyou-heroimage {min-height: 620px; background: url("4653714_l.jpg") center 65% no-repeat; background-size: cover}
+.bc-thank-you-heroimage {min-height: 780px; background: url("images/4653714_l.jpg") center 65% no-repeat; background-size: cover}
 .bc-thankyou-footer {min-height: 150px; background-color: #2c2721; border-top: 10px solid #FCFAF4}
 
 /*included grid*/
-.bc-included-hero {min-height: 800px; background: url("images/included1.jpg") center 100% no-repeat; background-size: cover}
+.bc-included-hero {min-height: 780px; background: url("images/included1.jpg") center 100% no-repeat; background-size: cover}
 .bc-included-icons {min-height: 800px; background-color: #F9F8F7}
 .bc-included-solo {min-height: 800px; background: url("images/included2.jpg") center 100% no-repeat; background-size: cover}
 
 /*accom grid*/
-.bc-accom-hero {min-height: 800px; background: url("images/accom.jpg") center 65% no-repeat; background-size: cover}
+.bc-accom-hero {min-height: 780px; background: url("images/accom.jpg") center 65% no-repeat; background-size: cover}
 .bc-accom-background {min-height: 600px; background-color: #4C443A; border-top: 5px solid #FCFAF4}
 .bc-accom-img-main-left{height: 605px; width: 105%; border-top: 5px solid #FCFAF4; border-right: 5px solid #FCFAF4;}
 .bc-accom-img-main-right{height: 605px; width: 105%; border-top: 5px solid #FCFAF4; border-left: 5px solid #FCFAF4;}
@@ -171,6 +196,11 @@
 .bc-form-text {font-family: 'brocha-semibolditalic', sans-serif; font-size: 17px; color: #FCFAF4; line-height: 20px;}
 
 /*Trip Fonts*/
+.bc-trip-hero-title {font-family: 'brocha-book', sans-serif; text-transform: uppercase; line-height: 1em; font-size: 3em; color: #FCFAF4;  margin: 0}
+.bc-trip-hero-title2 {font-family: 'brocha-blackitalic', sans-serif; text-transform: uppercase; font-size: 1em; color: #FCFAF4;  margin: 0}
+.bc-trip-hero-subtitle {font-family: 'brocha-book', sans-serif; text-transform: uppercase; font-size: 1.2em; color: #FCFAF4; margin: 0}
+.bc-trip-hero-subtitle2 {font-family: 'brocha-blackitalic', sans-serif; text-transform: uppercase; font-size: 20px; color: #FCFAF4;  margin: 0}
+.bc-trip-form-text {font-family: 'brocha-semibolditalic', sans-serif; font-size: 2em; color: #FCFAF4; line-height: 20px;}
 .bc-trips-dates-heading {font-family: 'brocha-black', sans-serif; font-size: 24px; color: #C0B846; font-weight: 600;}
 .bc-trips-dates-text {font-family: 'brocha-book', sans-serif; font-size: 20px; color: #FCFAF4; line-height: 28px;}
 .bc-trips-map-text {font-family: 'brocha-semibolditalic', sans-serif; font-size: 26px; color: #FCFAF4; line-height: 28px;}

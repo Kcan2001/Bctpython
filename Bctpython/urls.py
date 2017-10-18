@@ -16,7 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from frontpages import views
+from django.http import HttpResponse
+
 import accounts.views
+from django.contrib.sitemaps.views import sitemap
 from django.contrib.auth import views as auth_views
 from django.conf.urls import (
 handler400, handler403, handler404, handler500
@@ -30,12 +33,12 @@ urlpatterns = [
     url(r'^$', views.home,  name='home'),
     url(r'^about/', views.about, name='about'),
     url(r'^gallery/', views.gallery,  name='gallery'),
-    url(r'^yourtrips/', views.yourtrips, name='yourtrips'),
+    url(r'^your-trips/', views.yourtrips, name='your-trips'),
     url(r'^login/', views.loginview,  name='login'),
     url(r'^logout/', views.logoutview,  name='logout'),
     url(r'^signup/', views.signup, name='signup'),
     url(r'^guides/', views.guides,  name='guides'),
-    url(r'^accom/', views.accom, name='accom'),
+    url(r'^accommodations/', views.accommodations, name='accommodations'),
     url(r'^included/', views.included,  name='included'),
     url(r'^packing/', views.packing, name='packing'),
     url(r'^westeuro/', views.westeuro,  name='westeuro'),
@@ -49,7 +52,8 @@ urlpatterns = [
     url(r'^privacy/', views.privacy, name='privacy'),
     url(r'^404/', views.handler404, name='404'),
     url(r'^500/', views.handler500, name='500'),
-    url(r'^thankyou/', views.thankyou, name='thankyou'),
+    url(r'^thank-you/', views.thankyou, name='thank-you'),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^robots\.txt$', lambda r: HttpResponse("User-Agent: *\nDisallow:", content_type="text/plain")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

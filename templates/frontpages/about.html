@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% block head_title %}- About{% endblock %}
-
+{% block head_title %}Our Mission{% endblock %}
+{% block description %}Backpacking-Inspired Overseas Adventure Travel Packages. We Provide Intimate Small Group Guided Tours Overseas.{% endblock %}
 
 {% block content %}
 
@@ -11,6 +11,8 @@
 <div class="mdl-grid bc-about-main-hero">
 <div class="mdl-layout-spacer">  </div>
   <div class="mdl-cell mdl-cell--10-col">
+
+
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
     <h4 class="bc-about-heading bc-text-center"><br><br><br>Black Crow Tours is a
@@ -26,7 +28,7 @@
 
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--12-col mdl-cell--bottom">
-    <h4 class="bc-header-text bc-text-center">We specialize in providing intimate small-group guided tours
+    <h4 class="bc-header-text bc-text-center">We specialize in providing intimate small group guided tours
       <br>focused on local experiences.</h4>
 
 </div>
@@ -40,7 +42,7 @@
 
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--12-col mdl-cell--bottom">
-    <h4 class="bc-about-subheading bc-text-center">About us:</h4>
+    <h4 class="bc-about-subheading bc-text-center">About us</h4>
 
 </div>
 </div>
@@ -57,27 +59,27 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <h4 class="bc-about-para-text">At Black Crow Tours we focus on meeting fun, local people and seeing local culture while providing the best
-          tour package value for people in our demographic:</h4>
+          tour package value for people in our demographic.</h4>
       </div>
     </div>
     <div class="mdl-grid">
     <div class="mdl-layout-spacer">  </div>
       <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone bc-text-center">
-        <img class="bc-standard-img-icons" src="{% static 'icons/person.png' %}" alt="">
+        <img class="bc-standard-img-icons" alt="Person Icon" title="Person Icon" src="{% static 'icons/person.png' %}">
         <h4 class="bc-about-para-italic-text bc-text-center">Small group sizes allow for
           truly unique experiences. </h4>
       </div>
       <div class="mdl-layout-spacer">  </div>
       <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--hide-tablet bc-text-center">
-        <img class="bc-standard-img-icons" src="{% static 'icons/guide.png' %}" alt="">
-        <h4 class="bc-about-para-italic-text bc-text-center">Guides have the freedom
+        <img class="bc-standard-img-icons" alt="Guide Icon" title="Guide Icon" src="{% static 'icons/guide.png' %}">
+        <h4 class="bc-about-para-italic-text bc-text-center"><a class="bc-no-color-change" href="{% url 'guides' %}">Guides</a> have the freedom
           to be themselves, for pure and honest tours. </h4>
 
       </div>
       <div class="mdl-layout-spacer">  </div>
       <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone bc-text-center">
-          <img class="bc-standard-img-icons" src="{% static 'icons/air.png' %}" alt="">
-          <h4 class="bc-about-para-italic-text bc-text-center">Trips all include flights,transfers, bookings, accommodations, and much more </h4>
+          <img class="bc-standard-img-icons" alt="Air Icon" title="Air Icon" src="{% static 'icons/air.png' %}">
+          <h4 class="bc-about-para-italic-text bc-text-center">All trips include flights,transfers, bookings, <a class="bc-no-color-change" href="{% url 'accommodations' %}">Accommodations</a>, and much more.</h4>
 
       </div>
       <div class="mdl-layout-spacer">  </div>
@@ -85,12 +87,12 @@
 
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
-        <h4 class="bc-about-para-text">    Each trip gives you the option of 'Short' or 'Regular', because we respect your time and this way most friends
-        can also go; even those who might not be able to take off as much time... But don't worry if you're coming alone!
-        Plenty of people do, and always leave with a ton of new friends!
+        <h4 class="bc-about-para-text">  We offer ‘Short’ and ‘Regular’ versions of all our trips, because we respect your time and this way most friends
+        can also go, even those who might not be able to take off as much time. Don't worry if you're coming alone!
+        Plenty of people do, and they always leave with a ton of new friends!
 
-        <br><br>We believe that life is too short to not do amazing things, and, as young adults, life is both an adventure and a party.
-        This is why most trips also feature a local event you'll have an option to join; an event your guide personally enjoys.
+        <br><br>We believe that life is too short to not do amazing things, and as young adults life is both an adventure and a party.
+        This is why most trips also feature a local event you'll have an option to attend, an event your guide personally enjoys.
 
         <br><br>Join us on our next adventure!</h4>
       </div>
@@ -105,11 +107,11 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <h4 class="bc-about-subheading">WHY 'BLACK CROW'?</h4>
-        <h4 class="bc-about-para-text">The name "BlackCrow" was chosen because crows are one of the smartest birds on the planet. Crows are capable of building tools and working together to achieve goals.
+        <h4 class="bc-about-para-text">The name "Black Crow" was chosen because crows are one of the smartest species of birds on the planet. Crows are capable of building tools and working together to achieve goals.
 
 <br><br>They are found everywhere on earth, can eat anything, and are one of the few animals thriving with human contact.
 
-<br><br>Yet, for some reason, crows have a stigma of being grim. BlackCrow strives to be a tool for helping people to think differently about life. Where society sees something strange; we see intelligence, prosperity, and freedom.</h4>
+<br><br>Yet, for some reason, crows have a stigma of being grim. Black Crow strives to be a tool for helping people think differently about life. Where society sees something strange, we see intelligence, prosperity, and freedom.</h4>
       </div>
       <div class="mdl-layout-spacer">  </div>
     </div>

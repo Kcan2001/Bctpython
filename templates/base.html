@@ -6,10 +6,11 @@
     <meta name="google-site-verification" content="trQ4WhLvZLsyiy0teiyrePRoWHKHvACueuuJqxa6WgE" />
     {% load static %}
     <link rel="shortcut icon" type="image/png" href="{% static 'bc-flav.fw.png' %}"/>
-    <title>Black Crow Tours {% block head_title %}{% endblock %}</title>
-
+    <title>{% block head_title %}{% endblock %} | Overseas Adventure Travel Packages for 21-35 Year Olds | Black Crow Tours</title>
+    <meta name="description" content="{% block description %}{% endblock %}"/>
 
     <!-- Google Mdl -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'material.min.css' %}"/>
     <script defer src="{% static 'material.min.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
@@ -20,10 +21,11 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-101984715-1', 'auto');
+      ga('create', 'UA-45025242-2', 'auto');
       ga('send', 'pageview');
 
     </script>
+
 
 <!-- Facebook Pixel Code -->
 <script>
@@ -41,13 +43,38 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
 <!-- DO NOT MODIFY -->
 <!-- End Facebook Pixel Code -->
 
+<script type='application/ld+json'>
+{
+  "@context": "http://www.schema.org",
+  "@type": "LocalBusiness",
+  "name": "Black Crow Tours",
+  "url": "https://blackcrowtours.com/",
+  "logo": "https://blackcrowtours.com/static/Mainlogosite1.fw.png",
+  "image": "https://blackcrowtours.com/static/images/kyle1.jpg",
+  "description": "We specialize in providing intimate small group guided tours \nfocused on local experiences to young adults ages 21-35.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "646 Rector Street",
+    "addressLocality": "Philadelphia",
+    "addressRegion": "PA",
+    "postalCode": "19128",
+    "addressCountry": "United States"
+  },
+  "openingHours": "Mo, Tu, We, Th, Fr 09:00-17:00",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1 267 6182184",
+    "contactType": "customer support"
+  }
+}
+ </script>
 
     <base href="/">
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-  {% include 'navbar.html' %}
+{% include 'navbar.html' %}
 <main class="mdl-layout__content">
 
 {% block content %}
@@ -55,7 +82,7 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
 {% endblock %}
 
 {% include 'footer.html' %}
-</div>
 </main>
+</div>
 </body>
 </html>

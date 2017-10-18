@@ -1,20 +1,86 @@
 {% extends 'base.html' %}
-{% block head_title %}- Scandinavia{% endblock %}
+{% block head_title %}Your Trips{% endblock %}
+{% block description %}Denmark, Norway, and Sweden. See the Fjord, Cities, and Much More of Scandinavia!{% endblock %}
+
 {% block content %}
 
 {% load static %}
 
-<!-- Section 2 video Background-->
+
+<!-- Home main desktop -->
+<div class="mdl-grid bc-trip-scan-main-heroimage">
+  <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--middle">
+
+      <div class="mdl-grid mdl-cell--hide-desktop">
+            <div class="mdl-cell mdl-cell--2-tablet">
+              <br><br><br><br>
+            </div>
+      </div>
+
+      <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+         <div class="mdl-cell mdl-cell--12-col">
+          <h1 class="bc-trip-hero-title">SEE THE FJORDS of NORWAY
+            <br><span class="bc-trip-hero-title2">AND MUCH MUCH MORE!</span></h1>
+
+        </div>
+        <div class="mdl-layout-spacer"></div>
+      </div>
+
+      <div class="mdl-grid bc-trip-button-background">
+         <div class="mdl-layout-spacer"></div>
+             <div class="mdl-cell mdl-cell--4-col mdl-cell--middle">
+                <a href="mailto:admin@blackcrowtours.com"><button class="bc-trip-form-text bc-home-submitbutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                  Book Now!
+                </button></a>
+             </div>
+         <div class="mdl-layout-spacer"></div>
+      </div>
+
+      <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
+            <h2 class="bc-trip-hero-subtitle">
+            <i class="material-icons">check</i> Our trip starts in the wonderful city of<span class="bc-trip-hero-subtitle2"> Copenhagen </span> where we'll traverse the danish countryside to Aalborg.</h2>
+          </div>
+       <div class="mdl-layout-spacer"></div>
+         <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
+           <h2 class="bc-trip-hero-subtitle">
+             <i class="material-icons">check</i> We continue by <span class="bc-trip-hero-subtitle2"> Ferry </span> to Norway and the <span class="bc-trip-hero-subtitle2"> Fjords of Stavanger </span></h2>
+         </div>
+       <div class="mdl-layout-spacer"></div>
+          <div class="mdl-cell mdl-cell--6-col mdl-c1ll--4-col-tablet">
+            <h2 class="bc-trip-hero-subtitle">
+            <i class="material-icons">check</i> Others will go on to continue <span class="bc-trip-hero-subtitle2"> Jumping around the Fjords </span> for maximum views!</h2>
+          </div>
+       <div class="mdl-layout-spacer"></div>
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
+            <h2 class="bc-trip-hero-subtitle">
+            <i class="material-icons">check</i> We wrap up after meeting <span class="bc-trip-hero-subtitle2"> tons of new friends </span> and sharing an incredible journey!</h2>
+          </div>
+      </div>
+
+   </div>
+ <div class="mdl-layout-spacer"></div>
+</div>
+
+<!-- Video -->
 <div class="mdl-grid bc-trip-top-video bc-site-brown-background">
+  <div class="mdl-layout-spacer"></div>
+   <div class="mdl-cell mdl-cell--7-col mdl-cell-bottom">
 
      <!-- Inner Grid -->
-       <iframe width="100%" height="780px" src="https://www.youtube.com/embed/bDMhhfwNNy4" frameborder="0" allowfullscreen>
+       <iframe width="100%" height="600px" src="" data-src="https://www.youtube.com/embed/OFWcpR96A7I" frameborder="0" allowfullscreen>
        </iframe>
+
+   </div>
+   <div class="mdl-layout-spacer"></div>
 </div> <!-- End Section 2 Hero Background -->
 
 
+
 <!-- Icon Grid -->
-<div class="mdl-grid bc-trip-background-icons">
+<div class="mdl-grid bc-trip-background-icons2">
   <div class="mdl-layout-spacer"></div>
     <div class="mdl-cell mdl-cell--10-col">
               <br><br><br>
@@ -25,7 +91,7 @@
           <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
             <div class="mdl-grid">
               <div class="mdl-cell mdl-cell--12-col">
-                <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">9 Day Trip</h4>
+                <h1 class="bc-trips-dates-heading bc-caps bc-no-margin">9 Day Trip</h1>
               </div>
             </div>
 
@@ -48,7 +114,7 @@
         <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--12-col">
-              <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">14 Day Trip</h4>
+              <h1 class="bc-trips-dates-heading bc-caps bc-no-margin">14 Day Trip</h1>
             </div>
           </div>
 
@@ -74,7 +140,7 @@
 
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--12-col">
-            <h4 class="bc-trips-dates-heading bc-caps bc-no-margin">18 Day Trip</h4>
+            <h1 class="bc-trips-dates-heading bc-caps bc-no-margin">18 Day Trip</h1>
           </div>
         </div>
 
@@ -107,21 +173,25 @@
 <div class="bc-scantrip-map mdl-grid">
 <div class="mdl-layout-spacer">  </div>
  <div class="mdl-cell mdl-cell--5-col mdl-cell--middle mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-   <img class="bc-standard-img" src="{% static 'maps\tanz.fw.png' %}" alt="">
+   <img class="bc-standard-img" alt="Scandinavia Map" title="Scandinavia Map" src="{% static 'maps\scan.map.fw.png' %}">
  </div>
 <div class="mdl-cell mdl-cell--5-col mdl-cell--middle mdl-cell--4-col-tablet mdl-cell--4-col-phone">
  <h4 class="bc-trips-map-text bc-no-margin">
    1. Copenhagen
    <br>2. Aalborg
-   <br>3. Stavanger
-   <br>4. Bergen
-   <br>5. Flam
-   <br>6. Oslo
-   <br>7. Stockholm
+   <br>3. Ferry to Stavanger
+   <br>4. Stavanger
+   <br>5. Preikestolen
+   <br>6. Bergen
+   <br>7. Flam
+   <br>8. Train to Oslo
+   <br>9. Oslo
+   <br>10. Train to Stockholm
+   <br>11. Stockholm
 
  </h4>
  <br><br>
- <img class="bc-standard-img" src="{% static 'maps\scanledger.fw.png' %}" alt="">
+ <img class="bc-standard-img" alt="Scandinavia Map" title="Scandinavia Map" src="{% static 'maps\scanledger.fw.png' %}">
 </div>
 
 </div>     <!-- End Section 4 Itinerary map -->
@@ -138,7 +208,7 @@
    <div class="mdl-layout-spacer">  </div>
    <div class="mdl-cell mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
      <br>
-       <img class="bc-standard-img" src="{% static 'itin-ribbon.png' %}" alt="">
+       <img class="bc-standard-img" alt="Itinerary" title="Itinerary" src="{% static 'itin-ribbon.fw.png' %}">
    </div>
    <div class="mdl-layout-spacer">  </div>
  </div>
@@ -171,7 +241,7 @@
                      <br><br>After picking you up from the Airport, we'll head into town and check into our extremely central accommodation.</h4>
              </div>
              <div class="mdl-cell mdl-cell--5-col mdl-cell--middle bc-text-center">
-               <img class="bc-intin-img-trip" src="{% static 'images\IMG_2425.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Scandinavia Copenhagen" title="Scandinavia Copenhagen"  src="{% static 'images\IMG_2425.jpg' %}">
              </div>
            </div>
 
@@ -189,7 +259,7 @@
                    </h4>
              </div>
              <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom bc-text-center">
-                 <img class="bc-intin-img-trip" src="{% static 'images\IMG_2415.jpg' %}" alt="">
+                 <img class="bc-intin-img-trip" alt="Tivoli Park" title="Tivoli Park" src="{% static 'images\IMG_2415.jpg' %}">
                </div>
          </div>
 
@@ -208,7 +278,7 @@
                     <br><br>Not to mention a seriously cool experience with some great scenery.</h4>
              </div>
              <div class="mdl-cell mdl-cell--5-col mdl-cell--middle bc-text-center">
-               <img class="bc-intin-img-trip" src="{% static 'images\DSC00387.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Ferry to Stavanger" title="Ferry to Stavanger" src="{% static 'images\DSC00387.jpg' %}">
              </div>
            </div>
 
@@ -224,7 +294,7 @@
                  <br><br>Arriving in Stavanger, We'll check into our hotel and take a brief walk around the city. The nightlife in Stavanger is well known, so we'll have plently of options for tonight!</h4>
            </div>
            <div class="mdl-cell mdl-cell--5-col bc-text-right mdl-cell--top">
-             <img class="bc-intin-img-trip" src="{% static 'images\IMG_3164.jpg' %}" alt="">
+             <img class="bc-intin-img-trip" alt="Stavanger" title="Stavanger" src="{% static 'images\IMG_3164.jpg' %}">
            </div>
          </div>
 
@@ -244,7 +314,7 @@
                  Where we'll have incredible views of Bergen and the surrounding areas.</h4>
              </div>
              <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom bc-text-right">
-               <img class="bc-intin-img-trip" src="{% static 'images\bergen2.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="View of Bergen" title="View of Bergen" src="{% static 'images\bergen2.jpg' %}">
              </div>
            </div>
 
@@ -260,7 +330,7 @@
                    <h4 class="bc-trips-itinerary-text"> Modern air-conditioned trains link Oslo with Bergen, one of Europe's most scenic train routes, a journey worth doing for its own sake! </h4>
              </div>
              <div class="mdl-cell mdl-cell--5-col bc-text-center">
-               <img class="bc-intin-img-trip" src="{% static 'images\bergen-oslo.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Train to Oslo" title="Train to Oslo" src="{% static 'images\bergen-oslo.jpg' %}">
              </div>
            </div>
 
@@ -277,7 +347,7 @@
                      <br><br>Oslo offers a TON of optional day trips and things to see.</h4>
              </div>
              <div class="mdl-cell mdl-cell--5-col bc-text-center mdl-cell--middle">
-               <img class="bc-intin-img-trip" src="{% static 'images\IMG_0552.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Oslo" title="Oslo" src="{% static 'images\IMG_0552.jpg' %}">
              </div>
            </div>
 
@@ -292,7 +362,7 @@
                    </h4>
              </div>
              <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom bc-text-center">
-               <img class="bc-intin-img-trip" src="{% static 'images\IMG_1745.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="NYC Penn Station" title="NYC Penn Station" src="{% static 'images\IMG_1745.jpg' %}">
              </div>
            </div>
 
@@ -321,7 +391,7 @@
            <!-- Day 3 to 4 -->
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--5-col">
-               <img class="bc-intin-img-trip" src="{% static 'images\11536115_10152982171572291_3376045608261556802_n.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Free Day in Copenhagen" title="Free Day in Copenhagen" src="{% static 'images\11536115_10152982171572291_3376045608261556802_n.jpg' %}">
              </div>
              <div class="mdl-cell mdl-cell--7-col">
                  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Days 3 and 4</span> - Free Days in Copenhagen</h4>
@@ -339,7 +409,7 @@
          <!-- days 3-4 day trips -->
          <div class="mdl-grid">
            <div class="mdl-cell mdl-cell--5-col">
-               <img class="bc-intin-img-trip" src="{% static 'images\malmo.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Malmo" title="Malmo" src="{% static 'images\malmo.jpg' %}">
              </div>
              <div class="mdl-cell mdl-cell--7-col">
                <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips)</h4>
@@ -357,7 +427,7 @@
            <!-- day 5 -->
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--5-col mdl-cell--top">
-               <img class="bc-intin-img-trip" src="{% static 'images\Jomfru-Ane-Gade.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Aalborg" title="Aalborg" src="{% static 'images\Jomfru-Ane-Gade.jpg' %}">
              </div>
              <div class="mdl-cell mdl-cell--7-col">
                  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 5</span> - TRAIN TO AALBORG</h4>
@@ -375,7 +445,7 @@
            <!-- day 8 -->
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--5-col mdl-cell--top">
-               <img class="bc-intin-img-trip" src="{% static 'images\IMG_0736.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Preikestolen" title="Preikestolen" src="{% static 'images\IMG_0736.jpg' %}">
              </div>
              <div class="mdl-cell mdl-cell--7-col">
                  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 8</span> - Trip to Preikestolen</h4>
@@ -394,7 +464,7 @@
            <!-- day 9 -->
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
-               <img class="bc-intin-img-trip" src="{% static 'images\IMG_0701.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Kjerag" title="Kjerag" src="{% static 'images\IMG_0701.jpg' %}">
              </div>
              <div class="mdl-cell mdl-cell--7-col">
                  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 9</span> - Last day in Stavanger </h4>
@@ -414,7 +484,7 @@
            <!-- day 12 -->
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--5-col mdl-cell--top">
-               <img class="bc-intin-img-trip" src="{% static 'images\vlak1-swiss2.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Train to Flam" title="Train to Flam" src="{% static 'images\vlak1-swiss2.jpg' %}">
              </div>
              <div class="mdl-cell mdl-cell--7-col">
                  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 12</span> - Train to Flam</h4>
@@ -432,7 +502,7 @@
            <!-- day 16-17 trips -->
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--5-col mdl-cell--bottom">
-               <img class="bc-intin-img-trip" src="{% static 'images\20140602-Stockholm-Sweden-0150-1080.jpg' %}" alt="">
+               <img class="bc-intin-img-trip" alt="Stockholm" title="Stockholm" src="{% static 'images\20140602-Stockholm-Sweden-0150-1080.jpg' %}">
              </div>
              <div class="mdl-cell mdl-cell--6-col">
    <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 16 and 17</span> - Stockholm</h4>
@@ -469,7 +539,7 @@
  <!-- day 2 -->
  <div class="mdl-grid">
    <div class="mdl-cell mdl-cell--4-col-phone">
-     <img class="bc-standard-img" src="{% static 'images\IMG_2425.jpg' %}" alt="">
+     <img class="bc-standard-img" alt="Copenhagen" title="Copenhagen" src="{% static 'images\IMG_2425.jpg' %}">
    </div>
    <div class="mdl-cell mdl-cell--4-col-phone">
        <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 2</span> - Arrival in Copenhagen</h4>
@@ -486,7 +556,7 @@
 <!-- Day 3 to 4 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\11536115_10152982171572291_3376045608261556802_n.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Copenhagen" title="Copenhagen" src="{% static 'images\11536115_10152982171572291_3376045608261556802_n.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Days 3 and 4</span> - Free Days in Copenhagen</h4>
@@ -498,7 +568,7 @@
 <!-- days 3-4 day trips -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
- <img class="bc-standard-img" src="{% static 'images\IMG_2415.jpg' %}" alt="">
+ <img class="bc-standard-img" alt="Tivoli Park" title="Tivoli Park" src="{% static 'images\IMG_2415.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
@@ -511,7 +581,7 @@
 <!-- days 3-4 day trips -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
- <img class="bc-standard-img" src="{% static 'images\malmo.jpg' %}" alt="">
+ <img class="bc-standard-img" alt="Malmo" title="Malmo" src="{% static 'images\malmo.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days bc-caps bc-no-margin">(Optional day trips) </h4>
@@ -527,7 +597,7 @@
 <!-- day 5 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\Jomfru-Ane-Gade.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Aalborg" title="Aalborg" src="{% static 'images\Jomfru-Ane-Gade.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 5</span> - Train to Aalborg</h4>
@@ -542,7 +612,7 @@
 <!-- day 6 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\DSC00387.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Ferry to Stavanger" title="Ferry to Stavanger" src="{% static 'images\DSC00387.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 6</span> - Ferry to Stavanger</h4>
@@ -558,7 +628,7 @@
 <!-- day 7 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img  class="bc-standard-img" src="{% static 'images\IMG_3164.jpg' %}" alt="">
+<img  class="bc-standard-img" alt="Stavanger" title="Stavanger" src="{% static 'images\IMG_3164.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 7</span> - Arrive in Stavanger</h4>
@@ -575,7 +645,7 @@
 <!-- day 8 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\IMG_0736.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Preikestolen" title="Preikestolen" src="{% static 'images\IMG_0736.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 8</span> - Trip to Preikestolen</h4>
@@ -592,7 +662,7 @@
 <!-- day 9 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\IMG_0701.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Kjerag" title="Kjerag" src="{% static 'images\IMG_0701.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 9</span> - Last Day in Stavanger </h4>
@@ -609,7 +679,7 @@
 <!-- days 10 - 11 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\bergen2.jpg' %}" alt="">
+<img class="bc-standard-img" alt="View of Bergen" title="View of Bergen" src="{% static 'images\bergen2.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Days 10 and 11</span> - Bergen</h4>
@@ -627,7 +697,7 @@
 <!-- day 12 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\vlak1-swiss2.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Train to Flam" title="Train to Flam" src="{% static 'images\vlak1-swiss2.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 12</span> - Train to Flåm</h4>
@@ -643,7 +713,7 @@
 <!-- day 13 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\bergen-oslo.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Train to Oslo" title="Train to Oslo" src="{% static 'images\bergen-oslo.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 13</span> - Train to Oslo</h4>
@@ -657,7 +727,7 @@
 <!-- day 14 - 15 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\IMG_0552.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Oslo" title="Oslo" src="{% static 'images\IMG_0552.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 14 and 15</span> - Oslo</h4>
@@ -674,7 +744,7 @@
 <!-- days 16 - 17 trips -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\20140602-Stockholm-Sweden-0150-1080.jpg' %}" alt="">
+<img class="bc-standard-img" alt="Stockholm" title="Stockholm" src="{% static 'images\20140602-Stockholm-Sweden-0150-1080.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 16 and 17</span> - Stockholm</h4>
@@ -690,7 +760,7 @@
 <!-- Day 18 -->
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col-phone">
-<img class="bc-standard-img" src="{% static 'images\IMG_1745.jpg' %}" alt="">
+<img class="bc-standard-img" alt="NYC Penn Station" title="NYC Penn Station" src="{% static 'images\IMG_1745.jpg' %}">
 </div>
 <div class="mdl-cell mdl-cell--4-col-phone">
  <h4 class="bc-trips-itinerary-days-title bc-caps bc-no-margin"><span class="bc-trips-itinerary-days bc-caps">Day 18</span> - Flight home</h4>
@@ -722,7 +792,7 @@
        <div class="mdl-grid">
          <div class="mdl-layout-spacer">  </div>
          <div class="mdl-cell mdl-cell--7-col">
-           <h4 class="bc-trips-guides-heading bc-caps"> Your Tour Directors:
+           <h4 class="bc-trips-guides-heading bc-caps"><a class="bc-no-color-change-1" href="{% url 'guides' %}">Your Tour Directors: </a>
            </h4>
          </div>
          <div class="mdl-layout-spacer">  </div>
@@ -732,13 +802,13 @@
        <div class="mdl-grid">
          <div class="mdl-grid">
            <div class="mdl-cell mdl-cell--middle mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone bc-text-center">
-             <img class="bc-profile-img-trip" src="{% static 'images\kyle4.jpg' %}" alt="">
+             <img class="bc-profile-img-trip" alt="Black Crow Tours Guides" title="Black Crow Tours Guides" src="{% static 'images\kyle4.jpg' %}">
            </div>
            <div class="mdl-layout-spacer">  </div>
            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col-tablet mdl-cell--6-col">
                <h4 class="bc-trips-guides-name bc-no-margin"><br>Kyle Cannon</h4>
                  <h4 class="bc-trips-guides-text">
-                    Kyle is currently climbing the seven summits (Seven highest mountains on each continent; he has already climbed 3) and has summited Kilimanjaro multiple times.
+                    Having lived in Norway for almost every summer since he started traveling, Kyle has an enormous passion for scandinavia and nordic lifestyles.
                     <br>
                    <br><span class="bc-trips-guides-subheading">What to expect with Kyle:</span>
                    <br> - Loves food markets
@@ -755,7 +825,7 @@
        <div class="mdl-grid">
          <div class="mdl-grid">
            <div class="mdl-cell mdl-cell--middle mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone bc-text-center">
-             <img class="bc-profile-img-trip" src="{% static 'images\jesse4.jpg' %}" alt="">
+             <img class="bc-profile-img-trip" alt="Black Crow Tours Guides" title="Black Crow Tours Guides"  src="{% static 'images\jesse4.jpg' %}">
            </div>
            <div class="mdl-layout-spacer">  </div>
            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--5-col-tablet mdl-cell--6-col">
@@ -780,13 +850,13 @@
          <!-- Accommodations -->
          <div style="width: 104%" class="mdl-grid bc-site-grey-background mdl-cell--hide-phone">
            <div class="mdl-cell mdl-cell--4-col bc-no-margin">
-             <img class="bc-photogrid" src="{% static 'images\copenhagen3.jpg' %}">
+             <img class="bc-photogrid" alt="Copenhagen Downtown Hostel" title="Copenhagen Downtown Hostel" src="{% static 'images\copenhagen3tiny.jpg' %}">
            </div>
            <div class="mdl-cell mdl-cell--4-col bc-no-margin">
-             <img class="bc-photogrid" src="{% static 'images\copenhagen2.jpg' %}">
+             <img class="bc-photogrid" alt="Copenhagen Downtown Hostel" title="Copenhagen Downtown Hostel" src="{% static 'images\copenhagen2.jpg' %}">
            </div>
            <div class="mdl-cell mdl-cell--4-col bc-no-margin mdl-cell--hide-tablet">
-             <img class="bc-photogrid" src="{% static 'images\copenhagen-downtown-hostel.jpg' %}">
+             <img class="bc-photogrid" alt="Copenhagen Downtown Hostel" title="Copenhagen Downtown Hostel" src="{% static 'images\copenhagen-downtown-hostel.jpg' %}">
            </div>
          </div>
 
@@ -800,19 +870,18 @@
          <h4 class="bc-trips-moreifo-heading bc-caps"> More Information </h4>
 
            <h4 class="bc-trips-moreifo-text">
-             <span class="bc-trips-moreifo-subheading">Safety in Africa:</span>
-             <br>Tanzania is one of the safest countries in Africa.
-             <br>Crime is usually only theft, at it's worst (which is even rare), people are incredibly friendly and welcoming; still using common sense goes a long way. You should <strong>NOT</strong> be out walking alone at night or in general.
-             <br>Kilimanjaro is an extremely safe climb; with huts at most stops and popular routes, problems (if they occur) are addressed immediately. Still Every year people get hurt or die. Usually from poor planning or from using a poor guide service. A mountian climb is <strong>NOT</strong> the time to be cheap or "just wing it".
-             <br>During the safari, most animals will either completely ignore you or try to steal your food. Unless provoked or threatened. Please do not antagonize the animals.
-             <br>Nairobi <strong>CAN BE</strong> a little dangerous, but is an extremely interesting city if you travel smart.
-             <br><br>The lesson is to exercise travel smarts and common sense. <strong>LISTEN TO YOUR GUIDES!</strong> They are here to make sure you're having the best possible experience.
+             <span class="bc-trips-moreifo-subheading">Pricing in Scandinvia:</span>
+             <br>As you've probably heard, scandinavia is one of the most expensive places in the world.
+             <br>That being said, we try our best to help minamize trip costs. We can doing that by knowing locals; local happy hours, local student food deals, and helping organize day trips for the lowest costs.
+             <br>In addition, all listed excursions have already been included in the cost of the trip. So even though food and beer and be pricey, at least you won't have to worry about getting around or where to stay.
+
+             <br><br>Scandinavia has some on the safest and cleanest cities in the world. So while things may be on the pricey side, it's well worht the experience. During the safari, most animals will either completely ignore you or try to steal your food. Unless provoked or threatened. Please do not antagonize the animals.
            </h4>
 
            <h4 class="bc-trips-moreifo-text">
              <span class="bc-trips-moreifo-subheading">Cool Surprises:</span>
              <br> - Delicious local dinners,
-             <br> - The best parties in Moshi,
+             <br> - The best parties in Scandinavia,
              <br> - And much more that you'll have to wait and see!
            </h4>
        </div>
@@ -822,25 +891,25 @@
            <h4 class="bc-trips-moreifo-heading bc-caps">Frequently Asked Questions </h4>
 
            <h4 class="bc-trips-moreifo-text">
-             <span class="bc-trips-moreifo-subheading">What is the tipping policy?</span>
-             <br>Tipping for the Kilimanjaro climb averages around $300/per person. This includes all of the porters, cooks, and guides. Upwards of 20-30 per group.
-             <br>While our local guides are paid much higher than other companies and tipping is not 'required', it is highly recommended; Every dollar means a ton in the world of tips.
+             <span class="bc-trips-moreifo-subheading">What is the Ferry all about?</span>
+               <br>The Ferry is a HUGE vessle that travels overnight from Aalborg to Stavanger, complete with restaurants, bars, and dance parties.
+               <br>The Ferry is about as local as you can get, as many of the passengers are Norwegians traveling home from Denmark (Taking advantage of the lower alcohol prices). We will as well.
            </h4>
 
            <h4 class="bc-trips-moreifo-text">
-             <span class="bc-trips-moreifo-subheading">What should I pack for the climb and for Africa?</span>
-             <br>Please check our <span><a style="color:#FCFAF4" href="{% url 'packing' %}">packing page</a></span> dedicated to Africa.
+             <span class="bc-trips-moreifo-subheading">What should I pack?</span>
+             <br>Please check our <span><a class="bc-no-color-change" href="{% url 'packing' %}">packing page</a></span> dedicated to the subject.
            </h4>
 
           <h4 class="bc-trips-moreifo-text">
             <span class="bc-trips-moreifo-subheading">What kind of physical condition should I be in?</span>
-            <br>This question is a bit harder to answer. People in incredible physical shape can get altitude sickness just as bad as people in horrible shape.
-            <br>But as a general guideline; the climb is very difficult. Do not underestimate it. You should be in excellent ccardiovascular shape. <strong>DO NOT</strong> attempt if you have pre-existing heart conditions or breathing conditions (Unless your doctor approves it).
+            <br>Preikestolen is a 2 hour semi-difficult hike, walking around cities can last a while, and the fjords require some walking as well.
+            <br>To get the most out of the trip, you should be able to walk a couple miles.
           </h4>
 
           <h4 class="bc-trips-moreifo-text">
-            <span class="bc-trips-moreifo-subheading">Do I need any vaccine's?</span>
-            <br>We suggest going to the <span><a style="color:#FCFAF4" href="https://wwwnc.cdc.gov/travel/destinations/traveler/none/tanzania">CDC's website</a></span>. But a Yellow fever vaccine is a must have.
+            <span class="bc-trips-moreifo-subheading">Do I need to convert currency?</span>
+            <br>We suggest using an ATM. It is was easier and is usually much cheaper to convert.
           </h4>
 
           <h4 class="bc-trips-moreifo-text">
@@ -1275,4 +1344,15 @@
 
       </script>
 
-{% endblock %}
+      <script>
+         function init() {
+         var vidDefer = document.getElementsByTagName('iframe');
+         for (var i=0; i<vidDefer.length; i++) {
+         if(vidDefer[i].getAttribute('data-src')) {
+         vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+         } } }
+         window.onload = init;
+       </script>
+
+
+       {% endblock %}

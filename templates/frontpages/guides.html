@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
-{% block head_title %}- Your Guides{% endblock %}
+{% block head_title %}Your Guides{% endblock %}
+{% block description %}Travel and Adventure Guides for YOUR Upcoming Trip.{% endblock %}
+
+
 {% block content %}
 
 {% load static %}
@@ -12,7 +15,7 @@
       <div class="mdl-grid">
        <div class="mdl-layout-spacer"></div>
         <div class="mdl-cell mdl-cell--9-col">
-          <h4 class="bc-guides-heading"><br><br>AT BLACK CROW TOURS, WE BELIEVE THAT FINDING
+          <h4 class="bc-guides-heading"><br><br><br><br>AT BLACK CROW TOURS, WE BELIEVE THAT FINDING
             THE RIGHT FIT IS CRITICAL TO HAVING A WONDERFUL
             TRAVEL EXPERIENCE. </h4>
         </div>
@@ -42,8 +45,8 @@
 
      <!-- Guide 1 -->
      <div class="mdl-grid">
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-no-rightmargin">
-            <img class="bc-guide-profile-images" src="{% static 'images\kyle.jpg' %}">
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-botmargin bc-text-right bc-no-rightmargin">
+            <img class="bc-guide-profile-images" alt="Black Crow Tours Guides" title="Black Crow Tours Guides" src="{% static 'images\kyle.jpg' %}">
        </div>
 
       <!-- Bio  -->
@@ -57,7 +60,7 @@
 
           <br><br><strong>Places lived:</strong> Philadelphia, San Diego, West Chester, Stavanger-Norway
 
-          <br><strong>Favorite City:</strong> Copenhagen
+          <br><strong>Favorite City:</strong> <a class="bc-no-color-change" href="{% url 'scandinavia' %}">Copenhagen</a>
 
           <br><strong>Favorite Club or Nightlife:</strong> Distortion in Copenhagen, or anything EDM
 
@@ -78,7 +81,7 @@
       <!-- Bio  -->
 
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet mdl-cell--hide-desktop bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
-           <img class="bc-guide-profile-images" src="{% static 'images\jesse.jpg' %}">
+           <img class="bc-guide-profile-images" alt="Black Crow Tours Guides" title="Black Crow Tours Guides" src="{% static 'images\jesse.jpg' %}">
       </div>
 
        <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--8-col-tablet bc-padding bc-no-topmargin bc-no-rightmargin bc-no-botmargin">
@@ -102,15 +105,15 @@
        </div>
 
        <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet bc-no-topmargin bc-no-botmargin bc-no-leftmargin">
-            <img class="bc-guide-profile-images" src="{% static 'images\jesse.jpg' %}">
+            <img class="bc-guide-profile-images" alt="Black Crow Tours Guides" title="Black Crow Tours Guides" src="{% static 'images\jesse.jpg' %}">
        </div>
 
      </div>
 
      <!-- Guide 3 -->
      <div class="mdl-grid">
-       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-no-rightmargin">
-            <img class="bc-guide-profile-images" src="{% static 'images\lexi.jpg' %}">
+       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone  mdl-cell--8-col-tablet bc-no-topmargin bc-text-right bc-no-rightmargin">
+            <img class="bc-guide-profile-images" alt="Black Crow Tours Guides" title="Black Crow Tours Guides" src="{% static 'images\lexi.jpg' %}">
        </div>
 
       <!-- Bio  -->

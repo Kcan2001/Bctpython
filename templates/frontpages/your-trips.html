@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block head_title %}Your Trips{% endblock %}
+{% block description %}Adventure Trips Overseas to AMAZING destinations!{% endblock %}
+{% block content %}
+
+{% load static %}
+
+    <!-- hero -->
+     <div class="mdl-grid bc-your-trips-hero">
+       <div class="mdl-cell mdl-cell--12-col mdl-cell--middle">
+         <h1 class="bc-your-trips-heading">WHERE BACKPACKING AND
+           ADVENTURE MERGE.</h1>
+           <br><br><br><br><br><br>
+           <h2 class="bc-your-trips-subheading bc-text-center">Real backpacking expeditions in urban or outdoor areas.
+            <br>Led by a team of outdoor travelers and mountaineers.
+            <br>Groups never larger than 20 backpackers.</h2>
+       </div>
+     </div>
+
+     <!-- trips -->
+  <div class="mdl-grid bc-your-trips">
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+       <!-- scan -->
+       <div class="mdl-grid">
+         <div class="mdl-layout-spacer"></div>
+         <div class="mdl-cell mdl-cell--10-col">
+           <a class="bc-nounderline" href="{% url 'scandinavia' %}">
+           <div class="mdl-grid">
+             <div class="mdl-cell mdl-cell--12-col bc-no-botmargin  bc-your-trips-image-border">
+              <img class="bc-standard-img" alt="Scandinavia" title="Scandinavia" src="{% static 'images\scanicon.jpg' %}">
+            </div>
+           </div>
+           <div class="mdl-grid">
+
+             <div class="mdl-cell mdl-cell--12-col bc-padding bc-no-topmargin bc-your-trips-text-back">
+               <h1 class="bc-your-trips-text-title bc-text-center">Trek around magnificent Scandinavia</h1>
+               <h2 class="bc-your-trips-text">
+                  - Denmark and a ferry to Norway.
+                <br>- The Fjords and back country of Norway.
+                <br>- Oslo, Stockholm, and the major cities of Scandinavia.</h2>
+            </div>
+           </div>
+         </a>
+         </div>
+         <div class="mdl-layout-spacer"></div>
+       </div>
+   </div>  <!-- scan -->
+
+
+   <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+      <!-- kili-->
+      <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--10-col">
+        <a class="bc-nounderline" href="{% url 'kilimanjaro' %}">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col bc-no-botmargin  bc-your-trips-image-border">
+             <img class="bc-standard-img" alt="Kilimanjaro" title="Kilimanjaro" src="{% static 'images\kiliicon.jpg' %}" alt="">
+           </div>
+          </div>
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col bc-padding bc-no-topmargin bc-your-trips-text-back">
+              <h1 class="bc-your-trips-text-title bc-text-center">See the Roof of africa!</h1>
+              <h2 class="bc-your-trips-text">
+                 - Moshi and the surrounding rain forests.
+               <br>- Kilimanjaro, the highest free standing mountain in the world.
+               <br>- A safari to the Ngorongoro crater and more.</h2>
+           </div>
+          </div>
+        </a>
+        </div>
+        <div class="mdl-layout-spacer"></div>
+      </div>
+  </div>  <!-- kili-->
+
+  </div>
+
+{% endblock %}

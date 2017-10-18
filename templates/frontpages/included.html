@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-{% block head_title %}- What's Included?{% endblock %}
+{% block head_title %}What's Included?{% endblock %}
+{% block description %}We Include Flights, Hotels, Full-Time Guide, Excursions, Transfers, and Much More!{% endblock %}
+
 {% block content %}
 
 {% load static %}
@@ -12,14 +14,14 @@
              <div class="mdl-grid">
                <div class="mdl-layout-spacer"></div>
                <div class="mdl-cell mdl-cell--6-col mdl-cell--middle">
-                 <h4 class="bc-included-heading">NO OTHERS INCLUDE AS MUCH
-                   AS WE DO AT ONE LOW PRICE: </h4>
-                   <h4 class="bc-included-subheading">
+                 <h1 class="bc-included-heading">NO OTHERS INCLUDE AS MUCH
+                   AS WE DO AT ONE LOW PRICE: </h1>
+                   <h2 class="bc-included-subheading">
                    Round-trip flights, travel between cities, full-time
                    tour director, hand-picked accommodations,
                    guided sightseeing, free breakfast daily, a welcome
                    mixer and farewell dinner.
-                   <br><br>Your entire trip is backed by a low price guarantee. </h4>
+                   <br><br>Your entire trip is backed by a low price guarantee. </h2>
                </div>
              </div>
            <div class="mdl-layout-spacer"></div>
@@ -34,13 +36,13 @@
            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
              <div class="mdl-grid">
                <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                 <img class="bc-standard-img-icons" src="{% static 'icons/person2.png' %}" alt="">
+                 <img class="bc-standard-img-icons" alt="Person Icon" title="Person Icon" src="{% static 'icons/person2.png' %}" alt="">
                  <h4 class="bc-included-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Personalized Groups</h4>
              </div>
            </div>
              <div class="mdl-grid">
                <div class="mdl-cell mdl-cell--12-col">
-                  <h4 class="bc-included-icon-text bc-no-margin">Our tours are for young adults <strong>ages 21-35</strong> and are limited to a <strong>MAX</strong> of 20 people. <br><br><span class="bc-underline">Our trips focus on:</span><strong><br> - Incredible local experiences<br> - Great nightlife<br> - Safe Locations with friendly people</strong></h4>
+                  <h2 class="bc-included-icon-text bc-no-margin">Our tours are for young adults <strong>ages 21-35</strong> and are limited to a <strong>MAX</strong> of 20 people. <br><br><span class="bc-underline">Our trips focus on:</span><strong><br> - Incredible local experiences<br> - Great nightlife<br> - Safe Locations with friendly people</strong></h2>
                </div>
              </div>
            </div>
@@ -49,13 +51,13 @@
          <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--11-col bc-text-center">
-               <img class="bc-standard-img-icons" src="{% static 'icons/guide.png' %}" alt="">
-               <h4 class="bc-included-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Full-time Guide</h4>
+               <img class="bc-standard-img-icons" alt="Guide Icon" title="Guide Icon" src="{% static 'icons/guide.png' %}">
+               <h4 class="bc-included-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps"><a class="bc-no-color-change-1" href="{% url 'guides' %}">Full-time Guide</a></h4>
            </div>
          </div>
            <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--11-col">
-                <h4 class="bc-included-icon-text bc-no-margin">If the fear of traveling alone is <strong>holding you back</strong> from doing the things you really want to... then please let us help.
+                <h4 class="bc-included-icon-text bc-no-margin">If the fear of traveling alone is <strong>holding you back</strong> from doing the things you really want to... let us help.
                   <br><br> If you've ever thought "I want to travel, but with a group of friends... not a tour". Then Black Crow Tours is for you. We are built by backpackers, designed with <strong>YOU</strong> in mind.</h4>
              </div>
            </div>
@@ -65,7 +67,7 @@
            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
              <div class="mdl-grid">
                <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                   <img class="bc-standard-img-icons" src="{% static 'icons/air.png' %}" alt="">
+                   <img class="bc-standard-img-icons" alt="Air Icon" title="Air Icon" src="{% static 'icons/air.png' %}">
                    <h4 class="bc-included-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Airfare and Transfers</h4>
              </div>
            </div>
@@ -80,13 +82,17 @@
              <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
                <div class="mdl-grid">
                  <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                     <img class="bc-standard-img-icons" src="{% static 'icons/accom.png' %}" alt="">
-                   <h4 class="bc-included-icon-heading bc-caps bc-no-botmargin bc-home-icon-margin2">Hand-Picked Accommodations</h4>
+                     <img class="bc-standard-img-icons" alt="Accommodations Icon" title="Accommodations Icon" src="{% static 'icons/accom.png' %}">
+                   <h4 class="bc-included-icon-heading bc-caps bc-no-botmargin bc-home-icon-margin2"><a class="bc-no-color-change-1" href="{% url 'accommodations' %}">Hand-Picked Accommodations</a></h4>
                </div>
              </div>
                <div class="mdl-grid">
                  <div class="mdl-cell mdl-cell--12-col">
-                    <h4 class="bc-included-icon-text bc-no-margin"><span class="bc-underline">Some common myths we hear are:</span><br> 'Travel sounds gross, dirt and bugs', <br> or 'I heard people get robbed while traveling!'"  <br><br> Well truth is, our accommodations are <strong>always</strong> in the <strong>best</strong>, <strong>nicest</strong>, and <strong>cleanest</strong> locations.
+                    <h4 class="bc-included-icon-text bc-no-margin"><span class="bc-underline">Some common problems we see are:</span>
+                      <br> 'Traveling with gross hotels or transportation',
+                      <br> or 'scary and dangerous locations and a fear of getting robbed'
+
+                      <br><br> Well truth is, our accommodations are <strong>always</strong> in the <strong>best</strong>, <strong>nicest</strong>, and <strong>cleanest</strong> locations.
                       They are hand picked by our Tours Directors to give you the <strong>BEST</strong> possible experience!</h4>
                  </div>
                </div>
@@ -96,14 +102,17 @@
                <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
                  <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                       <img class="bc-standard-img-icons" src="{% static 'icons/local.png' %}" alt="">
+                       <img class="bc-standard-img-icons" alt="Local Icon" title="Local Icon" src="{% static 'icons/local.png' %}">
                      <h4 class="bc-included-icon-heading bc-caps bc-no-botmargin bc-home-icon-margin2">Local Experiences</h4>
                  </div>
                </div>
                  <div class="mdl-grid">
                    <div class="mdl-cell mdl-cell--12-col">
-                      <h4 class="bc-included-icon-text bc-no-margin"><span class="bc-underline">Some common myths we hear are:</span><br> 'Travel sounds gross, dirt and bugs', <br> or 'I heard people get robbed while traveling!'"  <br><br> Well truth is, our accommodations are <strong>always</strong> in the <strong>best</strong>, <strong>nicest</strong>, and <strong>cleanest</strong> locations.
-                        They are hand picked by our Tours Directors to give you the <strong>BEST</strong> possible experience!</h4>
+                      <h4 class="bc-included-icon-text bc-no-margin">
+                        While some companies are okay with just seeing the major sights, we are not. We think the lesser known sights are much more unique.
+                        <br><br>We also don't want to insult your intelligence; the major sights are very easy to see on your own. True experiences are not.
+                        <br><br>With Local friends and guides, we can provide<strong> a Genuine local experience </strong>without all the time commitment of living in each city.
+                      </h4>
                    </div>
                  </div>
                </div>
@@ -112,16 +121,19 @@
                  <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
                    <div class="mdl-grid">
                      <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                      <img class="bc-standard-img-icons" src="{% static 'icons/cool.png' %}" alt="">
+                      <img class="bc-standard-img-icons" alt="Cool Icon" title="Cool Icon" src="{% static 'icons/cool.png' %}">
                        <h4 class="bc-included-icon-heading bc-caps bc-no-botmargin bc-home-icon-margin2">Cool Surprises</h4>
                    </div>
                  </div>
                    <div class="mdl-grid">
                      <div class="mdl-cell mdl-cell--12-col">
-                        <h4 class="bc-included-icon-text bc-no-margin"><span class="bc-underline">Let me preface this by telling you something you already know… <br>True <strong>once in a lifetime</strong> experiences are ones that are <strong>unexpected and unforgetable</strong>.
-                          <br><br> We want to keep these moments <strong>unexpected</strong> and give you a chance to be truly <strong>blown away!</strong> <br>
-                           <br>We've been traveling for <strong>YEARS</strong> and have spent <strong>THOUSANDS</strong> to make these trip's truly special!
-                           With Black Crow Tours, you'll get to experiences these once in a lifetime moments <strong>without spending all that time or money.</strong></h4>
+                        <h4 class="bc-included-icon-text bc-no-margin">To tell you something you already know…
+                          <br>True <strong>once in a lifetime</strong> experiences are ones that are unexpected and unforgettable.
+
+                          <br><br>We want to keep these moments <strong>unexpected</strong> and give you a chance to be truly <strong>blown away!</strong>
+
+                          <br><br>We've been traveling for <strong>YEARS</strong> and have spent <strong>THOUSANDS</strong> to make these trip's truly special! With Black Crow Tours, you'll get to experiences these once in a lifetime moments <strong>without spending all that time or money.</strong>
+                        </h4>
                      </div>
                    </div>
                  </div>
@@ -165,8 +177,5 @@
 
   </div>
 </div>
-
-
-
 
 {% endblock %}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +10,10 @@
 
 
     <!-- Google Mdl -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'material.min.css' %}"/>
     <script defer src="{% static 'material.min.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -47,11 +46,12 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
     <base href="/">
 </head>
 <body>
-<div class="mdl-layout">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
 <main class="mdl-layout__content">
 
 {% load static %}
+
 
 
 <!-- Mobile-tablet intro -->
@@ -59,19 +59,11 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
   <div class="mdl-layout-spacer"></div>
     <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone mdl-cell--hide-desktop">
 
-              <div class="mdl-grid mdl-cell--hide-desktop">
-                <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-cell--hide-desktop">
-                        <img class="bc-standard-img" src="{% static 'White.png' %}" alt="">
-                        <h4 class="bc-home-subtitle-mobile-comingsoon bc-text-center">(Coming soon)</h4>
-                    </div>
-                <div class="mdl-layout-spacer"></div>
-              </div>
 
               <!-- Tablet spacer -->
-              <div class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-phone">
+              <div class="mdl-grid mdl-cell--hide-desktop">
                     <div class="mdl-cell mdl-cell--2-tablet">
-                      <br><br><br><br><br><br><br>
+                      <br><br><br><br>
                     </div>
               </div>
 
@@ -79,9 +71,9 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
               <div class="mdl-grid mdl-cell--hide-desktop">
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--hide-desktop">
-                  <h4 class="bc-home-title-mobile">Let's live <span class="bc-home-title2-mobile">this dream.</span></h4>
-                  <h4 class="bc-home-subtitle-mobile"><br>Our site launch is September 1st. <br> To celebrate, we'll be giving away a chance to win a <span class="bc-home-subtitle2">FREE GoPro and 50% off</span> our Scandinavia Trip to people on our email list.
-                    <br><br>Sign up below.</h4>
+                  <h1 class="bc-home-title-mobile">Let's find<span class="bc-home-title2-mobile"><br> Your Adventure.</span></h1>
+                  <h4 class="bc-home-subtitle-mobile"><br>Sign up to get <span class="bc-home-subtitle2">FREE travel tips, guides, a chance to win free gear, trip discounts and much more!</span> Only offered to our email subscribers.
+                  <br><br>Sign up below.</h4>
                 </div>
                 <div class="mdl-layout-spacer"></div>
               </div>
@@ -195,22 +187,13 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
 <!-- Home main video desktop -->
 <div class="mdl-grid bc-home-main-heroimage mdl-cell--hide-phone mdl-cell--hide-tablet">
   <div class="mdl-layout-spacer"></div>
-    <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone">
-
-          <div class="mdl-grid mdl-cell--hide-phone mdl-cell--hide-tablet">
-            <div class="mdl-layout-spacer"></div>
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--5-col-tablet mdl-cell--hide-phone">
-                <img class="bc-standard-img" src="{% static 'White.png' %}" alt="">
-                <h4 class="bc-home-subtitle bc-text-center"><br>(Coming soon)<br></h4>
-              </div>
-              <div class="mdl-layout-spacer"></div>
-            </div>
+    <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone mdl-cell--middle">
 
 
               <div class="mdl-grid">
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-cell mdl-cell--9-col mdl-cell--hide-phone">
-                  <h4 class="bc-home-title">This Dream...<br><span class="bc-home-title2">Let's live this one.</span></h4>
+                  <h1 class="bc-home-title">Let's Find<br><span class="bc-home-title2">Your Adventure.</span></h1>
 
                 </div>
                 <div class="mdl-layout-spacer"></div>
@@ -226,8 +209,8 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
             <div class="mdl-layout-spacer"></div>
               <div class="mdl-cell mdl-cell--10-col mdl-cell--hide-tablet mdl-cell--hide-phone">
 
-                <h4 class="bc-home-subtitle">A chance to win a <span class="bc-home-subtitle2">FREE GoPro and 50% off</span> our Scandinavia Trip</h4>
-                <h4 class="bc-home-subtitle"><br>Our site launch is September 1st. To celebrate, we'll be giving away <span class="bc-home-subtitle2">travel gear and trip discounts</span> to people on our email list.
+                <h2 class="bc-home-subtitle">Backpacking Inspired trips for young adults ages 21-35.</h2>
+                <h4 class="bc-home-subtitle"><br>Sign up to get <span class="bc-home-subtitle2">FREE travel tips, guides, a chance to win free gear, trip discounts and much more!</span> Only offered to our email subscribers.
                   <br><br>Sign up below. </h4>
               </div>
               <div class="mdl-layout-spacer"></div>
@@ -279,114 +262,82 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
       <div class="mdl-layout-spacer"></div>
     </div> <!--END Home main video desktop -->
 
-      <!-- Icon Grid -->
-      <div class="mdl-grid bc-home-icons">
-        <div class="mdl-layout-spacer"></div>
-          <div class="mdl-cell mdl-cell--10-col">
-                    <br><br><br>
+    <!-- process -->
+    <!-- <div class="mdl-grid bc-home-journey">
+      <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--10-col"> -->
 
-            <div class="mdl-grid">
-
-              <!-- Icon 1 -->
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                  <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                      <img class="bc-standard-img-icons" src="{% static 'icons/person2.png' %}" alt="">
-                      <h4 class="bc-home-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Personalized Groups</h4>
-                  </div>
-                </div>
-                  <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col">
-                       <h4 class="bc-home-icon-text bc-no-margin">Our tours are for young adults <strong>ages 21-35</strong> and are limited to a <strong>MAX</strong> of 20 people. <br><br><span class="bc-underline">Our trips focus on:</span><strong><br> - Incredible local experiences<br> - Great nightlife<br> - Safe Locations with friendly people</strong></h4>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Icon 2 -->
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                    <img class="bc-standard-img-icons" src="{% static 'icons/guide.png' %}" alt="">
-                    <h4 class="bc-home-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Full-time Guide</h4>
-                </div>
+            <!-- Headline -->
+          <!-- <div class="mdl-grid">
+            <div class="mdl-layout-spacer"></div>
+              <div class="mdl-cell mdl-cell--10-col mdl-cell--4-col-phone">
+                <br>
+                <h4 class="bc-home-headlines bc-caps bc-no-margin">Taking your dream journey has never been easier!</h4>
               </div>
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--11-col">
-                     <h4 class="bc-home-icon-text bc-no-margin">If the fear of traveling alone is <strong>holding you back</strong> from doing the things you really want to... let us help!
-                       <br><br> If you've ever thought "I want to travel, but with a group of friends... not a tour". Then Black Crow Tours is for you. We are built by backpackers, designed with <strong>YOU</strong> in mind.</h4>
-                  </div>
-                </div>
-              </div>
-
-          <!-- Icon 3 -->
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-              <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                    <img class="bc-standard-img-icons" src="{% static 'icons/air.png' %}" alt="">
-                    <h4 class="bc-home-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Airfare and Transfers</h4>
-              </div>
-            </div>
-              <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--11-col">
-                   <h4 class="bc-home-icon-text bc-no-margin">Black Crow Tours wants to <strong>make travel easy</strong> and accessible to everyone.<br><br> <span class="bc-underline">We make your trip easier with:</span><strong><br> - All Flights and Transfers Included <br> - Tour Director and Local Guides <br> - Plenty of Pre-Trip Support and Travel Advice</strong></h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Icon 4 -->
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--11-col bc-text-center">
-                      <img class="bc-standard-img-icons" src="{% static 'icons/accom.png' %}" alt="">
-                    <h4 class="bc-home-icon-heading bc-caps bc-no-botmargin bc-home-icon-margin2">Hand-Picked Accommodations</h4>
-                </div>
-              </div>
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col">
-                     <h4 class="bc-home-icon-text bc-no-margin"><span class="bc-underline">Some common problems we see are:</span><br> 'Traveling with gross hotels or transportation', <br> or 'scary and dangerous locations and a fear of getting robbed' <br><br> Well truth is, our accommodations are <strong>always</strong> in the <strong>best</strong>, <strong>nicest</strong>, and <strong>cleanest</strong> locations.
-                       They are hand picked by our Tours Directors to give you the <strong>BEST</strong> possible experience!</h4>
-
-                  </div>
-                </div>
-              </div>
-
+            <div class="mdl-layout-spacer"></div>
           </div>
 
-       </div>
-       <div class="mdl-layout-spacer"></div>
-      </div> <!--End Icon Grid -->
+        <div class="mdl-grid"> -->
 
-
-<!-- Cool surprsies  -->
-      <div class="mdl-grid bc-home-cool">
-        <div class="mdl-layout-spacer"></div>
-          <div class="mdl-cell mdl-cell--middle mdl-cell--10-col">
-
-              <div class="mdl-cell mdl-cell--middle mdl-cell--12-col mdl-cell--4-col-phone">
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--middle mdl-cell--8-col-tablet  mdl-cell--4-col bc-text-center">
-                    <img class="bc-standard-img-icons" src="{% static 'icons/cool.png' %}" alt="">
-                </div>
-                  <div class="mdl-cell mdl-cell--8-col">
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col">
-                        <h4 class="bc-cool-heading bc-no-margin bc-caps">Cool Surprises</h4>
-                      </div>
-                    </div>
-                    <div class="mdl-grid">
-                      <div class="mdl-cell mdl-cell--12-col">
-                        <h4 class="bc-cool-text bc-no-margin">To tell you something you already know… <br>True <strong>once in a lifetime</strong> experiences are ones that are <strong>unexpected and unforgettable</strong>.
-                          <br><br> We want to keep these moments <strong>unexpected</strong> and give you a chance to be truly <strong>blown away!</strong> <br>
-                           <br>We've been traveling for <strong>YEARS</strong> and have spent <strong>THOUSANDS</strong> to make these trip's truly special!
-                           With Black Crow Tours, you'll get to experiences these once in a lifetime moments <strong>without spending all that time or money.</strong></h4>
-                      </div>
-                    </div>
+          <!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet"> -->
+             <!-- scan -->
+             <!-- <div class="mdl-grid">
+               <div class="mdl-layout-spacer"></div>
+               <div class="mdl-cell mdl-cell--10-col">
+                 <a class="bc-nounderline" href="{% url 'scandinavia' %}">
+                 <div class="mdl-grid">
+                   <div class="mdl-cell mdl-cell--12-col bc-no-botmargin  bc-your-trips-image-border">
+                    <img class="bc-standard-img" src="{% static 'images\scan.jpg' %}" alt="">
                   </div>
+                 </div>
+                 <div class="mdl-grid">
+
+                   <div class="mdl-cell mdl-cell--12-col bc-padding bc-no-topmargin bc-your-trips-text-back">
+                     <h4 class="bc-your-trips-text-title bc-text-center">Trek around magnificent Scandinavia</h4>
+                     <h4 class="bc-your-trips-text">
+                        - Denmark and a ferry to Norway.
+                      <br>- The Fjords and back country of Norway.
+                      <br>- The major cities of Scandinavia.</h4>
+                  </div>
+                 </div>
+               </a>
+               </div>
+               <div class="mdl-layout-spacer"></div>
+             </div>
+         </div>  <!-- scan -->
+
+
+         <!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet"> -->
+            <!-- kili-->
+            <!-- <div class="mdl-grid">
+              <div class="mdl-layout-spacer"></div>
+              <div class="mdl-cell mdl-cell--10-col">
+              <a class="bc-nounderline" href="{% url 'kilimanjaro' %}">
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--12-col bc-no-botmargin  bc-your-trips-image-border">
+                   <img class="bc-standard-img" src="{% static 'images\kili.jpg' %}" alt="">
+                 </div>
                 </div>
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--12-col bc-padding bc-no-topmargin bc-your-trips-text-back">
+                    <h4 class="bc-your-trips-text-title bc-text-center">See the Roof of africa!</h4>
+                    <h4 class="bc-your-trips-text">
+                       - Moshi and the surrounding rain forests.
+                     <br>- Kilimanjaro, the highest free standing mountain in the world.
+                     <br>- A safari to the Ngorongoro crater and more.</h4>
+                 </div>
+                </div>
+              </a>
               </div>
-          </div>
-          <div class="mdl-layout-spacer"></div>
-        </div>
+              <div class="mdl-layout-spacer"></div>
+            </div>
+        </div>  <!-- kili-->
+
+      <!-- </div>
+    </div>
+  <div class="mdl-layout-spacer"></div>
+</div> -->
+
 
 
 <!-- Reviews headline -->
@@ -395,7 +346,7 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
           <div class="mdl-cell mdl-cell--10-col">
 
               <br>
-          <img class="bc-standard-img" src="{% static 'landing-ribbon.png' %}" alt="">
+          <img class="bc-standard-img" src="{% static 'landing-ribbon.fw.png' %}" alt="">
             </div>
 
           <div class="mdl-layout-spacer"></div>
@@ -407,7 +358,7 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
           <div class="mdl-cell mdl-cell--10-col">
 
             <br>
-            <h4 class="bc-home-headlines bc-caps bc-no-margin"> What our past crows have to say about us:
+            <h2 class="bc-home-headlines bc-caps bc-no-margin"> What our past crows have to say about us: </h2>
             </div>
 
           <div class="mdl-layout-spacer"></div>
@@ -425,7 +376,7 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
                   <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--10-col mdl-cell--3-col-tablet mdl-cell--3-col-phone">
-                      <img class="bc-profile-img-home" src="{% static 'images/11312764_10108890740945764_6637787288993671656_o.jpg' %}" alt="">
+                      <img class="bc-profile-img-home" alt="Copenhagen Review" title="Copenhagen Review" src="{% static 'images/11312764_10108890740945764_6637787288993671656_o.jpg' %}" alt="">
                     </div>
                     <div class="mdl-layout-spacer"></div>
                   </div>
@@ -450,7 +401,7 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
                   <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--10-col mdl-cell--3-col-tablet mdl-cell--3-col-phone">
-                      <img class="bc-profile-img-home" src="{% static 'images/13233135_1805925472960642_8792280843510774187_n.jpg' %}" alt="">
+                      <img class="bc-profile-img-home" alt="Bergen Review" title="Bergen Review" src="{% static 'images/13233135_1805925472960642_8792280843510774187_n.jpg' %}">
                     </div>
                     <div class="mdl-layout-spacer"></div>
                   </div>
@@ -473,7 +424,7 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
                   <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--10-col mdl-cell--3-col-tablet mdl-cell--3-col-phone">
-                      <img class="bc-profile-img-home" src="{% static 'images/16830878_10104927921597493_4154423657891093630_n.jpg' %}" alt="">
+                      <img class="bc-profile-img-home" alt="Africa Review" title="Africa Review" src="{% static 'images/16830878_10104927921597493_4154423657891093630_n.jpg' %}">
                     </div>
                     <div class="mdl-layout-spacer"></div>
                   </div>
@@ -496,214 +447,128 @@ src="https://www.facebook.com/tr?id=537178703072709&ev=PageView&noscript=1"
           <div class="mdl-layout-spacer"></div>
         </div> <!-- End Reviews -->
 
+        <!-- Icon Grid -->
+        <div class="mdl-grid bc-home-icons">
+          <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--10-col">
+                      <br><br><br>
 
-        <!-- process -->
-          <div class="mdl-grid bc-home-journey">
-            <div class="mdl-layout-spacer"></div>
-              <div class="mdl-cell mdl-cell--10-col">
-
-                <!-- Headline -->
               <div class="mdl-grid">
-                <div class="mdl-layout-spacer"></div>
-                  <div class="mdl-cell mdl-cell--10-col mdl-cell--4-col-phone">
-                    <br>
-                    <h4 class="bc-home-headlines bc-caps bc-no-margin">Taking your dream journey has never been easier!</h4>
+
+                <!-- Icon 1 -->
+                  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                    <div class="mdl-grid">
+                      <div class="mdl-cell mdl-cell--11-col bc-text-center">
+                        <img class="bc-standard-img-icons" alt="Person Icon" title="Person Icon"  src="{% static 'icons/person2.png' %}">
+                        <h4 class="bc-home-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Personalized Groups</h4>
+                    </div>
                   </div>
-                <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-grid">
+                      <div class="mdl-cell mdl-cell--12-col">
+                         <h4 class="bc-home-icon-text bc-no-margin">Our tours are for young adults <strong>ages 21-35</strong> and are limited to a <strong>MAX</strong> of 20 people. <br><br><span class="bc-underline">Our trips focus on:</span><strong><br> - Incredible local experiences<br> - Great nightlife<br> - Safe Locations with friendly people</strong></h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Icon 2 -->
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--11-col bc-text-center">
+                      <img class="bc-standard-img-icons" alt="Guide Icon" title="Guide Icon"  src="{% static 'icons/guide.png' %}">
+                      <h4 class="bc-home-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Full-time Guide</h4>
+                  </div>
+                </div>
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--11-col">
+                       <h4 class="bc-home-icon-text bc-no-margin">If the fear of traveling alone is <strong>holding you back</strong> from doing the things you really want to... let us help!
+                         <br><br> If you've ever thought "I want to travel, but with a group of friends... not a tour". Then Black Crow Tours is for you. We are built by backpackers, designed with <strong>YOU</strong> in mind.</h4>
+                    </div>
+                  </div>
+                </div>
+
+            <!-- Icon 3 -->
+              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--11-col bc-text-center">
+                      <img class="bc-standard-img-icons" alt="Air Icon" title="Air Icon" src="{% static 'icons/air.png' %}">
+                      <h4 class="bc-home-icon-heading bc-no-botmargin bc-home-icon-margin1 bc-caps">Airfare and Transfers</h4>
+                </div>
+              </div>
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--11-col">
+                     <h4 class="bc-home-icon-text bc-no-margin">Black Crow Tours wants to <strong>make travel easy</strong> and accessible to everyone.<br><br> <span class="bc-underline">We make your trip easier with:</span><strong><br> - All Flights and Transfers Included <br> - Tour Director and Local Guides <br> - Plenty of Pre-Trip Support and Travel Advice</strong></h4>
+                  </div>
+                </div>
               </div>
 
-              <!-- Steps -->
-        <div class="mdl-grid">
-            <!-- Step one -->
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-              <br>
-              <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone bc-text-center">
-                      <img class="bc-standard-img-icons" src="{% static 'icons/sign-up.png' %}" alt="">
+              <!-- Icon 4 -->
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--11-col bc-text-center">
+                        <img class="bc-standard-img-icons" alt="Hotel Icon" title="Hotel Icon" src="{% static 'icons/accom.png' %}">
+                      <h4 class="bc-home-icon-heading bc-caps bc-no-botmargin bc-home-icon-margin2">Hand-Picked Accommodations</h4>
                   </div>
-              </div>
-              <br>
-              <div class="mdl-grid">
-                <h4 class="bc-steps-heading bc-caps">1. Sign up for Email updates!</h4>
-                <h4 class="bc-steps-text bc-no-margin">Unfortunately, you can't book your trip yet... Since we didn't fully launch our new site yet. <br><br> But sign-up for email updates, and you'll get the absolute <strong>first chance</strong> to book... As well as a ton of other cool stuff for free.</h4>
-              </div>
+                </div>
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                       <h4 class="bc-home-icon-text bc-no-margin"><span class="bc-underline">Some common problems we see are:</span><br> 'Traveling with gross hotels or transportation', <br> or 'scary and dangerous locations and a fear of getting robbed' <br><br> Well truth is, our accommodations are <strong>always</strong> in the <strong>best</strong>, <strong>nicest</strong>, and <strong>cleanest</strong> locations.
+                         They are hand picked by our Tours Directors to give you the <strong>BEST</strong> possible experience!</h4>
+
+                    </div>
+                  </div>
+                </div>
+
             </div>
 
-            <div class="mdl-layout-spacer"></div>
+         </div>
+         <div class="mdl-layout-spacer"></div>
+        </div> <!--End Icon Grid -->
 
-            <!-- Step two -->
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-              <br>
-              <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone bc-text-center">
-                      <img class="bc-standard-img-icons" src="{% static 'icons/youtube.png' %}" alt="">
+
+    <!-- Cool surprsies  -->
+        <div class="mdl-grid bc-home-cool">
+          <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--middle mdl-cell--10-col">
+
+                <div class="mdl-cell mdl-cell--middle mdl-cell--12-col mdl-cell--4-col-phone">
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--middle mdl-cell--8-col-tablet  mdl-cell--4-col bc-text-center">
+                      <img class="bc-standard-img-icons" alt="Cool Icon" title="Cool Icon" src="{% static 'icons/cool.png' %}">
                   </div>
-              </div>
-              <br>
-              <div class="mdl-grid">
-                <h4 class="bc-steps-heading bc-caps">2. Check out our YouTube</h4>
-                <h4 class="bc-steps-text bc-no-margin">While we can't <strong>yet</strong> sell the dream... the inspiration is free.
-                <br><br>Check out our <a style="color:white" href="https://www.youtube.com/channel/UCaHIxZ8FpIVq5ZT6AqUsVRg">YouTube</a></h4>
-              </div>
-            </div>
-
-
-            <div class="mdl-layout-spacer"></div>
-
-            <!-- Step three -->
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-              <br>
-              <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone bc-text-center">
-                      <img class="bc-standard-img-icons" src="{% static 'icons/eye-out.png' %}" alt="">
+                    <div class="mdl-cell mdl-cell--8-col">
+                      <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <h4 class="bc-cool-heading bc-no-margin bc-caps">Cool Surprises</h4>
+                        </div>
+                      </div>
+                      <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <h4 class="bc-cool-text bc-no-margin">To tell you something you already know… <br>True <strong>once in a lifetime</strong> experiences are ones that are <strong>unexpected and unforgettable</strong>.
+                            <br><br> We want to keep these moments <strong>unexpected</strong> and give you a chance to be truly <strong>blown away!</strong> <br>
+                             <br>We've been traveling for <strong>YEARS</strong> and have spent <strong>THOUSANDS</strong> to make these trip's truly special!
+                             With Black Crow Tours, you'll get to experiences these once in a lifetime moments <strong>without spending all that time or money.</strong></h4>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-              </div>
-              <br>
-              <div class="mdl-grid">
-                <h4 class="bc-steps-heading bc-caps bc-eye-icon">3. Keep an Eye Out</h4>
-                <h4 class="bc-steps-text bc-no-margin">If you're sick of looking at a backpacker's incredible Instagram or facebook adventure videos while sitting around ‘wasting life away’...
-                  <br><br>Let's put you back on track. Give others a reason to be jealous of you. Stay tuned!</h4>
-              </div>
+                </div>
             </div>
-        </div>
+            <div class="mdl-layout-spacer"></div>
+          </div>
+
+          <!-- Video -->
+           <!-- <div class="mdl-grid bc-trip-top-video bc-site-brown-background">
+             <div class="mdl-layout-spacer"></div>
+              <div class="mdl-cell mdl-cell--7-col mdl-cell-bottom">
+
+
+                  <iframe width="100%" height="600px" src="https://www.youtube.com/embed/BneXp6vljiA" frameborder="0" allowfullscreen>
+                  </iframe>
 
               </div>
               <div class="mdl-layout-spacer"></div>
-            </div>
+           </div> <!-- End -->
 
-
-<!-- Final CTA -->
-          <div class="mdl-grid bc-home-packing-signup">
-            <div class="mdl-layout-spacer"></div>
-              <div class="mdl-cell mdl-cell--9-col">
-
-                <div class="mdl-grid">
-                  <div class="mdl-layout-spacer"></div>
-                  <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone">
-                    <br>
-                    <h4 class="bc-home-headlines bc-no-margin bc-caps">Want a <strong>FREE</strong> Travel packing guide?</h4>
-                    <h4 class="bc-packing-text bc-no-margin"><br>We made this guide to help people pack for a trip to, well... <strong>anywhere!</strong>
-                      <br><br>Enter your email below for a <strong>FREE</strong> packing guide and to stay updated with Black Crow Tours!</h4>
-                  </div>
-                  <div class="mdl-layout-spacer"></div>
-                </div>
-
-        <!-- Desktop-Mobile form -->
-        <div class="mdl-grid mdl-cell--hide-tablet">
-      <div class="mdl-layout-spacer"></div>
-        <div class="mdl-cell mdl-cell--9-col">
-          <form method="POST" action="https://blackcrowtours.activehosted.com/proc.php" id="_form_13_" class="_form _form_13 _inline-form  _dark" novalidate>
-            <input type="hidden" name="u" value="13" />
-            <input type="hidden" name="f" value="13" />
-            <input type="hidden" name="s" />
-            <input type="hidden" name="c" value="0" />
-            <input type="hidden" name="m" value="0" />
-            <input type="hidden" name="act" value="sub" />
-            <input type="hidden" name="v" value="2" />
-            <div class="_form-content mdl-grid">
-              <div class=" mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" >
-                <div>
-                  <input class="bc-home-formlines" type="text" name="fullname" placeholder="Name" />
-                </div>
-              </div>
-
-              <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" >
-                <div>
-                  <input class="bc-home-formlines" type="text" name="email" placeholder="Email" required/>
-                </div>
-              </div>
-
-              <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                <button  id="_form_13_submit" class="_submit bc-home-submitbutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bc-form-text" type="submit">
-                  Subscribe
-                </button>
-              </div>
-              <div class="_clear-element">
-              </div>
-            </div>
-            <div class="_form-thank-you bc-form-text" style="display:none;">
-            </div>
-          </form>
-        </div>
-        <div class="mdl-layout-spacer"></div>
-        </div>
-
-        <!-- Tablet form -->
-        <div class="mdl-grid mdl-cell--hide-desktop mdl-cell--hide-phone">
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--hide-desktop">
-
-          <form method="POST" action="https://blackcrowtours.activehosted.com/proc.php" id="_form_13_" class="_form _form_13 _inline-form  _dark" novalidate>
-            <input type="hidden" name="u" value="13" />
-            <input type="hidden" name="f" value="13" />
-            <input type="hidden" name="s" />
-            <input type="hidden" name="c" value="0" />
-            <input type="hidden" name="m" value="0" />
-            <input type="hidden" name="act" value="sub" />
-            <input type="hidden" name="v" value="2" />
-
-            <div class="_form-content mdl-grid">
-              <div class=" mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" >
-                <div>
-                  <input class="bc-home-formlines-T" type="text" name="fullname" placeholder="Name" />
-                </div>
-              </div>
-
-              <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" >
-                <div>
-                  <input class="bc-home-formlines-T" type="text" name="email" placeholder="Email" required/>
-                </div>
-              </div>
-
-              <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
-                <button  id="_form_13_submit" class="_submit bc-home-submitbutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bc-form-text" type="submit">
-                  Subscribe
-                </button>
-              </div>
-              <div class="_clear-element">
-              </div>
-            </div>
-            <div class="_form-thank-you bc-form-text" style="display:none;">
-            </div>
-          </form>
-
-        </div>
-        <div class="mdl-layout-spacer"></div>
-        </div>
-
-        <!-- Social Icons -->
-        <div class="mdl-grid">
-          <br>
-        </div>
-
-        <div class="mdl-grid">
-        <div class="mdl-layout-spacer"></div>
-          <div class="mdl-cell mdl-cell--1-col bc-text-center">
-            <span><a href="https://www.facebook.com/Blackcrowtours/"><img class="bc-standard-img-icons" src="{% static 'icons/fb.fw.png' %}" alt=""></a></span>
-          </div>
-          <div class="mdl-cell mdl-cell--1-col bc-text-center">
-            <span><a href="https://twitter.com/BlackCrowTours"><img class="bc-standard-img-icons" src="{% static 'icons/twitter.fw.png' %}" alt=""></a></span>
-          </div>
-          <div class="mdl-cell mdl-cell--1-col bc-text-center">
-            <span><a href="https://www.instagram.com/blackcrowtours/"><img class="bc-standard-img-icons" src="{% static 'icons/insta.fw.png' %}" alt=""></a></span>
-          </div>
-          <div class="mdl-cell mdl-cell--1-col bc-text-center">
-            <span><a href="mailto:admin@blackcrowtours.com"><img class="bc-standard-img-icons" src="{% static 'icons/mail.fw.png' %}" alt=""></a></span>
-          </div>
-          <div class="mdl-layout-spacer"></div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="mdl-grid bc-site-dark-background">
-        <div class="mdl-layout-spacer">  </div>
-        <h4 class="bc-home-icon-text">Copyright 2017 Black Crow Tours</h4>
-          <div class="mdl-layout-spacer"></div>
-        </div>
-
-
-        </div>
-        <div class="mdl-layout-spacer"></div>
-      </div>
 
 
 <script type="text/javascript">
@@ -1027,7 +892,6 @@ window._load_script = function(url, callback) {
 		trackcmp_h.length && trackcmp_h[0].appendChild(trackcmp);
 	}
 </script>
-
 
 </div>
 </main>

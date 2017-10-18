@@ -46,10 +46,10 @@ def signup(request):
         return render(request, 'frontpages/signup.html')
 
 def yourtrips(request):
-    return render(request, 'frontpages/yourtrips.html')
+    return render(request, 'frontpages/your-trips.html')
 
-def accom(request):
-    return render(request, 'frontpages/accom.html')
+def accommodations(request):
+    return render(request, 'frontpages/accommodations.html')
 
 def guides(request):
     return render(request, 'frontpages/guides.html')
@@ -67,7 +67,7 @@ def packing(request):
     return render(request, 'frontpages/packing.html')
 
 def thankyou(request):
-    return render(request, 'frontpages/thankyou.html')
+    return render(request, 'frontpages/thank-you.html')
 
 def faqs(request):
     return render(request, 'frontpages/faqs.html')
